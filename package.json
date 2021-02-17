@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/visual-framework/vf-wp.git"
+    "url": "https://github.com/embl-communications/science-in-school.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,6 +38,7 @@
     ]
   },
   "dependencies": {
+    "gulp-better-rollup": "^4.0.1",
     "list-stream": "2.0.0"
   },
   "devDependencies": {
