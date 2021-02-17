@@ -1,0 +1,47 @@
+// vfwp-gutenberg-iframe
+
+// **Thinking about deleting this file?**
+// If your component needs no CSS/Sass, we still recommend leaving the
+// scss files in place. As this is primarily a CSS framework, it is better to
+// leave the empty files so you know a file wasn't accidently omitted.
+// If you don't have any Sass, you can trim this block down to:
+// "This page was intentionally left blank"
+
+@import 'package.variables.scss';
+// Debug information from component's `package.json`:
+// ---
+/*!
+ * Component: #{map-get($componentInfo, 'name')}
+ * Version: #{map-get($componentInfo, 'version')}
+ * Location: #{map-get($componentInfo, 'location')}
+ */
+
+@import 'vfwp-gutenberg-iframe.variables.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.vf-activity:last-of-type {
+  margin-bottom: 0;
+}
+
+.vf-box:last-of-type {
+  margin-bottom: 0;
+}
+
+.vf-divider:last-of-type {
+  margin-bottom: 0;
+}
+
+// Fix iframe resize loop
+.vf-summary {
+  height: auto !important;
+}
+
+// Fix iframe resize loop
+.vf-card__image {
+  max-height: 100vw !important;
+}
