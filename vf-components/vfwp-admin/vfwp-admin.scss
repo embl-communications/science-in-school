@@ -1,0 +1,124 @@
+// vfwp-admin
+
+// @import "vf-font-plex-sans/vf-font-plex-sans.scss";
+
+@import "vf-content/vf-content.scss";
+
+@import "vfwp-admin.variables.scss";
+
+@import "package.variables.scss";
+
+// Debug information from component's `package.json`:
+// ---
+/*!
+ * Component: #{map-get($componentInfo, 'name')}
+ * Version: #{map-get($componentInfo, 'version')}
+ * Location: #{map-get($componentInfo, 'location')}
+ */
+
+.vfwp-notice {
+  a {
+    text-decoration: none;
+  }
+}
+
+.wp-list-table {
+  .column-vf_hash,
+  .column-vf_modified {
+    width: 10%;
+  }
+}
+
+.post-type-vf_block,
+.post-type-vf_container {
+  // Auto-shrink Gutenberg editor
+  .edit-post-visual-editor {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+
+  // Ensure some visual spacing
+  .editor-block-list__layout {
+    min-height: 10px;
+  }
+
+  // Auto-grow the post meta boxes below
+  .edit-post-layout__metaboxes {
+    flex-grow: 1;
+
+    &:empty {
+      flex-grow: 0;
+    }
+  }
+}
+
+// Post title as `h1` heading
+.editor-post-title__block {
+  --vf-text-margin--bottom: 0;
+
+  .editor-post-title__input {
+    @include set-type(text-heading--1);
+  }
+}
+
+// Extend basic typography styles within editor
+.editor-styles-wrapper {
+  // This would be ideal but some conflicts with WP/ACF
+  @extend .vf-content;
+
+  // // Too nasty...
+  // // Scope to avoid WP/ACF conflicts
+  // .block-editor-block-list__layout > {
+  // // & .block-editor-block-list__layout > :not([data-type^="acf/"]) {
+  //   @extend .vf-content;
+  // }
+
+  // Fixes for issue #511
+  // https://github.com/visual-framework/vf-wp/issues/511
+  .wp-block {
+    .acf-table td,
+    .acf-radio-list li,
+    .acf-checkbox-list li {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .button-primary {
+      color: #fff;
+    }
+  }
+
+  // Stop user from collapsing the dialog summary
+  .vf-details[open] {
+    .vf-details--summary {
+      pointer-events: none;
+    }
+  }
+}
+
+// Include custom typography styles within editor
+.block-editor {
+  .editor-styles-wrapper {
+    .has-extra-large-font-size {
+      @include set-type(text-body--1);
+    }
+
+    .has-large-font-size {
+      @include set-type(text-body--2);
+    }
+
+    .has-regular-font-size {
+      @include set-type(text-body--3);
+    }
+
+    .has-small-font-size {
+      @include set-type(text-body--4);
+    }
+
+    .has-extra-small-font-size {
+      @include set-type(text-body--5);
+    }
+  }
+}

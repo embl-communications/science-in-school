@@ -1,0 +1,311 @@
+// vfwp-gutenberg-blocks
+
+// **Thinking about deleting this file?**
+// If your component needs no CSS/Sass, we still recommend leaving the
+// scss files in place. As this is primarily a CSS framework, it is better to
+// leave the empty files so you know a file wasn't accidently omitted.
+// If you don't have any Sass, you can trim this block down to:
+// "This page was intentionally left blank"
+
+@import 'package.variables.scss';
+// Debug information from component's `package.json`:
+// ---
+/*!
+ * Component: #{map-get($componentInfo, 'name')}
+ * Version: #{map-get($componentInfo, 'version')}
+ * Location: #{map-get($componentInfo, 'location')}
+ */
+
+@import 'vfwp-gutenberg-blocks.variables.scss';
+
+.vf-block {
+  background-color: rgba(139, 139, 150, 0.1);
+  /*background-color: #f3f4f5;*/
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  display: block;
+  position: relative;
+
+  & & {
+    background: transparent;
+  }
+
+  &[data-editing='false'] {
+    padding: 0;
+  }
+
+  &[data-editing='true'] {
+    background-size: 0px 0px;
+  }
+
+  &[data-editing='false'][data-loading='true'] {
+    min-height: 100px;
+  }
+
+  &[data-editing='false'][data-loading='false'] {
+    background: transparent;
+    min-height: 0;
+  }
+
+  & > .components-spinner {
+    display: block;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.vf-block--placeholder {
+  background: transparent;
+}
+
+.vf-block__edit {
+  max-width: 750px;
+  padding: 15px;
+}
+
+.vf-block__iframe,
+.vf-block__view .components-sandbox {
+  border: 0;
+  display: block;
+  height: 30px;
+  margin: 0;
+  min-width: 100%;
+  pointer-events: none;
+}
+
+.vf-block {
+  .editor-inner-blocks {
+    margin-bottom: 16px;
+
+    .vf-block__edit {
+      padding: 0;
+    }
+  }
+
+  .editor-url-input {
+    background: #fff;
+    border: 1px solid #7e8993;
+    border-radius: 4px;
+    transition: box-shadow 0.1s linear;
+
+    &.has-suggestions {
+      width: fit-content;
+    }
+
+    &:not(.has-suggestions) {
+      input[type='text'] {
+        max-width: none;
+        width: 100%;
+      }
+
+      .components-spinner {
+        visibility: hidden;
+      }
+    }
+
+    input[type='text'] {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    &:focus-within {
+      border: 1px solid #007cba;
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px #007cba;
+      outline: 2px solid transparent;
+      outline-offset: -2px;
+    }
+  }
+
+  .components-base-control {
+    margin-bottom: 16px;
+  }
+
+  .components-base-control__label {
+    & + .components-select-control__input {
+      display: block;
+    }
+  }
+
+  .components-datetime__date {
+    border: 0;
+    margin: 0;
+  }
+
+  .components-toggle-control {
+    .components-form-toggle {
+      margin-right: 10px;
+    }
+  }
+
+  .components-form-toggle__on,
+  .components-form-toggle__off {
+    display: none;
+  }
+
+  .components-toggle-control__label {
+    line-height: 18px;
+  }
+
+  .components-radio-control__option {
+    .components-base-control {
+      margin-bottom: 0;
+    }
+  }
+
+  .components-radio-control__option {
+    .components-base-control__field {
+      margin-bottom: 0;
+    }
+  }
+
+  .components-base-control__rich-text {
+    background: #fff;
+    border: 1px solid #7e8993;
+    border-radius: 4px;
+    padding: 6px 8px;
+    transition: box-shadow 0.1s linear;
+
+    &:focus-within {
+      border-color: #007cba;
+      box-shadow: 0 0 0 1px #007cba;
+      outline: 2px solid transparent;
+      outline-offset: -2px;
+    }
+
+    .editor-rich-text__editable {
+      margin: 0;
+    }
+  }
+}
+
+.components-vf-control {
+  .components-button-group {
+    display: block;
+  }
+}
+
+.wp-block {
+  max-width: 780px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.wp-block[data-type='vf/plugin'] {
+  max-width: none;
+}
+
+.wp-block[data-type^='vf/container-'],
+.wp-block[data-type^='acf/vf-container-'] {
+  border: 1px dashed #8d96a0;
+  max-width: none;
+
+  .vf-block {
+    background-color: rgba(139, 139, 150, 0.1);
+    padding: 7px;
+  }
+}
+
+.wp-block[data-type='vf/tabs'] {
+  .vf-tabs__link {
+    cursor: pointer;
+  }
+
+  .vf-tabs__item {
+    .components-button {
+      margin-top: 10px;
+    }
+  }
+
+  .wp-block[data-type='vf/tabs-section'] {
+    outline: 1px dashed var(--vf-ui-color--grey);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none;
+  }
+}
+
+.wp-block[data-type='vf/grid'],
+.wp-block[data-type='vf/embl-grid'] {
+  --block-column-outline: var(--vf-ui-color--grey);
+  --block-column-color: var(--vf-ui-color--off-white);
+  --block-gaps: calc(var(--block-columns) - 1);
+  --block-gap-width: var(--page-grid-gap);
+  --block-gap-widths: calc((var(--block-gap-width) * var(--block-gaps)));
+  --block-column-width: calc(
+    (100% - var(--block-gap-widths)) / var(--block-columns)
+  );
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--block-column-color) 0,
+    var(--block-column-color) var(--block-column-width),
+    transparent var(--block-column-width),
+    transparent calc(var(--block-column-width) + var(--block-gap-width))
+  );
+  max-width: none;
+
+  & > .block-editor-inner-blocks {
+    display: contents;
+
+    & > .block-editor-block-list__layout {
+      display: contents;
+    }
+  }
+}
+
+.wp-block[data-type='vf/grid-column'] {
+  outline: 1px dashed var(--block-column-outline);
+  margin: 0 !important;
+  max-width: none;
+}
+
+.wp-block[data-type='vf/embl-grid'] {
+  .components-placeholder .components-base-control {
+    flex-basis: 100%;
+  }
+
+  .components-placeholder .components-toggle-control {
+    flex-basis: auto;
+    margin: 0 8px;
+  }
+
+  .components-placeholder
+    .components-toggle-control
+    .components-base-control__field {
+    justify-content: center;
+  }
+}
+
+.wp-block[data-type='vf/cluster'] {
+  max-width: none;
+
+  .vf-cluster {
+    border: 1px dashed var(--vf-color--grey--lightest);
+  }
+
+  .vf-cluster__inner,
+  .block-editor-inner-blocks {
+    display: contents;
+  }
+
+  .block-editor-inner-blocks,
+  .block-editor-block-list__layout {
+    align-items: inherit;
+    flex-wrap: inherit;
+    justify-content: inherit;
+    margin: inherit !important;
+  }
+
+  .block-editor-block-list__layout {
+    display: flex;
+
+    & > * {
+      flex: var(--vf-cluster__item--flex);
+      margin: calc(var(--vf-cluster-margin) / 2) !important;
+    }
+  }
+}
