@@ -1,10 +1,36 @@
-# science-in-school
+# Science in School code and theme
 
 This is a collection of WordPress themes and plugins that integrate with the [Visual Framework](https://stable.visual-framework.dev/). They build atop the [vf-wp parent theme and plugins](github.com/visual-framework/vf-wp/).
 
-Code and planning for the new SiS website
-
 ## Development
+
+### Site development
+
+Setup: 
+
+1. Ensure you have Docker installed
+1. To set up an instance on your localhost  you'll need to make sure your project's git submodules are up to date: 
+    - `git submodule update --init --recursive`
+
+Use any of the below variation of command to build the site
+
+    ##### Run command
+
+    - `bin/dev quick_group` - to build WordPress website with basic Visual Framework default configuration - Plugin/themes enabled
+    - `bin/dev quick_group_bootstrap` - to build WordPress website setup with Visual Framework dummy microsite bootstrap version
+    - `bin/dev launch` - to launch browser
+    - `bin/dev login`  - to login in wordpress admin
+
+    ##### Diagnostics
+
+    - `bin/dev logs`    - tail logs from containers
+    - `bin/dev pma`     - launch phpMyAdmin to view database
+    - `bin/dev down`   - to spin down docker containers
+
+Note: Default variables including CSS/JS version, site title, admin password are configured in `.env`
+
+### Theme development
+
 
 Contributing to this repository requires command line tools:
 
@@ -43,11 +69,3 @@ Note: [the CI](https://github.com/embl-communications/science-in-school/blob/mas
 ```sh
 gulp default
 ```
-
-To launch local development of the above with a `watch` task.
-
-```sh
-gulp vf-gutenberg
-```
-
-To compile the Gutenberg React blocks.
