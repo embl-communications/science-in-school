@@ -33,6 +33,7 @@ Note: Default variables including CSS/JS version, site title, admin password are
 
 ### Theme development
 
+
 Contributing to this repository requires command line tools:
 
 * Git
