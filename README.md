@@ -1,6 +1,4 @@
-# science-in-school
-
-Code and planning for the new SiS website
+# Science in School code and theme
 
 This is a collection of WordPress themes and plugins that integrate with the [Visual Framework](https://stable.visual-framework.dev/). They build atop the [vf-wp parent theme and plugins](github.com/visual-framework/vf-wp/).
 
