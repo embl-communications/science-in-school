@@ -9,15 +9,13 @@ This is a collection of WordPress themes and plugins that integrate with the [Vi
 Setup: 
 
 1. Ensure you have Docker installed
-1. To set up an instance on your localhost  you'll need to make sure your project's git submodules are up to date: 
-    - `git submodule update --init --recursive`
 
 Use any of the below variation of command to build the site
 
     ##### Run command
 
-    - `bin/dev quick_group` - to build WordPress website with basic Visual Framework default configuration - Plugin/themes enabled
-    - `bin/dev quick_group_bootstrap` - to build WordPress website setup with Visual Framework dummy microsite bootstrap version
+    - `bin/dev quick` - to build default production wordpress site on local
+    - `bin/dev quick_blank` - to build blank wordpress website with Visual Framework plugin  & theme disabled mode
     - `bin/dev launch` - to launch browser
     - `bin/dev login`  - to login in wordpress admin
 

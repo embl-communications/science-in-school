@@ -163,9 +163,9 @@ case "${COMMAND}" in
     SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
     echo "WP Site URL - ${SITE_URL}"
     ${ROOT}/bin/dev db_wait;
-    ${ROOT}/bin/dev create_config;
-    ${ROOT}/bin/dev create_symlinks
     ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}";
+    ${ROOT}/bin/dev create_vf_symlinks
+    ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup_group.sh ${SITE_URL}";
     ${ROOT}/bin/dev login;
   ;;
 
