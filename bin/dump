@@ -1,0 +1,126 @@
+#!/bin/bash
+
+# halt on errors
+set -x
+set -e;
+set -u;
+
+# determine root of repo
+ROOT=$(cd $(dirname ${0})/.. 2>/dev/null && pwd -P);
+cd ${ROOT};
+
+function usage {
+  echo "Clone database and files for local development";
+  echo "";
+  echo "Usage: bin/dump <sql|files|files-all|all> <dev|stage|prod>";
+  echo "";
+  exit 1;
+}
+
+# get the command and run it
+COMMAND="${1:-}";
+ENVIRONMENT="${2:-dev}";
+
+# set environment variables
+set -a; source ${ROOT}/.env; set +a;
+
+case "${ENVIRONMENT}" in
+  dev) REMOTE_HOST=${DEV_SERVER%% *} ;;
+  stage) REMOTE_HOST=${STAGE_SERVER%% *} ;;
+  prod) REMOTE_HOST=${PROD_SERVER%% *} ;;
+  *) usage ;;
+esac;
+
+# Logic to check if script running on gitlab or local, so we can update server.
+isxclient=$( readlink /dev/fd/2 | grep -q 'tty' && [[ -n $DISPLAY ]] ; echo $? )
+if [[ ! -t 2  || $isxclient == "0" ]]; then
+  echo "Script wasn't started from an interactive shell"
+  LOCAL_DEPLOYMENT=0;
+else
+  echo "Script was started from an interactive shell"
+  LOCAL_DEPLOYMENT=1;
+fi
+
+EBI_CLI_SERVER="${SSH_APACHE}@ebi-cli";
+NFS_MYSQL_BACKUP_PATH="/nfs/public/rw/webdevel/projects/drupal/mysql-backups";
+
+case "${COMMAND}" in
+  sql)
+    rm -rf ${RELATIVE_SQLDUMP_SRC} ${RELATIVE_SQLDATA_SRC};
+    mkdir -pv ${RELATIVE_SQLDUMP_SRC};
+    PROJECT_NAME_DB=${PROJECT_NAME//./_};
+    PROJECT_NAME_DB=${PROJECT_NAME_DB//-/_};
+    SQLDUMP_FILE=${RELATIVE_SQLDUMP_SRC}/${ENVIRONMENT}.${DEPLOY_INSTANCE}.${PROJECT_NAME}.sql.gz;
+    PROJECT_FOLDER_PATH="$NFS_MYSQL_BACKUP_PATH/${ENVIRONMENT}_${DEPLOY_INSTANCE}_${PROJECT_NAME_DB}";
+
+    echo "Dumping database from ${ENVIRONMENT}.${DEPLOY_INSTANCE}.${PROJECT_NAME}...";
+    if [ "$LOCAL_DEPLOYMENT" -eq "1" ] ; then
+      echo "Coming in Local CLI dump";
+
+      # Download the last backup file from mysql backups location.
+      scp $EBI_CLI_SERVER:$(ssh $EBI_CLI_SERVER "ls -t $PROJECT_FOLDER_PATH/* | head -1") ${SQLDUMP_FILE};
+    else
+      echo "Coming in deployment server dump";
+      ssh -tt ${SSH_OWNER}@${REMOTE_HOST} "cd ${VM_CORE_PATH}/${RELATIVE_DOCUMENT_ROOT}; ~/bin/wp db export - 2>/dev/null"  | gzip > ${SQLDUMP_FILE};
+    fi
+
+    echo "Database dumped to ${SQLDUMP_FILE}";
+    ;;
+
+  files-all)
+    mkdir -pv ${RELATIVE_FILES_SRC};
+
+    echo "Dumping files from ${ENVIRONMENT}.${DEPLOY_INSTANCE}.${PROJECT_NAME}...";
+    if [ "$LOCAL_DEPLOYMENT" -eq "1" ] ; then
+      rsync -auv --delete --ignore-errors \
+      $EBI_CLI_SERVER:${NFS_FILES_SRC}/. ${RELATIVE_FILES_SRC}/;
+    else
+      rsync -auv --delete --ignore-errors \
+      ${SSH_APACHE}@${REMOTE_HOST}:${VM_CORE_PATH}/${RELATIVE_FILES_SRC}/. ${RELATIVE_FILES_SRC}/;
+    fi
+
+    echo "Files dumped to ${RELATIVE_FILES_SRC}";
+    ;;
+
+  files)
+    mkdir -pv ${RELATIVE_FILES_SRC};
+
+    echo "Dumping essential files from ${ENVIRONMENT}.${DEPLOY_INSTANCE}.${PROJECT_NAME}...";
+    if [ "$LOCAL_DEPLOYMENT" -eq "1" ] ; then
+      rsync -auv --delete --ignore-errors \
+      --exclude=styles \
+      --exclude=*.old \
+      --exclude=*.bak \
+      --exclude=*.pdf \
+      --exclude=*.tar* \
+      --exclude=*.zip \
+      --exclude=*.doc* \
+      --exclude=*.ppt* \
+      --exclude=*.xls* \
+      $EBI_CLI_SERVER:${NFS_FILES_SRC}/. ${RELATIVE_FILES_SRC}/;
+    else
+      rsync -auv --delete --ignore-errors \
+      --exclude=styles \
+      --exclude=*.old \
+      --exclude=*.bak \
+      --exclude=*.pdf \
+      --exclude=*.tar* \
+      --exclude=*.zip \
+      --exclude=*.doc* \
+      --exclude=*.ppt* \
+      --exclude=*.xls* \
+      ${SSH_APACHE}@${REMOTE_HOST}:${VM_CORE_PATH}/${RELATIVE_FILES_SRC}/. ${RELATIVE_FILES_SRC}/;
+    fi
+
+    echo "Files dumped to ${RELATIVE_FILES_SRC}";
+    ;;
+
+  all)
+    ${ROOT}/bin/dump sql ${2:-};
+    ${ROOT}/bin/dump files ${2:-};
+    ;;
+
+  *)
+    usage
+    ;;
+esac;
