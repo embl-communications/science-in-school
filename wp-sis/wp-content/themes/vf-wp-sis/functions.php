@@ -1,6 +1,7 @@
 <?php
 
 require_once('functions/sis-article-post.php');
+require_once('functions/sis-issue-post.php');
 
 require_once('functions/custom-taxonomies.php');
 
