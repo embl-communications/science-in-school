@@ -14,8 +14,7 @@ Use any of the below variation of command to build the site
 
     ##### Run command
 
-    - `bin/dev quick` - to build default production wordpress site on local
-    - `bin/dev quick_blank` - to build blank wordpress website with Visual Framework plugin  & theme disabled mode
+    - `bin/dev quick_blank` - to initialise a wordpress site with Visual Framework plugin & theme disabled mode
     - `bin/dev launch` - to launch browser
     - `bin/dev login`  - to login in wordpress admin
 
