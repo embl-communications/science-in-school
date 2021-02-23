@@ -5228,7 +5228,7 @@ gulp-babel@^8.0.0:
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-better-rollup@^4.0.1:
+gulp-better-rollup@4.0.1, gulp-better-rollup@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/gulp-better-rollup/-/gulp-better-rollup-4.0.1.tgz#9c8251e321d3150d4181a6bf2b24d75bbcecece2"
   integrity sha512-oUGrMd+p9umBPoIPYVDxFT4EwCzywh3o8q++eswJyAxrRgYCEM6OOGGxJLG+AmzzjEoiq0cc/ndgF5SH2qW3Fg==
