@@ -120,8 +120,8 @@ else
 fi
 
 echo "VF theme - Activating VF theme"
-if ! $(wp theme is-active vf-wp-groups); then
-       wp theme activate "vf-wp-groups"
+if ! $(wp theme is-active vf-wp); then
+       wp theme activate "vf-wp"
 fi
 
 wp plugin install onelogin-saml-sso
