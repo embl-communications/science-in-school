@@ -12,7 +12,6 @@ add_action(
 );
 
   function sis_article_init_register() {
-
     register_post_type('sis-article', array(
       'labels'              => sis_article_get_labels(),
       'description'         => __('SIS Article', 'vfwp'),

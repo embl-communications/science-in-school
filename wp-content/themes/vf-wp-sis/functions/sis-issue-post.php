@@ -12,7 +12,6 @@ add_action(
 );
 
   function sis_issue_init_register() {
-
     register_post_type('sis-issue', array(
       'labels'              => sis_issue_get_labels(),
       'description'         => __('SIS Issue', 'vfwp'),
