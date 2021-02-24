@@ -32,16 +32,7 @@ function usage {
   echo "    ssh [command]";
   echo "      optional [command] can be shell command to run, otherwise will be interactive shell";
   echo "";
-  echo "    quick                 - Generate production wordpress site on local with production DB & files, spin up docker,";
-  echo "                            initialise solr (if enabled), login in browser";
-  echo "";
   echo "    quick_blank           - setup basic wordpress installation, spin up docker,";
-  echo "                            initialise solr (if enabled), login in browser";
-  echo "";
-  echo "    quick_group           - setup basic VF microsite wordpress installation, spin up docker,";
-  echo "                            initialise solr (if enabled), login in browser";
-  echo "";
-  echo "    quick_group_bootstrap - setup Visual Framework wordpress installation with dummy microsite bootstrap, spin up docker,";
   echo "                            initialise solr (if enabled), login in browser";
   echo "";
   exit 1;
@@ -100,14 +91,14 @@ case "${COMMAND}" in
           ln -sf ../../../wp-content/themes/${DIR} ${WP_DEST_THEMES_PATH};
         done;
       fi;
-   ;;
+  ;;
 
   destroy_directories)
     echo "Destroying directories"
     rm -rf ${LOCAL_CORE_PATH}/${RELATIVE_SQLDATA_SRC} || true
     rm -rf ${LOCAL_CORE_PATH}/composer.lock || true
     rm -rf ${LOCAL_CORE_PATH}/vendor || true
-   ;;
+  ;;
 
   create_config)
     DOCKER_URL=${PROJECT_NAME}.docker.localhost;
@@ -127,34 +118,6 @@ case "${COMMAND}" in
     rm -f ${WP_SETTINGS_PHP} || true
   ;;
 
-  # To create production website on local
-  quick)
-    ${ROOT}/bin/dump sql $*;
-    ${ROOT}/bin/dump files $*;
-    if [ "${PROJECT_NAME}" = "ebi.ac.uk.training-beta.online.courses" ]; then
-      ${ROOT}/bin/dev up_academy;
-    else
-       ${ROOT}/bin/dev up;
-    fi;
-
-    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
-    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
-    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
-    echo "WP Site URL - ${SITE_URL}"
-    ${ROOT}/bin/dev db_wait;
-    ${ROOT}/bin/dev create_config;
-    ${ROOT}/bin/dev create_symlinks
-
-    if [ "${PROJECT_NAME}" = "ebi.ac.uk.training-beta.online.courses" ]; then
-      sh ${ROOT}/custom_scripts/convert_ms_local.sh 'up'
-    else
-        ${ROOT}/bin/dev ssh "cd ${RELATIVE_DOCUMENT_ROOT} && wp config set WP_SITEURL $SITE_URL &&
-    wp config set WP_HOME $SITE_URL";
-        ${ROOT}/bin/dev create_htaccess;
-    fi;
-    ${ROOT}/bin/dev login;
-  ;;
-
   # To create empty blank wordpress site on local
   quick_blank)
     ${ROOT}/bin/dev up;
@@ -163,37 +126,11 @@ case "${COMMAND}" in
     SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
     echo "WP Site URL - ${SITE_URL}"
     ${ROOT}/bin/dev db_wait;
-    ${ROOT}/bin/dev create_config;
-    ${ROOT}/bin/dev create_symlinks
-    ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}";
-    ${ROOT}/bin/dev login;
-  ;;
-
-  quick_group)
-    ${ROOT}/bin/dev up;
-    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
-    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
-    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
-    echo "WP Site URL ${SITE_URL}"
-    ${ROOT}/bin/dev db_wait;
-    ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}";
-    ${ROOT}/bin/dev create_vf_symlinks
-    ${ROOT}/bin/dev login;
-  ;;
-
-  quick_group_bootstrap)
-    ${ROOT}/bin/dev up;
-    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
-    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
-    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
-    echo "WP Site URL ${SITE_URL}"
-    ${ROOT}/bin/dev db_wait;
     ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}";
     ${ROOT}/bin/dev create_vf_symlinks
     ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup_group.sh ${SITE_URL}";
     ${ROOT}/bin/dev login;
   ;;
-
 
   # internal only function to wait for db import for complete
   db_wait)
@@ -215,9 +152,8 @@ case "${COMMAND}" in
   ;;
 
   pre_up)
-
-      ${ROOT}/bin/dev create_directories
-      ${ROOT}/bin/dev create-vendor
+    ${ROOT}/bin/dev create_directories
+    ${ROOT}/bin/dev create-vendor
   ;;
 
   post_stop)
@@ -232,12 +168,6 @@ case "${COMMAND}" in
 
   post_up)
     #${ROOT}/bin/dev create_symlinks
-    if [ "${PROJECT_NAME}" = "ebi.ac.uk.training-beta.online.courses" ]; then
-        ${ROOT}/bin/dev create_config;
-        ${ROOT}/bin/dev create_symlinks
-        ${ROOT}/bin/dev db_wait;
-        sh ${ROOT}/custom_scripts/convert_ms_local.sh 'up'
-     fi
    ;;
 
   # spin up docker containers
@@ -250,13 +180,6 @@ case "${COMMAND}" in
   ;;
 
  # spin up docker containers
-  up_academy)
-    echo "Starting up containers for for ${PROJECT_NAME}..."
-    ${ROOT}/bin/dev pre_up;
-    docker-compose pull --parallel;
-    docker-compose up -d --remove-orphans;
-  ;;
-
   create_htaccess)
     ${ROOT}/bin/dev ssh "cp ${LOCAL_CORE_PATH}/bin/scripts/wp-cli.yml ${RELATIVE_DOCUMENT_ROOT}/ && cd ${RELATIVE_DOCUMENT_ROOT} && wp rewrite flush --hard"
   ;;
@@ -264,9 +187,6 @@ case "${COMMAND}" in
   # spin down docker containers
   stop | down)
     echo "Stopping containers for ${PROJECT_NAME}...";
-     if [ "${PROJECT_NAME}" = "ebi.ac.uk.training-beta.online.courses" ]; then
-        sh ${ROOT}/custom_scripts/convert_ms_local.sh 'down' || true
-     fi
     docker-compose stop;
     ${ROOT}/bin/dev post_stop
     ;;

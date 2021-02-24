@@ -17,8 +17,6 @@ This folder contains scripts used to aid local & live wordpress development of v
 - `bin/dev up` - to spin up docker containers for local development
 - `bin/dev quick` - to build default production wordpress site on local
 - `bin/dev quick_blank` - to build blank wordpress website with Visual Framework plugin  & theme disabled mode
-- `bin/dev quick_group` - to build wordpress website with basic Visual Framework default configuration - Plugin/themes enabled
-- `bin/dev quick_group_bootstrap` - to build wordpress website setup with Visual Framework dummy microsite bootstrap version
 - `bin/dev launch` - to launch browser
 - `bin/dev down` - to spin down docker containers
 - `bin/dev login` - to login in wordpress admin
