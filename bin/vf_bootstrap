@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Script performs WordPress bootstrap process with default Visual Framework configuration to setup group microsites.
-
 set -x;
 set -e;
 set -u;
@@ -145,10 +144,7 @@ PLUGINS_LIST='
 advanced-custom-fields-pro
 vf-wp
 embl-taxonomy
-vf-beta-container
 vf-breadcrumbs-container
-vf-embl-news-container
-vf-factoid-block
 vf-latest-posts-block
 vf-publications-block
 vf-gutenberg
@@ -181,8 +177,6 @@ home_page_content='
 
 <!-- wp:acf/vfwp-latest-posts {"id":"block_5ebba351a5cd0","name":"acf/vfwp-latest-posts","data":{"field_5e99679631cbd":"","field_5e9967a331cbe":""},"mode":"preview"} /-->
 
-<!-- wp:acf/vf-data-resources {"id":"block_5ebba324a5ccf","name":"acf/vf-data-resources","data":{"field_defaults":"1"},"mode":"preview"} /-->
-
 <!-- wp:acf/vf-jobs {"id":"block_5ebba1baa5ccb","name":"acf/vf-jobs","data":{"field_defaults":"0","field_vf_jobs_heading":"","field_vf_jobs_limit":"1","field_vf_jobs_filter":"all"},"mode":"preview"} /-->';
 
 
@@ -198,8 +192,6 @@ case "$site_theme" in
 
 <!-- wp:acf/vf-container-page-template {"id":"block_5ebb9edff871d","name":"acf/vf-container-page-template"} /-->
 
-<!-- wp:acf/vf-container-embl-news {"id":"block_5ebb9fef2400b","name":"acf/vf-container-embl-news"} /-->
-
 <!-- wp:acf/vf-container-global-footer {"id":"block_5ebb9edff871e","name":"acf/vf-container-global-footer"} /-->';
     ;;
     EMBL-SERVICES-FACILITIES)
@@ -211,8 +203,6 @@ case "$site_theme" in
 <!-- wp:acf/vf-container-wp-groups-header {"id":"block_5ebb9fe02400a","name":"acf/vf-container-wp-groups-header"} /-->
 
 <!-- wp:acf/vf-container-page-template {"id":"block_5ebb9edff871d","name":"acf/vf-container-page-template"} /-->
-
-<!-- wp:acf/vf-container-embl-news {"id":"block_5ebb9fef2400b","name":"acf/vf-container-embl-news"} /-->
 
 <!-- wp:acf/vf-container-global-footer {"id":"block_5ebb9edff871e","name":"acf/vf-container-global-footer"} /-->';
 
@@ -232,8 +222,6 @@ case "$site_theme" in
 <!-- wp:acf/vf-container-wp-groups-header {"id":"block_5ebb9fe02400a","name":"acf/vf-container-wp-groups-header"} /-->
 
 <!-- wp:acf/vf-container-page-template {"id":"block_5ebb9edff871d","name":"acf/vf-container-page-template"} /-->
-
-<!-- wp:acf/vf-container-embl-news {"id":"block_5ebb9fef2400b","name":"acf/vf-container-embl-news"} /-->
 
 <!-- wp:acf/vf-container-ebi-global-footer {"id":"block_5ebba0942400f","name":"acf/vf-container-ebi-global-footer"} /-->';
     ;;
@@ -328,21 +316,14 @@ case "${COMMAND}" in
         vf-group-header-block
         vf-jobs-block
         vf-members-block
-        onelogin-saml-sso
         user-role-editor
-        vf-data-resources-block
         embl-group-site-roles
         ga-google-analytics
         vf-publications-group-ebi-block
-        vf-embl-news-block
         widget-options
         vf-navigation-container
         vf-banner-container
         ';
-
-        # Updated vf_template post content. NOT NEEDED ANYMORE!!!!
-#        vf_template_post_id="$(wp post list --name='default' --post_type='vf_template' --field=ID)"
-#        wp post update $vf_template_post_id --post_content="$vf_template_content"
 
         # Check if plugin is active, if not then activate plugins
         for PLUGIN in ${MICROSITE_PLUGINS_LIST}; do
@@ -385,144 +366,6 @@ case "${COMMAND}" in
         #### Common pages & configurations across all groups sites ####
         ###############################################################
 
-        # Configure members plugin
-        echo "=== Members ==="
-        members_id="$(wp post list --name=vf_members --post_type=vf_block --field=ID)"
-        if ! [[ `wp post meta get $members_id _vf_members_order` ]] ; then
-            echo "Members - configuring"
-            wp post meta update $members_id vf_members_limit 20
-            wp post meta update $members_id _vf_members_limit field_vf_members_limit
-            wp post meta update $members_id vf_members_order "DESC"
-            wp post meta update $members_id _vf_members_order field_vf_members_order
-        else
-            echo "Members - already configured"
-        fi
-
-        # Configure latest posts plugin
-        echo "=== Latest posts ==="
-        posts_id="$(wp post list --name=vf_latest_posts --post_type=vf_block --field=ID)"
-        if ! [[ `wp post meta get $posts_id _vf_latest_posts_heading_plural` ]] ; then
-            echo "Latest posts - configuring"
-            wp post meta update $posts_id vf_latest_posts_heading_singular "Latest blog post"
-            wp post meta update $posts_id _vf_latest_posts_heading_singular field_vf_latest_posts_heading_singular
-            wp post meta update $posts_id vf_latest_posts_heading_plural "Latest blog posts"
-            wp post meta update $posts_id _vf_latest_posts_heading_plural field_vf_latest_posts_heading_plural
-        else
-            echo "Latest posts - already configured"
-        fi
-
-        # Configure taxonomy
-        echo "=== Taxonomy ==="
-        echo "Taxonomy - configuring"
-        wp option update embl_taxonomy $VF_API_URL"pattern.json?pattern=embl-ontology&source=contenthub"
-        wp option update _options_embl_taxonomy field_embl_taxonomy
-        wp option update _options_embl_taxonomy_term_who field_embl_taxonomy_term_who
-        wp option update _options_embl_taxonomy_term_what field_embl_taxonomy_term_what
-        wp option update _options_embl_taxonomy_term_where field_embl_taxonomy_term_where
-
-        # Clear the cached API calls if any.
-        trash_ids="$(wp post list --post_type='vf_cache' --format=ids)"
-        if [ -n "$trash_ids" ]; then
-            wp post delete $trash_ids --force
-        fi;
-
-        # Sync with the latest taxonomy from the contentHub
-        echo "Updating Taxonomy from ContentHub"
-        wp eval 'embl_taxonomy()->register->sync_taxonomy();'
-
-
-        # Configure taxonomy terms
-        # In case of microsites get from sitename.txt file
-        who_id="$(wp term list embl_taxonomy --slug=${who_slug} --field=term_taxonomy_id)"
-        if [ -n "$who_id" ]; then
-          wp option update embl_taxonomy_term_who $who_id
-          wp option update options_embl_taxonomy_term_who $who_id
-        fi;
-        what_id="$(wp term list embl_taxonomy --slug=${what_slug} --field=term_taxonomy_id)"
-        if [ -n "$what_id" ]; then
-          wp option update embl_taxonomy_term_what $what_id
-          wp option update options_embl_taxonomy_term_what $what_id
-        fi;
-        where_id="$(wp term list embl_taxonomy --slug=${where_slug} --field=term_taxonomy_id)"
-        if [ -n "$where_id" ]; then
-          wp option update embl_taxonomy_term_where $where_id
-          wp option update options_embl_taxonomy_term_where $where_id
-        fi;
-
-        # Create About page - Create only if it doesn't exists.
-        if ! $(wp post list --post_type=page --fields=post_title --format=csv | grep -qE "^About"); then
-            about_page_id="$(wp post create --post_title='About' --post_type=page --post_status=publish --porcelain)"
-            wp menu item add-post primary $about_page_id --title="About"
-        fi
-
-        # Create pages for team list and nav
-        echo "=== Members, about and blog ==="
-        members_page_content='<!-- wp:acf/vf-members {"id":"block_5ebba3effc3ea","name":"acf/vf-members","data":{"field_defaults":"1"},"mode":"preview"} /-->';
-        # Create Members page - Create only if it doesn't exists.
-        if ! $(wp post list --post_type=page --fields=post_title --format=csv | grep -qE "^Members"); then
-            # Set the Gutenberg HTML content for the members page
-            team_page_id="$(wp post create --post_title='Members' --post_type=page --post_status=publish --post_content="$members_page_content" --porcelain)"
-            wp menu item add-post primary $team_page_id --title="Members"
-            wp post meta update $team_page_id _wp_page_template template-members.php
-
-            # Lock the team page agianst further edits from non-admins
-            wp post meta update $team_page_id vf_locked 1
-            wp post meta update $team_page_id _vf_locked field_vf_locked
-        fi
-#        else
-#            # Get members page id and update content
-##            team_page_id="$(wp post list --name='Members' --post_type=page --field=ID)"
-##            wp post update $team_page_id --post_content="$members_page_content"
-#        fi
-
-        # Create blog page - Create only if it doesn't exists.
-        if ! $(wp post list --post_type=page --fields=post_title --format=csv | grep -qE "^Blog"); then
-            blog_page_id="$(wp post create --post_title='Blog' --post_type=page --post_status=publish --porcelain)"
-
-            wp post meta update $blog_page_id vf_locked 1
-            wp post meta update $blog_page_id _vf_locked field_vf_locked
-            wp option update page_for_posts $blog_page_id
-            if ! $(wp menu item list primary --fields=title --format=csv | grep -qE "^Blog"); then
-                wp menu item add-post primary $blog_page_id --title="Blog"
-            fi
-        fi
-
-        default_blog_post_content="<!-- wp:paragraph -->
-<p>This is your first post. Edit or delete it, or write a new post!</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {\"level\":3} -->
-<h3>Writing a new blog post</h3>
-<!-- /wp:heading -->
-
-<!-- wp:list {\"ordered\":true} -->
-<ol><li>To write a new blog post, click on 'Posts' in the administration menu. </li><li>Next to the title, click the button 'Add New'.</li><li>Get writing!</li><li>Don't forget to include any document options in the sidebar.</li><li>When you are ready, you can either save the post, Preview it, or Publish.</li></ol>
-<!-- /wp:list -->
-
-<!-- wp:heading {\"level\":3} -->
-<h3>Deleting a post</h3>
-<!-- /wp:heading -->
-
-<!-- wp:list {\"ordered\":true} -->
-<ol><li>Click on 'Posts' in the administration menu. </li><li>Navigate to the post you want to delete and hover over the title. You should see the links: 'Edit', Quick Edit', 'Trash' and 'View'. Trash is in red.</li><li>Click 'Trash'. This moves your blog post into the trash where it is always retrievable unless you delete it permanently.</li><li>To retrieve your blog post, Click on the 'Trash' navigation link next to 'All' at the top of the table of blog posts.</li></ol>
-<!-- /wp:list -->
-
-<!-- wp:heading {\"level\":3} -->
-<h3>Removing the blog from your navigation menu</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>If you decide you don't want a blog for your group or team then you should remove it from the site's navigation menu.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {\"ordered\":true} -->
-<ol><li>In the administration menu, click on 'Appearance'</li><li>In the Appearance sub-menu, click 'Menus'</li><li>Find the menu item 'Blog' and click the arrow to reveal options.</li><li>Click 'Remove'</li></ol>
-<!-- /wp:list -->
-
-<!-- wp:paragraph -->
-<p>Don't worry, you can always add it again. Doing this doesn't delete the blog, or the blog posts, but just removes the link in the navigation.</p>
-<!-- /wp:paragraph -->";
-
         # Update blog post content
 
        wp post update 1 --post_title="Welcome to your new group or team blog!" --post_content="$default_blog_post_content" || true;
@@ -546,48 +389,44 @@ esac;
 # Flush the rewrite cache from DB
 wp rewrite flush
 
-# Additional tasks only for microsites.
-if [ "$MICROSITE_FLAG" -eq "1" ] ; then
-
-    # Install en_GB language
-    if ! $(wp language core list --status=installed --fields=language --format=csv | grep -qE "^en_GB"); then
-      wp language core install en_GB
-      wp site switch-language en_GB
-    fi
-
-    # Update DB if any.
-    wp core update-db
-    # Update language core if any
-    wp language core update
-
-    # Apply SAML config & other additional configs
-    PHP=`which php`;
-
-    # Apply SAML Unique entity config - Don't apply for dummy sites
-    if [[ "$MICROSITE_FOLDER_NAME" = *dummy-* ]] ; then
-      # Disable caching for testing downtime
-      wp option set options_vf_cache_disabled 1
-    else
-       wp option set onelogin_saml_advanced_settings_sp_entity_id "${ENVIRONMENT}.$MICROSITE_FOLDER_NAME"
-      $PHP -f ${MICROSITE_PATH}/bin/scripts/wp_vf_custom_code.php -- ${DEPLOY_PATH} ${ENVIRONMENT}
-    fi
-
-    # Close/delete comments & pingbacks
-    wp comment delete 1 --force || true
-    wp db query "DELETE FROM wp_comments WHERE comment_approved != 1;";
-    wp db query "DELETE FROM wp_commentmeta WHERE comment_id NOT IN (SELECT comment_ID FROM wp_comments);";
-    wp db query "UPDATE wp_posts SET comment_status = 'closed', ping_status = 'closed';";
-    wp db query "UPDATE wp_options SET option_value = 'closed' WHERE option_name = 'default_comment_status';";
-    wp db query "UPDATE wp_options SET option_value = 'closed' WHERE option_name = 'default_ping_status';";
-
-    # Set default group_admin role (Generated by custom plugin) for any new register user
-    wp option set default_role "group_editor"
-
-    # Clear the cached API calls if any.
-    trash_ids="$(wp post list --post_type='vf_cache' --format=ids)"
-    if [ -n "$trash_ids" ]; then
-        wp post delete $trash_ids --force
-    fi;
+# Install en_GB language
+if ! $(wp language core list --status=installed --fields=language --format=csv | grep -qE "^en_GB"); then
+    wp language core install en_GB
+    wp site switch-language en_GB
 fi
+
+# Update DB if any.
+wp core update-db
+# Update language core if any
+wp language core update
+
+# Apply SAML config & other additional configs
+PHP=`which php`;
+
+# Apply SAML Unique entity config - Don't apply for dummy sites
+if [[ "$MICROSITE_FOLDER_NAME" = *dummy-* ]] ; then
+    # Disable caching for testing downtime
+    wp option set options_vf_cache_disabled 1
+else
+    wp option set onelogin_saml_advanced_settings_sp_entity_id "${ENVIRONMENT}.$MICROSITE_FOLDER_NAME"
+    $PHP -f ${MICROSITE_PATH}/bin/scripts/wp_vf_custom_code.php -- ${DEPLOY_PATH} ${ENVIRONMENT}
+fi
+
+# Close/delete comments & pingbacks
+wp comment delete 1 --force || true
+wp db query "DELETE FROM wp_comments WHERE comment_approved != 1;";
+wp db query "DELETE FROM wp_commentmeta WHERE comment_id NOT IN (SELECT comment_ID FROM wp_comments);";
+wp db query "UPDATE wp_posts SET comment_status = 'closed', ping_status = 'closed';";
+wp db query "UPDATE wp_options SET option_value = 'closed' WHERE option_name = 'default_comment_status';";
+wp db query "UPDATE wp_options SET option_value = 'closed' WHERE option_name = 'default_ping_status';";
+
+# Set default group_admin role (Generated by custom plugin) for any new register user
+wp option set default_role "group_editor"
+
+# Clear the cached API calls if any.
+trash_ids="$(wp post list --post_type='vf_cache' --format=ids)"
+if [ -n "$trash_ids" ]; then
+    wp post delete $trash_ids --force
+fi;
 
 echo "Successfully completed VF default configuration!!!"

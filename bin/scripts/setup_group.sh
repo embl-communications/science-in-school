@@ -124,7 +124,6 @@ if ! $(wp theme is-active vf-wp); then
        wp theme activate "vf-wp"
 fi
 
-wp plugin install onelogin-saml-sso
 wp plugin install user-role-editor --activate
 
 # Define postcontent of vf_template.
