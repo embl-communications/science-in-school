@@ -10,7 +10,6 @@
       Centre
     </li>
   </ul>
-
   <span class="vf-breadcrumbs__heading">Related:</span>
   <ul class="vf-breadcrumbs__list vf-breadcrumbs__list--related | vf-list vf-list--inline">
     <li class="vf-breadcrumbs__item">
