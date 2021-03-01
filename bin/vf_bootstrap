@@ -145,9 +145,7 @@ PLUGINS_LIST='
 advanced-custom-fields-pro
 vf-wp
 embl-taxonomy
-vf-beta-container
 vf-breadcrumbs-container
-vf-embl-news-container
 vf-factoid-block
 vf-latest-posts-block
 vf-publications-block
@@ -181,8 +179,6 @@ home_page_content='
 
 <!-- wp:acf/vfwp-latest-posts {"id":"block_5ebba351a5cd0","name":"acf/vfwp-latest-posts","data":{"field_5e99679631cbd":"","field_5e9967a331cbe":""},"mode":"preview"} /-->
 
-<!-- wp:acf/vf-data-resources {"id":"block_5ebba324a5ccf","name":"acf/vf-data-resources","data":{"field_defaults":"1"},"mode":"preview"} /-->
-
 <!-- wp:acf/vf-jobs {"id":"block_5ebba1baa5ccb","name":"acf/vf-jobs","data":{"field_defaults":"0","field_vf_jobs_heading":"","field_vf_jobs_limit":"1","field_vf_jobs_filter":"all"},"mode":"preview"} /-->';
 
 
@@ -198,8 +194,6 @@ case "$site_theme" in
 
 <!-- wp:acf/vf-container-page-template {"id":"block_5ebb9edff871d","name":"acf/vf-container-page-template"} /-->
 
-<!-- wp:acf/vf-container-embl-news {"id":"block_5ebb9fef2400b","name":"acf/vf-container-embl-news"} /-->
-
 <!-- wp:acf/vf-container-global-footer {"id":"block_5ebb9edff871e","name":"acf/vf-container-global-footer"} /-->';
     ;;
     EMBL-SERVICES-FACILITIES)
@@ -211,8 +205,6 @@ case "$site_theme" in
 <!-- wp:acf/vf-container-wp-groups-header {"id":"block_5ebb9fe02400a","name":"acf/vf-container-wp-groups-header"} /-->
 
 <!-- wp:acf/vf-container-page-template {"id":"block_5ebb9edff871d","name":"acf/vf-container-page-template"} /-->
-
-<!-- wp:acf/vf-container-embl-news {"id":"block_5ebb9fef2400b","name":"acf/vf-container-embl-news"} /-->
 
 <!-- wp:acf/vf-container-global-footer {"id":"block_5ebb9edff871e","name":"acf/vf-container-global-footer"} /-->';
 
@@ -232,8 +224,6 @@ case "$site_theme" in
 <!-- wp:acf/vf-container-wp-groups-header {"id":"block_5ebb9fe02400a","name":"acf/vf-container-wp-groups-header"} /-->
 
 <!-- wp:acf/vf-container-page-template {"id":"block_5ebb9edff871d","name":"acf/vf-container-page-template"} /-->
-
-<!-- wp:acf/vf-container-embl-news {"id":"block_5ebb9fef2400b","name":"acf/vf-container-embl-news"} /-->
 
 <!-- wp:acf/vf-container-ebi-global-footer {"id":"block_5ebba0942400f","name":"acf/vf-container-ebi-global-footer"} /-->';
     ;;
@@ -329,11 +319,9 @@ case "${COMMAND}" in
         vf-jobs-block
         vf-members-block
         user-role-editor
-        vf-data-resources-block
         embl-group-site-roles
         ga-google-analytics
         vf-publications-group-ebi-block
-        vf-embl-news-block
         widget-options
         vf-navigation-container
         vf-banner-container
