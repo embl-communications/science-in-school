@@ -121,12 +121,6 @@ case "${COMMAND}" in
   # To create empty blank wordpress site on local
   quick_blank)
     ${ROOT}/bin/dev up;
-    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
-    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
-    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
-    echo "WP Site URL - ${SITE_URL}"
-    ${ROOT}/bin/dev db_wait;
-    ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}";
     ${ROOT}/bin/dev create_vf_symlinks
     ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup_group.sh ${SITE_URL}";
     ${ROOT}/bin/dev login;
@@ -137,7 +131,8 @@ case "${COMMAND}" in
     if [ -f ${LOCAL_CORE_PATH}/${RELATIVE_SQLDUMP_SRC}/* ] || [ ! -d ${LOCAL_CORE_PATH}/${RELATIVE_SQLDATA_SRC}/${DOCKER_DATABASE} ]; then
       echo "Please wait for database to import...";
       # wait for drupal database to start importing
-      echo "Waiting for ${LOCAL_CORE_PATH}/${RELATIVE_SQLDATA_SRC}/${DOCKER_DATABASE} to be created";
+      echo "Waiting for ${LOCAL_CORE_PATH}/${RELATIVE_SQLDATA_SRC}/${DOCKER_DATABASE} to be initialized or created";
+      echo "(this may take some time)";
       while [ ! -d ${LOCAL_CORE_PATH}/${RELATIVE_SQLDATA_SRC}/${DOCKER_DATABASE} ]; do sleep 1; done;
       # wait for database to restart
       PID=$(ls ${LOCAL_CORE_PATH}/${RELATIVE_SQLDATA_SRC}/*.pid);
@@ -170,18 +165,26 @@ case "${COMMAND}" in
     #${ROOT}/bin/dev create_symlinks
    ;;
 
+ # spin up docker containers
+  create_htaccess)
+    ${ROOT}/bin/dev ssh "cp ${LOCAL_CORE_PATH}/bin/scripts/wp-cli.yml ${RELATIVE_DOCUMENT_ROOT}/ && cd ${RELATIVE_DOCUMENT_ROOT} && wp rewrite flush --hard"
+  ;;
+
   # spin up docker containers
   up)
     echo "Starting up containers for for ${PROJECT_NAME}..."
     ${ROOT}/bin/dev pre_up;
+    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
+    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
+    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
     docker-compose pull --parallel;
     docker-compose up -d --remove-orphans;
+    ${ROOT}/bin/dev db_wait;
+    # We always run setup to ensure basic paramaters are setup/reset (like htaccess)
+    ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}"; 
+    # ${ROOT}/bin/dev create_htaccess;
     ${ROOT}/bin/dev post_up;
-  ;;
-
- # spin up docker containers
-  create_htaccess)
-    ${ROOT}/bin/dev ssh "cp ${LOCAL_CORE_PATH}/bin/scripts/wp-cli.yml ${RELATIVE_DOCUMENT_ROOT}/ && cd ${RELATIVE_DOCUMENT_ROOT} && wp rewrite flush --hard"
+    ${ROOT}/bin/dev login;
   ;;
 
   # spin down docker containers

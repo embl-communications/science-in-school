@@ -328,7 +328,6 @@ case "${COMMAND}" in
         vf-group-header-block
         vf-jobs-block
         vf-members-block
-        onelogin-saml-sso
         user-role-editor
         vf-data-resources-block
         embl-group-site-roles
