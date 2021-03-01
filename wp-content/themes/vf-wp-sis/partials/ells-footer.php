@@ -1,37 +1,13 @@
 <footer class="vf-footer">
   <div class="vf-footer__inner">
     <p class="vf-footer__notice">
-    One line about ELLS’ mission
+    One line
     </p>
     <div class="vf-footer__links-group | vf-grid">
       <div class="vf-links">
         <h4 class="vf-links__heading">
-        European Learning Laboratory for the Life Sciences
-        </h4>
+          About</h4>
         <ul class="vf-links__list | vf-list">
-          <li class="vf-list__item">
-            <a class="vf-list__link" href="JavaScript:Void(0);">
-              About Us</a>
-          </li>
-          <li class="vf-list__item">
-            <a class="vf-list__link" href="JavaScript:Void(0);">
-              Contact</a>
-          </li>
-          <li class="vf-list__item">
-            <a class="vf-list__link" href="JavaScript:Void(0);">
-              Terms of Use</a>
-          </li>
-        </ul>
-      </div>
-      <div class="vf-links">
-        <h4 class="vf-links__heading">
-          About ELLS</h4>
-        <ul class="vf-links__list | vf-list">
-          <li class="vf-list__item">
-            <a class="vf-list__link" href="JavaScript:Void(0);">
-              Coverage
-            </a>
-          </li>
           <li class="vf-list__item">
             <a class="vf-list__link" href="JavaScript:Void(0);">
               Contact</a>
