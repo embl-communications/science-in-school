@@ -155,6 +155,7 @@ case "${COMMAND}" in
   ;;
 
   post_stop)
+    # these destory local data
     ${ROOT}/bin/dev destroy_directories
     ${ROOT}/bin/dev destroy_symlinks
   ;;
@@ -177,12 +178,12 @@ case "${COMMAND}" in
   up)
     echo "Starting up containers for for ${PROJECT_NAME}..."
     ${ROOT}/bin/dev pre_up;
-    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
-    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
-    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
     docker-compose pull --parallel;
     docker-compose up -d --remove-orphans;
     ${ROOT}/bin/dev db_wait;
+    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
+    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
+    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
     # We always run setup to ensure basic paramaters are setup/reset (like htaccess)
     ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup.sh ${SITE_URL}"; 
     # ${ROOT}/bin/dev create_htaccess;
@@ -194,7 +195,7 @@ case "${COMMAND}" in
   stop | down)
     echo "Stopping containers for ${PROJECT_NAME}...";
     docker-compose stop;
-    ${ROOT}/bin/dev post_stop
+    # ${ROOT}/bin/dev post_stop
     ;;
 
   prune)
