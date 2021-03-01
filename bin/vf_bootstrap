@@ -327,10 +327,6 @@ case "${COMMAND}" in
         vf-banner-container
         ';
 
-        # Updated vf_template post content. NOT NEEDED ANYMORE!!!!
-#        vf_template_post_id="$(wp post list --name='default' --post_type='vf_template' --field=ID)"
-#        wp post update $vf_template_post_id --post_content="$vf_template_content"
-
         # Check if plugin is active, if not then activate plugins
         for PLUGIN in ${MICROSITE_PLUGINS_LIST}; do
             if ! $(wp plugin is-active ${PLUGIN}); then
