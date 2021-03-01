@@ -2,6 +2,9 @@
   get_header();
   global $vf_theme;
 ?>
+<?php include(locate_template('partials/vf-breadcrumb.php', false, false)); ?>
+<?php include(locate_template('partials/vf-hero.php', false, false)); ?>
+
 <!-- NEWS -->
 <section class="vf-summary-container" data-vf-google-analytics-region="news">
   <div class="vf-section-header">
@@ -119,4 +122,4 @@
   </section>
 </div>
 
-<?php include(locate_template('partials/ells-footer.php', false, false)); ?>
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>

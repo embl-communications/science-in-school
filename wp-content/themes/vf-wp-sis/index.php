@@ -1,15 +1,8 @@
 <?php
 get_header();
 ?>
-<section class="vf-hero vf-hero--primary vf-hero--block vf-hero--800 | vf-u-fullbleed | vf-u-margin__bottom--0"
-  style="--vf-hero--bg-image: url('https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/Ells_Masthead_1000x600.png');  ">
-  <div class="vf-hero__content | vf-stack vf-stack--400 ">
-    <h2 class="vf-hero__heading">
-      SIS
-    </h2>
-    <p class="vf-hero__subheading">Science in School</p>
-  </div>
-</section>
+<?php include(locate_template('partials/vf-hero.php', false, false)); ?>
+
 <?php
 
 if (class_exists('VF_Navigation')) {

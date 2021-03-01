@@ -3,14 +3,7 @@
   $user_id = get_the_author_meta('ID');
   get_header();
 ?>
-<section class="vf-hero vf-hero--primary vf-hero--block vf-hero--800 | vf-u-fullbleed | vf-u-margin__bottom--0" style="--vf-hero--bg-image: url('https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/Ells_Masthead_1000x600.png');  ">
-  <div class="vf-hero__content | vf-stack vf-stack--400 ">
-    <h2 class="vf-hero__heading">
-      Science in School
-    </h2>
-    <p class="vf-hero__subheading">The European Journal for Teachers</p>
-  </div>
-</section>
+
 <?php
 if (class_exists('VF_Navigation')) {
   VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
@@ -128,4 +121,4 @@ if (class_exists('VF_Navigation')) {
   </div>
 </section>
 
-<?php include(locate_template('partials/ells-footer.php', false, false)); ?>
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>
