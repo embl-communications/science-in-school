@@ -16,6 +16,7 @@
                     "class": "",
                     "id": ""
                 },
+                "wpml_cf_preferences": 0,
                 "default_value": "",
                 "placeholder": "",
                 "prepend": "",
@@ -35,7 +36,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-editor-tags",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -95,7 +96,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-reviewer-tags",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -117,7 +118,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-ages",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -139,7 +140,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-institutions",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -161,7 +162,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-issues",
                 "field_type": "select",
                 "allow_null": 0,
                 "add_term": 0,
@@ -183,7 +184,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-article-types",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -205,7 +206,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-categories",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -227,7 +228,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-series",
                 "field_type": "multi_select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -249,7 +250,7 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "taxonomy": "sis-license",
                 "field_type": "select",
                 "allow_null": 1,
                 "add_term": 0,
@@ -521,7 +522,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "post"
+                    "value": "sis-article"
                 }
             ]
         ],

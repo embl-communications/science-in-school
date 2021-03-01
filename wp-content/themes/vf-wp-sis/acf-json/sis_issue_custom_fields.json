@@ -59,7 +59,8 @@
                     "class": "",
                     "id": ""
                 },
-                "taxonomy": "category",
+                "wpml_cf_preferences": 0,
+                "taxonomy": "sis-issues",
                 "field_type": "select",
                 "allow_null": 0,
                 "add_term": 0,
@@ -100,14 +101,13 @@
                     "class": "",
                     "id": ""
                 },
+                "wpml_cf_preferences": 0,
                 "post_type": [
-                    "page"
+                    "sis-article"
                 ],
                 "taxonomy": "",
                 "filters": [
-                    "search",
-                    "post_type",
-                    "taxonomy"
+                    "post_type"
                 ],
                 "elements": "",
                 "min": "",
@@ -127,14 +127,13 @@
                     "class": "",
                     "id": ""
                 },
+                "wpml_cf_preferences": 0,
                 "post_type": [
-                    "page"
+                    "sis-article"
                 ],
                 "taxonomy": "",
                 "filters": [
-                    "search",
-                    "post_type",
-                    "taxonomy"
+                    "post_type"
                 ],
                 "elements": "",
                 "min": 1,
@@ -154,14 +153,13 @@
                     "class": "",
                     "id": ""
                 },
+                "wpml_cf_preferences": 0,
                 "post_type": [
-                    "page"
+                    "sis-article"
                 ],
                 "taxonomy": "",
                 "filters": [
-                    "search",
-                    "post_type",
-                    "taxonomy"
+                    "post_type"
                 ],
                 "elements": "",
                 "min": 1,
@@ -231,7 +229,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "post"
+                    "value": "sis-issue"
                 }
             ]
         ],
