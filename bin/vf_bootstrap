@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Script performs WordPress bootstrap process with default Visual Framework configuration to setup group microsites.
-
 set -x;
 set -e;
 set -u;

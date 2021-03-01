@@ -121,6 +121,9 @@ case "${COMMAND}" in
   # To create empty blank wordpress site on local
   quick_blank)
     ${ROOT}/bin/dev up;
+    DOCKER_URL=${PROJECT_NAME}.docker.localhost;
+    DOCKER_PORT=$(docker-compose port traefik 80 | cut -d: -f2);
+    SITE_URL=http://${DOCKER_URL}:${DOCKER_PORT};
     ${ROOT}/bin/dev create_vf_symlinks
     ${ROOT}/bin/dev ssh "${LOCAL_CORE_PATH}/bin/scripts/setup_group.sh ${SITE_URL}";
     ${ROOT}/bin/dev login;
