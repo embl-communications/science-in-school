@@ -1,16 +1,54 @@
 <footer class="vf-footer">
   <div class="vf-footer__inner">
     <p class="vf-footer__notice">
-    One line
+      Supporting teachers in the delivery of STEM curricula with connections to inspiring, cutting-edge science and
+      technology.
     </p>
-    <div class="vf-footer__links-group | vf-grid">
+
+    <section class="vf-footer__links-group | vf-grid">
       <div class="vf-links">
         <h4 class="vf-links__heading">
           About</h4>
         <ul class="vf-links__list | vf-list">
           <li class="vf-list__item">
-            <a class="vf-list__link" href="JavaScript:Void(0);">
-              Contact</a>
+            <a class="vf-list__link" href="33333">About Science in School</a>
+          </li>
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">About EIROforum</a>
+          </li>
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Imprint</a>
+          </li>
+        </ul>
+      </div>
+      <div class="vf-links">
+        <h4 class="vf-links__heading">
+          About</h4>
+        <ul class="vf-links__list | vf-list">
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Copyright</a>
+          </li>
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Safety note</a>
+          </li>
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Disclaimer</a>
+          </li>
+        </ul>
+      </div>
+      <div class="vf-links">
+        <h4 class="vf-links__heading">
+          About</h4>
+        <ul class="vf-links__list | vf-list">
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Archive
+            </a>
+          </li>
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Donate</a>
+          </li>
+          <li class="vf-list__item">
+            <a class="vf-list__link" href="33333">Contact</a>
           </li>
         </ul>
       </div>
@@ -45,45 +83,77 @@
         </svg>
         <div class="vf-social-links vf-social-links--outline">
           <ul class="vf-social-links__list">
-            <li class="vf-social-links__item">
-              <a class="vf-social-links__link" href="JavaScript:Void(0);">
+            <li class="vf-social-links__item" style="border-color:white;">
+              <a class="vf-social-links__link" href="33333">
                 <span class="vf-u-sr-only">
                   twitter
                 </span>
-                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--twitter" width="24" height="24"
+                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--twitter" style="fill:white;" width="24" height="24"
                   viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                   <use xlink:href="#vf-social--twitter">
                   </use>
                 </svg>
               </a>
             </li>
-            <li class="vf-social-links__item">
-              <a class="vf-social-links__link" href="JavaScript:Void(0);">
+            <li class="vf-social-links__item" style="border-color:white;">
+              <a class="vf-social-links__link" href="33333">
                 <span class="vf-u-sr-only">
                   facebook
                 </span>
-                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--facebook" width="24" height="24"
+                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--facebook" style="fill:white;" width="24" height="24"
                   viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                   <use xlink:href="#vf-social--facebook">
                   </use>
                 </svg>
               </a>
             </li>
-            <li class="vf-social-links__item">
-              <a class="vf-social-links__link" href="JavaScript:Void(0);">
+            <!-- <li class="vf-social-links__item" style="border-color:white;">
+              <a class="vf-social-links__link" href="33333">
                 <span class="vf-u-sr-only">
                   instagram
                 </span>
-                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--instagram" width="24" height="24"
+                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--instagram" style="fill:white;" width="24" height="24"
                   viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                   <use xlink:href="#vf-social--instagram">
                   </use>
                 </svg>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
-    </div>
+    </section>
+    <section class="vf-grid">
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/eiroforum_logo.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+      <div class="sis-sponsor-logo">
+       <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png" />
+      </div>
+    </section>
+    <p class="vf-footer__legal">
+      <span class="vf-footer__legal-text"><a class="vf-footer__link" href="//www.embl.org/contact/">Published and funded by EIROforum</a> &nbsp; ISSN 1818-0361</span>
+    </p>
   </div>
 </footer>
