@@ -17,6 +17,9 @@ Use any of the below variation of command to build the site
     - `bin/dev quick_blank` - to initialise a wordpress site with Visual Framework plugin & theme disabled mode
     - `bin/dev launch` - to launch browser
     - `bin/dev login`  - to login in wordpress admin
+    - `bin/dev down` - stop containers
+    - `bin/dev up` - start containers
+    
 
     ##### Diagnostics
 

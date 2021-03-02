@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FG Joomla to WordPress Premium - WPML module\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-08 12:25+0100\n"
+"PO-Revision-Date: 2017-03-08 12:27+0100\n"
+"Last-Translator: F. GILLES\n"
+"Language-Team: F. GILLES\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: fgd2wp-internationalization.php:45
+msgid ""
+"The Internationalization module needs the «FG Drupal to WordPress Premium» "
+"plugin to work. Please install and activate <strong>FG Drupal to WordPress "
+"Premium</strong>."
+msgstr ""
+"Le module Internationalization requiert le plugin «FG Drupal to WordPress "
+"Premium» pour fonctionner. Merci d'installer et d'activer <strong>FG Drupal "
+"to WordPress Premium</strong>."
+
+#: fgd2wp-internationalization.php:52
+#, php-format
+msgid ""
+"The Internationalization module needs at least the <strong>version %s</"
+"strong> of the «FG Drupal to WordPress Premium» plugin to work. Please "
+"install and activate <strong>FG Drupal to WordPress Premium</strong> at "
+"least the <strong>version %s</strong>."
+msgstr ""
+"Le module Internationalization requiert au moins la <strong>version %s</"
+"strong> du plugin «FG Drupal to WordPress Premium» pour fonctionner. Merci "
+"d'installer et d'activer <strong>FG Drupal to WordPress Premium</strong> au "
+"moins la <strong>version %s</strong>."
+
+#: fgd2wp-internationalization.php:86
+#, php-format
+msgid ""
+"Error: <a href=\"%s\" target=\"_blank\">WPML</a> must be installed and "
+"activated to import the translations."
+msgstr ""
+"Erreur: <a href=\"%s\" target=\"_blank\">WPML</a> doit être installé et "
+"activé pour importer les traductions."
+
+#: fgd2wp-internationalization.php:117
+msgid "Translations deleted"
+msgstr "Traductions supprimées"
+
+#: fgd2wp-internationalization.php:414
+#, php-format
+msgid "%d multilanguage data imported to WPML"
+msgid_plural "%d multilanguage data imported to WPML"
+msgstr[0] "%d donnée multilingue importée vers WPML"
+msgstr[1] "%d données multilingues importées vers WPML"
+
+#: fgd2wp-internationalization.php:424
+msgid "+ Internationalization module"
+msgstr "+ module Internationalization"
+
+#: fgd2wp-internationalization.php:425
+msgid ""
+"The Internationalization module will also import the multilanguage data to "
+"WPML."
+msgstr ""
+"Le module Internationalization va aussi importer les données multilingues "
+"vers WPML."
+
+#~ msgid ""
+#~ "The WPML module needs the «FG Joomla to WordPress Premium» plugin to "
+#~ "work. Please install and activate <strong>FG Joomla to WordPress Premium</"
+#~ "strong>."
+#~ msgstr ""
+#~ "Le module WPML requiert le plugin «FG Joomla to WordPress Premium» pour "
+#~ "fonctionner. Merci d’installer et d’activer <strong>FG Joomla to "
+#~ "WordPress Premium</strong>."
+
+#~ msgid ""
+#~ "The WPML module needs at least the <strong>version %s</strong> of the «FG "
+#~ "Joomla to WordPress Premium» plugin to work. Please install and activate "
+#~ "<strong>FG Joomla to WordPress Premium</strong> at least the "
+#~ "<strong>version %s</strong>."
+#~ msgstr ""
+#~ "Le module WPML requiert au moins la <strong>version %s</strong> du plugin "
+#~ "«FG Joomla to WordPress Premium» pour fonctionner. Merci d’installer et "
+#~ "d’activer <strong>FG Joomla to WordPress Premium</strong> au moins la "
+#~ "<strong>version %s</strong>."
+
+#~ msgid "+ WPML module"
+#~ msgstr "+ Module WPML"
+
+#~ msgid "The WPML module will also import the multilanguage data to WPML."
+#~ msgstr ""
+#~ "Le module WPML va aussi importer les données multilingues vers WPML."
+
+#~ msgid ""
+#~ "Error: <a href=\"http://wpml.org/?aid=61672&affiliate_key=z9KayvgJ5Jfu\" "
+#~ "target=\"_blank\">WPML</a> must be installed and activated to import the "
+#~ "translations."
+#~ msgstr ""
+#~ "Erreur: <a href=\"http://wpml.org/?aid=61672&affiliate_key=z9KayvgJ5Jfu\" "
+#~ "target=\"_blank\">WPML</a> doit être installé et activé pour importer les "
+#~ "traductions."
