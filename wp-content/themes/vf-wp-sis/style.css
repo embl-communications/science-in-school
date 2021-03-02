@@ -11,3 +11,9 @@ Text Domain:	 vfwp
 body {
   background: inherit;
 }
+
+
+/* These are to be moved to the local vf build, when ready */
+.vf-logo__image {
+  max-width: 300px;
+}

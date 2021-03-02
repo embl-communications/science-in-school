@@ -2,7 +2,8 @@
   get_header();
   global $vf_theme;
 ?>
-<?php include(locate_template('partials/vf-breadcrumb.php', false, false)); ?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<!-- <?php include(locate_template('partials/vf-breadcrumb.php', false, false)); ?> -->
 <?php include(locate_template('partials/vf-hero.php', false, false)); ?>
 
 <!-- NEWS -->
