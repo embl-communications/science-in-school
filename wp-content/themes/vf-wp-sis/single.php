@@ -1,26 +1,13 @@
 <?php
-
-$title = esc_html(get_the_title());
-$user_id = get_the_author_meta('ID');
-$show_author = get_field('ells_show_author');
-
-get_header();
-
+  $title = esc_html(get_the_title());
+  $user_id = get_the_author_meta('ID');
+  get_header();
 ?>
-<section class="vf-hero vf-hero--primary vf-hero--block vf-hero--800 | vf-u-fullbleed | vf-u-margin__bottom--0" style="--vf-hero--bg-image: url('https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/Ells_Masthead_1000x600.png');  ">
-  <div class="vf-hero__content | vf-stack vf-stack--400 ">
-    <h2 class="vf-hero__heading">
-      ELLS
-    </h2>
-    <p class="vf-hero__subheading">European Learning Laboratory for the Life Sciences</p>
-  </div>
-</section>
-<?php
 
+<?php
 if (class_exists('VF_Navigation')) {
   VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
 }
-
 ?>
 
 <section class="embl-grid embl-grid--has-centered-content | vf-u-padding__top--200 | vf-u-margin__bottom--0">
@@ -104,36 +91,34 @@ if (class_exists('VF_Navigation')) {
   </ul>
 </div>
 </div>
-
 </section>
+
 <section class="vf-u-background-color-ui--off-white | vf-u-margin__bottom--100 | vf-u-padding__top--600 | vf-u-padding__bottom--400 | vf-u-fullbleed | category-more">
-      <h3 class="vf-section-header__heading | vf-u-margin__bottom--400">Recent posts</h3>
-      <div class="vf-grid vf-grid__col-3">
-        <?php
-          $args = array(
-            'posts_per_page' => 3,
-            'post__not_in'   => array( get_the_ID() ),
-            'no_found_rows'  => true,
-          );
+  <h3 class="vf-section-header__heading | vf-u-margin__bottom--400">Recent posts</h3>
+  <div class="vf-grid vf-grid__col-3">
+    <?php
+      $args = array(
+        'posts_per_page' => 3,
+        'post__not_in'   => array( get_the_ID() ),
+        'no_found_rows'  => true,
+      );
 
-          $cats = wp_get_post_terms( get_the_ID(), 'category' );
-          $cats_ids = array();
-          foreach( $cats as $related_cat ) {
-            $cats_ids[] = $related_cat->term_id;
-          }
-          if ( ! empty( $cats_ids ) ) {
-            $args['category__in'] = $cats_ids;
-          }
+      $cats = wp_get_post_terms( get_the_ID(), 'category' );
+      $cats_ids = array();
+      foreach( $cats as $related_cat ) {
+        $cats_ids[] = $related_cat->term_id;
+      }
+      if ( ! empty( $cats_ids ) ) {
+        $args['category__in'] = $cats_ids;
+      }
 
-          $query = new wp_query( $args );
+      $query = new wp_query( $args );
 
-          foreach( $query->posts as $post ) : setup_postdata( $post ); ?>
+      foreach( $query->posts as $post ) : setup_postdata( $post ); ?>
 
-        <?php include(locate_template('partials/vf-card--article-more.php', false, false)); ?>
-        <?php endforeach; wp_reset_postdata(); ?>
-      </div>
-  </section>
+    <?php include(locate_template('partials/vf-card--article-more.php', false, false)); ?>
+    <?php endforeach; wp_reset_postdata(); ?>
+  </div>
+</section>
 
-
-<?php include(locate_template('partials/ells-footer.php', false, false)); ?>
-
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>

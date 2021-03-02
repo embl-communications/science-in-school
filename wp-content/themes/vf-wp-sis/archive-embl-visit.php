@@ -1,15 +1,12 @@
 <?php
-
 get_header();
-
-
 ?>
 
 <div class="embl-grid">
   <div>
   </div>
   <div class="vf-content">
-      <?php
+    <?php
         if ( have_posts() ) {
           while ( have_posts() ) {
             the_post();
@@ -18,16 +15,13 @@ get_header();
         } else {
           echo '<p>', __('No documents found', 'vfwp'), '</p>';
         } ?>
-  <div class="vf-grid"> <?php vf_pagination();?></div>
+    <div class="vf-grid"> <?php vf_pagination();?></div>
     <!--/vf-grid-->
   </div>
   <!--/vf-content-->
 </div>
 <!--/embl-grid-->
 
-
 <?php
-
 get_footer();
-
 ?>
