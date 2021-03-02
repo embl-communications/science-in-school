@@ -1,3 +1,5 @@
+<?php include(locate_template('partials/newsletter-container.php', false, false)); ?>
+
 <footer class="vf-footer">
   <div class="vf-footer__inner">
     <p class="vf-footer__notice">

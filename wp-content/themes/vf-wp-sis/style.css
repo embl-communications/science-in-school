@@ -12,8 +12,16 @@ body {
   background: inherit;
 }
 
-
 /* These are to be moved to the local vf build, when ready */
-.vf-logo__image {
-  max-width: 300px;
+.vf-wp-sis .vf-logo__image {
+  height: 85px;
+}
+
+.vf-wp-sis .vf-card-container {
+  /* padding: 0; */
+}
+
+.vf-wp-sis .vf-card-container.vf-u-fullbleed {
+  /* padding-top: 1rem; */
+  /* padding-bottom: 1rem; */
 }

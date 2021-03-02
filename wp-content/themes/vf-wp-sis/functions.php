@@ -14,9 +14,7 @@ add_theme_support('title-tag');
 
 // CHILD THEME CSS FILE
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
-function my_theme_enqueue_styles()
-{
-
+function my_theme_enqueue_styles() {
   $parent_style = 'parent-style';
 
   wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
@@ -27,3 +25,8 @@ function my_theme_enqueue_styles()
   );
 }
 
+add_filter( 'body_class','my_body_classes' );
+function my_body_classes( $classes ) {
+  $classes[] = 'vf-wp-sis';
+  return $classes;
+}
