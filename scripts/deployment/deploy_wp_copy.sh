@@ -62,7 +62,7 @@ cp -R ./vf-wp-elmi/ /var/www/html/wordpress/wp-content/themes/
 cp -R ./vf-wp-groups/ /var/www/html/wordpress/wp-content/themes/
 cp -R ./vf-wp-intranet/ /var/www/html/wordpress/wp-content/themes/
 
-cd /var/www/webdeploy/science-in-school/deployable/vf-wp/wp-content/themes/
+cd /var/www/webdeploy/science-in-school/wp-content/themes/
 cp -R ./vf-wp-sis/ /var/www/html/wordpress/wp-content/themes/
 
 chown -R apache:apache /var/www/html/wordpress
