@@ -29,6 +29,41 @@ git checkout master
 git pull origin master
 cd ..
 
+# Copy all files to website folder
+cd /var/www/html/wordpress/
+rm -rf ./wp-admin/
+rm -rf ./wp-includes/
+
+rm -f index.php
+rm -f wp-activate.php
+rm -f wp-blog-header.php
+rm -f wp-comments-post.php
+rm -f wp-cron.php
+rm -f wp-links-opml.php
+rm -f wp-load.php
+rm -f wp-login.php
+rm -f wp-mail.php
+rm -f wp-settings.php
+rm -f wp-signup.php
+rm -f wp-trackback.php
+rm -f xmlrpc.php
+
+cd /var/www/webdeploy/science-in-school/deployable/wordpress/
+cp -R ./wp-admin/ /var/www/html/wordpress/
+cp -R ./wp-includes/ /var/www/html/wordpress/
+
+cp wp-activate.php /var/www/html/wordpress/
+cp wp-blog-header.php /var/www/html/wordpress/
+cp wp-comments-post.php /var/www/html/wordpress/
+cp wp-cron.php /var/www/html/wordpress/
+cp wp-links-opml.php /var/www/html/wordpress/
+cp wp-load.php /var/www/html/wordpress/
+cp wp-login.php /var/www/html/wordpress/
+cp wp-mail.php /var/www/html/wordpress/
+cp wp-settings.php /var/www/html/wordpress/
+cp wp-signup.php /var/www/html/wordpress/
+cp wp-trackback.php /var/www/html/wordpress/
+cp xmlrpc.php /var/www/html/wordpress/
 
 chown -R apache:apache /var/www/html/wordpress
 
