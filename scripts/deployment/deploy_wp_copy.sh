@@ -136,7 +136,7 @@ cp -R ./wpml-media-translation /var/www/webdeploy/science-in-school/wp-content/p
 cp -R ./wpml-string-translation /var/www/webdeploy/science-in-school/wp-content/plugins/
 cp -R ./wpml-translation-management /var/www/webdeploy/science-in-school/wp-content/plugins/
 
-/var/www/webdeploy/science-in-school/deployable/vf-wp/wp-content/plugins/
+cd /var/www/webdeploy/science-in-school/deployable/vf-wp/wp-content/plugins/
 cp -R ./embl-group-site-roles /var/www/webdeploy/science-in-school/wp-content/plugins/
 cp -R ./embl-taxonomy /var/www/webdeploy/science-in-school/wp-content/plugins/
 cp -R ./vf-banner-container /var/www/webdeploy/science-in-school/wp-content/plugins/
