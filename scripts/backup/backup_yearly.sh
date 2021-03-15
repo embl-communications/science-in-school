@@ -6,4 +6,4 @@ set -u;
 
 interval=yearly
 
-source ./backup_core.sh
+source /var/www/webdeploy/science-in-school/scripts/backup/backup_core.sh

@@ -4,7 +4,7 @@
 set -e;
 set -u;
 
-source ./backup_secrets.sh
+source /var/www/webdeploy/science-in-school/scripts/backup/backup_secrets.sh
 
 echo "Starting to backup files."
 tar c /var/www/html/wordpress | gzip --fast > /var/www/backup/wordpress.${interval}.tar.gz
