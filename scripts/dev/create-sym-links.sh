@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# halt on errors
+set -e;
+set -u;
+
 cd ../dist/wp-content/plugins
 
 ln -s /var/www/html/wp-content/plugins/content-views-query-and-display-post-page
