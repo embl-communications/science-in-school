@@ -5,7 +5,7 @@ set -e;
 set -u;
 
 SCRIPTS_DEPLOY_DIR=$(pwd -P);
-WP_VERSION=latest
+WP_VERSION=wordpress-5.7
 
 cd ../../deployable/
 
