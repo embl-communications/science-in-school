@@ -29,6 +29,11 @@ $result = $statement->get_result();
 
 while ($row = $result->fetch_assoc()) {
     if (empty($row['nid'])) {
+        echo "Error: Empty nid " . PHP_EOL;
+        continue;
+    }
+    if (empty($row['url'])) {
+        echo "Error: Empty url " . PHP_EOL;
         continue;
     }
     $nodeIdUrlArray[$row['nid']] = $row['url'];
@@ -64,9 +69,11 @@ $result = $statement->get_result();
 
 while ($row = $result->fetch_assoc()) {
     if (empty($row['nid'])) {
+        echo "Error: Empty nid " . PHP_EOL;
         continue;
     }
     if (empty($row['url'])) {
+        echo "Error: Empty url " . PHP_EOL;
         continue;
     }
     $urlAliasArray[$row['nid']] = $row['url'];
@@ -134,11 +141,11 @@ $result = $statement->get_result();
 
 while ($row = $result->fetch_assoc()) {
     if (empty($row['source'])) {
-        echo "ERROR REDIRECT" . $row['source'] . ' ' . $row['url'];
+        echo "ERROR REDIRECT" . $row['source'] . ' ' . $row['url'] . PHP_EOL;
         continue;
     }
     if (empty($row['url'])) {
-        echo "ERROR REDIRECT" . $row['source'] . ' ' . $row['url'];
+        echo "ERROR REDIRECT" . $row['source'] . ' ' . $row['url'] . PHP_EOL;
         continue;
     }
     $redirectsArray[$row['source']] = $row['url'];
@@ -178,9 +185,11 @@ $result = $statement->get_result();
 
 while ($row = $result->fetch_assoc()) {
     if (empty($row['nodeId'])) {
+        echo "Error: Empty nodeId " . PHP_EOL;
         continue;
     }
     if (empty($row['postId'])) {
+        echo "Error: Empty postId " . PHP_EOL;
         continue;
     }
     $mapNodeIdToPostIdArray[$row['nodeId']] = $row['postId'];
@@ -211,9 +220,11 @@ $result = $statement->get_result();
 
 while ($row = $result->fetch_assoc()) {
     if (empty($row['postId'])) {
+        echo "Error: Empty postId " . PHP_EOL;
         continue;
     }
     if (empty($row['language'])) {
+        echo "Error: Empty language " . PHP_EOL;
         continue;
     }
     $languageCodeArray[$row['postId']] = $row['language'];
@@ -239,12 +250,15 @@ $result = $statement->get_result();
 
 while ($row = $result->fetch_assoc()) {
     if (empty($row['postId'])) {
+        echo "Error: Empty postId " . PHP_EOL;
         continue;
     }
     if (empty($row['year'])) {
+        echo "Error: Empty year " . PHP_EOL;
         continue;
     }
     if (empty($row['postName'])) {
+        echo "Error: Empty postName " . PHP_EOL;
         continue;
     }
     if (array_key_exists($row['postId'], $languageCodeArray)) {
@@ -255,10 +269,17 @@ while ($row = $result->fetch_assoc()) {
         }
         $wpUrl .= '/' . $row['postName'];
 
+        if(empty($wpUrl)){
+            echo "ERROR: Empty wpUrl" . $wpUrl . PHP_EOL;
+        }
+
         // Only add new WP URL, if node id exists for post id
         if (array_key_exists($row['postId'], $mapPostIdToNodeIdArray)) {
             // Get node id for post id
             $currentNodeId = $mapPostIdToNodeIdArray[$row['postId']];
+            if(empty($currentNodeId)){
+                echo "ERROR: Empty currentNodeId " . $currentNodeId . PHP_EOL;
+            }
             $nodeIdToWpUrlsArray[$currentNodeId] = $wpUrl;
             $postIdToWpUrlsArray[$row['postId']] = $wpUrl;
         }
@@ -289,13 +310,20 @@ $finalRedirectionArray = array();
 // Add node id URLs
 foreach ($nodeIdUrlArray as $nodeId => $nodeUrl) {
     if (empty($nodeId)) {
+        echo "ERROR: Empty nodeId " . PHP_EOL;
         continue;
     }
     if (empty($nodeUrl)) {
+        echo "ERROR: Empty nodeUrl " . PHP_EOL;
         continue;
     }
 
-    $finalRedirectionArray[$nodeUrl] = $nodeIdToWpUrlsArray[$nodeId];
+    $newWpUrl = $nodeIdToWpUrlsArray[$nodeId];
+    if (empty($newWpUrl)) {
+        echo "ERROR: Empty newWpUrl " . PHP_EOL;
+        continue;
+    }
+    $finalRedirectionArray[$nodeUrl] = $newWpUrl;
 }
 
 echo "Array finalRedirectionArray has " . count($finalRedirectionArray) . " entries" . PHP_EOL;
@@ -307,12 +335,20 @@ echo PHP_EOL;
 // Add URL aliases
 foreach ($urlAliasArray as $nodeId => $nodeUrl) {
     if (empty($nodeId)) {
+        echo "ERROR: Empty nodeId " . PHP_EOL;
         continue;
     }
-    if (empty($nodeUrl)) {
+    if (empty($nodeUrl)){
+        echo "ERROR: Empty nodeUrl " . PHP_EOL;
         continue;
     }
-    $finalRedirectionArray[$nodeUrl] = $nodeIdToWpUrlsArray[$nodeId];
+
+    $newWpUrl = $nodeIdToWpUrlsArray[$nodeId];
+    if (empty($newWpUrl)) {
+        echo "ERROR: Empty newWpUrl " . PHP_EOL;
+        continue;
+    }
+    $finalRedirectionArray[$nodeUrl] = $newWpUrl;
 }
 
 echo "Array finalRedirectionArray has " . count($finalRedirectionArray) . " entries" . PHP_EOL;
@@ -324,9 +360,11 @@ echo PHP_EOL;
 // Add redirects
 foreach ($redirectsArray as $source => $url) {
     if (empty($source)) {
+        echo "ERROR: Empty source " . PHP_EOL;
         continue;
     }
     if (empty($url)) {
+        echo "ERROR: Empty url " . PHP_EOL;
         continue;
     }
     $finalRedirectionArray[$source] = $url;
@@ -338,6 +376,7 @@ echo "Max key is: " . max(array_keys($finalRedirectionArray)) . PHP_EOL;
 echo PHP_EOL;
 
 die();
+
 // Insert into database table
 
 // Prepared Statements for inserting data
@@ -351,6 +390,10 @@ $target = '';
 $stmt->bind_param("sss", $source, $source, $target);
 
 foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
+    if(empty($currentSource) || empty($currentTarget)){
+        echo "ERROR: Empty currentSource or currentTarget " . PHP_EOL;
+        continue;
+    }
     if (substr($currentSource, 0, 1) != '/') {
         $currentSource = '/' . $currentSource;
     }
@@ -362,7 +405,7 @@ foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
     $stmt->execute();
 }
 
-echo "All redirect have been added" . PHP_EOL;
+echo "All redirects have been added" . PHP_EOL;
 
 $stmt->close();
 
