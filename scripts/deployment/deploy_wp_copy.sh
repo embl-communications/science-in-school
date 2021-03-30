@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # halt on errors
 set -e;
 set -u;
