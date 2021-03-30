@@ -15,12 +15,12 @@ source /var/www/webdeploy/science-in-school/scripts/backup/backup_secrets.sh
 cd /var/www/backup
 
 # Delete all backup files
-#rm -f ./wp_db_once.sql
-#rm -f ./wordpress.once.tar.gz
+rm -f ./wp_db_once.sql
+rm -f ./wordpress.once.tar.gz
 
 # Copy files from beta to dev.beta
-#scp root@sis-web01:/var/www/backup/wp_db_once.sql .
-#scp root@sis-web01:/var/www/backup/wordpress.once.tar.gz .
+scp root@sis-web01:/var/www/backup/wp_db_once.sql .
+scp root@sis-web01:/var/www/backup/wordpress.once.tar.gz .
 
 
 # Delete old wordpress upload files
