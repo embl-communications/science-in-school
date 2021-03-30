@@ -87,6 +87,7 @@ rm -rf ./easy-wp-smtp
 rm -rf ./fg-drupal-to-wp-premium
 rm -rf ./fg-drupal-to-wp-premium-internationalization-module
 rm -rf ./fg-drupal-to-wp-premium-metatag-module
+rm -rf ./mailchimp-for-wp
 rm -rf ./redirection
 rm -rf ./relevanssi
 rm -rf ./toolset-blocks
@@ -176,6 +177,7 @@ cp -R ./easy-wp-smtp /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-internationalization-module /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-metatag-module /var/www/html/wordpress/wp-content/plugins/
+cp -R ./mailchimp-for-wp /var/www/html/wordpress/wp-content/plugins/
 cp -R ./redirection /var/www/html/wordpress/wp-content/plugins/
 cp -R ./relevanssi /var/www/html/wordpress/wp-content/plugins/
 cp -R ./toolset-blocks /var/www/html/wordpress/wp-content/plugins/
