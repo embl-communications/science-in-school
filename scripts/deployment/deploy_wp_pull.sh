@@ -8,6 +8,8 @@ set -u;
 SCRIPTS_DEPLOY_DIR=$(pwd -P);
 WP_VERSION=wordpress-5.7
 
+git pull origin feature/migration-scripts
+
 cd ../../deployable/
 
 rm -rf ./wp.tar.gz
