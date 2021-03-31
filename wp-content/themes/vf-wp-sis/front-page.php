@@ -57,7 +57,7 @@
             echo isset( $before ) ? esc_html( $before ) : esc_html__( 'This post is also available in: ', 'sitepress' );
             foreach ( $languages as $l ) {
               if ( ! $l['active'] ) {
-                $languages_items[] = '<a href="' . $l['url'] . '">' . $l['translated_name'] . '</a>';
+                $languages_items[] = '<a href="' . $l['url'] . '"><img class="wpml-ls-flag iclflag" src="'.$l['country_flag_url'].'" />' . $l['translated_name'] . '</a>';
               }
             }
             echo join( ', ', $languages_items );
