@@ -6,7 +6,7 @@ set -e;
 set -u;
 
 SCRIPTS_DEPLOY_DIR=$(pwd -P);
-WP_VERSION=wordpress-5.7
+WP_VERSION=wordpress-5.6.2
 
 # Important: Pull the current branch from origin, can be changed for dev.beta
 # Should be main branch on production

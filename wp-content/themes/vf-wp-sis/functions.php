@@ -35,6 +35,7 @@ function my_body_classes( $classes ) {
 
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 add_filter('acf/settings/show_admin', '__return_true');
+
 function my_acf_save_post( $post_id ) {
     // get new value
     $user = get_field( 'author', $post_id );
