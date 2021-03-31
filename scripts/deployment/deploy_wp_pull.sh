@@ -8,7 +8,9 @@ set -u;
 SCRIPTS_DEPLOY_DIR=$(pwd -P);
 WP_VERSION=wordpress-5.7
 
-git pull origin feature/migration-scripts
+# Important: Pull the current branch from origin, can be changed for dev.beta
+# Should be main branch on production
+git pull
 
 cd ../../deployable/
 

@@ -12,6 +12,7 @@ require_once('functions/embl-visit-post.php');
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 
+
 // CHILD THEME CSS FILE
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 function my_theme_enqueue_styles() {
@@ -30,3 +31,15 @@ function my_body_classes( $classes ) {
   $classes[] = 'vf-wp-sis';
   return $classes;
 }
+
+
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+add_filter('acf/settings/show_admin', '__return_true');
+function my_acf_save_post( $post_id ) {
+    // get new value
+    $user = get_field( 'author', $post_id );
+    if( $user ) {
+        wp_update_post( array( 'ID'=>$post_id, 'post_author'=>$user['ID']) );
+    }
+}
+add_action('acf/save_post', 'my_acf_save_post', 20);
