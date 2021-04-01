@@ -35,7 +35,8 @@
                     "class": "",
                     "id": ""
                 },
-                "return_format": "array",
+                "wpml_cf_preferences": 0,
+                "return_format": "url",
                 "preview_size": "medium",
                 "library": "all",
                 "min_width": "",
@@ -82,7 +83,8 @@
                     "class": "",
                     "id": ""
                 },
-                "return_format": "array",
+                "wpml_cf_preferences": 0,
+                "return_format": "url",
                 "library": "all",
                 "min_size": "",
                 "max_size": "",
