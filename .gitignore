@@ -15,3 +15,8 @@ node_modules
 .idea
 
 backup_secrets.sh
+
+deployable/vf-wp/
+deployable/vfwp-external-plugins/
+deployable/wordpress/
+deployable/wp.tar.gz
