@@ -1,11 +1,16 @@
 #!/bin/bash
 
+
 # halt on errors
 set -e;
 set -u;
 
 SCRIPTS_DEPLOY_DIR=$(pwd -P);
-WP_VERSION=latest
+WP_VERSION=wordpress-5.6.2
+
+# Important: Pull the current branch from origin, can be changed for dev.beta
+# Should be main branch on production
+git pull
 
 cd ../../deployable/
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # halt on errors
 set -e;
 set -u;
@@ -82,9 +83,12 @@ rm -rf ./vf-publications-group-ebi-block
 rm -rf ./vf-wp
 
 rm -rf ./content-views-query-and-display-post-page
+rm -rf ./easy-wp-smtp
 rm -rf ./fg-drupal-to-wp-premium
 rm -rf ./fg-drupal-to-wp-premium-internationalization-module
 rm -rf ./fg-drupal-to-wp-premium-metatag-module
+rm -rf ./mailchimp-for-wp
+rm -rf ./redirection
 rm -rf ./relevanssi
 rm -rf ./toolset-blocks
 rm -rf ./types
@@ -169,9 +173,12 @@ cp -R ./vf-wp /var/www/html/wordpress/wp-content/plugins/
 
 cd /var/www/webdeploy/science-in-school/wp-content/plugins/
 cp -R ./content-views-query-and-display-post-page /var/www/html/wordpress/wp-content/plugins/
+cp -R ./easy-wp-smtp /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-internationalization-module /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-metatag-module /var/www/html/wordpress/wp-content/plugins/
+cp -R ./mailchimp-for-wp /var/www/html/wordpress/wp-content/plugins/
+cp -R ./redirection /var/www/html/wordpress/wp-content/plugins/
 cp -R ./relevanssi /var/www/html/wordpress/wp-content/plugins/
 cp -R ./toolset-blocks /var/www/html/wordpress/wp-content/plugins/
 cp -R ./types /var/www/html/wordpress/wp-content/plugins/
