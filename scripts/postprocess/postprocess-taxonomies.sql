@@ -1,5 +1,4 @@
-
-
+-- Rename all taxonomies
 UPDATE `wp_term_taxonomy` SET  `taxonomy`='sis-ages' WHERE `taxonomy`= 'ages';
 
 UPDATE `wp_term_taxonomy` SET  `taxonomy`='sis-editor-tags' WHERE `taxonomy`= 'editor_tags';
