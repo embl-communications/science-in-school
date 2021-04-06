@@ -1,4 +1,5 @@
 <?php
+// Script for postprocessing URL aliases and URL redirects
 
 // Fix params
 $serverName = "vfwpsis_mariadb";
@@ -375,7 +376,6 @@ echo "Min key is: " . min(array_keys($finalRedirectionArray)) . PHP_EOL;
 echo "Max key is: " . max(array_keys($finalRedirectionArray)) . PHP_EOL;
 echo PHP_EOL;
 
-die();
 
 // Insert into database table
 

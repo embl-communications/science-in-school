@@ -51,7 +51,7 @@ SELECT ID, 'art_license', 0  FROM `wp_posts` WHERE `post_type` IN ('sis-article'
 -- Rename field names for SIS issues
 -- DONE -- iss_web_only: true/false
 -- iss_cover_image: image
--- iss_issue: one taxonomy, must be added
+-- DONE -- iss_issue: one taxonomy, must be added
 -- iss_pdf: file
 -- iss_articles: Relationship, do be done manually
 -- iss_previous_issue: Relationship, do be done manually
@@ -84,17 +84,17 @@ WHERE `meta_key`='wpcf-show_banner' AND `post_id` IN (SELECT `ID`FROM `wp_posts`
 
 -- Rename field names for SIS articles
 -- DONE -- art_author_name: text
--- art_editor_tags: multiple taxonomy
+-- DONE -- art_editor_tags: multiple taxonomy
 -- DONE -- art_slider_exclude: true/false
 -- DONE -- art_eonly_article: true/false
--- art_reviewer_tags: multiple taxonomy
--- art_ages: multiple taxonomy
--- art_institutions: multiple taxonomy
--- art_issue: one taxonomy
--- art_article_type: one taxonomy
--- art_topics: multiple taxonomy
--- art_series: multiple taxonomy
--- art_license: one taxonomy
+-- DONE -- art_reviewer_tags: multiple taxonomy
+-- DONE -- art_ages: multiple taxonomy
+-- DONE -- art_institutions: multiple taxonomy
+-- DONE -- art_issue: one taxonomy
+-- DONE -- art_article_type: one taxonomy
+-- DONE -- art_topics: multiple taxonomy
+-- DONE -- art_series: multiple taxonomy
+-- DONE -- art_license: one taxonomy
 -- DONE -- art_license_freetext: text
 -- DONE -- art_references: wysiwyg
 -- DONE -- art_web_references: wysiwyg
