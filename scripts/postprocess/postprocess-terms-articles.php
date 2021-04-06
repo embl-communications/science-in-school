@@ -172,13 +172,12 @@ foreach ($seriesTags as $currentPostId => $currentTermArray) {
 // Update database table
 
 // Prepared Statements for updating data
-$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `meta_id`=?;";
+// editor tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_editor_tags';";
 $stmt = $conn->prepare($sql);
 $postId = 0;
 $termId = '';
 $stmt->bind_param("si", $termId, $postId);
-
-// editor tags
 foreach ($editorTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -188,8 +187,16 @@ foreach ($editorTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // reviewer tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_reviewer_tags';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($reviewerTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -199,8 +206,16 @@ foreach ($reviewerTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // ages tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_ages';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($ageTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -210,8 +225,16 @@ foreach ($ageTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // institution tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_institutions';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($institutionTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -221,8 +244,16 @@ foreach ($institutionTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // issue tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_issue';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($issueTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -232,8 +263,16 @@ foreach ($issueTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // article type tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_article_type';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($articleTypeTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -243,8 +282,16 @@ foreach ($articleTypeTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // topic tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_topics';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($topicTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -254,8 +301,16 @@ foreach ($topicTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // series tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_series';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($seriesTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -265,8 +320,16 @@ foreach ($seriesTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
 
+
+// Prepared Statements for updating data
 // license tags
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'art_license';";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$termId = '';
+$stmt->bind_param("si", $termId, $postId);
 foreach ($licenseTags as $currentPostId => $currentTermValue) {
     if(empty($currentPostId) || empty($currentTermValue)){
         echo "ERROR: Empty currentPostId or currentTermValue " . PHP_EOL;
@@ -276,9 +339,10 @@ foreach ($licenseTags as $currentPostId => $currentTermValue) {
     $termId = $currentTermValue;
     $stmt->execute();
 }
+$stmt->close();
+
 
 echo "All terms has been postprocessed for articles" . PHP_EOL;
-
 
 
 // close connection to WP database
