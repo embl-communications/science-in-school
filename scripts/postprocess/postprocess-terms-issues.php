@@ -66,13 +66,13 @@ $postId = 0;
 $termId = '';
 $stmt->bind_param("si", $termId, $postId);
 
-foreach ($issueTermIds as $currentPostId => $currenttTermId) {
-    if(empty($currentPostId) || empty($currenttTermId)){
-        echo "ERROR: Empty currentPostId or currenttTermId " . PHP_EOL;
+foreach ($issueTermIds as $currentPostId => $currentTermId) {
+    if(empty($currentPostId) || empty($currentTermId)){
+        echo "ERROR: Empty currentPostId or currentTermId " . PHP_EOL;
         continue;
     }
     $postId = $currentPostId;
-    $termId = $currenttTermId;
+    $termId = $currentTermId;
     $stmt->execute();
 }
 

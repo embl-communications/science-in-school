@@ -50,12 +50,12 @@ SELECT ID, 'art_license', 0  FROM `wp_posts` WHERE `post_type` IN ('sis-article'
 
 -- Rename field names for SIS issues
 -- DONE -- iss_web_only: true/false
--- iss_cover_image: image
+-- DONE -- iss_cover_image: image
 -- DONE -- iss_issue: one taxonomy, must be added
--- iss_pdf: file
--- iss_articles: Relationship, do be done manually
--- iss_previous_issue: Relationship, do be done manually
--- iss_next_issue: Relationship, do be done manually
+-- DONE -- iss_pdf: file
+-- DONE MANUALLY -- iss_articles: Relationship, do be done manually
+-- DONE MANUALLY -- iss_previous_issue: Relationship, do be done manually
+-- DONE MANUALLY -- iss_next_issue: Relationship, do be done manually
 -- DONE -- iss_show_banner: true/false
 -- DONE -- iss_migrated_from_drupal: true/false, new field
 -- DONE -- iss_reviewed_after_migration_from_drupal: true/false, new field
@@ -102,10 +102,10 @@ WHERE `meta_key`='wpcf-show_banner' AND `post_id` IN (SELECT `ID`FROM `wp_posts`
 -- DONE -- art_authors: wysiwyg
 -- DONE -- art_referee: wysiwyg
 -- DONE -- art_review: wysiwyg
--- art_slider_image: image
--- art_teaser_image: image
--- art_pdf: file
--- art_materials: multiple files
+-- DONE -- art_slider_image: image
+-- DONE -- art_teaser_image: image
+-- DONE -- art_pdf: file
+-- DONE -- art_materials: multiple files, handle with different script and REPEATER field in WP Core
 -- DONE -- iss_migrated_from_drupal: true/false, new field
 -- DONE -- iss_reviewed_after_migration_from_drupal: true/false, new field
 
@@ -175,7 +175,7 @@ WHERE `meta_key`='wpcf-image' AND `post_id` IN (SELECT `ID`FROM `wp_posts` WHERE
 UPDATE `wp_postmeta` SET `meta_key`='art_pdf'
 WHERE `meta_key`='wpcf-pdf_file' AND `post_id` IN (SELECT `ID`FROM `wp_posts` WHERE `post_type` = 'sis-article');
 
--- TODO art_materials
+
 
 
 

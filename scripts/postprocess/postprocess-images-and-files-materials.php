@@ -1,5 +1,6 @@
 <?php
-// Script for postprocessing attached files and images for issues and articles
+// Script for postprocessing materials attachted to articles
+
 
 // Fix params
 $serverName = "vfwpsis_mariadb";
@@ -48,12 +49,12 @@ echo PHP_EOL;
 
 
 
-// Second step: Get all images and files in fields "iss_cover_image" and "iss_pdf"
+// Secondly: Get all materials of all articles
+$numberOfMaterialsForPostIdArray = array();
 $metaIdToMetaValueArray = array();
+$metaIdToMetaKeyArray = array();
 
-$sql = "SELECT `meta_id`, `meta_value`  FROM `wp_postmeta` 
-            WHERE `meta_key` 
-                IN ('iss_cover_image', 'iss_pdf', 'art_slider_image', 'art_teaser_image', 'art_pdf');";
+$sql = "SELECT `meta_id`, `meta_value`, `post_id`  FROM `wp_postmeta` WHERE `meta_key` LIKE 'wpcf-materials';";
 $statement = $conn->prepare($sql);
 $statement->execute();
 $result = $statement->get_result();
@@ -67,11 +68,25 @@ while ($row = $result->fetch_assoc()) {
         echo "Error: Empty meta_value " . PHP_EOL;
         continue;
     }
+    if (empty($row['post_id'])) {
+        echo "Error: Empty post_id " . PHP_EOL;
+        continue;
+    }
 
     $metaId = $row['meta_id'];
     $metaValue = $row['meta_value'];
+    $postId = $row['post_id'];
+
+    if(array_key_exists($postId, $numberOfMaterialsForPostIdArray)){
+        $number = $numberOfMaterialsForPostIdArray[$postId];
+        $number++;
+        $numberOfMaterialsForPostIdArray[$postId] = $number;
+    } else {
+        $numberOfMaterialsForPostIdArray[$postId] = 0;
+    }
 
     $metaIdToMetaValueArray[$metaId] = $guidToPostIdMappingArray[$metaValue];
+    $metaIdToMetaKeyArray[$metaId] = 'art_materials_' . $numberOfMaterialsForPostIdArray[$postId] . '_art_single_material';
 }
 $statement->close();
 
@@ -80,11 +95,12 @@ $statement->close();
 // Update database table
 
 // Prepared Statements for updating data
-$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `meta_id`=?;";
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=?, `meta_key`=? WHERE `meta_id`=?;";
 $stmt = $conn->prepare($sql);
 $metaValue = '';
+$metaKey = '';
 $metaId = 0;
-$stmt->bind_param("si", $metaValue, $metaId);
+$stmt->bind_param("ssi", $metaValue, $metaKey, $metaId);
 
 foreach ($metaIdToMetaValueArray as $currentMetaId => $currentMetaValue) {
     if(empty($currentMetaId) || empty($currentMetaValue)){
@@ -93,13 +109,15 @@ foreach ($metaIdToMetaValueArray as $currentMetaId => $currentMetaValue) {
     }
     $metaValue = $currentMetaValue;
     $metaId = $currentMetaId;
+    $metaKey = $metaIdToMetaKeyArray[$currentMetaId];
 
     $stmt->execute();
 }
 
 
 
-echo "All images and files have been migrated for issues and articles" . PHP_EOL;
+echo "All materials have been added" . PHP_EOL;
+
 
 
 // close connection to WP database
