@@ -49,7 +49,7 @@
                 "key": "field_6034a887f1984",
                 "label": "Slider exclude",
                 "name": "art_slider_exclude",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -58,20 +58,18 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_6034a8a6f1985",
                 "label": "e-only Article",
                 "name": "art_eonly_article",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -80,14 +78,12 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_6034a8b5f1986",
@@ -475,7 +471,7 @@
                 "key": "field_6034ad83520a1",
                 "label": "Materials",
                 "name": "art_materials",
-                "type": "file",
+                "type": "repeater",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -484,17 +480,40 @@
                     "class": "",
                     "id": ""
                 },
-                "return_format": "array",
-                "library": "all",
-                "min_size": "",
-                "max_size": "",
-                "mime_types": ""
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "wpml_cf_preferences": 0,
+                "sub_fields": [
+                    {
+                        "key": "field_606c2fd755c6e",
+                        "label": "art_single_material",
+                        "name": "art_single_material",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "wpml_cf_preferences": 0
+                    }
+                ]
             },
             {
                 "key": "field_6034b0a10be47",
                 "label": "Migrated From Drupal",
                 "name": "art_migrated_from_drupal",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -503,20 +522,18 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_6034b0d20be48",
                 "label": "Reviewed After Migration From Drupal",
                 "name": "art_reviewed_after_migration_from_drupal",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -525,14 +542,12 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             }
         ],
         "location": [

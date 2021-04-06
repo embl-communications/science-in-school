@@ -7,7 +7,7 @@
                 "key": "field_6034af7a8df11",
                 "label": "web-only",
                 "name": "iss_web_only",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -16,14 +16,12 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_6034af9d8df12",
@@ -175,7 +173,7 @@
                 "key": "field_6034b0428df18",
                 "label": "Show banner",
                 "name": "iss_show_banner",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -184,20 +182,18 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_6034b0f680484",
                 "label": "Migrated From Drupal",
                 "name": "iss_migrated_from_drupal",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -206,20 +202,18 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_6034b12f80485",
                 "label": "Reviewed After Migration From Drupal",
                 "name": "iss_reviewed_after_migration_from_drupal",
-                "type": "checkbox",
+                "type": "true_false",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -228,14 +222,12 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": [],
-                "allow_custom": 0,
-                "default_value": [],
-                "layout": "vertical",
-                "toggle": 0,
-                "return_format": "value",
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
                 "wpml_cf_preferences": 0,
-                "save_custom": 0
+                "ui_on_text": "",
+                "ui_off_text": ""
             }
         ],
         "location": [
