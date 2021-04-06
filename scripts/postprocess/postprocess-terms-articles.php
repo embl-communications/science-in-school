@@ -58,6 +58,9 @@ while ($row = $result->fetch_assoc()) {
 
     // editor tags
     if($taxonomy == 'sis-editor-tags'){
+        if(array_key_exists($postId, $editorTags)){
+            $editorTags[$postId] = array();
+        }
         $tmpArray = $editorTags[$postId];
         if(!is_array($tmpArray)){
             $tmpArray = array();
@@ -69,6 +72,9 @@ while ($row = $result->fetch_assoc()) {
 
     // reviewer tags
     if($taxonomy == 'sis-reviewer-tags'){
+        if(array_key_exists($postId, $reviewerTags)){
+            $reviewerTags[$postId] = array();
+        }
         $tmpArray = $reviewerTags[$postId];
         if(!is_array($tmpArray)){
             $tmpArray = array();
@@ -80,6 +86,9 @@ while ($row = $result->fetch_assoc()) {
 
     // age tags
     if($taxonomy == 'sis-ages'){
+        if(array_key_exists($postId, $ageTags)){
+            $ageTags[$postId] = array();
+        }
         $tmpArray = $ageTags[$postId];
         if(!is_array($tmpArray)){
             $tmpArray = array();
@@ -91,6 +100,9 @@ while ($row = $result->fetch_assoc()) {
 
     // institutions tags
     if($taxonomy == 'sis-institutions'){
+        if(array_key_exists($postId, $institutionTags)){
+            $institutionTags[$postId] = array();
+        }
         $tmpArray = $institutionTags[$postId];
         if(!is_array($tmpArray)){
             $tmpArray = array();
@@ -114,6 +126,9 @@ while ($row = $result->fetch_assoc()) {
 
     // topics tags
     if($taxonomy == 'sis-category'){
+        if(array_key_exists($postId, $topicTags)){
+            $topicTags[$postId] = array();
+        }
         $tmpArray = $topicTags[$postId];
         if(!is_array($tmpArray)){
             $tmpArray = array();
@@ -125,6 +140,9 @@ while ($row = $result->fetch_assoc()) {
 
     // series tags
     if($taxonomy == 'sis-series'){
+        if(array_key_exists($postId, $seriesTags)){
+            $seriesTags[$postId] = array();
+        }
         $tmpArray = $seriesTags[$postId];
         if(!is_array($tmpArray)){
             $tmpArray = array();
