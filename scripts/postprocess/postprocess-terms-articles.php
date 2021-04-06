@@ -58,7 +58,7 @@ while ($row = $result->fetch_assoc()) {
 
     // editor tags
     if($taxonomy == 'sis-editor-tags'){
-        if(array_key_exists($postId, $editorTags)){
+        if(!array_key_exists($postId, $editorTags)){
             $editorTags[$postId] = array();
         }
         $tmpArray = $editorTags[$postId];
@@ -72,7 +72,7 @@ while ($row = $result->fetch_assoc()) {
 
     // reviewer tags
     if($taxonomy == 'sis-reviewer-tags'){
-        if(array_key_exists($postId, $reviewerTags)){
+        if(!array_key_exists($postId, $reviewerTags)){
             $reviewerTags[$postId] = array();
         }
         $tmpArray = $reviewerTags[$postId];
@@ -86,7 +86,7 @@ while ($row = $result->fetch_assoc()) {
 
     // age tags
     if($taxonomy == 'sis-ages'){
-        if(array_key_exists($postId, $ageTags)){
+        if(!array_key_exists($postId, $ageTags)){
             $ageTags[$postId] = array();
         }
         $tmpArray = $ageTags[$postId];
@@ -100,7 +100,7 @@ while ($row = $result->fetch_assoc()) {
 
     // institutions tags
     if($taxonomy == 'sis-institutions'){
-        if(array_key_exists($postId, $institutionTags)){
+        if(!array_key_exists($postId, $institutionTags)){
             $institutionTags[$postId] = array();
         }
         $tmpArray = $institutionTags[$postId];
@@ -126,7 +126,7 @@ while ($row = $result->fetch_assoc()) {
 
     // topics tags
     if($taxonomy == 'sis-category'){
-        if(array_key_exists($postId, $topicTags)){
+        if(!array_key_exists($postId, $topicTags)){
             $topicTags[$postId] = array();
         }
         $tmpArray = $topicTags[$postId];
@@ -140,7 +140,7 @@ while ($row = $result->fetch_assoc()) {
 
     // series tags
     if($taxonomy == 'sis-series'){
-        if(array_key_exists($postId, $seriesTags)){
+        if(!array_key_exists($postId, $seriesTags)){
             $seriesTags[$postId] = array();
         }
         $tmpArray = $seriesTags[$postId];
