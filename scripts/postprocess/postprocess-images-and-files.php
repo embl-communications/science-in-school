@@ -1,9 +1,7 @@
 <?php
 // Script for postprocessing attached files and images for issues and articles
 
-// Fix params
-$serverName = "vfwpsis_mariadb";
-$dbName = "drupal";
+include "./include-postprocess.php";
 
 // DB user and password should be passed as arguments
 if (!isset($argc) || $argc < 3) {

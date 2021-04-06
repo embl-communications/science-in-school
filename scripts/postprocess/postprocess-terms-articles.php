@@ -2,9 +2,7 @@
 // Script for postprocessing terms and their custom fields for articles
 
 
-// Fix params
-$serverName = "vfwpsis_mariadb";
-$dbName = "docker";
+include "./include-postprocess.php";
 
 // DB user and password should be passed as arguments
 if (!isset($argc) || $argc < 3) {

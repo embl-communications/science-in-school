@@ -1,9 +1,7 @@
 <?php
 // Script for postprocessing URL aliases and URL redirects
 
-// Fix params
-$serverName = "vfwpsis_mariadb";
-$dbName = "drupal";
+include "./include-postprocess.php";
 
 // DB user and password should be passed as arguments
 if (!isset($argc) || $argc < 3) {
@@ -13,7 +11,7 @@ $userName = $argv[1];
 $password = $argv[2];
 
 // create connection
-$conn = mysqli_connect($serverName, $userName, $password, $dbName);
+$conn = mysqli_connect($serverName, $userName, $password, $dbNameDrupal);
 
 // check connection
 if (!$conn) {
@@ -164,8 +162,6 @@ $conn->close();
 
 
 // New connection to WP database
-$dbName = 'docker';
-
 // create connection
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
