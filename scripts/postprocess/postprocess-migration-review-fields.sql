@@ -72,7 +72,7 @@ WHERE `meta_key`='wpcf-cover_image' AND `post_id` IN (SELECT `ID`FROM `wp_posts`
 
 -- wpcf-pdf_file
 -- iss_pdf_file
-UPDATE `wp_postmeta` SET `meta_key`='iss_pdf_file'
+UPDATE `wp_postmeta` SET `meta_key`='iss_pdf'
 WHERE `meta_key`='wpcf-pdf_file' AND `post_id` IN (SELECT `ID`FROM `wp_posts` WHERE `post_type` = 'sis-issue');
 
 -- wpcf-show_banner

@@ -58,7 +58,7 @@ echo PHP_EOL;
 // Update database table
 
 // Prepared Statements for updating data
-$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `meta_id`=?;";
+$sql = "UPDATE `wp_postmeta` SET `meta_value`=? WHERE `post_id`=? AND `meta_key` = 'iss_issue';";
 $stmt = $conn->prepare($sql);
 $postId = 0;
 $termId = '';
