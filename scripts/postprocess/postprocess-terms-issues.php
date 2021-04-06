@@ -54,6 +54,8 @@ echo "Min object_id is: " . min(array_keys($issueTermIds)) . PHP_EOL;
 echo "Max object_id is: " . max(array_keys($issueTermIds)) . PHP_EOL;
 echo PHP_EOL;
 
+print_r($issueTermIds);
+
 
 // Update database table
 
@@ -73,6 +75,8 @@ foreach ($issueTermIds as $currentPostId => $currentTermId) {
     $termId = $currentTermId;
     $stmt->execute();
 }
+
+$statement->close();
 
 
 echo "All terms has been postprocessed for issues" . PHP_EOL;
