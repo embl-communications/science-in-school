@@ -30,8 +30,7 @@ add_action(
       'supports'            => array('title', 'editor', 'page-attributes', 'excerpt', 'thumbnail'),
       'has_archive'         => true,
       'rewrite'             => array(
-        'slug' => '',
-          'with_front' => false
+        'slug' => 'article'
       ),
       'query_var'           => true,
       'can_export'          => true,
