@@ -7,11 +7,14 @@ UPDATE `wp_posts` SET `post_type`='sis-issue' WHERE `post_type`='issue';
 
 --  Insert Custom Fields for "migrated from drupal" and for "reviewed after migration"
 REPLACE INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`)
-SELECT ID, 'iss_migrated_from_drupal', 1  FROM `wp_posts` WHERE `post_type` IN ('sis-issue', 'sis-article');
+SELECT ID, 'iss_migrated_from_drupal', 1  FROM `wp_posts` WHERE `post_type` IN ('sis-issue');
+REPLACE INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`)
+SELECT ID, 'art_migrated_from_drupal', 1  FROM `wp_posts` WHERE `post_type` IN ('sis-article');
 
 REPLACE INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`)
-SELECT ID, 'iss_reviewed_after_migration_from_drupal', 0  FROM `wp_posts` WHERE `post_type` IN ('sis-issue', 'sis-article');
-
+SELECT ID, 'iss_reviewed_after_migration_from_drupal', 0  FROM `wp_posts` WHERE `post_type` IN ('sis-issue');
+REPLACE INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`)
+SELECT ID, 'art_reviewed_after_migration_from_drupal', 0  FROM `wp_posts` WHERE `post_type` IN ('sis-article');
 
 -- Insert custom fields for taxonomies for sis-issues:
 REPLACE INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`)
