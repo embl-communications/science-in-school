@@ -124,8 +124,8 @@ $metaValue = '';
 $stmt->bind_param("iss", $postId, $metaKey, $metaValue);
 
 foreach ($numberOfMaterialsForPostIdArray as $currentPostId => $currentNumber) {
-    if(empty($currentPostId) || empty($currentNumber)){
-        echo "ERROR: Empty currentPostId or currentNumber " . PHP_EOL;
+    if(empty($currentPostId)){
+        echo "ERROR: Empty currentPostId " . PHP_EOL;
         continue;
     }
 
