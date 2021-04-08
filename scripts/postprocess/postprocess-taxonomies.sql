@@ -15,7 +15,7 @@ UPDATE `wp_term_taxonomy` SET  `taxonomy`='sis-license' WHERE `taxonomy`= 'licen
 
 UPDATE `wp_term_taxonomy` SET  `taxonomy`='sis-article-types' WHERE `taxonomy`= 'article_types';
 
-UPDATE `wp_term_taxonomy` SET  `taxonomy`='sis-category' WHERE `taxonomy`= 'category';
+UPDATE `wp_term_taxonomy` SET  `taxonomy`='sis-categories' WHERE `taxonomy`= 'category';
 
 
 

@@ -111,6 +111,31 @@ foreach ($metaIdToMetaValueArray as $currentMetaId => $currentMetaValue) {
 
     $stmt->execute();
 }
+$stmt->close();
+
+
+// Add number of materials using another prepared statement
+$sql = "INSERT INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`) 
+    VALUES (?, ?, ?);";
+$stmt = $conn->prepare($sql);
+$postId = 0;
+$metaKey = '';
+$metaValue = '';
+$stmt->bind_param("iss", $postId, $metaKey, $metaValue);
+
+foreach ($numberOfMaterialsForPostIdArray as $currentPostId => $currentNumber) {
+    if(empty($currentPostId) || empty($currentNumber)){
+        echo "ERROR: Empty currentPostId or currentNumber " . PHP_EOL;
+        continue;
+    }
+
+    $postId = $currentPostId;
+    $metaKey = 'art_materials';
+    $currentNumber++;
+    $metaValue = $currentNumber;
+    $stmt->execute();
+}
+$stmt->close();
 
 
 

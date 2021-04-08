@@ -279,6 +279,7 @@ while ($row = $result->fetch_assoc()) {
 
         if(empty($wpUrl)){
             echo "ERROR: Empty wpUrl" . $wpUrl . PHP_EOL;
+            continue;
         }
 
         // Only add new WP URL, if node id exists for post id
@@ -287,6 +288,7 @@ while ($row = $result->fetch_assoc()) {
             $currentNodeId = $mapPostIdToNodeIdArray[$row['postId']];
             if(empty($currentNodeId)){
                 echo "ERROR: Empty currentNodeId " . $currentNodeId . PHP_EOL;
+                continue;
             }
             $nodeIdToWpUrlsArray[$currentNodeId] = $wpUrl;
             $postIdToWpUrlsArray[$row['postId']] = $wpUrl;
@@ -296,6 +298,7 @@ while ($row = $result->fetch_assoc()) {
         echo "ERROR:";
         echo $row['postId'];
         echo PHP_EOL;
+        continue;
     }
 }
 
@@ -326,6 +329,10 @@ foreach ($nodeIdUrlArray as $nodeId => $nodeUrl) {
         continue;
     }
 
+    if(!key_exists($nodeId, $nodeIdToWpUrlsArray)){
+        echo "ERROR: Key does not exist " . PHP_EOL;
+        continue;
+    }
     $newWpUrl = $nodeIdToWpUrlsArray[$nodeId];
     if (empty($newWpUrl)) {
         echo "ERROR: Empty newWpUrl " . PHP_EOL;
@@ -351,6 +358,10 @@ foreach ($urlAliasArray as $nodeId => $nodeUrl) {
         continue;
     }
 
+    if(!key_exists($nodeId, $nodeIdToWpUrlsArray)){
+        echo "ERROR: Key does not exist " . PHP_EOL;
+        continue;
+    }
     $newWpUrl = $nodeIdToWpUrlsArray[$nodeId];
     if (empty($newWpUrl)) {
         echo "ERROR: Empty newWpUrl " . PHP_EOL;
@@ -407,8 +418,8 @@ foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
     if (substr($currentTarget, 0, 1) != '/') {
         $currentTarget = '/' . $currentTarget;
     }
-    $source = $currentSource;
-    $target = $currentTarget;
+    $source = implode('/', array_map('urlencode', explode('/', $currentSource)));
+    $target = implode('/', array_map('urlencode', explode('/', $currentTarget)));
     $stmt->execute();
 }
 
