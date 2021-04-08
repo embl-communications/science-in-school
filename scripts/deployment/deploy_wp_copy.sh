@@ -83,6 +83,7 @@ rm -rf ./vf-publications-group-ebi-block
 rm -rf ./vf-wp
 
 rm -rf ./content-views-query-and-display-post-page
+rm -rf ./custom-post-type-permalinks
 rm -rf ./easy-wp-smtp
 rm -rf ./fg-drupal-to-wp-premium
 rm -rf ./fg-drupal-to-wp-premium-internationalization-module
@@ -173,6 +174,7 @@ cp -R ./vf-wp /var/www/html/wordpress/wp-content/plugins/
 
 cd /var/www/webdeploy/science-in-school/wp-content/plugins/
 cp -R ./content-views-query-and-display-post-page /var/www/html/wordpress/wp-content/plugins/
+cp -R ./custom-post-type-permalinks /var/www/html/wordpress/wp-content/plugins/
 cp -R ./easy-wp-smtp /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-internationalization-module /var/www/html/wordpress/wp-content/plugins/

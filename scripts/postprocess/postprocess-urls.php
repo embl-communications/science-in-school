@@ -1,8 +1,7 @@
 <?php
+// Script for postprocessing URL aliases and URL redirects
 
-// Fix params
-$serverName = "vfwpsis_mariadb";
-$dbName = "drupal";
+include "./include-postprocess.php";
 
 // DB user and password should be passed as arguments
 if (!isset($argc) || $argc < 3) {
@@ -12,7 +11,7 @@ $userName = $argv[1];
 $password = $argv[2];
 
 // create connection
-$conn = mysqli_connect($serverName, $userName, $password, $dbName);
+$conn = mysqli_connect($serverName, $userName, $password, $dbNameDrupal);
 
 // check connection
 if (!$conn) {
@@ -163,8 +162,6 @@ $conn->close();
 
 
 // New connection to WP database
-$dbName = 'docker';
-
 // create connection
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
@@ -213,7 +210,7 @@ $languageCodeArray = array();
 
 $sql = "SELECT `element_type` AS `postType`, `element_id` AS `postId`, `language_code` AS `language`  
     FROM `wp_icl_translations` 
-    WHERE `element_type` IN ('post_post', 'post_page', 'post_issue');";
+    WHERE `element_type` IN ('post_sis-article', 'post_page', 'post_sis-issue');";
 $statement = $conn->prepare($sql);
 $statement->execute();
 $result = $statement->get_result();
@@ -241,9 +238,9 @@ echo PHP_EOL;
 $postIdToWpUrlsArray = array();
 $nodeIdToWpUrlsArray = array();
 
-$sql = "SELECT `ID` AS `postId`, YEAR(`post_date`) AS `year`,`post_name` AS `postName` 
+$sql = "SELECT `ID` AS `postId`, YEAR(`post_date`) AS `year`,`post_name` AS `postName`, `post_type` AS `postType` 
         FROM `wp_posts` 
-        WHERE `post_type` IN ('post','page','issue');";
+        WHERE `post_type` IN ('sis-article','page','sis-issue');";
 $statement = $conn->prepare($sql);
 $statement->execute();
 $result = $statement->get_result();
@@ -261,12 +258,23 @@ while ($row = $result->fetch_assoc()) {
         echo "Error: Empty postName " . PHP_EOL;
         continue;
     }
+    if (empty($row['postType'])) {
+        echo "Error: Empty postType " . PHP_EOL;
+        continue;
+    }
     if (array_key_exists($row['postId'], $languageCodeArray)) {
-        $wpUrl = '/' . $row['year'];
         $lang = $languageCodeArray[$row['postId']];
+        $wpUrl = '';
         if ($lang != 'en') {
             $wpUrl .= '/' . $languageCodeArray[$row['postId']];
         }
+        if ($row['postType'] == 'sis-article') {
+            $wpUrl .= '/' . 'article';
+        }
+        if ($row['postType'] == 'sis-issue') {
+            $wpUrl .= '/' . 'issue';
+        }
+        $wpUrl .= '/' . $row['year'];
         $wpUrl .= '/' . $row['postName'];
 
         if(empty($wpUrl)){
@@ -375,7 +383,6 @@ echo "Min key is: " . min(array_keys($finalRedirectionArray)) . PHP_EOL;
 echo "Max key is: " . max(array_keys($finalRedirectionArray)) . PHP_EOL;
 echo PHP_EOL;
 
-die();
 
 // Insert into database table
 
