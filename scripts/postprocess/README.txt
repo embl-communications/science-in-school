@@ -22,4 +22,7 @@ php postprocess-images-and-files-materials.php
 postprocess-translations.sh
 
 8.
+php postprocess-postnames.php
+
+9.
 php postprocess-urls.php

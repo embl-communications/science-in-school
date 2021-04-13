@@ -413,15 +413,22 @@ foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
         continue;
     }
     if (substr($currentSource, 0, 1) != '/') {
-        $currentSource = '/' . $currentSource;
+        $currentSource = $currentSource;
     }
     if (substr($currentTarget, 0, 1) != '/') {
         $currentTarget = '/' . $currentTarget;
     }
-    $source = implode('/', array_map('urlencode', explode('/', $currentSource)));
-    $target = implode('/', array_map('urlencode', explode('/', $currentTarget)));
+
+    $source = trim($currentSource);
+    $target = trim($currentTarget);
+    //$source = implode('/', array_map('urlencode', explode('/', $currentSource)));
+    //$target = implode('/', array_map('urlencode', explode('/', $currentTarget)));
     $stmt->execute();
+
+    echo 'RewriteRule ^' .  $source . '$ ' . $target .' [R=301,L,NC,QSA]' . PHP_EOL;
 }
+
+
 
 echo "All redirects have been added" . PHP_EOL;
 
