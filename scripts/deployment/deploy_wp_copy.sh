@@ -14,6 +14,9 @@ cd /var/www/html/wordpress/
 rm -rf ./wp-admin/
 rm -rf ./wp-includes/
 
+## Remove .htaccess
+rm -f .htaccess
+
 ## Remove all files on first level
 rm -f index.php
 rm -f wp-activate.php
@@ -82,19 +85,29 @@ rm -rf ./vf-publications-block
 rm -rf ./vf-publications-group-ebi-block
 rm -rf ./vf-wp
 
+
+
 rm -rf ./content-views-query-and-display-post-page
 rm -rf ./custom-post-type-permalinks
+rm -rf ./custom-twitter-feeds
 rm -rf ./easy-wp-smtp
 rm -rf ./fg-drupal-to-wp-premium
 rm -rf ./fg-drupal-to-wp-premium-internationalization-module
 rm -rf ./fg-drupal-to-wp-premium-metatag-module
 rm -rf ./mailchimp-for-wp
+rm -rf ./mathml-block
+rm -rf ./post-types-order
 rm -rf ./redirection
 rm -rf ./relevanssi
+rm -rf ./taxonomy-terms-order
 rm -rf ./toolset-blocks
 rm -rf ./types
 rm -rf ./types-access
 
+
+# Copy .htaccess
+cd /var/www/webdeploy/science-in-school/scripts/postprocess/htaccess-file
+cp .htaccess /var/www/html/wordpress/
 
 # Copy wp-admin and wp-includes with latest sources
 cd /var/www/webdeploy/science-in-school/deployable/wordpress/
@@ -175,13 +188,17 @@ cp -R ./vf-wp /var/www/html/wordpress/wp-content/plugins/
 cd /var/www/webdeploy/science-in-school/wp-content/plugins/
 cp -R ./content-views-query-and-display-post-page /var/www/html/wordpress/wp-content/plugins/
 cp -R ./custom-post-type-permalinks /var/www/html/wordpress/wp-content/plugins/
+cp -R ./custom-twitter-feeds /var/www/html/wordpress/wp-content/plugins/
 cp -R ./easy-wp-smtp /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-internationalization-module /var/www/html/wordpress/wp-content/plugins/
 cp -R ./fg-drupal-to-wp-premium-metatag-module /var/www/html/wordpress/wp-content/plugins/
 cp -R ./mailchimp-for-wp /var/www/html/wordpress/wp-content/plugins/
+cp -R ./mathml-block /var/www/html/wordpress/wp-content/plugins/
+cp -R ./post-types-order /var/www/html/wordpress/wp-content/plugins/
 cp -R ./redirection /var/www/html/wordpress/wp-content/plugins/
 cp -R ./relevanssi /var/www/html/wordpress/wp-content/plugins/
+cp -R ./taxonomy-terms-order /var/www/html/wordpress/wp-content/plugins/
 cp -R ./toolset-blocks /var/www/html/wordpress/wp-content/plugins/
 cp -R ./types /var/www/html/wordpress/wp-content/plugins/
 cp -R ./types-access /var/www/html/wordpress/wp-content/plugins/
