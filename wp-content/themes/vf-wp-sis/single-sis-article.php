@@ -1,14 +1,43 @@
 <?php
-  $title = esc_html(get_the_title());
-  $user_id = get_the_author_meta('ID');
-  get_header();
+get_header();
 ?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-home">
+    <?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
 
 <?php
-if (class_exists('VF_Navigation')) {
-  VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
-}
+  $title = esc_html(get_the_title());
+  $user_id = get_the_author_meta('ID');
+
+$art_author_name= get_field('art_author_name');
+$art_editor_tags= get_field('art_editor_tags');
+$art_slider_exclude= get_field('art_slider_exclude');
+$art_eonly_article= get_field('art_eonly_article');
+$art_reviewer_tags= get_field('art_reviewer_tags');
+$art_ages= get_field('art_ages');
+$art_institutions= get_field('art_institutions');
+$art_issue= get_field('art_issue');
+$art_article_type= get_field('art_article_type');
+$art_topics= get_field('art_topics');
+$art_series= get_field('art_series');
+$art_license= get_field('art_license');
+$art_license_freetext= get_field('art_license_freetext');
+$art_references= get_field('art_references');
+$art_web_references= get_field('art_web_references');
+$art_resources= get_field('art_resources');
+$art_authors= get_field('art_authors');
+$art_referee= get_field('art_referee');
+$art_review= get_field('art_review');
+$art_slider_image= get_field('art_slider_image');
+$art_teaser_image= get_field('art_teaser_image');
+$art_pdf= get_field('art_pdf');
+$art_materials= get_field('art_materials');
+$art_migrated_from_drupal= get_field('art_migrated_from_drupal');
+$art_reviewed_after_migration_from_drupal= get_field('art_reviewed_after_migration_from_drupal');
 ?>
+
+
 
 <section class="embl-grid embl-grid--has-centered-content | vf-u-padding__top--200 | vf-u-margin__bottom--0">
  <div>
@@ -40,7 +69,176 @@ if (class_exists('VF_Navigation')) {
     </figure>
 
     <?php the_content(); ?>
+
+
+     <?php
+     echo "<div><hr>post id: ";
+     the_ID() . '<br/><br/></div>'; ?>
+
+        <div>
+            <?php
+            echo "<div>Author Name: " . $art_author_name . '<br/><br/></div>';
+
+            echo "<div>Editor tags: ";
+            if(is_array($art_editor_tags)){
+                foreach($art_editor_tags as $tagId){
+                    $tag = get_term($tagId);
+                    echo $tag->name . ' ';
+                }
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Slider exclude: " . $art_slider_exclude. '<br/><br/></div>';
+
+            echo "<div>E-Only Article " . $art_eonly_article. '<br/><br/></div>';
+
+            echo "<div>Reviewer tags: ";
+            if(is_array($art_reviewer_tags)) {
+                foreach ($art_reviewer_tags as $tagId) {
+                    $tag = get_term($tagId);
+                    echo $tag->name . ' ';
+                }
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Ages tags: ";
+            if(is_array($art_ages)) {
+                foreach ($art_ages as $tagId) {
+                    $tag = get_term($tagId);
+                    echo $tag->name . ' ';
+                }
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Institutions tags: ";
+            if(is_array($art_institutions)) {
+                foreach ($art_institutions as $tagId) {
+                    $tag = get_term($tagId);
+                    echo $tag->name . ' ';
+                }
+            }
+            echo '<br/><br/></div>';
+
+
+            echo "<div>Issue: ";
+            if(!empty($art_issue)){
+                $tag = get_term($art_issue);
+                echo $tag->name . ' ';
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Article type: ";
+            if(!empty($art_article_type)){
+                $tag = get_term($art_article_type);
+                echo $tag->name . ' ';
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Topics tags: ";
+            if(is_array($art_topics)) {
+                foreach ($art_topics as $tagId) {
+                    $tag = get_term($tagId);
+                    echo $tag->name . ' ';
+                }
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Series tags: ";
+            if(is_array($art_series)) {
+                foreach ($art_series as $tagId) {
+                    $tag = get_term($tagId);
+                    echo $tag->name . ' ';
+                }
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>License: ";
+            if(!empty($art_license)){
+                $tag = get_term($art_license);
+                echo $tag->name . ' ';
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Licesense freetext: " . $art_license_freetext. '<br/><br/></div>';
+
+            echo "<div>References: " . $art_references. '<br/><br/></div>';
+
+            echo "<div>Web references: " . $art_web_references. '<br/><br/></div>';
+
+            echo "<div>Resources: " . $art_resources. '<br/><br/></div>';
+
+            echo "<div>Authors: " . $art_authors. '<br/><br/></div>';
+
+            echo "<div>Referee: " . $art_referee. '<br/><br/></div>';
+
+            echo "<div>Review: " . $art_review. '<br/><br/></div>';
+
+            echo "<div>Slider Image: ";
+            if(is_array($art_slider_image) && array_key_exists("url", $art_slider_image)){
+                echo $art_slider_image['url'];
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Teaser Image: ";
+            if(is_array($art_teaser_image) && array_key_exists("url", $art_teaser_image)){
+                echo $art_teaser_image['url'];
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>PDF: ";
+            if(is_array($art_pdf) && array_key_exists("url", $art_pdf)){
+                echo $art_pdf['url'];
+            }
+            echo '<br/><br/></div>';
+
+            echo "<div>Materials: ";
+            if(is_array($art_materials)){
+                foreach($art_materials as $singleMat){
+                    echo $singleMat['art_single_material'] . '<br/>';
+                }
+            }
+            echo  '<br/><br/></div>';
+
+            echo "<div>Migrated: " . $art_migrated_from_drupal. '<br/><br/></div>';
+
+            echo "<div>Reviewed: " . $art_reviewed_after_migration_from_drupal. '<br/><br/></div>';
+
+
+            ?>
+        </div>
+
+        <div>
+            Issue:
+
+            <?php
+            if(!empty($art_issue)) {
+                $pages = get_posts(
+                    array(
+                        'post_type' => 'sis-issue',
+                        'numberposts' => 1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'sis-issues',
+                                'field' => 'term_id',
+                                'terms' => $art_issue, /// Where term_id of Term 1 is "1".
+                                'include_children' => false
+                            )
+                        )
+                    )
+                );
+            }
+            ?>
+            <ul>
+                <?php foreach ( $pages as $post ) : setup_postdata( $post ); ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    </li>
+                <?php endforeach; // Term Post foreach ?>
+            </ul>
+        </div>
   </div>
+
+
   <div class="social-media-block">
 <div class='red'>
 
@@ -121,4 +319,6 @@ if (class_exists('VF_Navigation')) {
   </div>
 </section>
 
+</main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>

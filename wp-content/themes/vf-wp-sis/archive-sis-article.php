@@ -1,6 +1,10 @@
 <?php
 get_header();
 ?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+    <main class="tmpl-home">
+<?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
 
 <div class="embl-grid">
   <div>
@@ -22,6 +26,6 @@ get_header();
 </div>
 <!--/embl-grid-->
 
-<?php
-get_footer();
-?>
+    </main>
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>

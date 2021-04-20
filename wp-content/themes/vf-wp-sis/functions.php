@@ -6,7 +6,6 @@ require_once('functions/sis-issue-post.php');
 require_once('functions/custom-taxonomies.php');
 
 require_once('functions/ells-breadcrumbs.php');
-require_once('functions/embl-visit-post.php');
 
 // enable featured image
 add_theme_support('post-thumbnails');

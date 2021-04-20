@@ -2,15 +2,10 @@
 get_header();
 ?>
 <?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
-<?php include(locate_template('partials/vf-breadcrumb.php', false, false)); ?>
-<?php include(locate_template('partials/vf-hero.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-home">
+    <?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
 
-<?php
-
-if (class_exists('VF_Navigation')) {
-  VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
-}
-?>
 
 <section class="vf-grid vf-grid__col-3 | vf-content">
   <div class="vf-grid__col--span-2">
@@ -34,4 +29,6 @@ query_posts($args);?>
   </div>
 </section>
 
+</main>
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>
 <?php get_footer(); ?>

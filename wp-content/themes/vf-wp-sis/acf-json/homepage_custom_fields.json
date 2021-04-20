@@ -1,0 +1,140 @@
+[
+    {
+        "key": "group_607eb5b4439d1",
+        "title": "Homepage",
+        "fields": [
+            {
+                "key": "field_607eb5c60cbfe",
+                "label": "Featured Article Understand",
+                "name": "featured_article_understand",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "sis-article"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "wpml_cf_preferences": 0,
+                "ui": 1
+            },
+            {
+                "key": "field_607eb5fc0cbff",
+                "label": "Featured Article Inspire",
+                "name": "featured_article_inspire",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "sis-article"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "wpml_cf_preferences": 0,
+                "ui": 1
+            },
+            {
+                "key": "field_607eb6180cc00",
+                "label": "Featured Article Teach",
+                "name": "featured_article_teach",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "sis-article"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "wpml_cf_preferences": 0,
+                "ui": 1
+            },
+            {
+                "key": "field_607eb6360cc01",
+                "label": "Current Issue",
+                "name": "current_issue",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "sis-issue"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "wpml_cf_preferences": 0,
+                "ui": 1
+            },
+            {
+                "key": "field_607eb66d6ef20",
+                "label": "Featured Issue Articles",
+                "name": "featured_issue_articles",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "sis-article"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "object",
+                "wpml_cf_preferences": 0,
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

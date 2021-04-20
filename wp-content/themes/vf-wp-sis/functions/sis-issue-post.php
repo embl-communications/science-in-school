@@ -26,7 +26,7 @@ add_action(
       'show_in_rest'        => true,
       'rest_base'           => "sis-issue",
       'menu_icon'           => 'dashicons-book-alt',
-      'capability_type'     => 'page',
+      'capability_type'     => 'post',
       'supports'            => array('title', 'editor', 'page-attributes', 'excerpt', 'thumbnail'),
       'has_archive'         => true,
       'rewrite'             => array(
@@ -36,7 +36,7 @@ add_action(
       'can_export'          => true,
       'delete_with_user'    => false,
       'taxonomies'          => array(
-        'age-group'
+          'sis-issues'
       ),
     ));
 

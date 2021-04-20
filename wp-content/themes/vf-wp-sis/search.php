@@ -1,25 +1,18 @@
+<?php
+get_header();
+?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-home">
+    <?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
 
-<?php get_header(); 
+    <?php
 
 $total_results = $wp_query->found_posts;
 
 ?>
 
-<section class="vf-hero vf-hero--primary vf-hero--block vf-hero--800 | vf-u-fullbleed | vf-u-margin__bottom--0" style="--vf-hero--bg-image: url('https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/Ells_Masthead_1000x600.png');  ">
-  <div class="vf-hero__content | vf-stack vf-stack--400 ">
-    <h2 class="vf-hero__heading">
-      ELLS
-    </h2>
-    <p class="vf-hero__subheading">European Learning Laboratory for the Life Sciences</p>
-  </div>
-</section>
-<?php
 
-if (class_exists('VF_Navigation')) {
-  VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
-}
-
-?>
 
 <section class="embl-grid embl-grid--has-centered-content">
   <div></div>
@@ -71,4 +64,6 @@ if (class_exists('VF_Navigation')) {
   <div class="vf-grid"> <?php vf_pagination();?></div>
 
 
+</main>
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>
 <?php get_footer(); ?>

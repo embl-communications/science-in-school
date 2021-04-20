@@ -1,14 +1,17 @@
 <?php
-  $title = esc_html(get_the_title());
-  $user_id = get_the_author_meta('ID');
-  get_header();
+get_header();
 ?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-home">
+    <?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
 
 <?php
-if (class_exists('VF_Navigation')) {
-  VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
-}
+  $title = esc_html(get_the_title());
+  $user_id = get_the_author_meta('ID');
 ?>
+
+
 
 <section class="embl-grid embl-grid--has-centered-content | vf-u-padding__top--200 | vf-u-margin__bottom--0">
  <div>
@@ -121,4 +124,6 @@ if (class_exists('VF_Navigation')) {
   </div>
 </section>
 
+</main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>

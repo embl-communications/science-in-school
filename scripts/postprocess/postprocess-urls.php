@@ -398,6 +398,7 @@ echo PHP_EOL;
 // Insert into database table
 
 // Prepared Statements for inserting data
+/*
 $sql = "INSERT INTO `wp_redirection_items` (`id`, `url`, `match_url`, `match_data`, `regex`, `position`, `last_count`, 
     `last_access`, `group_id`, `status`, `action_type`, `action_code`, `action_data`, `match_type`, `title`) 
     VALUES (NULL, ?, ?, '{\"source\":{\"flag_query\":\"pass\"}}', '0', '0', '0', '1970-01-01 00:00:00.000000', 
@@ -406,14 +407,12 @@ $stmt = $conn->prepare($sql);
 $source = '';
 $target = '';
 $stmt->bind_param("sss", $source, $source, $target);
+*/
 
 foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
     if(empty($currentSource) || empty($currentTarget)){
         echo "ERROR: Empty currentSource or currentTarget " . PHP_EOL;
         continue;
-    }
-    if (substr($currentSource, 0, 1) != '/') {
-        $currentSource = $currentSource;
     }
     if (substr($currentTarget, 0, 1) != '/') {
         $currentTarget = '/' . $currentTarget;
@@ -423,7 +422,7 @@ foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
     $target = trim($currentTarget);
     //$source = implode('/', array_map('urlencode', explode('/', $currentSource)));
     //$target = implode('/', array_map('urlencode', explode('/', $currentTarget)));
-    $stmt->execute();
+    //$stmt->execute();
 
     echo 'RewriteRule ^' .  $source . '$ ' . $target .' [R=301,L,NC,QSA]' . PHP_EOL;
 }
@@ -432,7 +431,7 @@ foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
 
 echo "All redirects have been added" . PHP_EOL;
 
-$stmt->close();
+//$stmt->close();
 
 
 // close connection to WP database

@@ -1,14 +1,30 @@
 <?php
+get_header();
+?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-home">
+    <?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
+
+<?php
   $title = esc_html(get_the_title());
   $user_id = get_the_author_meta('ID');
   get_header();
+
+    $iss_web_only = get_field('iss_web_only');
+    $iss_cover_image = get_field('iss_cover_image');
+    $iss_issue = get_field('iss_issue');
+    $iss_pdf = get_field('iss_pdf');
+    $iss_articles = get_field('iss_articles');
+    $iss_previous_issue = get_field('iss_previous_issue');
+    $iss_next_issue = get_field('iss_next_issue');
+    $iss_show_banner = get_field('iss_show_banner');
+    $iss_migrated_from_drupal = get_field('iss_migrated_from_drupal');
+    $iss_reviewed_after_migration_from_drupal = get_field('iss_reviewed_after_migration_from_drupal');
+
 ?>
 
-<?php
-if (class_exists('VF_Navigation')) {
-  VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
-}
-?>
+
 
 <section class="embl-grid embl-grid--has-centered-content | vf-u-padding__top--200 | vf-u-margin__bottom--0">
  <div>
@@ -40,7 +56,59 @@ if (class_exists('VF_Navigation')) {
     </figure>
 
     <?php the_content(); ?>
-  </div>
+
+    <div>
+        <?php
+        echo "Web only: " . $iss_web_only . '<br/><br/>';
+        echo "Cover image: " . $iss_cover_image . '<br/><br/>';
+
+        echo "<div>Issue: ";
+        if(!empty($iss_issue)){
+            $tag = get_term($iss_issue);
+            echo $tag->name . ' ';
+        }
+        echo '<br/><br/></div>';
+
+        echo "PDF: " . $iss_pdf . '<br/><br/>';
+
+        print '<br/><br/>';
+        echo "Articles: ". '<br/><br/>';
+        if(is_array($iss_articles)){
+            foreach($iss_articles as $singleArticle){
+                echo $singleArticle->post_title . '  ' . $singleArticle->ID . '<br/>';
+            }
+        }
+
+        print '<br/><br/>';
+        echo "Previous issue: " .  '<br/><br/>';
+        if(is_array($iss_previous_issue)){
+            foreach($iss_previous_issue as $singleArticle){
+                echo $singleArticle->post_title . '  ' . $singleArticle->ID;
+
+            }
+        }
+
+        print '<br/><br/>';
+        echo "Next issue: " . '<br/><br/>';
+        if(is_array($iss_next_issue)){
+            foreach($iss_next_issue as $singleArticle){
+                echo $singleArticle->post_title . '  ' . $singleArticle->ID;
+
+            }
+        }
+        print '<br/><br/>';
+
+        echo "Show banner: " . $iss_show_banner . '<br/><br/>';
+        echo "Migrated from Drupal: " . $iss_migrated_from_drupal . '<br/><br/>';
+        echo "Reviewed: " . $iss_reviewed_after_migration_from_drupal . '<br/><br/>';
+
+
+
+        ?>
+    </div>
+ </div>
+
+
   <div class="social-media-block">
 <div class='red'>
 
@@ -121,4 +189,6 @@ if (class_exists('VF_Navigation')) {
   </div>
 </section>
 
+</main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>

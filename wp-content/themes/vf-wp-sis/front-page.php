@@ -1,110 +1,93 @@
 <?php
   get_header();
-  global $vf_theme;
 ?>
 <?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
-<!-- <?php include(locate_template('partials/vf-breadcrumb.php', false, false)); ?> -->
-<?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-home">
+    <?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
 
-<!-- Featured -->
-<section class="vf-card-container | vf-u-fullbleed sis-u-background-dots">
-  <div class="vf-card-container__inner">
-    <div class="vf-section-header">
-      <a class="vf-section-header__heading vf-section-header__heading--is-link" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"
-        id="section-link">Most recent <svg aria-hidden="true"
-          class="vf-section-header__icon | vf-icon vf-icon-arrow--inline-end" width="1em" height="1em"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z"
-            fill="" fill-rule="nonzero"></path>
-        </svg></a>
-      <p class="vf-section-header__text">Our most recent content. (This is the most basic integration of the wordpress templating to show recently listed posts.)</p>
-    </div>
-    <!-- <div class="vf-section-header">
-      <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"
-        class="vf-section-header__heading vf-section-header__heading--is-link">Featured updates from ELLS<svg
-          class="vf-section-header__icon | vf-icon vf-icon-arrow--inline-end" width="24" height="24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z"
-            fill="" fill-rule="nonzero"></path>
-        </svg></a>
-      <p class="vf-section-header__text"> <span class="vf-u-text--nowrap"> </span></p>
-    </div> -->
 
-    <?php
-      // LANGUAGE SELECTOR
-      // USAGE place this on the single.php, page.php, index.php etc... - inside the loop
-      // function wpml_content_languages($args)
-      // args: skip_missing, before, after
-      // defaults: skip_missing = 1, before =  __('This post is also available in: '), after = ''
-      function wpml_content_languages( $args = '' ) {
-        $before = null;
-        $after = null;
-        $languages_items = array();
+    <?php include(locate_template('partials/vf-featured-articles.php', false, false)); ?>
 
-        parse_str( $args, $params );
-        if(array_key_exists( 'before', $params)) {
-          $before = $params['before'];
-        }
-        if(array_key_exists( 'after', $params)) {
-          $after = $params['after'];
-        }
+    <?php include(locate_template('partials/vf-current-issue.php', false, false)); ?>
 
-        if ( function_exists( 'icl_get_languages' ) ) {
-          $languages = icl_get_languages( $args );
-          if ( 1 < count( $languages ) ) {
-            echo isset( $before ) ? esc_html( $before ) : esc_html__( 'This post is also available in: ', 'sitepress' );
-            foreach ( $languages as $l ) {
-              if ( ! $l['active'] ) {
-                $languages_items[] = '<a href="' . $l['url'] . '"><img class="wpml-ls-flag iclflag" src="'.$l['country_flag_url'].'" />' . $l['translated_name'] . '</a>';
-              }
+<div>
+    <div class="vf-content">
+        <?php
+
+        $args = array(
+            'post_type'   => array('sis-article'),
+            'post_status' => 'publish',
+            'posts_per_page' => 20
+        );
+        $new_post_loop = new WP_Query( $args );
+
+
+        if ( $new_post_loop->have_posts() ) {
+            while ( $new_post_loop->have_posts() ) {
+                $new_post_loop->the_post();
+                print the_title();
+                the_permalink();
+
+                print '<br/><a href="' . get_the_permalink() . '">Link</a><br/>';
             }
-            echo join( ', ', $languages_items );
-            echo isset( $after ) ? esc_html( $after ) : '';
-          }
-        }
-      } 
-    ?>
+        } else {
+            echo '<p>', __('No documents found', 'vfwp'), '</p>';
+        } ?>
+        <div class="vf-grid"> <?php vf_pagination();?></div>
+        <!--/vf-grid-->
+    </div>
+    <!--/vf-content-->
 
 
-  <?php $mainloop = new WP_Query (array('posts_per_page' => 4)); 
-    while ($mainloop->have_posts()) : $mainloop->the_post(); ?>
-      <article class="vf-card vf-card--brand vf-card--bordered">
-        <img src="<?php the_post_thumbnail_url( 'full' ); ?>"
-          alt="<?php get_post_meta ( get_post_thumbnail_id( $post->ID ), '_wp_attachment_image_alt', true ); ?>" class="vf-card__image" loading="lazy">
-        <div class="vf-card__content | vf-stack vf-stack--400">
-          <h3 class="vf-card__heading"><a class="vf-card__link" href="<?php the_permalink(); ?>"><?php echo esc_html(get_the_title()); ?><svg
-                aria-hidden="true" class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
-                height="1em" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z"
-                  fill="currentColor" fill-rule="nonzero"></path>
-              </svg>
-            </a></h3>
+    <div>
+        Twitter integration:
+        <div class="sis-sidebar-box-white sis-sidebar-box-border">
+            <h4>Tweets by <b>Science in School</b></h4>
+            <div class="text-center">
+                <a class="twitter-timeline" data-height="1000" href="https://twitter.com/SciInSchool?ref_src=twsrc%5Etfw">Tweets by SciInSchool</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <br/>
+            </div></div>
+    </div>
 
-          <p class="vf-card__text"><?php echo get_the_excerpt(); ?></p>
-          <div class="vf-links vf-links--tight vf-links__list--s vf-links__list--secondary">
-            <a class="vf-list__item vf-list__link" href="3333">[tags to go here]</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Astronomy / space</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Chemistry</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Physics</a>
-          </div>
-          <!-- For now I don't think we'll need time
-          <span class="vf-summary__date"><time class="vf-summary__date vf-u-text-color--grey" style="margin-left: 0;"
-            title="<?php the_time('c'); ?>"
-            datetime="<?php the_time('c'); ?>"><?php the_time(get_option('date_format')); ?></time></span> -->
-          
-          <?php
-            wpml_content_languages();
-          ?>
+    <div>
+        Mailchimp integration:
+        <!-- Begin Mailchimp Signup Form -->
+        <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+            /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+        </style>
+        <div id="mc_embed_signup">
+            <form action="https://scienceinschool.us20.list-manage.com/subscribe/post?u=b07e55f20613237fa11593518&amp;id=3cd3d0c178" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                    <label for="mce-EMAIL">Subscribe to our newsletter and never miss new content</label>
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b07e55f20613237fa11593518_3cd3d0c178" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
         </div>
-      </article>
-    <?php endwhile;?>
-    <?php wp_reset_postdata(); ?>
-  </div>
-</section>
 
+        <!--End mc_embed_signup-->
+    </div>
+
+    <div>
+        Social app integration:
+        <div class="sharethis-wrapper">
+            <a rel="nofollow" href="https://www.facebook.com/scienceinschool" target="_blank">
+                <span class="st_facebook_custom"></span>
+            </a>
+
+            <a rel="nofollow" href="https://twitter.com/SciInSchool/" target="_blank">
+                <span   class="st_twitter_custom"></span>
+            </a>
+        </div>
+    </div>
+</div>
 
 <!-- Featured (manual example) -->
 <section class="vf-card-container | vf-u-fullbleed sis-u-background-dots">
@@ -615,4 +598,7 @@
   </section>
 </div> -->
 
+</main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>
+
