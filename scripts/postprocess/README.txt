@@ -24,5 +24,5 @@ postprocess-translations.sh
 8.
 php postprocess-postnames.php
 
-9.
-php postprocess-urls.php
+9. Not needed in future:
+(php postprocess-urls.php)
