@@ -306,9 +306,10 @@ function vf_wp_sis_taxonomies__init()
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 }
