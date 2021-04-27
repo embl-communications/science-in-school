@@ -187,7 +187,7 @@ function vf_wp_sis_series_labels()
 function vf_wp_sis_taxonomies__init()
 {
     // SIS Taxonomy: ages
-    register_taxonomy('sis-ages', array('ages'), array(
+    register_taxonomy('sis-ages', array('sis-article'), array(
         'labels' => vf_wp_sis_ages_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -202,7 +202,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: article types
-    register_taxonomy('sis-article-types', array('article-types'), array(
+    register_taxonomy('sis-article-types', array('sis-article'), array(
         'labels' => vf_wp_sis_article_types_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -217,7 +217,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: categories
-    register_taxonomy('sis-categories', array('categories'), array(
+    register_taxonomy('sis-categories', array('sis-article'), array(
         'labels' => vf_wp_sis_categories_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -232,7 +232,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: editor tags
-    register_taxonomy('sis-editor-tags', array('editor-tags'), array(
+    register_taxonomy('sis-editor-tags', array('sis-article'), array(
         'labels' => vf_wp_sis_editor_tags_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -247,7 +247,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: institutions
-    register_taxonomy('sis-institutions', array('institutions'), array(
+    register_taxonomy('sis-institutions', array('sis-article'), array(
         'labels' => vf_wp_sis_institutions_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -262,7 +262,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: issues
-    register_taxonomy('sis-issues', array('issues'), array(
+    register_taxonomy('sis-issues', array('sis-article', 'sis-issue'), array(
         'labels' => vf_wp_sis_issues_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -277,7 +277,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: license
-    register_taxonomy('sis-license', array('license'), array(
+    register_taxonomy('sis-license', array('sis-article'), array(
         'labels' => vf_wp_sis_license_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -292,7 +292,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: reviewer tags
-    register_taxonomy('sis-reviewer-tags', array('reviewer-tags'), array(
+    register_taxonomy('sis-reviewer-tags', array('sis-article'), array(
         'labels' => vf_wp_sis_reviewer_tags_labels(),
         'hierarchical' => true,
         'show_ui' => true,
@@ -307,7 +307,7 @@ function vf_wp_sis_taxonomies__init()
 
 
     // SIS Taxonomy: series
-    register_taxonomy('sis-series', array('series'), array(
+    register_taxonomy('sis-series', array('sis-article'), array(
         'labels' => vf_wp_sis_series_labels(),
         'hierarchical' => true,
         'show_ui' => true,
