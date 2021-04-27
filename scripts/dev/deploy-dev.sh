@@ -6,6 +6,7 @@ set -u;
 
 cd ../../dist/wp-content/plugins
 
+ln -s /var/www/html/wp-content/plugins/relevanssi-premium
 ln -s /var/www/html/wp-content/plugins/content-views-query-and-display-post-page
 ln -s /var/www/html/wp-content/plugins/custom-post-type-permalinks
 ln -s /var/www/html/wp-content/plugins/custom-twitter-feeds

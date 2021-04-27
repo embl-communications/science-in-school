@@ -24,5 +24,9 @@ postprocess-translations.sh
 8.
 php postprocess-postnames.php
 
-9. Not needed in future:
-(php postprocess-urls.php)
+9.
+Add rewrite rules from php postprocess-urls.php into .htaccess
+
+10.
+Clear cache: wp cache flush
+
