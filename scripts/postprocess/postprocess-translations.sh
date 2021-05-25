@@ -12,7 +12,7 @@ source ../backup/backup_secrets.sh
 mysql  -u ${USER} --password=${PASS} -h ${HOST} ${DB} < ./postprocess-translations.sql
 
 # Post processing for portuguese
-mysql  -u ${USER} --password=${PASS} -h ${HOST} ${DB} < ./postprocess-translationcode-pt.sql
+mysql  -u ${USER} --password=${PASS} -h ${HOST} ${DB} < ./postprocess-languagecode-pt.sql
 
 # Back to deployment directory
 cd ${SCRIPTS_DEPLOY_DIR}
