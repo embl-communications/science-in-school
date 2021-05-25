@@ -338,6 +338,10 @@ foreach ($nodeIdUrlArray as $nodeId => $nodeUrl) {
         echo "ERROR: Empty newWpUrl " . PHP_EOL;
         continue;
     }
+
+    if (substr($newWpUrl, 0, 1) != '/') {
+        $newWpUrl = '/' . $newWpUrl;
+    }
     $finalRedirectionArray[$nodeUrl] = $newWpUrl;
 }
 
@@ -367,6 +371,9 @@ foreach ($urlAliasArray as $nodeId => $nodeUrl) {
         echo "ERROR: Empty newWpUrl " . PHP_EOL;
         continue;
     }
+    if (substr($newWpUrl, 0, 1) != '/') {
+        $newWpUrl = '/' . $newWpUrl;
+    }
     $finalRedirectionArray[$nodeUrl] = $newWpUrl;
 }
 
@@ -385,6 +392,10 @@ foreach ($redirectsArray as $source => $url) {
     if (empty($url)) {
         echo "ERROR: Empty url " . PHP_EOL;
         continue;
+    }
+
+    if (substr($url, 0, 1) != '/') {
+        $url = '/' . $url;
     }
     $finalRedirectionArray[$source] = $url;
 }
@@ -413,9 +424,6 @@ foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
     if(empty($currentSource) || empty($currentTarget)){
         echo "ERROR: Empty currentSource or currentTarget " . PHP_EOL;
         continue;
-    }
-    if (substr($currentTarget, 0, 1) != '/') {
-        $currentTarget = '/' . $currentTarget;
     }
 
     $source = trim($currentSource);
