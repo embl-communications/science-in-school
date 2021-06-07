@@ -181,9 +181,6 @@ function vf_wp_sis_series_labels()
 }
 
 
-
-
-
 function vf_wp_sis_taxonomies__init()
 {
     // SIS Taxonomy: ages

@@ -3,29 +3,30 @@ get_header();
 ?>
 <?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
-    <main class="tmpl-home">
-<?php include(locate_template('partials/vf-hero--as-promotion.php', false, false)); ?>
+<main class="tmpl-post">
 
-<div class="embl-grid">
-  <div>
-  </div>
-  <div class="vf-content">
+    <p>
+        to do: once you get in to a category, filter and facet
+    </p>
+    <!--
+    https://www.scienceinschool.org/search-page?f[0]=search_api_language%3Aen&f[1]=field_categories%3A63
+    -->
+
+    <h1>Teach articles</h1>
+
     <?php
-        if ( have_posts() ) {
-          while ( have_posts() ) {
+    if (have_posts()) {
+        while (have_posts()) {
             the_post();
-            the_title();
-          }
-        } else {
-          echo '<p>', __('No documents found', 'vfwp'), '</p>';
-        } ?>
-    <div class="vf-grid"> <?php vf_pagination();?></div>
-    <!--/vf-grid-->
-  </div>
-  <!--/vf-content-->
-</div>
-<!--/embl-grid-->
+            setup_postdata($post);
+            include(locate_template('partials/vf-articleList-articleTeaser.php', false, false));
+        }
 
-    </main>
+        wp_reset_postdata();
+    }
+    ?>
+
+
+</main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
 <?php get_footer(); ?>
