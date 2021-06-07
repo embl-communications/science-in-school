@@ -1,0 +1,38 @@
+<?php
+$art_editor_tags = get_field('art_editor_tags');
+$art_issue = get_field('art_issue');
+$art_ages = get_field('art_ages');
+?>
+<article class="vf-card vf-card--brand vf-card--bordered">
+                <span class="vf-badge vf-badge--secondary"
+                      style="background: orange; border-color: orange; ">Inspire</span>
+    <img src="https://www.scienceinschool.org/sites/default/files/articleContentImages/49/spaceplants/issue49_spaceplants_mars_food_production_bisected.jpg"
+         alt="Image alt text" class="vf-card__image" loading="lazy">
+    <div class="vf-card__content | vf-stack vf-stack--400">
+        <h3 class="vf-card__heading"><a class="vf-card__link" href="<?php the_permalink();?>"><?php echo get_the_title();?>
+                <svg
+                        aria-hidden="true" class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end"
+                        width="1em"
+                        height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z"
+                            fill="currentColor" fill-rule="nonzero"></path>
+                </svg>
+            </a></h3>
+        <span class="vf-summary__date"><?php the_date();?> | <?php sis_printSingleTag($art_issue); ?></span>
+        <p class="vf-card__text"><?php echo get_the_excerpt();?></p>
+        <p class="vf-summary__source">
+            <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
+            <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>
+            <br/>
+            <!--gb,es-->
+            <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
+                                                                     src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/gb.png"
+                                                                     alt="English"> English</a>
+            &nbsp; <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
+                                                                            src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"
+                                                                            alt="Spanish"> Spanish</a>
+
+        </p>
+    </div>
+</article>
