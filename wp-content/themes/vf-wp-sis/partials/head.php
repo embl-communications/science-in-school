@@ -23,4 +23,21 @@
     ?>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php
+$articleType = get_field('art_article_type');
+$cssClass = '';
+if($articleType && !empty($articleType)){
+    $articleTypesArray = sis_getArticleTypesArray();
+    if($articleType == $articleTypesArray['UNDERSTAND']){
+        $cssClass = 'sis-article-understand';
+    } else if($articleType == $articleTypesArray['INSPIRE']){
+        $cssClass = 'sis-article-inspire';
+    } else if($articleType == $articleTypesArray['TEACH']){
+        $cssClass = 'sis-article-teach';
+    } else if($articleType == $articleTypesArray['EDITORIAL']){
+        $cssClass = 'sis-article-editorial';
+    }
+}
+
+body_class($cssClass);
+?>>

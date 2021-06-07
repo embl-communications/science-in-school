@@ -4,20 +4,33 @@
     <div class="vf-card-container__inner">
 
         <?php
-            $featuredArticles = get_field('featuredarticles');
-            if($featuredArticles){
-                $count = 0;
-                foreach($featuredArticles as $post){
-                    $count++;
-                    setup_postdata($post);
-                    include(locate_template('partials/vf-front-featureArticleType.php', false, false));
-                    if($count > 2){
-                        break;
-                    }
-                }
-                wp_reset_postdata();
-            }
+        $featuredArticles = get_field('featuredarticles');
+        $numberOfDisplayedArticles = 0;
+        if($featuredArticles){
+            $numberOfDisplayedArticles += count($featuredArticles);
+            $featureLoop = new WP_Query(array( 'post_type' => 'sis-article', 'post__in' => $featuredArticles ));
+
+            while ($featureLoop->have_posts()) : $featureLoop->the_post();
+                include(locate_template('partials/vf-front-featureArticleType.php', false, false));
+            endwhile;
+            wp_reset_postdata();
+        }
+
+        if($numberOfDisplayedArticles < 3){
+            $featureLoop = new WP_Query(array('post_type' => 'sis-article',
+            'posts_per_page' => 3 - $numberOfDisplayedArticles,
+                'post_status' => 'publish',
+                'orderby' => 'rand',
+                'order' => 'DESC'));
+
+            while ($featureLoop->have_posts()) : $featureLoop->the_post();
+                include(locate_template('partials/vf-front-featureArticleType.php', false, false));
+            endwhile;
+            wp_reset_postdata();
+        }
         ?>
 
     </div>
 </section>
+
+

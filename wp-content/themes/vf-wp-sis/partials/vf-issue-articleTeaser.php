@@ -4,9 +4,28 @@ $art_issue = get_field('art_issue');
 $art_ages = get_field('art_ages');
 ?>
 <article class="vf-card vf-card--brand vf-card--bordered">
-                <span class="vf-badge vf-badge--secondary"
-                      style="background: orange; border-color: orange; ">Inspire</span>
-    <img src="https://www.scienceinschool.org/sites/default/files/articleContentImages/49/spaceplants/issue49_spaceplants_mars_food_production_bisected.jpg"
+    <?php
+    $articleType = get_field('art_article_type');
+    $articleTypesArray = sis_getArticleTypesArray();
+    if($articleType == $articleTypesArray['UNDERSTAND']){
+        ?>
+        <span class="vf-badge vf-badge--secondary" style="color: #fff;">Understand</span>
+        <?php
+    } else if($articleType == $articleTypesArray['INSPIRE']){
+        ?>
+        <span class="vf-badge vf-badge--primary" style="background: orange; border-color: orange;">Inspire</span>
+        <?php
+    } else if($articleType == $articleTypesArray['TEACH']){
+        ?>
+        <span class="vf-badge vf-badge--primary">Teach</span>
+        <?php
+    } else {
+        ?>
+        <span class="vf-badge vf-badge--primary" style="background: black;">Editorial</span>
+        <?php
+    }
+    ?>
+    <img src="<?php echo get_the_post_thumbnail_url(); ?>"
          alt="Image alt text" class="vf-card__image" loading="lazy">
     <div class="vf-card__content | vf-stack vf-stack--400">
         <h3 class="vf-card__heading"><a class="vf-card__link" href="<?php the_permalink();?>"><?php echo get_the_title();?>
@@ -25,13 +44,8 @@ $art_ages = get_field('art_ages');
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
             <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>
             <br/>
-            <!--gb,es-->
-            <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
-                                                                     src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/gb.png"
-                                                                     alt="English"> English</a>
-            &nbsp; <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
-                                                                            src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"
-                                                                            alt="Spanish"> Spanish</a>
+
+            <?php sis_articleLanguageSwitcherInLoop(); ?>
 
         </p>
     </div>

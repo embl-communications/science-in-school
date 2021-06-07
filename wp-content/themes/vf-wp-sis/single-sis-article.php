@@ -63,6 +63,8 @@ get_header();
         <div>
             <a href="JavaScript:Void(0);"
                class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Teach<br/> article</a>
+
+
         </div>
         <div class="vf-stack">
             <h1 class="vf-intro__heading"><?php the_title(); ?></h1>
@@ -84,18 +86,7 @@ get_header();
                 </div>
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">Available languages</p>
-                    <ul class="vf-links__list vf-links__list--secondary | vf-list">
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
-                                                                                     src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/gb.png"
-                                                                                     alt="English"> English</a>
-                        </li>
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
-                                                                                     src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"
-                                                                                     alt="Spanish"> Spanish</a>
-                        </li>
-                    </ul>
+                    <?php sis_articleLanguageSwitcher(); ?>
                 </div>
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">On this page</p>

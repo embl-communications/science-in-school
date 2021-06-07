@@ -1,5 +1,25 @@
 <article class="vf-card vf-card--brand vf-card--bordered">
-    <span class="vf-badge vf-badge--secondary" style="color: #fff;">Understand</span>
+    <?php
+    $articleType = get_field('art_article_type');
+    $articleTypesArray = sis_getArticleTypesArray();
+    if($articleType == $articleTypesArray['UNDERSTAND']){
+        ?>
+        <span class="vf-badge vf-badge--secondary" style="color: #fff;">Understand</span>
+        <?php
+    } else if($articleType == $articleTypesArray['INSPIRE']){
+        ?>
+        <span class="vf-badge vf-badge--primary" style="background: orange; border-color: orange;">Inspire</span>
+        <?php
+    } else if($articleType == $articleTypesArray['TEACH']){
+        ?>
+        <span class="vf-badge vf-badge--primary">Teach</span>
+        <?php
+    } else {
+        ?>
+        <span class="vf-badge vf-badge--primary" style="background: black;">Editorial</span>
+        <?php
+    }
+    ?>
     <img src="<?php echo get_the_post_thumbnail_url(); ?>"
          alt="Image alt text" class="vf-card__image" loading="lazy">
     <div class="vf-card__content | vf-stack vf-stack--400">
@@ -20,10 +40,10 @@
             <?php if ( function_exists('icl_object_id') ) {
                 languages_links_switcher(); }?>
             <?php
-                $artAges = get_field('art_ages');
-                if($artAges){
-                    sis_printTags($artAges);
-                }
+            $editorTags = get_field('sis-editor-tags');
+            if($editorTags){
+                sis_printTags($editorTags);
+            }
             ?>
             <a class="vf-list__item vf-list__link" href="3333">All</a>,
             <a class="vf-list__item vf-list__link" href="3333">Astronomy / space</a>,
@@ -31,17 +51,9 @@
             <a class="vf-list__item vf-list__link" href="3333">Physics</a>
         </div>
         <p class="wpml-ls-statics-post_translations wpml-ls">
-						<span
-                                class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations"><a
-                                    href="https://dev-science-in-school.pantheonsite.io" class="wpml-ls-link"><img
-                                        class="wpml-ls-flag"
-                                        src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png"
-                                        alt="English"></a></span> <span
-                    class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-es wpml-ls-last-item wpml-ls-item-legacy-post-translations"><a
-                        href="https://dev-science-in-school.pantheonsite.io/es/" class="wpml-ls-link"><img
-                            class="wpml-ls-flag"
-                            src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"
-                            alt="Spanish"></a></span>
+            <?php
+            sis_articleLanguageSwitcherInLoop();
+            ?>
         </p>
     </div>
 </article>

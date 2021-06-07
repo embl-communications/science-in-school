@@ -32,7 +32,7 @@ $art_ages = get_field('art_ages');
                                                                         alt="Spanish"> Spanish</a>
     </p>
     <p class="vf-summary__text">
-
+<?php wpml_post_languages_in_loop(); ?>
     </p>
     <!--<p class="vf-summary__text">
       Type: teach,article

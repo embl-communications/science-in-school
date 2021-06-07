@@ -11,6 +11,19 @@ require_once('functions/ells-breadcrumbs.php');
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 
+function sis_getArticleTypesArray(){
+    $ARTICLE_TYPE_INSPIRE = 5364;
+    $ARTICLE_TYPE_TEACH = 5365;
+    $ARTICLE_TYPE_UNDERSTAND = 5363;
+    $ARTICLE_TYPE_EDITORIAL = 5349;
+
+    return array(
+        'EDITORIAL' => $ARTICLE_TYPE_EDITORIAL,
+        'INSPIRE' => $ARTICLE_TYPE_INSPIRE,
+        'TEACH' => $ARTICLE_TYPE_TEACH,
+        'UNDERSTAND' => $ARTICLE_TYPE_UNDERSTAND
+    );
+}
 
 // CHILD THEME CSS FILE
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
@@ -98,7 +111,6 @@ function sis_printArticlePDFLink($art_pdf){
 
 // custom language switcher for the WPML plugin
 function languages_links_switcher(){
-    var_dump(icl_get_languages('skip_missing=1'));
     $languages = icl_get_languages('skip_missing=1');
     if(1 < count($languages)){ echo __(' <div class="vf-banner vf-banner--alert vf-banner--info | vf-u-margin__bottom--200">
   <div class="vf-banner__content">
@@ -120,3 +132,66 @@ function languages_links_switcher(){
   </div>' );
     }
 }
+
+// custom language switcher for the WPML plugin
+function sis_articleLanguageSwitcher(){
+    $languages = icl_get_languages('skip_missing=1');
+    echo __(' <ul class="vf-links__list vf-links__list--secondary | vf-list">');
+        foreach($languages as $l){
+            $langs[] = '<li class="vf-list__item"><a class="list__link" href="'.$l['url'].
+                '"><img class="wpml-ls-flag" src="' . $l['country_flag_url'].'" />&nbsp;' .$l['native_name'].'</a></li>';
+        }
+        echo join(' ', $langs);
+        echo __('
+    
+  </ul>' );
+
+}
+
+
+// Show linked WPML posts in a loop
+function wpml_post_languages_in_loop() {
+    $thispostid = get_the_ID();
+    $post_trid = apply_filters('wpml_element_trid', NULL, get_the_ID(), 'post_' . get_post_type());
+    $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
+    //var_dump($post_trid);
+    //var_dump($languages);
+    if (empty($post_trid))
+        return;
+    $translation = apply_filters('wpml_get_element_translations', NULL, $post_trid, 'post_' . get_post_type());
+
+    //var_dump($translation);
+    if (1 < count($translation)) {
+        echo '<p class="vf-summary__meta">Other language(s): &nbsp;&nbsp;';
+        foreach ($translation as $l) {
+            if ($l->element_id != $thispostid) {
+                $langs[] = '<a href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '"><img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />' . '</a>';
+            }
+        }
+        echo join(' &nbsp; ', $langs);
+        echo '</p>';
+    }
+}
+
+
+// Show linked WPML posts in a loop
+function sis_articleLanguageSwitcherInLoop() {
+    $thispostid = get_the_ID();
+    $post_trid = apply_filters('wpml_element_trid', NULL, get_the_ID(), 'post_' . get_post_type());
+    $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
+
+    if (empty($post_trid)) return;
+    $translation = apply_filters('wpml_get_element_translations', NULL, $post_trid, 'post_' . get_post_type());
+
+        foreach ($translation as $l) {
+            $langs[] = '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
+                . '<a href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+                . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />'
+                . '</a>'
+                . '</span>';
+
+        }
+        echo join(' &nbsp; ', $langs);
+}
+
+
