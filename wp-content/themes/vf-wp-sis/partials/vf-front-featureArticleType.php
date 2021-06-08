@@ -36,15 +36,11 @@
         <p class="vf-card__text"><?php echo get_the_excerpt(); ?></p>
         <div class="vf-links vf-links--tight vf-links__list--s vf-links__list--secondary">
             <?php
-            $editorTags = get_field('sis-editor-tags');
-            if($editorTags){
-                sis_printTags($editorTags);
+            $categories = get_field('art_topics');
+            if($categories){
+                sis_printTagsWithBeforeAndAfter('<span class="vf-list__item">', $categories, '</span>');
             }
             ?>
-            <a class="vf-list__item vf-list__link" href="3333">All</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Astronomy / space</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Chemistry</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Physics</a>
         </div>
         <p class="wpml-ls-statics-post_translations wpml-ls">
             <?php

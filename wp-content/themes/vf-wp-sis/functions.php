@@ -111,7 +111,7 @@ function sis_printTagsWithHeaderAndEnd($header, $art_tags, $end){
             }
             $count++;
             $tag = get_term($tagId);
-            echo $tag->name . ' ';
+            echo $tag->name;
         }
         if($count > 0){
             print $end;
@@ -119,11 +119,38 @@ function sis_printTagsWithHeaderAndEnd($header, $art_tags, $end){
     }
 }
 
-function sis_printSingleTag($art_tag){
+function sis_printTagsWithBeforeAndAfter($before, $art_tags, $after){
+    if (is_array($art_tags)) {
+        $count = 0;
+        foreach ($art_tags as $tagId) {
+            print $before;
+            if($count > 0){
+                print ', ';
+            }
+            $count++;
+            $tag = get_term($tagId);
+            echo $tag->name . $after;
+        }
+    }
+}
+
+function sis_printSingleTagWithAfter($art_tag, $after){
     if (!empty($art_tag)) {
         $tag = get_term($art_tag);
-        echo $tag->name . ' ';
+        echo $tag->name . $after;
     }
+}
+
+function sis_printSingleTagAsUrl($art_tag){
+    if (!empty($art_tag)) {
+        $tag = get_term($art_tag);
+        $art_url = str_replace(' ', '-', $tag->name);
+        echo $art_url;
+    }
+}
+
+function sis_printSingleTag($art_tag){
+    sis_printSingleTagWithAfter($art_tag, '');
 }
 
 function sis_printFieldWithHeader($header, $field){
@@ -134,8 +161,12 @@ function sis_printFieldWithHeader($header, $field){
 }
 
 function sis_printArticlePDFLink($art_pdf){
+    sis_printArticlePDFLinkWithHeaderAndEnd('', $art_pdf, '');
+}
+
+function sis_printArticlePDFLinkWithHeaderAndEnd($header, $art_pdf, $end){
     if (is_array($art_pdf) && array_key_exists("url", $art_pdf)) {
-        echo $art_pdf['url'];
+        echo $header . $art_pdf['url'] . $end;
     }
 }
 

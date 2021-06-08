@@ -33,6 +33,9 @@ get_header();
     $art_materials = get_field('art_materials');
     $art_migrated_from_drupal = get_field('art_migrated_from_drupal');
     $art_reviewed_after_migration_from_drupal = get_field('art_reviewed_after_migration_from_drupal');
+
+    $art_translator_name = get_field('art_translator_name');
+    $art_acknowledgements = get_field('art_acknowledgements');
     ?>
 
     <!--nav class="vf-breadcrumbs" aria-label="Breadcrumb">
@@ -89,18 +92,20 @@ get_header();
         <div>
             <aside class="vf-article-meta-information">
                 <div class="vf-meta__details">
-                    <p class="vf-meta__topics">Ages: <?php sis_printTags($art_ages); ?></p>
-                    <p class="vf-meta__topics">Keywords: <?php sis_printTags($art_editor_tags); ?></p>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Ages: ', $art_ages, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Topics: ', $art_topics, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Keywords: ', $art_editor_tags, '</p>'); ?>
                 </div>
                 <div class="vf-meta__details">
                     <p class="vf-meta__date"><?php the_date(); ?></p>
                     <p class="vf-meta__topics">
-                        <a href="JavaScript:Void(0);" class="vf-link"><?php sis_printSingleTag($art_issue); ?></a>
+                        <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>" class="vf-link"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
                 </div>
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
                 </div>
+                <!--
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">On this page</p>
                     <ul class="vf-links__list vf-links__list--secondary | vf-list">
@@ -121,22 +126,19 @@ get_header();
                         </li>
                     </ul>
                 </div>
+                -->
             </aside>
         </div>
         <div class="vf-content">
             <div class="vf-author | vf-article-meta-info__author">
                 <p class="">
                     <?php
-                        if($art_author_name != ''){
-                            ?>
-                    <strong>Authors:</strong>
-                    <?php echo $art_author_name; ?>
+                        sis_printFieldWithHeader('<strong>Authors: </strong>', $art_author_name);
+                        ?>
+                        <br/>
                     <?php
-                        }
-                    ?>
-                    <br/>
-                    <strong>Translators:</strong>
-                    <?php //TODO echo $art_author_name; ?>
+                       sis_printFieldWithHeader('<strong>Translators: </strong>', $art_translator_name);
+                            ?>
                 </p>
             </div>
 
@@ -146,11 +148,7 @@ get_header();
             <h3>Download</h3>
             <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
 
-            <h3>Acknowledgements</h3>
-            <p>The authors would like to thank Monica Talevi, Christina Toldbo and all their team members at the ESA
-                Education office who contributed to the development of these activities. Their thanks also go to ESA
-                scientist Christel Paille for reviewing the educational activities and providing constructive and
-                valuable comments.</p>
+            <?php sis_printFieldWithHeader('<h3>Acknowledgements</h3>', $art_acknowledgements); ?>
 
             <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
 
@@ -201,12 +199,17 @@ get_header();
         </div>
         <?php
         if($art_materials){
-            var_dump($art_materials);
         ?>
         <article class="sis-materials">
             <h3>Supporting materials</h3>
             <ul>
-                <li><a class="sis-materials--link sis-materials--link-pdf" href="#">Moon fact card</a></li>
+                <?php foreach($art_materials as $singleAddMat){
+                ?>
+                <li><a class="sis-materials--link sis-materials--link-pdf"
+                       href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a></li>
+                <?php
+                }
+                ?>
             </ul>
         </article>
         <?php

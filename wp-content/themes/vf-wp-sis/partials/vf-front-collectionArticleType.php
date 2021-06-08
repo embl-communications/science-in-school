@@ -40,15 +40,11 @@
             <?php if ( function_exists('icl_object_id') ) {
                 languages_links_switcher(); }?>
             <?php
-            $editorTags = get_field('sis-editor-tags');
-            if($editorTags){
-                sis_printTags($editorTags);
+            $categories = get_field('art_topics');
+            if($categories){
+                sis_printTagsWithBeforeAndAfter('<span class="vf-list__item">', $categories, '</span>');
             }
             ?>
-            <a class="vf-list__item vf-list__link" href="3333">All</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Astronomy / space</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Chemistry</a>,
-            <a class="vf-list__item vf-list__link" href="3333">Physics</a>
         </div>
         <p class="wpml-ls-statics-post_translations wpml-ls">
             <?php
