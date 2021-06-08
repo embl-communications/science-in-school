@@ -69,7 +69,7 @@
         "taxonomy": "",
         "allow_null": 0,
         "multiple": 1,
-        "return_format": "object",
+        "return_format": "id",
         "ui": 1
       },
       {
@@ -219,6 +219,31 @@
         },
         "default_value": "",
         "placeholder": "",
+        "wpml_cf_preferences": 0
+      },
+      {
+        "key": "field_60be21d13f8ee",
+        "label": "Hero Image",
+        "name": "hero_image",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
         "wpml_cf_preferences": 0
       }
     ],

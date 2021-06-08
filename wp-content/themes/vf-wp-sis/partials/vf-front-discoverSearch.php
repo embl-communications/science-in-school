@@ -1,9 +1,9 @@
  <!-- Search -->
-        <form action="#" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
+        <form action="/" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
             <div class="vf-sidebar__inner">
                 <div class="vf-form__item">
                     <label class="vf-form__label vf-u-sr-only | vf-search__label" for="searchitem">Search</label>
-                    <input type="search" placeholder="Enter your search terms" id="searchitem"
+                    <input type="search" placeholder="Enter your search terms" id="searchitem" name="s"
                            class="vf-form__input">
                 </div>
                 <button type="submit" class="vf-search__button | vf-button vf-button--primary">

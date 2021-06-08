@@ -8,10 +8,10 @@
     <nav class="vf-navigation vf-navigation--global vf-cluster">
         <ul class="vf-navigation__list | vf-list--inline | vf-cluster__inner">
             <li class="vf-navigation__item">
-                <a href="/languages" class="vf-navigation__link">Languages</a>
+                <a href="/contact" class="vf-navigation__link">Contact</a>
             </li>
             <li class="vf-navigation__item">
-                <a href="/about" class="vf-navigation__link">About</a>
+                <a href="/newsletter" class="vf-navigation__link">Newsletter Signup</a>
             </li>
             <li class="vf-navigation__item">
                 <a href="/?s=" class="vf-navigation__link">Search</a>

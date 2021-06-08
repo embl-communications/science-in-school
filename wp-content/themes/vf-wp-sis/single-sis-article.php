@@ -35,9 +35,7 @@ get_header();
     $art_reviewed_after_migration_from_drupal = get_field('art_reviewed_after_migration_from_drupal');
     ?>
 
-
-    <!-- https://www.scienceinschool.org/content/astrofarmer-how-grow-plants-space -->
-    <nav class="vf-breadcrumbs" aria-label="Breadcrumb">
+    <!--nav class="vf-breadcrumbs" aria-label="Breadcrumb">
         <ul class="vf-breadcrumbs__list | vf-list vf-list--inline">
             <li class="vf-breadcrumbs__item">
                 <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Explore</a>
@@ -55,21 +53,36 @@ get_header();
                 <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Chemistry</a>
             </li>
         </ul>
-    </nav>
+    </nav-->
     <br/>
     <br/>
     <!--  -->
     <section class="embl-grid embl-grid--has-centered-content" id="an-id-for-anchor">
         <div>
-            <a href="JavaScript:Void(0);"
+        <?php
+        $articleType = get_field('art_article_type');
+        $articleTypesArray = sis_getArticleTypesArray();
+        if($articleType == $articleTypesArray['UNDERSTAND']){
+            ?>
+            <a href="/?sis-article-types=understand"
+               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Understand<br/> article</a>
+            <?php
+        } else if($articleType == $articleTypesArray['INSPIRE']){
+            ?>
+            <a href="/?sis-article-types=inspire"
+               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Inspire<br/> article</a>
+            <?php
+        } else if($articleType == $articleTypesArray['TEACH']){
+            ?>
+            <a href="/?sis-article-types=teach"
                class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Teach<br/> article</a>
-
-
+            <?php
+        }
+        ?>
         </div>
         <div class="vf-stack">
-            <h1 class="vf-intro__heading"><?php the_title(); ?></h1>
+            <h1 class="vf-intro__heading"><?php echo get_the_title(); ?></h1>
             <p class="vf-lede"><?php echo get_the_excerpt(); ?></p>
-
         </div>
     </section>
     <div class="embl-grid embl-grid--has-centered-content">
@@ -113,8 +126,14 @@ get_header();
         <div class="vf-content">
             <div class="vf-author | vf-article-meta-info__author">
                 <p class="">
+                    <?php
+                        if($art_author_name != ''){
+                            ?>
                     <strong>Authors:</strong>
                     <?php echo $art_author_name; ?>
+                    <?php
+                        }
+                    ?>
                     <br/>
                     <strong>Translators:</strong>
                     <?php //TODO echo $art_author_name; ?>
@@ -143,11 +162,56 @@ get_header();
 
             <?php sis_printFieldWithHeader('<h3>Author</h3>', $art_authors); ?>
 
-            <?php sis_printSingleTag($art_license); ?>
-            <?php echo $art_license_freetext; ?>
-            <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
-            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+            <br/><br/>
+            <div>
+                <?php
+                if($art_license == 5343){
+                ?>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                <?php
+                } else if($art_license == 5345){
+                    ?>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND"/>
+                    <?php
+                } else if($art_license == 5341){
+                    ?>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND"/>
+                    <?php
+                } else if($art_license == 5340){
+                    ?>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="SA"/>
+                    <?php
+                } else {
+                    sis_printSingleTag($art_license);
+                }
+                ?>
+            </div>
+            <div>
+                <?php echo $art_license_freetext; ?>
+            </div>
         </div>
+        <?php
+        if($art_materials){
+            var_dump($art_materials);
+        ?>
+        <article class="sis-materials">
+            <h3>Supporting materials</h3>
+            <ul>
+                <li><a class="sis-materials--link sis-materials--link-pdf" href="#">Moon fact card</a></li>
+            </ul>
+        </article>
+        <?php
+        }
+        ?>
     </div>
 
     <?php include(locate_template('partials/vf-sub-relatedArticles.php', false, false)); ?>

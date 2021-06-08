@@ -23,16 +23,12 @@ $art_ages = get_field('art_ages');
     <p class="vf-summary__source">
         Ages: <?php sis_printTags($art_ages); ?>; Keywords: <?php sis_printTags($art_editor_tags); ?>
         <br/>
+        <?php sis_articleLanguageSwitcherInLoopWithLanguageNames(); ?>
         <!--gb,es-->
-        <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
-                                                                 src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/gb.png"
-                                                                 alt="English"> English</a>
-        &nbsp; <a class="vf-list__link" href="JavaScript:Void(0);"><img class="wpml-ls-flag"
-                                                                        src="https://dev-science-in-school.pantheonsite.io/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"
-                                                                        alt="Spanish"> Spanish</a>
+
     </p>
     <p class="vf-summary__text">
-<?php wpml_post_languages_in_loop(); ?>
+
     </p>
     <!--<p class="vf-summary__text">
       Type: teach,article

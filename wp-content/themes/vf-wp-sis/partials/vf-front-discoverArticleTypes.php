@@ -5,7 +5,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/assets/emblstatic-homepage/assets/topics/structures.png"
                 alt="Image alt text" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="JavaScript:Void(0);">Understand
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/?sis-article-types=understand">Understand
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -24,7 +24,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/assets/emblstatic-homepage/assets/topics/structures.png"
                 alt="Image alt text" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="JavaScript:Void(0);">Inspire
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/?sis-article-types=inspire">Inspire
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -43,7 +43,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/assets/emblstatic-homepage/assets/topics/structures.png"
                 alt="Image alt text" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="JavaScript:Void(0);">Teach
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/?sis-article-types=teach">Teach
                     <svg aria-hidden="true"
                          class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
                          height="1em"

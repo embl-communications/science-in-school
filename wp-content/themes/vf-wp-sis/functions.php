@@ -61,6 +61,36 @@ function my_acf_save_post($post_id)
 
 add_action('acf/save_post', 'my_acf_save_post', 20);
 
+function sis_getTermIdsFromGetParam($taxonomyName)
+{
+    $getParamArrayIds = array();
+    $getParamValue = get_query_var($taxonomyName);
+    if($getParamValue){
+        $getParamArray = explode(',',$getParamValue);
+        foreach($getParamArray as $singleGetParam){
+            $term = get_term_by( 'slug', $singleGetParam, $taxonomyName);
+            if($term){
+                $getParamArrayIds[] = $term->term_id;
+            }
+        }
+    }
+    return $getParamArrayIds;
+}
+
+function sis_archive_page_query_mod( $query ) {
+    $query['orderby'] = 'publish_date';
+    $query['order'] = 'ASC';
+    return $query;
+}
+
+function sis_disable_pagination( $query ) {
+    if($query->get('post_type') == 'sis-issue') {
+        $query->set('nopaging', true);
+    }
+}
+add_action( 'pre_get_posts', 'sis_disable_pagination' );
+
+
 function sis_printTags($art_tags){
     sis_printTagsWithHeader('', $art_tags);
 }
@@ -192,6 +222,31 @@ function sis_articleLanguageSwitcherInLoop() {
 
         }
         echo join(' &nbsp; ', $langs);
+}
+
+// Show linked WPML posts in a loop
+function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
+    $thispostid = get_the_ID();
+    $post_trid = apply_filters('wpml_element_trid', NULL, get_the_ID(), 'post_' . get_post_type());
+    $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
+
+    if (empty($post_trid)) return;
+    $translation = apply_filters('wpml_get_element_translations', NULL, $post_trid, 'post_' . get_post_type());
+
+    foreach ($translation as $l) {
+        $langs[] =
+            '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
+            . '<a class="vf-list__link" href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+            . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'] . '" '
+            . ' alt="' . $languages[$l->language_code]['native_name'] . '" '
+            .' /> '
+            . $languages[$l->language_code]['native_name']
+            . '</a>'
+            . '</span>'
+            ;
+
+    }
+    echo join(' &nbsp; ', $langs);
 }
 
 
