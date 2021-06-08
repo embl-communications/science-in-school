@@ -12,10 +12,10 @@ add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 
 function sis_getArticleTypesArray(){
-    $ARTICLE_TYPE_INSPIRE = 5364;
-    $ARTICLE_TYPE_TEACH = 5365;
-    $ARTICLE_TYPE_UNDERSTAND = 5363;
-    $ARTICLE_TYPE_EDITORIAL = 5349;
+    $ARTICLE_TYPE_INSPIRE = 2559;
+    $ARTICLE_TYPE_TEACH = 2560;
+    $ARTICLE_TYPE_UNDERSTAND = 2558;
+    $ARTICLE_TYPE_EDITORIAL = 2544;
 
     return array(
         'EDITORIAL' => $ARTICLE_TYPE_EDITORIAL,
