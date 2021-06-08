@@ -5,6 +5,7 @@
                     <label class="vf-form__label vf-u-sr-only | vf-search__label" for="searchitem">Search</label>
                     <input type="search" placeholder="Enter your search terms" id="searchitem" name="s"
                            class="vf-form__input">
+                    <input type="hidden" name="post_type" value="sis-article" />
                 </div>
                 <button type="submit" class="vf-search__button | vf-button vf-button--primary">
                     <span class="vf-button__text">Search</span>

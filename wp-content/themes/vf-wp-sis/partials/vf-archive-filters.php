@@ -1,31 +1,4 @@
 <!-- filters -->
-<fieldset class="vf-form__fieldset vf-stack vf-stack--400">
-    <legend class="vf-form__legend">Type</legend>
-    <?php
-        $articleTypeGetParam = get_query_var('sis-article-types');
-
-        $articleTypesArray = sis_getArticleTypesArray();
-    ?>
-
-    <div class="vf-form__item vf-form__item--checkbox">
-        <input type="checkbox" name="filter-article-types" value="teach"
-               <?php if($articleTypeGetParam == 'teach'){ echo ' checked="checked"  '; } ?>
-               id="id-<?php echo $articleTypesArray['TEACH'];?>" class="vf-form__checkbox">
-        <label for="id-<?php echo $articleTypesArray['TEACH'];?>" class="vf-form__label">Teach</label>
-    </div>
-    <div class="vf-form__item vf-form__item--checkbox">
-        <input type="checkbox" name="filter-article-types" value="understand"
-                <?php if($articleTypeGetParam == 'understand'){ echo ' checked="checked"  '; } ?>
-               id="id-<?php echo $articleTypesArray['UNDERSTAND'];?>" class="vf-form__checkbox">
-        <label for="id-<?php echo $articleTypesArray['UNDERSTAND'];?>" class="vf-form__label">Understand</label>
-    </div>
-    <div class="vf-form__item vf-form__item--checkbox">
-        <input type="checkbox" name="filter-article-types" value="inspire"
-                <?php if($articleTypeGetParam == 'inspire'){ echo ' checked="checked"  '; } ?>
-               id="id-<?php echo $articleTypesArray['INSPIRE'];?>" class="vf-form__checkbox">
-        <label for="id-<?php echo $articleTypesArray['INSPIRE'];?>" class="vf-form__label">Inspire</label>
-    </div>
-</fieldset>
 
 <fieldset class="vf-form__fieldset vf-stack vf-stack--400">
     <legend class="vf-form__legend">Age group</legend>
@@ -121,6 +94,11 @@
                 <?php if($sortOrder == 'ASC'){ echo ' checked="checked"'; } ?>
                 type="radio" name="filter-sort-order" value="ASC" id="filter-sort-order-2" class="vf-form__radio">
         <label for="filter-sort-order-2" class="vf-form__label">Date, oldest first</label>
+    </div>
+    <div class="vf-form__item vf-form__item--radio">
+        <input
+                type="radio" name="filter-sort-order" value="ASC" id="filter-sort-order-2" class="vf-form__radio">
+        <label for="filter-sort-order-2" class="vf-form__label">Relevance</label>
     </div>
 </fieldset>
 

@@ -13,12 +13,14 @@ get_header();
                 If you need a description about the service or context of the search.
             </p>
 
-            <form action="#" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
+            <form action="<?php echo esc_url(home_url('/')); ?>" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
                 <div class="vf-sidebar__inner">
                     <div class="vf-form__item">
                         <label class="vf-form__label vf-u-sr-only | vf-search__label" for="searchitem">Search</label>
-                        <input type="search" value="the current search query" placeholder="Enter your search terms"
+                        <input type="search" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="Enter your search terms"
+                               name="s"
                                id="searchitem" class="vf-form__input">
+                        <input type="hidden" name="post_type" value="sis-article" />
                     </div>
 
                     <button type="submit" class="vf-search__button | vf-button vf-button--primary">
@@ -35,9 +37,9 @@ get_header();
                     </button>
                 </div>
             </form>
-            <p class="vf-form__helper">Related or examples: <a href="JavaScript:Void(0);" class="vf-link">Cheese</a>, <a
+            <!-- p class="vf-form__helper">Related or examples: <a href="JavaScript:Void(0);" class="vf-link">Cheese</a>, <a
                         href="JavaScript:Void(0);" class="vf-link">Brie</a>. You can also use the <a
-                        href="JavaScript:Void(0);" class="vf-link">advanced search</a>.</p>
+                        href="JavaScript:Void(0);" class="vf-link">advanced search</a>.</p -->
             <br/>
             <br/>
         </div>
@@ -45,36 +47,31 @@ get_header();
 
     <section class="embl-grid">
         <div class="vf-stack vf-stack--800">
-
             <?php include(locate_template('partials/vf-search-filters.php', false, false)); ?>
-
         </div>
 
         <div class="vf-stack">
 
             <p class="vf-text-body vf-text-body--4">
-                Showing 10 results from a total of 1 280
+                <?php
+                echo 'Showing ' . $GLOBALS['wp_query']->post_count . ' results from a total of ' . $GLOBALS['wp_query']->found_posts;
+                ?>
             <p>
 
-                <?php include(locate_template('partials/vf-search-articleTeaser.php', false, false)); ?>
+                <?php
+                if (have_posts()) {
+                    while (have_posts()) {
+                        the_post();
+                        include(locate_template('partials/vf-search-articleTeaser.php', false, false));
+                    }
+                } else {
+                    echo '<p>', __('No posts found', 'vfwp'), '</p>';
+                }
+                ?>
 
-                <nav class="vf-pagination" aria-label="Pagination">
+
+                <!-- nav class="vf-pagination" aria-label="Pagination">
                     <ul class="vf-pagination__list">
-                        <!--
-                        <li class="vf-pagination__item vf-pagination__item--pages-per">
-                          <div class="vf-form__item--inline">
-                            <label class="vf-form__label" for="vf-form__select">Results per page</label>
-
-                            <select class="vf-form__select" id="vf-form__select">
-                              <option value="10" selected>10</option>
-                              <option value="20">20</option>
-                              <option value="30">30</option>
-                              <option value="40">40</option>
-                              <option value="50">50</option>
-                            </select>
-                          </div>
-                        </li>
-                        -->
                         <li class="vf-pagination__item">
                             <span class="vf-u-sr-only">Result </span> 1 - 10 of 1,345
                         </li>
@@ -99,72 +96,11 @@ get_header();
                             </a>
                         </li>
                     </ul>
-                </nav>
+                </nav --->
 
         </div>
     </section>
 
-    <!-- OLD -->
-
-    <?php
-    $total_results = $wp_query->found_posts;
-
-    ?>
-
-
-    <section class="embl-grid embl-grid--has-centered-content">
-        <div></div>
-        <div class="vf-content">
-
-            <h1 class="vf-text-heading--1">Search</h1>
-
-            <style>
-
-                .vf-search--inline .vf-search__input {
-                    min-width: 300px;
-                }
-
-                .vf-search--inline .vf-form__select {
-                    padding: 8px 12px;
-                }
-
-                .vf-search--inline .vf-search__item:not(:first-child) {
-                    padding-left: 10px;
-                }
-            </style>
-            <div>
-                <form role="search" method="get" class="vf-form  | vf-search vf-search--inline"
-                      action="<?php echo esc_url(home_url('/')); ?>">
-                    <div class="vf-form__item | vf-search__item">
-                        <input type="search" class="vf-form__input | vf-search__input"
-                               value="<?php echo esc_attr(get_search_query()); ?>" name="s">
-                    </div>
-                    <div class="vf-form__item | vf-search__item">
-                        <label class="vf-form__label vf-u-sr-only | vf-search__label"
-                               for="vf-form__select">Category</label>
-                        <select class="vf-form__select" id="vf-form__select" name="post_type" value="post_type">
-                            <option value="all" selected="">Everything</option>
-                        </select>
-                    </div>
-                    <input type="submit" class="vf-search__button | vf-button vf-button--primary vf-button--sm"
-                           value="<?php esc_attr_e('Search', 'vfwp'); ?>">
-                </form>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <?php
-    if (have_posts()) {
-        while (have_posts()) {
-            the_post();
-            include(locate_template('partials/vf-summary--news.php', false, false));
-        }
-    } else {
-        echo '<p>', __('No posts found', 'vfwp'), '</p>';
-    } ?>
     <div class="vf-grid"> <?php vf_pagination(); ?></div>
 
 

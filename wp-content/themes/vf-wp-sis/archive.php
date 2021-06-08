@@ -24,7 +24,6 @@ get_header();
 
             <p class="vf-text-body vf-text-body--4">
                 <?php
-                //var_dump($GLOBALS['wp_query']);
                 echo 'Showing ' . $GLOBALS['wp_query']->post_count . ' results from a total of ' . $GLOBALS['wp_query']->found_posts;
                 ?>
 
