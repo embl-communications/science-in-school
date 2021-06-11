@@ -2792,10 +2792,10 @@
   resolved "https://registry.yarnpkg.com/@visual-framework/vf-search/-/vf-search-1.2.1.tgz#5241ccdfdc06eae3f5ed51ccb12ac25bc1969f99"
   integrity sha512-Ln/JJoMOKu9IG+iGvRZCncDZOCMxS2WS+4DX1QBxMLFZSbbhDv/E48DJwsrbYUw6uN8jEIP4dR3d1hd95oGIwA==
 
-"@visual-framework/vf-section-header@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@visual-framework/vf-section-header/-/vf-section-header-1.5.0.tgz#88312019a45d657859326eb84fb57b9cfb545e1e"
-  integrity sha512-EtnB/X6cyUdhSrfVupfS/IaLjMW70fQfAllb/boOpxRqKy45cK7kOJfMcj9/iS/Kb9BXMoIXmcahrIAHiW5OwA==
+"@visual-framework/vf-section-header@1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@visual-framework/vf-section-header/-/vf-section-header-1.5.1.tgz#9708d9899d60e144239f1a27a15496c77ff7f494"
+  integrity sha512-9NSWP5jLbtRDOKXFbjoN5ZlC7pv6723oSCpFU+IMi74JARrdJNaiqaGHimXWK3yahAa3zCMiTBcJIPGOIFfaOg==
 
 "@visual-framework/vf-social-links@0.0.2":
   version "0.0.2"
