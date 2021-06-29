@@ -1,28 +1,131 @@
 <?php
+
 get_header();
+
 ?>
-<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
-<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
-<main class="tmpl-post">
 
+<section class="vf-grid vf-grid__col-3">
+  <div class="vf-grid__col--span-2 | vf-content">
+    <?php if (is_tax()) { ?>
+    <h1>
+      <?php echo esc_html(single_term_title()); } ?>
+    </h1>
+    <h3>
+      <?php echo esc_html(VF_Events::get_archive_title()); ?>
+    </h3>
+    <div>
 
-    <h1>Upcoming Events </h1>
+    <?php
+    if ( have_posts() ) {
+    while (have_posts()) {
+      the_post();
+      $post_id = get_the_ID();
+      $start_date = get_field(
+        'vf_event_start_date',
+        $post_id
+      );
+      $location = get_field(
+        'vf_event_location',
+        $post_id
+      );
+      $event_type = get_field('vf_event_event_type'); ?>
 
-    Layout to be done
+      <article class="vf-summary vf-summary--event">
+        <?php if ( ! empty($start_date)) { ?>
+        <p class="vf-summary__date">
+          <?php echo esc_html($start_date); ?>
+        </p>
+        <?php } ?>
+        <h3 class="vf-summary__title">
+          <a href="<?php echo get_permalink(); ?>" class="vf-summary__link">
+            <?php the_title(); ?>
+          </a>
+        </h3>
+        <?php if ( ! empty(get_the_excerpt())) { ?>
+        <p class="vf-summary__text">
+          <?php echo strip_tags(get_the_excerpt()); ?>
+        </p>
+        <?php } ?>
+        <p class="vf-summary__text">
+          <?php if($event_type && is_object($event_type)) { echo esc_html($event_type->name); } ?>
+        </p>
+        <?php if ( ! empty($location)) { ?>
+        <p class="vf-summary__location">
+          <?php echo esc_html($location); ?>
+        </p>
+        <?php } ?>
+      </article>
+      <!--/vf-summary-->
+      <?php
 
-    <?php include(locate_template('partials/vf-eventList-eventTeaser.php', false, false)); ?>
+      // Output divider after all but last post
+      if ($wp_query->current_post < $wp_query->post_count - 1) {
+        echo '<hr class="vf-divider">';
+      }
 
-    <?php include(locate_template('partials/vf-eventList-eventTeaser.php', false, false)); ?>
+    } } // while (have_posts())
+    ?>
 
+  <?php
+    $pagination = VF_Events::get_archive_pages();
+    if ($pagination['previous'] || $pagination['next']) { ?>
+      <nav class="vf-pagination" aria-label="<?php esc_attr_e('Pagination', 'vfwp'); ?>">
+        <ul class="vf-pagination__list">
+          <?php if ($pagination['previous']) { ?>
+          <li class="vf-pagination__item vf-pagination__item--previous-page">
+            <a href="<?php echo esc_url($pagination['previous']); ?>" class="vf-pagination__link">
+              <?php
+            printf(
+              '%1$s<span class="vf-u-sr-only"> %2$s</span>',
+              _x('Previous', 'events pagination', 'vfwp'),
+              _x('page', 'events pagination', 'vfwp')
+            );
+            ?>
+            </a>
+          </li>
+          <?php } ?>
+          <?php if ($pagination['next']) { ?>
+          <li class="vf-pagination__item vf-pagination__item--next-page">
+            <a href="<?php echo esc_url($pagination['next']); ?>" class="vf-pagination__link">
+              <?php
+            printf(
+              '%1$s<span class="vf-u-sr-only"> %2$s</span>',
+              _x('Next', 'events pagination', 'vfwp'),
+              _x('page', 'events pagination', 'vfwp')
+            );
+            ?>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+      </nav>
+      <!--/vf-pagination-->
+      <?php } ?>
 
-    <br>
+      <?php
+    // View alternate past/upcoming archives
+    $is_past = VF_Events::is_past_archive();
+    $alt_url = VF_Events::get_archive_link( ! $is_past);
+    $alt_title = sprintf(
+      _x('View %1$s', 'event archive link', 'vfwp'),
+      VF_Events::get_archive_title( ! $is_past)
+    );
+    if ( ! is_tax()) {
+    ?>
+      <p class="vf-text-body">
+        <a href="<?php echo esc_url($alt_url); ?>">
+          <?php echo esc_html($alt_title); ?>
+        </a>
+      </p>
+      <?php } ?>
 
-    <?php include(locate_template('partials/vf-sub-relatedArticles.php', false, false)); ?>
+    </div>
 
-    <br>
+  </div>
+</section>
 
-    <?php include(locate_template('partials/vf-sub-newsletter.php', false, false)); ?>
+<?php
 
-</main>
-<?php include(locate_template('partials/vf-footer.php', false, false)); ?>
-<?php get_footer(); ?>
+get_footer();
+
+?>

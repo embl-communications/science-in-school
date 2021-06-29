@@ -6,11 +6,20 @@
     </div>
     <div class="vf-news-container__content vf-grid">
 
-        <?php include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false)); ?>
+        <?php
+        $featureLoop = new WP_Query(
+            array(
+                'post_type' => 'vf_event',
+                'posts_per_page' => 3,
+                'post_status' => 'publish',
+                'orderby' => 'rand',
+                'order' => 'DESC'));
 
-        <?php include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false)); ?>
-
-        <?php include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false)); ?>
+        while ($featureLoop->have_posts()) : $featureLoop->the_post();
+            include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false));
+        endwhile;
+        wp_reset_postdata();
+        ?>
 
     </div>
 </section>

@@ -1,13 +1,16 @@
+<?php
+$registration_closing = get_field('vf_event_registration_closing');
+?>
 <article class="vf-summary vf-summary--news">
-    <span class="vf-summary__date">8 to 12 years old | Deadline: 30 July 2021</span>
+    <span class="vf-summary__date">8 to 12 years old | <?php sis_printFieldWithHeader('Deadline: ', $registration_closing);?></span>
     <img class="vf-summary__image"
-         src="https://www.scienceinschool.org/sites/default/files/teaserImage/ells-resources-teaser.jpg"
-         alt="News image alt" loading="lazy">
+         src="<?php echo get_the_post_thumbnail_url(); ?>"
+         loading="lazy">
     <h3 class="vf-summary__title">
-        <a href="JavaScript:Void(0);" class="vf-summary__link">Webinar name</a>
+        <a href="<?php echo get_the_permalink(); ?>" class="vf-summary__link"><?php echo get_the_title(); ?></a>
     </h3>
     <p class="vf-summary__text">
-        Webinar description in a series of words written here would be said about the thing written.
+        <?php echo get_the_excerpt(); ?>
     </p>
 </article>
 

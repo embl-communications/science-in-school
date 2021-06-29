@@ -3,6 +3,7 @@ $art_editor_tags = get_field('art_editor_tags');
 $art_issue = get_field('art_issue');
 $art_ages = get_field('art_ages');
 $art_article_type = get_field('art_article_type');
+$art_topics = get_field('art_topics');
 ?>
 <article class="vf-summary vf-summary--news">
     <span class="vf-summary__date"><?php the_date(); ?> | <?php sis_printSingleTag($art_issue); ?></span>
@@ -41,11 +42,11 @@ $art_article_type = get_field('art_article_type');
 
 
     <p class="vf-summary__source">
-        Ages: <?php sis_printTags($art_ages); ?>; Keywords: <?php sis_printTags($art_editor_tags); ?>
-        <br/>
-        <?php sis_articleLanguageSwitcherInLoopWithLanguageNames(); ?>
-        <!--gb,es-->
+        <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; <br/>'); ?>
 
+        <?php sis_printTagsWithHeaderAndEnd('Topics: ', $art_topics, ' <br/>'); ?>
+
+        <?php sis_articleLanguageSwitcherInLoopWithLanguageNames(); ?>
     </p>
     <p class="vf-summary__text">
 
