@@ -32,7 +32,7 @@
   }
 
   &::after {
-    background-color: color(green);
+    background-color: brand-color(dark);
     content: '';
     height: 8px;
     margin-left: calc(50% - 50vw);
@@ -52,7 +52,7 @@
 .vf-footer__notice {
   @include set-type(text-body--3);
 
-  color: ui-color(white);
+  // color: ui-color(white);
   max-width: 45em;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .vf-footer__legal {
-  color: ui-color(white);
+  // color: ui-color(white);
   column-gap: var(--page-grid-gap);
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   .vf-list {
@@ -84,7 +84,6 @@
   .vf-list {
     font-size: 19px;
   }
-
 
   .vf-footer__legal-text,
   .vf-footer__link {
