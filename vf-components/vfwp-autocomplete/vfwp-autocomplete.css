@@ -55,8 +55,8 @@
 }
 
 :root {
-  --vf-color__brand: #18974c;
-  --vf-color__brand--dark: #0a5032;
+  --vf-color__brand: #216cb6;
+  --vf-color__brand--dark: #011421;
 }
 
 :root {
@@ -222,7 +222,7 @@
   */
   color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.71;
   margin: 0 0 16px 0;
