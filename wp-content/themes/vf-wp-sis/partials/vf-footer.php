@@ -1,9 +1,7 @@
 <footer class="vf-footer">
     <div class="vf-footer__inner">
         <p class="vf-footer__notice">
-            Supporting teachers in the delivery of STEM curricula with connections to inspiring, cutting-edge science
-            and
-            technology.
+            Supporting teachers in the delivery of STEM curricula with connections to inspiring, cutting-edge science and technology.
         </p>
 
         <section class="vf-footer__links-group | vf-grid">
@@ -12,28 +10,13 @@
                     About</h4>
                 <ul class="vf-links__list | vf-list">
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">About Science in School</a>
+                        <a class="vf-list__link" href="/about-science-school">About Science in School</a>
                     </li>
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">About EIROforum</a>
+                        <a class="vf-list__link" href="/about-eiroforum">About EIROforum</a>
                     </li>
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Imprint</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="vf-links">
-                <h4 class="vf-links__heading">
-                    About</h4>
-                <ul class="vf-links__list | vf-list">
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Copyright</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Safety note</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Disclaimer</a>
+                        <a class="vf-list__link" href="/imprint">Imprint</a>
                     </li>
                 </ul>
             </div>
@@ -42,14 +25,28 @@
                     About</h4>
                 <ul class="vf-links__list | vf-list">
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Archive
-                        </a>
+                        <a class="vf-list__link" href="/copyright">Copyright</a>
                     </li>
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Donate</a>
+                        <a class="vf-list__link" href="/safety">Safety note</a>
                     </li>
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="33333">Contact</a>
+                        <a class="vf-list__link" href="/disclaimer">Disclaimer</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="vf-links">
+                <h4 class="vf-links__heading">
+                    About</h4>
+                <ul class="vf-links__list | vf-list">
+                    <li class="vf-list__item">
+                        <a class="vf-list__link" href="/issue">Archive</a>
+                    </li>
+                    <li class="vf-list__item">
+                        <a class="vf-list__link" href="/donation">Donate</a>
+                    </li>
+                    <li class="vf-list__item">
+                        <a class="vf-list__link" href="/contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -86,7 +83,7 @@
                 <div class="vf-social-links vf-social-links--outline">
                     <ul class="vf-social-links__list">
                         <li class="vf-social-links__item" style="border-color:white;">
-                            <a class="vf-social-links__link" href="33333">
+                            <a class="vf-social-links__link" target="_blank" href="https://twitter.com/SciInSchool">
                 <span class="vf-u-sr-only">
                   twitter
                 </span>
@@ -100,7 +97,7 @@
                             </a>
                         </li>
                         <li class="vf-social-links__item" style="border-color:white;">
-                            <a class="vf-social-links__link" href="33333">
+                            <a class="vf-social-links__link" target="_blank" href="https://www.facebook.com/scienceinschool">
                 <span class="vf-u-sr-only">
                   facebook
                 </span>
@@ -113,53 +110,59 @@
                                 </svg>
                             </a>
                         </li>
-                        <!-- <li class="vf-social-links__item" style="border-color:white;">
-                          <a class="vf-social-links__link" href="33333">
-                            <span class="vf-u-sr-only">
-                              instagram
-                            </span>
-                            <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--instagram" style="fill:white;" width="24" height="24"
-                              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                              <use xlink:href="#vf-social--instagram">
-                              </use>
-                            </svg>
-                          </a>
-                        </li> -->
                     </ul>
                 </div>
             </div>
         </section>
         <section class="vf-grid">
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/eiroforum_logo.png"/>
+                <a target="_blank" href="https://www.eiroforum.org/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/eiroforum_logo.png" alt="EIROforum" title="EIROforum" />
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.cern.ch/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_cern.png" alt="CERN" title="CERN">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.embl.org/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_embl.png" alt="European Molecular Biology Laboratory" title="European Molecular Biology Laboratory">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.esa.int/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_esa.png" alt="European Space Agency" title="European Space Agency">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.eso.org/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_eso.png" alt="European Southern Observatory" title="European Southern Observatory">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.esrf.eu/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_esrf.png" alt="European Synchrotron Radiation Facility" title="European Synchrotron Radiation Facility">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.euro-fusion.org">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_eurofusion.png" alt="EUROfusion" title="EUROfusion">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.xfel.eu/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_xfel.png" alt="European XFEL" title="European XFEL">
+                </a>
             </div>
             <div class="sis-sponsor-logo">
-                <img src="https://www.scienceinschool.org/sites/all/themes/sis/images/custom/footer/footer_logo_cern.png"/>
+                <a target="_blank" href="http://www.ill.eu/">
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_ill.png" alt="Institut Laue-Langevin" title="Institut Laue-Langevin">
+                </a>
             </div>
         </section>
         <p class="vf-footer__legal">
-            <span class="vf-footer__legal-text"><a class="vf-footer__link" href="//www.embl.org/contact/">Published and funded by EIROforum</a> &nbsp; ISSN 1818-0361</span>
+            <span class="vf-footer__legal-text"><a class="vf-footer__link" href="https://www.eiroforum.org/">Published and funded by EIROforum</a> &nbsp; ISSN 1818-0361</span>
         </p>
     </div>
 </footer>

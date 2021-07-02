@@ -4,21 +4,17 @@
         $articleTypesArray = sis_getArticleTypesArray();
         if($articleType == $articleTypesArray['UNDERSTAND']){
         ?>
-    <span class="vf-badge vf-badge--secondary" style="color: #fff;">Understand</span>
+    <span class="vf-badge vf-badge--secondary" style="background: background: #8dd13e; color: #fff;">Understand</span>
     <?php
         } else if($articleType == $articleTypesArray['INSPIRE']){
     ?>
             <span class="vf-badge vf-badge--primary" style="background: orange; border-color: orange;">Inspire</span>
     <?php
-        } else if($articleType == $articleTypesArray['TEACH']){
+        } else {
     ?>
             <span class="vf-badge vf-badge--primary">Teach</span>
     <?php
-        } else {
-    ?>
-            <span class="vf-badge vf-badge--primary" style="background: black;">Editorial</span>
-    <?php
-        }
+        } 
     ?>
     <img src="<?php echo get_the_post_thumbnail_url(); ?>"
          alt="Image alt text" class="vf-card__image" loading="lazy">

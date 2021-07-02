@@ -186,8 +186,9 @@
           "class": "",
           "id": ""
         },
+        "wpml_cf_preferences": 0,
         "taxonomy": "sis-article-types",
-        "field_type": "multi_select",
+        "field_type": "select",
         "allow_null": 1,
         "add_term": 0,
         "save_terms": 0,
