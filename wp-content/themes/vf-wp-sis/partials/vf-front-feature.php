@@ -6,9 +6,14 @@
         <?php
         $featuredArticles = get_field('featuredarticles');
         $numberOfDisplayedArticles = 0;
-        if($featuredArticles){
+        if ($featuredArticles) {
             $numberOfDisplayedArticles += count($featuredArticles);
-            $featureLoop = new WP_Query(array( 'post_type' => 'sis-article', 'post__in' => $featuredArticles ));
+            $featureLoop = new WP_Query(
+                array(
+                    'post_type' => 'sis-article',
+                    'post__in' => $featuredArticles
+                )
+            );
 
             while ($featureLoop->have_posts()) : $featureLoop->the_post();
                 include(locate_template('partials/vf-front-featureArticleType.php', false, false));
@@ -16,12 +21,22 @@
             wp_reset_postdata();
         }
 
-        if($numberOfDisplayedArticles < 3){
-            $featureLoop = new WP_Query(array('post_type' => 'sis-article',
-            'posts_per_page' => 3 - $numberOfDisplayedArticles,
-                'post_status' => 'publish',
-                'orderby' => 'rand',
-                'order' => 'DESC'));
+        if ($numberOfDisplayedArticles < 3) {
+            $featureLoop = new WP_Query(
+                array(
+                    'post_type' => 'sis-article',
+                    'posts_per_page' => 3 - $numberOfDisplayedArticles,
+                    'post_status' => 'publish',
+                    'orderby' => 'rand',
+                    'order' => 'DESC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'sis-article-types',
+                            'terms' => array('inspire', 'teach', 'understand'),
+                        ),
+                    ),
+                )
+            );
 
             while ($featureLoop->have_posts()) : $featureLoop->the_post();
                 include(locate_template('partials/vf-front-featureArticleType.php', false, false));

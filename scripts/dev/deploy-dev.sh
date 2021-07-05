@@ -6,6 +6,25 @@ set -u;
 
 cd ../../dist/wp-content/plugins
 
+
+rm -rf relevanssi-premium
+rm -rf content-views-query-and-display-post-page
+rm -rf custom-post-type-permalinks
+rm -rf custom-twitter-feeds
+rm -rf easy-wp-smtp
+rm -rf fg-drupal-to-wp-premium
+rm -rf fg-drupal-to-wp-premium-internationalization-module
+rm -rf fg-drupal-to-wp-premium-metatag-module
+rm -rf mailchimp-for-wp
+rm -rf mathml-block
+rm -rf post-types-order
+rm -rf redirection
+rm -rf relevanssi
+rm -rf taxonomy-terms-order
+rm -rf toolset-blocks
+rm -rf types
+rm -rf types-access
+
 ln -s /var/www/html/wp-content/plugins/relevanssi-premium
 ln -s /var/www/html/wp-content/plugins/content-views-query-and-display-post-page
 ln -s /var/www/html/wp-content/plugins/custom-post-type-permalinks

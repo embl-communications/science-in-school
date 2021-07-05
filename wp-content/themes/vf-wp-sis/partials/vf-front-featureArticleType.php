@@ -4,7 +4,7 @@
         $articleTypesArray = sis_getArticleTypesArray();
         if($articleType == $articleTypesArray['UNDERSTAND']){
         ?>
-    <span class="vf-badge vf-badge--secondary" style="background: #8dd13e; color: #fff;">Understand</span>
+    <span class="vf-badge vf-badge--secondary" style="border-color: #8dd13e; background: #8dd13e; color: #fff;">Understand</span>
     <?php
         } else if($articleType == $articleTypesArray['INSPIRE']){
     ?>
