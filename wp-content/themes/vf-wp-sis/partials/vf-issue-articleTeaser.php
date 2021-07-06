@@ -9,19 +9,19 @@ $art_ages = get_field('art_ages');
     $articleTypesArray = sis_getArticleTypesArray();
     if($articleType == $articleTypesArray['UNDERSTAND']){
         ?>
-        <span class="vf-badge vf-badge--secondary" style="color: #fff;">Understand</span>
+        <span class="vf-badge vf-badge--secondary" style="border-color: #8dd13e; background: #8dd13e; color: #fff;">Understand</span>
         <?php
     } else if($articleType == $articleTypesArray['INSPIRE']){
         ?>
         <span class="vf-badge vf-badge--primary" style="background: orange; border-color: orange;">Inspire</span>
         <?php
-    } else if($articleType == $articleTypesArray['TEACH']){
+    } else if($articleType == $articleTypesArray['EDITORIAL']){
         ?>
-        <span class="vf-badge vf-badge--primary">Teach</span>
+        <span class="vf-badge vf-badge--primary" style="background: #000; border-color: #000; color:#fff;">Editorial</span>
         <?php
     } else {
         ?>
-        <span class="vf-badge vf-badge--primary" style="background: black;">Editorial</span>
+        <span class="vf-badge vf-badge--primary">Teach</span>
         <?php
     }
     ?>
@@ -38,7 +38,7 @@ $art_ages = get_field('art_ages');
                             fill="currentColor" fill-rule="nonzero"></path>
                 </svg>
             </a></h3>
-        <span class="vf-summary__date"><?php the_date();?> | <?php sis_printSingleTag($art_issue); ?></span>
+        <span class="vf-summary__date"><?php sis_printSingleTagWithHeader(get_the_date() . ' | ', $art_issue); ?></span>
         <p class="vf-card__text"><?php echo get_the_excerpt();?></p>
         <p class="vf-summary__source">
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>

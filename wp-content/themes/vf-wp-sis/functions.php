@@ -134,6 +134,13 @@ function sis_printTagsWithBeforeAndAfter($before, $art_tags, $after){
     }
 }
 
+function sis_printSingleTagWithHeader($header, $art_tag){
+    if (!empty($art_tag)) {
+        $tag = get_term($art_tag);
+        echo $header . ' ' . $tag->name;
+    }
+}
+
 function sis_printSingleTagWithAfter($art_tag, $after){
     if (!empty($art_tag)) {
         $tag = get_term($art_tag);

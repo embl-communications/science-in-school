@@ -32,6 +32,7 @@
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'sis-article-types',
+                            'field' => 'slug',
                             'terms' => array('inspire', 'teach', 'understand'),
                         ),
                     ),

@@ -29,7 +29,6 @@ get_header();
     $articleTypesArray = sis_getArticleTypesArray();
 
     foreach ($articleTypesArray as $articleTypeKey => $articleTypeValue) {
-
         $featureLoop = new WP_Query(
             array('post_type' => 'sis-article',
                 'post_status' => 'publish',

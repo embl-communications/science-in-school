@@ -15,7 +15,6 @@ get_header();
     </section>
 
             <?php
-
             $arrayOfDisplayedYears = array();
             if (have_posts()) {
                 while (have_posts()) {
