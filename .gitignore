@@ -21,6 +21,5 @@ deployable/vfwp-external-plugins/
 deployable/wordpress/
 deployable/wp.tar.gz
 
-wp-content/themes/vf-wp-sis/bak/
-wp-content/themes/vf-wp-sis/html/
-
+wp-content/themes/vf-wp-sis/bak
+wp-content/themes/vf-wp-sis/html
