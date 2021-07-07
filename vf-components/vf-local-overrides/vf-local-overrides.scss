@@ -75,3 +75,20 @@ body {
 .vf-wp-sis .sis-u-background-dots.vf-u-fullbleed::before {
   background-size: auto
 }
+
+// fix for smaller type sizes
+.vf-section-header__heading--is-link .vf-section-header__icon {
+  height: 32px;
+  width: 32px;
+}
+
+// legacy posts
+body.sis-article-template-default figure.image {
+  padding: 1em;
+  display: table !important; // sometimes inline block has been manually set as a local style
+}
+
+// white space overrides
+body .embl-grid {
+  margin-bottom: 32px;
+}
