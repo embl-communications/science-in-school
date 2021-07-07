@@ -25,5 +25,3 @@ deployable/wp.tar.gz
 # Uneeded vf asses
 wp-content/themes/vf-wp-sis/assets/assets
 wp-content/themes/vf-wp-sis/assets/css/*.map
-package.variables.scss
-*/package.variables.scss
