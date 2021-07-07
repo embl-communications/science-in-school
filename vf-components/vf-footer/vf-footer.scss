@@ -12,7 +12,7 @@
 @import 'vf-footer.variables.scss';
 
 .vf-footer {
-  // background-color: color(grey--dark);
+  background-color: ui-color(white);
   border-top: 8px solid brand-color(dark);
   grid-column: 1 / -1;
   padding-bottom: 60px;
