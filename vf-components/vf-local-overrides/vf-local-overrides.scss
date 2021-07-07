@@ -76,7 +76,8 @@ body {
   background-size: auto
 }
 
-// fix for smaller type sizes
+// fix for SVG on smaller type sizes
+.vf-card__heading .vf-card__heading__icon,
 .vf-section-header__heading--is-link .vf-section-header__icon {
   height: 32px;
   width: 32px;
@@ -91,4 +92,14 @@ body.sis-article-template-default figure.image {
 // white space overrides
 body .embl-grid {
   margin-bottom: 32px;
+}
+
+// temporary card colour overrides
+body .vf-card--primary, 
+body .vf-card--brand {
+  --vf-card-bg-color: #{brand-color()};
+  --vf-card-text-color: #ffffff;
+  --vf-card-border-color: #{brand-color()};
+  --vf-card--striped-bg-color: #{brand-color(dark)};
+  --vf-card--striped-text-color: #ffffff;
 }
