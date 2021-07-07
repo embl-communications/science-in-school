@@ -55,8 +55,8 @@
 }
 
 :root {
-  --vf-color__brand: #18974c;
-  --vf-color__brand--dark: #0a5032;
+  --vf-color__brand: #216cb6;
+  --vf-color__brand--dark: #082233;
 }
 
 :root {
@@ -95,11 +95,10 @@
 /* stylelint-enable */
 /*!
  * Component: @visual-framework/vf-content
- * Version: 1.6.0
+ * Version: 1.6.1
  * Location: components/undefined
  */
 .vf-content h1:not([class*=vf-]), .editor-styles-wrapper h1:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 38px;
   color: #000000;
@@ -117,7 +116,6 @@
   font-weight: inherit;
 }
 .vf-content h2:not([class*=vf-]), .editor-styles-wrapper h2:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 28px;
   color: #000000;
@@ -132,7 +130,6 @@
   font-weight: inherit;
 }
 .vf-content h3:not([class*=vf-]), .editor-styles-wrapper h3:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 22px;
   color: #000000;
@@ -147,7 +144,6 @@
   font-weight: inherit;
 }
 .vf-content h4:not([class*=vf-]), .editor-styles-wrapper h4:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 19px;
   color: #000000;
@@ -162,7 +158,6 @@
   font-weight: inherit;
 }
 .vf-content h5:not([class*=vf-]), .editor-styles-wrapper h5:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 17px;
   color: #000000;
@@ -177,7 +172,6 @@
   font-weight: inherit;
 }
 .vf-content h6:not([class*=vf-]), .editor-styles-wrapper h6:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 17px;
   color: #000000;
@@ -195,7 +189,6 @@
   margin-top: 0 !important;
 }
 .vf-content p:not([class*=vf-]), .editor-styles-wrapper p:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #000000;
@@ -230,7 +223,6 @@
   text-decoration: underline;
 }
 .vf-content small:not([class*=vf-]), .editor-styles-wrapper small:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #373a36;
@@ -261,7 +253,6 @@
 }
 
 .vf-content li:not([class*=vf-]), .editor-styles-wrapper li:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #000000;
@@ -296,7 +287,6 @@
   padding-right: 3px;
 }
 .vf-content blockquote:not([class*=vf-]), .editor-styles-wrapper blockquote:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #000000;
@@ -325,7 +315,6 @@
   border-collapse: collapse;
 }
 .vf-content table:not([class*=vf-]) caption, .editor-styles-wrapper table:not([class*=vf-]) caption {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 19px;
   color: #000000;
@@ -339,7 +328,6 @@
   background-color: #d0d0ce;
 }
 .vf-content table:not([class*=vf-]) thead th, .editor-styles-wrapper table:not([class*=vf-]) thead th {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 17px;
   color: #000000;
@@ -350,7 +338,6 @@
   text-align: left;
 }
 .vf-content table:not([class*=vf-]) td, .editor-styles-wrapper table:not([class*=vf-]) td {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #000000;
@@ -374,9 +361,9 @@
 .vf-content figcaption:not([class*=vf-]), .editor-styles-wrapper figcaption:not([class*=vf-]),
 .vf-content cite:not([class*=vf-]),
 .editor-styles-wrapper cite:not([class*=vf-]) {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
+  color: #373a36;
   font-weight: 400;
   line-height: 1.71;
   margin: 0 0 16px 0;
@@ -466,7 +453,6 @@
   --vf-text-margin--bottom: 0;
 }
 .editor-post-title__block .editor-post-title__input {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 38px;
   color: #000000;
@@ -491,7 +477,6 @@
 }
 
 .block-editor .editor-styles-wrapper .has-extra-large-font-size {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 28px;
   color: #000000;
@@ -501,7 +486,6 @@
   margin: 0 0 var(--vf-text-margin--bottom, 16px) 0;
 }
 .block-editor .editor-styles-wrapper .has-large-font-size {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #000000;
@@ -511,7 +495,6 @@
   margin: 0 0 var(--vf-text-margin--bottom, 16px) 0;
 }
 .block-editor .editor-styles-wrapper .has-regular-font-size {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 15px;
   color: #373a36;
@@ -521,7 +504,6 @@
   margin: 0 0 var(--vf-text-margin--bottom, 16px) 0;
 }
 .block-editor .editor-styles-wrapper .has-small-font-size {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #373a36;
@@ -531,7 +513,6 @@
   margin: 0 0 var(--vf-text-margin--bottom, 16px) 0;
 }
 .block-editor .editor-styles-wrapper .has-extra-small-font-size {
-  color: #000000;
   font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #373a36;
