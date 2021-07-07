@@ -68,12 +68,12 @@ body {
 
 .vf-wp-sis .sis-u-background-dots {
   background-image:
-    url(https://www.scienceinschool.org/sites/all/themes/sis/images/custom/body/2px_bg.png);
-  background-color: #efefef;
+    url(https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-border-01.png);
+  // background-color: #{brand-color()};
 }
 
 .vf-wp-sis .sis-u-background-dots.vf-u-fullbleed::before {
-  background-size: auto
+  background-color: #eee;
 }
 
 // fix for SVG on smaller type sizes
