@@ -24,7 +24,27 @@ function my_theme_enqueue_styles() {
     array($parent_style),
     wp_get_theme()->get('Version')
   );
+  // load the SiS specific VF styles
+  wp_enqueue_style('vf-sis',
+    get_stylesheet_directory_uri() . '/assets/css/styles.css',
+    array('child-style'),
+    wp_get_theme()->get('Version')
+  );
+  // unload the generic vf-wp styles
+  wp_dequeue_style('vfwp');
 }
+
+// load the SiS specific JS
+wp_enqueue_script(
+  'vf-sis-scripts',
+  get_stylesheet_directory_uri() . '/assets/scripts/scripts.js',
+  array(),
+  $theme->version,
+  true
+);
+// unload the generic vf-wp scripts
+wp_dequeue_script('vf-scripts');
+
 
 add_filter( 'body_class','my_body_classes' );
 function my_body_classes( $classes ) {
