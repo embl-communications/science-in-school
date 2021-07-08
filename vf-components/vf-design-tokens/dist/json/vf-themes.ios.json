@@ -4,7 +4,7 @@
       "type": "color",
       "category": "color",
       "name": "vfThemePrimary",
-      "value": "#3b6fb6",
+      "value": "#216cb6",
       "meta": {
         "friendlyName": "EMBL Primary",
         "sassVariable": "vf-theme--primary",
@@ -17,7 +17,7 @@
       "type": "color",
       "category": "color",
       "name": "vfThemePrimaryDark",
-      "value": "#193f90",
+      "value": "#082233",
       "meta": {
         "friendlyName": "EMBL Primary Dark",
         "sassVariable": "vf-theme--primary--dark",
@@ -30,7 +30,7 @@
       "type": "color",
       "category": "color",
       "name": "vfThemeSecondary",
-      "value": "#18974c",
+      "value": "#748f2e",
       "meta": {
         "friendlyName": "EMBL Secondary",
         "sassVariable": "vf-theme--secondary",
@@ -43,7 +43,7 @@
       "type": "color",
       "category": "color",
       "name": "vfThemeSecondaryDark",
-      "value": "#007b53",
+      "value": "#3e5305",
       "meta": {
         "friendlyName": "EMBL Secondary Dark",
         "sassVariable": "vf-theme--secondary--dark",

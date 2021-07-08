@@ -3,13 +3,13 @@ aliases:
   # SiS Brand Colours
   # ------------------
 
-  vf-color--brand: '#216cb6'
-  vf-color--brand--dark: '#082233'
+  vf-color--brand: '#216cb6' # SiS
+  vf-color--brand--dark: '#082233' # SiS
 
   # Text Colours
   # ------------
 
-  vf-color__text--primary: '#000000'
+  vf-color__text--primary: '#1A1A1A' # SiS
   vf-color__text--secondary: '#373A36'
 
   # Interactive Text Colours

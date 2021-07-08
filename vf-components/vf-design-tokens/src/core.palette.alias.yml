@@ -1,14 +1,14 @@
 aliases:
 
-  # EMBL Green Colours
+  # Green Colours
 
-  vf-color--green: '#18974C'
+  vf-color--green: '#748f2e' #SiS
   vf-color--green--darkest: '#0A5032'
-  vf-color--green--dark: '#007B53'
-  vf-color--green--light: '#6CC24A'
+  vf-color--green--dark: '#3e5305' #SiS
+  vf-color--green--light: '#a1bf56' #SiS
   vf-color--green--lightest: '#D0DEBB'
 
-  # EMBL Grey
+  # Grey
 
   vf-color--grey: '#707372'
   vf-color--grey--dark: '#54585A'
@@ -16,44 +16,43 @@ aliases:
   vf-color--grey--light: '#A8A99E'
   vf-color--grey--lightest: '#D0D0CE'
 
-  # EMBL Red Colours
+  # Red Colours
 
   vf-color--red: '#D41645'
   vf-color--red--dark: '#A6093D'
   vf-color--red--light: '#E58F9E'
 
-  # EMBL Blue Colours
+  # Blue Colours
 
-  vf-color--blue: '#3B6FB6'
-  vf-color--blue--dark: '#193f90'
-  vf-color--blue--light: '#8BB8E8'
+  vf-color--blue: '#216cb6' # SiS
+  vf-color--blue--dark: '#082233' # SiS
+  vf-color--blue--light: '#6bb5ff' # SiS
 
-  # EMBL Purple Colours
+  # Purple Colours
 
   vf-color--purple: '#734595'
   vf-color--purple--dark: '#563D82'
   vf-color--purple--light: '#CBA3D8'
 
-  # EMBL Orange Colours
+  # Orange Colours
 
-  vf-color--orange: '#F49E17'
-  vf-color--orange--dark: '#B65417'
-  vf-color--orange--light: '#EFC06E'
+  vf-color--orange: '#d67e0a' # SiS
+  vf-color--orange--dark: '#2d1e02' # SiS
+  vf-color--orange--light: '#ffc463' # SiS
 
-  # EMBL Yellow Colours
+  # Yellow Colours
 
   vf-color--yellow: '#F4C61F'
   vf-color--yellow--dark: '#FFB81C'
   vf-color--yellow--light: '#FDD757'
 
-  # EMBL Bright Green Colours
+  # Bright Green Colours
 
   vf-color--bright-green: '#A1BE1F'
   vf-color--bright-green--dark: '#7FB428'
   vf-color--bright-green--light: '#E2E868'
 
-
-  # EMBL Link Colours
+  # Link Colours
 
   vf-color--link--dark-mode--hover: '#a8d2ff'
   vf-color--link--dark-mode--visited: '#a8d2ff'
