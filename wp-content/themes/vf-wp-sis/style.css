@@ -7,31 +7,3 @@ Template:      vf-wp
 Version:       1.0.0-beta.1
 Text Domain:	 vfwp
 */
-
-body {
-    background: inherit;
-}
-
-/* These are to be moved to the local vf build, when ready */
-.vf-wp-sis .vf-logo__image {
-    height: 85px;
-}
-
-.vf-wp-sis .vf-card-container {
-    /* padding: 0; */
-}
-
-.vf-wp-sis .vf-card-container.vf-u-fullbleed {
-    /* padding-top: 1rem; */
-    /* padding-bottom: 1rem; */
-}
-
-.vf-wp-sis .sis-u-background-dots {
-    background: /* url(https://www.scienceinschool.org/sites/all/themes/sis/images/custom/body/2px_bg_vertical.png) repeat-x left top, */ url(https://www.scienceinschool.org/sites/all/themes/sis/images/custom/body/2px_bg.png) left top;
-    background-image: url(https://www.scienceinschool.org/sites/all/themes/sis/images/custom/body/2px_bg.png);
-    background-color: #efefef;
-}
-
-.vf-wp-sis .sis-u-background-dots.vf-u-fullbleed::before {
-    background-size: auto
-}

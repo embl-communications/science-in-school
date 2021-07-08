@@ -1,0 +1,350 @@
+{
+  "properties": [
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreen",
+      "value": "#748f2e",
+      "meta": {
+        "friendlyName": "EMBL Green",
+        "sassMap": "green",
+        "CSSCustomProperty": "--vf-color--green",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreenDarkest",
+      "value": "#0a5032",
+      "meta": {
+        "friendlyName": "EMBL Green, Darkest Tint",
+        "sassMap": "green--darkest",
+        "CSSCustomProperty": "--vf-color--green--darkest",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreenDark",
+      "value": "#3e5305",
+      "meta": {
+        "friendlyName": "EMBL Green, Dark Tint",
+        "sassMap": "green--dark",
+        "CSSCustomProperty": "--vf-color--green--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreenLight",
+      "value": "#a1bf56",
+      "meta": {
+        "friendlyName": "EMBL Green, Light Tint",
+        "sassMap": "green--light",
+        "CSSCustomProperty": "--vf-color--green--light",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreenLightest",
+      "value": "#d0debb",
+      "meta": {
+        "friendlyName": "EMBL Green, Lightest Tint",
+        "sassMap": "green--lightest",
+        "CSSCustomProperty": "--vf-color--green--lightest",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGrey",
+      "value": "#707372",
+      "meta": {
+        "friendlyName": "EMBL Grey",
+        "sassMap": "grey",
+        "CSSCustomProperty": "--vf-color--grey",
+        "Deprecated": true,
+        "DeprecatedText": "Please use the <a class=\"vf-card__link\" href=\"../neutral-colors/\">vf-neutral--600</a> token.",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreyDarkest",
+      "value": "#373a36",
+      "meta": {
+        "friendlyName": "EMBL Grey, Darkest Tint",
+        "sassMap": "grey--darkest",
+        "CSSCustomProperty": "--vf-color--grey--darkest",
+        "Deprecated": true,
+        "DeprecatedText": "Please use the <a class=\"vf-card__link\" href=\"../neutral-colors/\">vf-neutral--800</a> token.",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreyDark",
+      "value": "#54585a",
+      "meta": {
+        "friendlyName": "EMBL Grey, Dark Tint",
+        "sassMap": "grey--dark",
+        "CSSCustomProperty": "--vf-color--grey--dark",
+        "Deprecated": true,
+        "DeprecatedText": "Please use the <a class=\"vf-card__link\" href=\"../neutral-colors/\">vf-neutral--700</a> token.",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreyLight",
+      "value": "#a8a99e",
+      "meta": {
+        "friendlyName": "EMBL Grey, Light Tint",
+        "sassMap": "grey--light",
+        "CSSCustomProperty": "--vf-color--grey--light",
+        "Deprecated": true,
+        "DeprecatedText": "Please use the <a class=\"vf-card__link\" href=\"../neutral-colors/\">vf-neutral--300</a> token.",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorGreyLightest",
+      "value": "#d0d0ce",
+      "meta": {
+        "friendlyName": "EMBL Grey, Lightest Tint",
+        "sassMap": "grey--lightest",
+        "CSSCustomProperty": "--vf-color--grey--lightest",
+        "Deprecated": true,
+        "DeprecatedText": "Please use the <a class=\"vf-card__link\" href=\"../neutral-colors/\">vf-neutral--200</a> token.",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorRed",
+      "value": "#d41645",
+      "meta": {
+        "friendlyName": "EMBL Red",
+        "sassMap": "red",
+        "CSSCustomProperty": "--vf-color--red",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorRedDark",
+      "value": "#a6093d",
+      "meta": {
+        "friendlyName": "EMBL Red, Dark Tint",
+        "sassMap": "red--dark",
+        "CSSCustomProperty": "--vf-color--red--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorRedLight",
+      "value": "#e58f9e",
+      "meta": {
+        "friendlyName": "EMBL Red, Light Tint",
+        "sassMap": "red--light",
+        "CSSCustomProperty": "--vf-color--red--light",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorBlue",
+      "value": "#216cb6",
+      "meta": {
+        "friendlyName": "EMBL Blue",
+        "sassMap": "blue",
+        "CSSCustomProperty": "--vf-color--blue",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorBlueDark",
+      "value": "#082233",
+      "meta": {
+        "friendlyName": "EMBL Blue, Dark Tint",
+        "sassMap": "blue--dark",
+        "CSSCustomProperty": "--vf-color--blue--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorBlueLight",
+      "value": "#6bb5ff",
+      "meta": {
+        "friendlyName": "EMBL Blue, Light Tint",
+        "sassMap": "blue--light",
+        "CSSCustomProperty": "--vf-color--blue--light",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorPurple",
+      "value": "#734595",
+      "meta": {
+        "friendlyName": "EMBL Purple",
+        "sassMap": "purple",
+        "CSSCustomProperty": "--vf-color--purple",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorPurpleDark",
+      "value": "#563d82",
+      "meta": {
+        "friendlyName": "EMBL Purple, Dark Tint",
+        "sassMap": "purple--dark",
+        "CSSCustomProperty": "--vf-color--purple--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorPurpleLight",
+      "value": "#cba3d8",
+      "meta": {
+        "friendlyName": "EMBL Purple, Light Tint",
+        "sassMap": "purple--light",
+        "CSSCustomProperty": "--vf-color--purple--light",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorOrange",
+      "value": "#d67e0a",
+      "meta": {
+        "friendlyName": "EMBL Orange",
+        "sassMap": "orange",
+        "CSSCustomProperty": "--vf-color--orange",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorOrangeDark",
+      "value": "#2d1e02",
+      "meta": {
+        "friendlyName": "EMBL Orange, Dark Tint",
+        "sassMap": "orange--dark",
+        "CSSCustomProperty": "--vf-color--orange--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorOrangeLight",
+      "value": "#ffc463",
+      "meta": {
+        "friendlyName": "EMBL Orange, Light Tint",
+        "sassMap": "orange--light",
+        "CSSCustomProperty": "--vf-color--orange--light",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorYellow",
+      "value": "#f4c61f",
+      "meta": {
+        "friendlyName": "EMBL Yellow",
+        "sassMap": "yellow",
+        "CSSCustomProperty": "--vf-color--yellow",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorYellowDark",
+      "value": "#ffb81c",
+      "meta": {
+        "friendlyName": "EMBL Yellow, Dark Tint",
+        "sassMap": "yellow--dark",
+        "CSSCustomProperty": "--vf-color--yellow--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorYellowLight",
+      "value": "#fdd757",
+      "meta": {
+        "friendlyName": "EMBL Yellow, Light Tint",
+        "sassMap": "yellow--light",
+        "CSSCustomProperty": "--vf-color--yellow--light",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorBrightGreen",
+      "value": "#a1be1f",
+      "meta": {
+        "friendlyName": "EMBL Bright Green",
+        "sassMap": "bright-green",
+        "CSSCustomProperty": "--vf-color--bright-green",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorBrightGreenDark",
+      "value": "#7fb428",
+      "meta": {
+        "friendlyName": "EMBL Bright Green, Dark Tint",
+        "sassMap": "bright-green--dark",
+        "CSSCustomProperty": "--vf-color--bright-green--dark",
+        "comment": null
+      }
+    },
+    {
+      "type": "color",
+      "category": "color",
+      "name": "vfColorBrightGreenLight",
+      "value": "#e2e868",
+      "meta": {
+        "friendlyName": "EMBL Bright Green, Light Tint",
+        "sassMap": "bright-green--light",
+        "CSSCustomProperty": "--vf-color--bright-green--light",
+        "comment": null
+      }
+    }
+  ]
+}
