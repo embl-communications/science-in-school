@@ -37,17 +37,6 @@ figure:not([class*="vf-"]) {
   margin: 0;
 }
 
-// SiS oddities
-/*
-Theme Name:		 VF-WP SIS
-Theme URI:		 https://github.com/embl-communications/science-in-school/tree/main/wp-sis/wp-content/themes/vf-wp-sis/
-Description:	 Visual Framework WordPress Theme for SIS
-Author:        Alexander Kubias
-Template:      vf-wp
-Version:       1.0.0-beta.1
-Text Domain:	 vfwp
-*/
-
 body {
   background: inherit;
 }
@@ -67,13 +56,14 @@ body {
 }
 
 .vf-wp-sis .sis-u-background-dots {
-  background-image:
-    url(https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-border-01.png);
   // background-color: #{brand-color()};
 }
 
 .vf-wp-sis .sis-u-background-dots.vf-u-fullbleed::before {
-  background-color: #eee;
+  background-color: set-ui-color(vf-ui-color--grey--light);
+  background-image: url(https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-border-01.png);
+  background-size: 2500px;
+  background-position-x: 100%;
 }
 
 // fix for SVG on smaller type sizes
@@ -87,6 +77,9 @@ body {
 body.sis-article-template-default figure.image {
   padding: 1em;
   display: table !important; // sometimes inline block has been manually set as a local style
+}
+.vf-content figure:not([class*="vf-"]) figcaption:not([class*="vf-"]) {
+  text-align: left;
 }
 
 // white space overrides
@@ -102,4 +95,30 @@ body .vf-card--brand {
   --vf-card-border-color: #{brand-color()};
   --vf-card--striped-bg-color: #{brand-color(dark)};
   --vf-card--striped-text-color: #ffffff;
+}
+
+
+// colour coding
+.sis-article-teach {
+  .vf-content h2:not([class*="vf-"]),
+  .vf-content h3:not([class*="vf-"]),
+  .vf-intro__heading {
+    color: #{brand-color()};
+  }
+  .vf-content table:not([class*="vf-"]) thead {
+    // color: white;
+    background: #{brand-color()};
+  }
+}
+
+.sis-article-understand .vf-intro__heading {
+  color: #{brand-color()}; // update
+}
+.sis-article-learn .vf-intro__heading {
+  color: #{brand-color()}; //update
+}
+
+// no zebra tables
+.vf-content table:not([class*="vf-"]) tr:nth-of-type(2n) {
+  background: unset;
 }
