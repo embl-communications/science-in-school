@@ -36,3 +36,89 @@
 figure:not([class*="vf-"]) {
   margin: 0;
 }
+
+body {
+  background: inherit;
+}
+
+/* These are to be moved to the local vf build, when ready */
+.vf-wp-sis .vf-logo__image {
+  height: 85px;
+}
+
+.vf-wp-sis .vf-card-container {
+  /* padding: 0; */
+}
+
+.vf-wp-sis .vf-card-container.vf-u-fullbleed {
+  /* padding-top: 1rem; */
+  /* padding-bottom: 1rem; */
+}
+
+.vf-wp-sis .sis-u-background-dots {
+  // background-color: #{brand-color()};
+}
+
+.vf-wp-sis .sis-u-background-dots.vf-u-fullbleed::before {
+  background-color: set-ui-color(vf-ui-color--grey--light);
+  background-image: url(https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-border-01.png);
+  background-size: 2500px;
+  background-position-x: 100%;
+}
+
+// fix for SVG on smaller type sizes
+.vf-card__heading .vf-card__heading__icon,
+.vf-section-header__heading--is-link .vf-section-header__icon {
+  height: 32px;
+  width: 32px;
+}
+
+// legacy posts
+body.sis-article-template-default figure.image {
+  padding: 1em;
+  display: table !important; // sometimes inline block has been manually set as a local style
+}
+.vf-content figure:not([class*="vf-"]) figcaption:not([class*="vf-"]) {
+  text-align: left;
+}
+
+// white space overrides
+body .embl-grid {
+  margin-bottom: 32px;
+}
+
+// temporary card colour overrides
+body .vf-card--primary, 
+body .vf-card--brand {
+  --vf-card-bg-color: #{brand-color()};
+  --vf-card-text-color: #ffffff;
+  --vf-card-border-color: #{brand-color()};
+  --vf-card--striped-bg-color: #{brand-color(dark)};
+  --vf-card--striped-text-color: #ffffff;
+}
+
+
+// colour coding
+.sis-article-teach {
+  .vf-content h2:not([class*="vf-"]),
+  .vf-content h3:not([class*="vf-"]),
+  .vf-intro__heading {
+    color: #{brand-color()};
+  }
+  .vf-content table:not([class*="vf-"]) thead {
+    // color: white;
+    background: #{brand-color()};
+  }
+}
+
+.sis-article-understand .vf-intro__heading {
+  color: #{brand-color()}; // update
+}
+.sis-article-learn .vf-intro__heading {
+  color: #{brand-color()}; //update
+}
+
+// no zebra tables
+.vf-content table:not([class*="vf-"]) tr:nth-of-type(2n) {
+  background: unset;
+}
