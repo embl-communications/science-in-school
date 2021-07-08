@@ -279,6 +279,7 @@ while ($row = $result->fetch_assoc()) {
 
         if(empty($wpUrl)){
             echo "ERROR: Empty wpUrl" . $wpUrl . PHP_EOL;
+            continue;
         }
 
         // Only add new WP URL, if node id exists for post id
@@ -287,6 +288,7 @@ while ($row = $result->fetch_assoc()) {
             $currentNodeId = $mapPostIdToNodeIdArray[$row['postId']];
             if(empty($currentNodeId)){
                 echo "ERROR: Empty currentNodeId " . $currentNodeId . PHP_EOL;
+                continue;
             }
             $nodeIdToWpUrlsArray[$currentNodeId] = $wpUrl;
             $postIdToWpUrlsArray[$row['postId']] = $wpUrl;
@@ -296,6 +298,7 @@ while ($row = $result->fetch_assoc()) {
         echo "ERROR:";
         echo $row['postId'];
         echo PHP_EOL;
+        continue;
     }
 }
 
@@ -326,10 +329,18 @@ foreach ($nodeIdUrlArray as $nodeId => $nodeUrl) {
         continue;
     }
 
+    if(!key_exists($nodeId, $nodeIdToWpUrlsArray)){
+        echo "ERROR: Key does not exist " . PHP_EOL;
+        continue;
+    }
     $newWpUrl = $nodeIdToWpUrlsArray[$nodeId];
     if (empty($newWpUrl)) {
         echo "ERROR: Empty newWpUrl " . PHP_EOL;
         continue;
+    }
+
+    if (substr($newWpUrl, 0, 1) != '/') {
+        $newWpUrl = '/' . $newWpUrl;
     }
     $finalRedirectionArray[$nodeUrl] = $newWpUrl;
 }
@@ -351,10 +362,17 @@ foreach ($urlAliasArray as $nodeId => $nodeUrl) {
         continue;
     }
 
+    if(!key_exists($nodeId, $nodeIdToWpUrlsArray)){
+        echo "ERROR: Key does not exist " . PHP_EOL;
+        continue;
+    }
     $newWpUrl = $nodeIdToWpUrlsArray[$nodeId];
     if (empty($newWpUrl)) {
         echo "ERROR: Empty newWpUrl " . PHP_EOL;
         continue;
+    }
+    if (substr($newWpUrl, 0, 1) != '/') {
+        $newWpUrl = '/' . $newWpUrl;
     }
     $finalRedirectionArray[$nodeUrl] = $newWpUrl;
 }
@@ -375,6 +393,10 @@ foreach ($redirectsArray as $source => $url) {
         echo "ERROR: Empty url " . PHP_EOL;
         continue;
     }
+
+    if (substr($url, 0, 1) != '/') {
+        $url = '/' . $url;
+    }
     $finalRedirectionArray[$source] = $url;
 }
 
@@ -387,6 +409,7 @@ echo PHP_EOL;
 // Insert into database table
 
 // Prepared Statements for inserting data
+/*
 $sql = "INSERT INTO `wp_redirection_items` (`id`, `url`, `match_url`, `match_data`, `regex`, `position`, `last_count`, 
     `last_access`, `group_id`, `status`, `action_type`, `action_code`, `action_data`, `match_type`, `title`) 
     VALUES (NULL, ?, ?, '{\"source\":{\"flag_query\":\"pass\"}}', '0', '0', '0', '1970-01-01 00:00:00.000000', 
@@ -395,26 +418,28 @@ $stmt = $conn->prepare($sql);
 $source = '';
 $target = '';
 $stmt->bind_param("sss", $source, $source, $target);
+*/
 
 foreach ($finalRedirectionArray as $currentSource => $currentTarget) {
     if(empty($currentSource) || empty($currentTarget)){
         echo "ERROR: Empty currentSource or currentTarget " . PHP_EOL;
         continue;
     }
-    if (substr($currentSource, 0, 1) != '/') {
-        $currentSource = '/' . $currentSource;
-    }
-    if (substr($currentTarget, 0, 1) != '/') {
-        $currentTarget = '/' . $currentTarget;
-    }
-    $source = $currentSource;
-    $target = $currentTarget;
-    $stmt->execute();
+
+    $source = trim($currentSource);
+    $target = trim($currentTarget);
+    //$source = implode('/', array_map('urlencode', explode('/', $currentSource)));
+    //$target = implode('/', array_map('urlencode', explode('/', $currentTarget)));
+    //$stmt->execute();
+
+    echo 'RewriteRule ^' .  $source . '$ ' . $target .' [R=301,L,NC,QSA]' . PHP_EOL;
 }
+
+
 
 echo "All redirects have been added" . PHP_EOL;
 
-$stmt->close();
+//$stmt->close();
 
 
 // close connection to WP database

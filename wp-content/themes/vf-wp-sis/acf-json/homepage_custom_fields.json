@@ -1,0 +1,268 @@
+[
+  {
+    "key": "group_607eb5b4439d1",
+    "title": "Homepage",
+    "fields": [
+      {
+        "key": "field_607eb6360cc01",
+        "label": "Current Issue",
+        "name": "current_issue",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "wpml_cf_preferences": 0,
+        "post_type": [
+          "sis-issue"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 0,
+        "return_format": "object",
+        "ui": 1
+      },
+      {
+        "key": "field_60ba119323cc2",
+        "label": "Article of the Week",
+        "name": "articleofweek",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "wpml_cf_preferences": 0,
+        "post_type": [
+          "sis-article"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 0,
+        "return_format": "object",
+        "ui": 1
+      },
+      {
+        "key": "field_60ba1b8cf7033",
+        "label": "Featured Articles",
+        "name": "featuredarticles",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "wpml_cf_preferences": 0,
+        "post_type": [
+          "sis-article"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 1,
+        "return_format": "id",
+        "ui": 1
+      },
+      {
+        "key": "field_60bdf2a7493e7",
+        "label": "Current Issue Articles",
+        "name": "current_issue_articles",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "wpml_cf_preferences": 0,
+        "post_type": [
+          "sis-article"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 1,
+        "return_format": "object",
+        "ui": 1
+      },
+      {
+        "key": "field_60bdf60f3e13a",
+        "label": "Current Webinars",
+        "name": "current_webinars",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "vf_event"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 1,
+        "return_format": "object",
+        "wpml_cf_preferences": 0,
+        "ui": 1
+      },
+      {
+        "key": "field_60bdf6393e13b",
+        "label": "Current Events",
+        "name": "current_events",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "vf_event"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 1,
+        "return_format": "object",
+        "wpml_cf_preferences": 0,
+        "ui": 1
+      },
+      {
+        "key": "field_60bdf74df9d70",
+        "label": "Current Collection Title",
+        "name": "current_collection_title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "wpml_cf_preferences": 0,
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_60bdf75bf9d71",
+        "label": "Current Collection Text",
+        "name": "current_collection_text",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "wpml_cf_preferences": 0,
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_60bdf776f9d72",
+        "label": "Current Collection Articles",
+        "name": "current_collection_articles",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "sis-article"
+        ],
+        "taxonomy": "",
+        "allow_null": 0,
+        "multiple": 1,
+        "return_format": "object",
+        "wpml_cf_preferences": 0,
+        "ui": 1
+      },
+      {
+        "key": "field_60bdf86e8b65e",
+        "label": "Current Collection Link",
+        "name": "current_collection_link",
+        "type": "url",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "wpml_cf_preferences": 0
+      },
+      {
+        "key": "field_60be21d13f8ee",
+        "label": "Hero Image",
+        "name": "hero_image",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "wpml_cf_preferences": 0
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }
+]

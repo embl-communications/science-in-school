@@ -125,7 +125,7 @@ while ($row = $result->fetch_assoc()) {
     }
 
     // topics tags
-    if($taxonomy == 'sis-category'){
+    if($taxonomy == 'sis-categories'){
         if(!array_key_exists($postId, $topicTags)){
             $topicTags[$postId] = array();
         }

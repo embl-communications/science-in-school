@@ -1,124 +1,226 @@
 <?php
-  $title = esc_html(get_the_title());
-  $user_id = get_the_author_meta('ID');
-  get_header();
+get_header();
 ?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-post">
 
-<?php
-if (class_exists('VF_Navigation')) {
-  VF_Plugin::render(VF_Navigation::get_plugin('vf_navigation'));
-}
-?>
-
-<section class="embl-grid embl-grid--has-centered-content | vf-u-padding__top--200 | vf-u-margin__bottom--0">
- <div>
-    <div class="vf-article-meta-information">
-    <div class="vf-author | vf-article-meta-info__author">
-    <p class="vf-author__name">
-        <a class="vf-link" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a>
-    </p>
-        <a class="vf-author--avatar__link | vf-link" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-        <?php echo get_avatar( get_the_author_meta( 'ID' ), 48, '', '', array('class' => 'vf-author--avatar')); ?>
-        </a>
-    </div>
-        <div class="vf-meta__details">
-        <p class="vf-meta__date"><time title="<?php the_time('c'); ?>" datetime="<?php the_time('c'); ?>"><?php the_time(get_option('date_format')); ?></time></p>
-        </div>
-    </div>
-
- </div>
- <div class="vf-content | vf-u-padding__bottom--800">
-  <h1 class="vf-text vf-text-heading--1"><?php the_title(); ?></h1>
-  <p class="vf-lede | vf-u-padding__top--md | vf-u-padding__bottom--xxl">
-      <?php echo get_post_meta($post->ID, 'ells_article_intro', true); ?>
-    </p>
-    <figure class="vf-figure">
-      <?php the_post_thumbnail('full', array('class' => 'vf-figure__image')); ?>
-      <figcaption class="vf-figure__caption">
-        <?php echo wp_kses_post(get_post(get_post_thumbnail_id())->post_excerpt); ?>
-      </figcaption>
-    </figure>
-
-    <?php the_content(); ?>
-  </div>
-  <div class="social-media-block">
-<div class='red'>
-
-</div>
-<?php include(locate_template('partials/social-icons.php', false, false)); ?>
-
-<div class="vf-social-links | vf-u-margin__bottom--xxl">
-  <h3 class="vf-social-links__heading">
-    Share
-  </h3>
-  <ul class="vf-social-links__list">
-    <li class="vf-social-links__item">
-      <a class="vf-social-links__link"
-        href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $social_url; ?>&amp;via=embl">
-        <span class="vf-u-sr-only">twitter</span>
-
-        <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--twitter" width="24" height="24"
-          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-          <use xlink:href="#vf-social--twitter"></use>
-        </svg>
-      </a>
-
-    </li>
-    <li class="vf-social-links__item">
-
-      <a class="vf-social-links__link"
-        href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $social_url; ?>">
-        <span class="vf-u-sr-only">facebook</span>
-
-        <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--facebook" width="24" height="24"
-          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-          <use xlink:href="#vf-social--facebook"></use>
-        </svg>
-      </a>
-    </li>
-
-    <li class="vf-social-links__item">
-      <a class="vf-social-links__link"
-        href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo $social_url; ?>&title=<?php echo $title; ?>">
-        <span class="vf-u-sr-only">linkedin</span>
-
-        <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--linkedin" width="24" height="24"
-          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-          <use xlink:href="#vf-social--linkedin"></use>
-        </svg>
-      </a>
-    </li>
-  </ul>
-</div>
-</div>
-</section>
-
-<section class="vf-u-background-color-ui--off-white | vf-u-margin__bottom--100 | vf-u-padding__top--600 | vf-u-padding__bottom--400 | vf-u-fullbleed | category-more">
-  <h3 class="vf-section-header__heading | vf-u-margin__bottom--400">Recent posts</h3>
-  <div class="vf-grid vf-grid__col-3">
     <?php
-      $args = array(
-        'posts_per_page' => 3,
-        'post__not_in'   => array( get_the_ID() ),
-        'no_found_rows'  => true,
-      );
+    $title = esc_html(get_the_title());
 
-      $cats = wp_get_post_terms( get_the_ID(), 'category' );
-      $cats_ids = array();
-      foreach( $cats as $related_cat ) {
-        $cats_ids[] = $related_cat->term_id;
-      }
-      if ( ! empty( $cats_ids ) ) {
-        $args['category__in'] = $cats_ids;
-      }
+    $art_author_name = get_field('art_author_name');
+    $art_editor_tags = get_field('art_editor_tags');
+    $art_slider_exclude = get_field('art_slider_exclude');
+    $art_eonly_article = get_field('art_eonly_article');
+    $art_reviewer_tags = get_field('art_reviewer_tags');
+    $art_ages = get_field('art_ages');
+    $art_institutions = get_field('art_institutions');
+    $art_issue = get_field('art_issue');
+    $art_article_type = get_field('art_article_type');
+    $art_topics = get_field('art_topics');
+    $art_series = get_field('art_series');
+    $art_license = get_field('art_license');
+    $art_license_freetext = get_field('art_license_freetext');
+    $art_references = get_field('art_references');
+    $art_web_references = get_field('art_web_references');
+    $art_resources = get_field('art_resources');
+    $art_authors = get_field('art_authors');
+    $art_referee = get_field('art_referee');
+    $art_review = get_field('art_review');
+    $art_slider_image = get_field('art_slider_image');
+    $art_teaser_image = get_field('art_teaser_image');
+    $art_pdf = get_field('art_pdf');
+    $art_materials = get_field('art_materials');
+    $art_migrated_from_drupal = get_field('art_migrated_from_drupal');
+    $art_reviewed_after_migration_from_drupal = get_field('art_reviewed_after_migration_from_drupal');
 
-      $query = new wp_query( $args );
+    $art_translator_name = get_field('art_translator_name');
+    $art_acknowledgements = get_field('art_acknowledgements');
+    ?>
 
-      foreach( $query->posts as $post ) : setup_postdata( $post ); ?>
+    <!--nav class="vf-breadcrumbs" aria-label="Breadcrumb">
+        <ul class="vf-breadcrumbs__list | vf-list vf-list--inline">
+            <li class="vf-breadcrumbs__item">
+                <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Explore</a>
+            </li>
+            <li class="vf-breadcrumbs__item">
+                <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Topics</a>
+            </li>
+            <li class="vf-breadcrumbs__item" aria-current="location">
+                Centre
+            </li>
+        </ul>
+        <span class="vf-breadcrumbs__heading">Related:</span>
+        <ul class="vf-breadcrumbs__list vf-breadcrumbs__list--related | vf-list vf-list--inline">
+            <li class="vf-breadcrumbs__item">
+                <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Chemistry</a>
+            </li>
+        </ul>
+    </nav-->
+    <br/>
+    <br/>
+    <!--  -->
+    <section class="embl-grid embl-grid--has-centered-content" id="an-id-for-anchor">
+        <div>
+        <?php
+        $articleType = get_field('art_article_type');
+        $articleTypesArray = sis_getArticleTypesArray();
+        if($articleType == $articleTypesArray['UNDERSTAND']){
+            ?>
+            <a href="/?sis-article-types=understand"
+               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Understand<br/> article</a>
+            <?php
+        } else if($articleType == $articleTypesArray['INSPIRE']){
+            ?>
+            <a href="/?sis-article-types=inspire"
+               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Inspire<br/> article</a>
+            <?php
+        } else if($articleType == $articleTypesArray['TEACH']){
+            ?>
+            <a href="/?sis-article-types=teach"
+               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Teach<br/> article</a>
+            <?php
+        }
+        ?>
+        </div>
+        <div class="vf-stack">
+            <h1 class="vf-intro__heading"><?php echo get_the_title(); ?></h1>
+            <p class="vf-lede"><?php echo get_the_excerpt(); ?></p>
+        </div>
+    </section>
+    <div class="embl-grid embl-grid--has-centered-content">
+        <div>
+            <aside class="vf-article-meta-information">
+                <div class="vf-meta__details">
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Ages: ', $art_ages, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Topics: ', $art_topics, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Keywords: ', $art_editor_tags, '</p>'); ?>
+                </div>
+                <div class="vf-meta__details">
+                    <p class="vf-meta__date"><?php the_date(); ?></p>
+                    <p class="vf-meta__topics">
+                        <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>" class="vf-link"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
+                </div>
+                <div class="vf-links vf-links--tight vf-links__list--s">
+                    <p class="vf-links__heading">Available languages</p>
+                    <?php sis_articleLanguageSwitcher(); ?>
+                </div>
+                <!--
+                <div class="vf-links vf-links--tight vf-links__list--s">
+                    <p class="vf-links__heading">On this page</p>
+                    <ul class="vf-links__list vf-links__list--secondary | vf-list">
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="JavaScript:Void(0);">Activity 1: Do plants need light?</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="JavaScript:Void(0);">Activity 2: Do plants need soil?</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="JavaScript:Void(0);">Resources</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="JavaScript:Void(0);">Download</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="JavaScript:Void(0);">Related articles</a>
+                        </li>
+                    </ul>
+                </div>
+                -->
+            </aside>
+        </div>
+        <div class="vf-content">
+            <div class="vf-author | vf-article-meta-info__author">
+                <p class="">
+                    <?php
+                        sis_printFieldWithHeader('<strong>Authors: </strong>', $art_author_name);
+                        ?>
+                        <br/>
+                    <?php
+                       sis_printFieldWithHeader('<strong>Translators: </strong>', $art_translator_name);
+                            ?>
+                </p>
+            </div>
 
-    <?php include(locate_template('partials/vf-card--article-more.php', false, false)); ?>
-    <?php endforeach; wp_reset_postdata(); ?>
-  </div>
-</section>
+            <?php the_content(); ?>
 
+
+            <h3>Download</h3>
+            <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
+
+            <?php sis_printFieldWithHeader('<h3>Acknowledgements</h3>', $art_acknowledgements); ?>
+
+            <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
+
+            <?php sis_printFieldWithHeader('<h3>References</h3>',$art_references); ?>
+
+            <?php sis_printFieldWithHeader('<h3>Web References</h3>', $art_web_references); ?>
+
+            <?php sis_printTagsWithHeader('<h3>Institution</h3>',$art_institutions); ?>
+
+            <?php sis_printFieldWithHeader('<h3>Author</h3>', $art_authors); ?>
+
+            <br/><br/>
+            <div>
+                <?php
+                if($art_license == 5343){
+                ?>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                <?php
+                } else if($art_license == 5345){
+                    ?>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND"/>
+                    <?php
+                } else if($art_license == 5341){
+                    ?>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND"/>
+                    <?php
+                } else if($art_license == 5340){
+                    ?>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC"/>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="SA"/>
+                    <?php
+                } else {
+                    sis_printSingleTag($art_license);
+                }
+                ?>
+            </div>
+            <div>
+                <?php echo $art_license_freetext; ?>
+            </div>
+        </div>
+        <?php
+        if($art_materials){
+        ?>
+        <article class="sis-materials">
+            <h3>Supporting materials</h3>
+            <ul>
+                <?php foreach($art_materials as $singleAddMat){
+                ?>
+                <li><a class="sis-materials--link sis-materials--link-pdf"
+                       href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        </article>
+        <?php
+        }
+        ?>
+    </div>
+
+    <?php include(locate_template('partials/vf-sub-relatedArticles.php', false, false)); ?>
+
+    <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
+
+</main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>

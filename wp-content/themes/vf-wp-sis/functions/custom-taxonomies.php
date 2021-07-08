@@ -181,199 +181,141 @@ function vf_wp_sis_series_labels()
 }
 
 
-
-
-// old taxonomies
-function vf_wp_sis_age_group_labels()
-{
-    return array(
-        'name' => _x('Age groups', 'taxonomy general name', 'vfwp'),
-        'singular_name' => _x('Age group', 'taxonomy singular name', 'vfwp'),
-        'search_items' => __('Search Age groups', 'vfwp'),
-        'all_items' => __('All Age groups', 'vfwp'),
-        'parent_item' => __('Parent Age group', 'vfwp'),
-        'parent_item_colon' => __('Parent Age group:', 'vfwp'),
-        'edit_item' => __('Edit Age group', 'vfwp'),
-        'update_item' => __('Update Age group', 'vfwp'),
-        'add_new_item' => __('Add New Age group', 'vfwp'),
-        'new_item_name' => __('New Age group Name', 'vfwp'),
-        'menu_name' => __('Age groups', 'vfwp'),
-    );
-}
-
-
-// old taxonomies
-function vf_wp_sis_topic_area_labels()
-{
-    return array(
-        'name' => _x('Topic areas', 'taxonomy general name', 'vfwp'),
-        'singular_name' => _x('Topic area', 'taxonomy singular name', 'vfwp'),
-        'search_items' => __('Search Topic areas', 'vfwp'),
-        'all_items' => __('All Topic areas', 'vfwp'),
-        'parent_item' => __('Parent Topic area', 'vfwp'),
-        'parent_item_colon' => __('Parent Topic area:', 'vfwp'),
-        'edit_item' => __('Edit Topic area', 'vfwp'),
-        'update_item' => __('Update Topic area', 'vfwp'),
-        'add_new_item' => __('Add New Topic area', 'vfwp'),
-        'new_item_name' => __('New Topic area Name', 'vfwp'),
-        'menu_name' => __('Topic areas', 'vfwp'),
-    );
-}
-
-
 function vf_wp_sis_taxonomies__init()
 {
     // SIS Taxonomy: ages
-    register_taxonomy('sis-ages', array('ages'), array(
+    register_taxonomy('sis-ages', array('sis-article'), array(
         'labels' => vf_wp_sis_ages_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: article types
-    register_taxonomy('sis-article-types', array('article-types'), array(
+    register_taxonomy('sis-article-types', array('sis-article'), array(
         'labels' => vf_wp_sis_article_types_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: categories
-    register_taxonomy('sis-categories', array('categories'), array(
+    register_taxonomy('sis-categories', array('sis-article'), array(
         'labels' => vf_wp_sis_categories_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: editor tags
-    register_taxonomy('sis-editor-tags', array('editor-tags'), array(
+    register_taxonomy('sis-editor-tags', array('sis-article'), array(
         'labels' => vf_wp_sis_editor_tags_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: institutions
-    register_taxonomy('sis-institutions', array('institutions'), array(
+    register_taxonomy('sis-institutions', array('sis-article'), array(
         'labels' => vf_wp_sis_institutions_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: issues
-    register_taxonomy('sis-issues', array('issues'), array(
+    register_taxonomy('sis-issues', array('sis-article', 'sis-issue'), array(
         'labels' => vf_wp_sis_issues_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: license
-    register_taxonomy('sis-license', array('license'), array(
+    register_taxonomy('sis-license', array('sis-article'), array(
         'labels' => vf_wp_sis_license_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: reviewer tags
-    register_taxonomy('sis-reviewer-tags', array('reviewer-tags'), array(
+    register_taxonomy('sis-reviewer-tags', array('sis-article'), array(
         'labels' => vf_wp_sis_reviewer_tags_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
 
     // SIS Taxonomy: series
-    register_taxonomy('sis-series', array('series'), array(
+    register_taxonomy('sis-series', array('sis-article'), array(
         'labels' => vf_wp_sis_series_labels(),
         'hierarchical' => true,
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
         'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
+        'show_in_nav_menus' => true,
         'rewrite' => false,
         'show_in_rest' => false,
+        'show_in_menu' => true
     ));
 
-
-    // old taxonomies
-    register_taxonomy('sis-age-group', array('age-group'), array(
-        'labels' => vf_wp_sis_age_group_labels(),
-        'hierarchical' => true,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
-        'rewrite' => false,
-        'show_in_rest' => false,
-    ));
-
-
-    // old taxonomies
-    register_taxonomy('sis-topic-area', array('topic-area'), array(
-        'labels' => vf_wp_sis_topic_area_labels(),
-        'hierarchical' => true,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'publicly_queryable' => true,
-        'show_in_nav_menus' => false,
-        'rewrite' => false,
-        'show_in_rest' => false,
-    ));
 }
 
