@@ -7,6 +7,12 @@
 // If you don't have any Sass, you can trim this block down to:
 // "This page was intentionally left blank"
 
+// Debug information from component's `package.json`:
+// ---
+/*!
+ * Component: vf-local-overrides
+ */
+
 @import "vf-local-overrides.variables.scss";
 
 .vf-local-overrides {
@@ -97,7 +103,6 @@ body .vf-card--brand {
   --vf-card--striped-text-color: #ffffff;
 }
 
-
 // colour coding
 .sis-article-teach {
   .vf-content h2:not([class*="vf-"]),
@@ -121,4 +126,9 @@ body .vf-card--brand {
 // no zebra tables
 .vf-content table:not([class*="vf-"]) tr:nth-of-type(2n) {
   background: unset;
+}
+
+// card aspect ratio
+body.vf-wp-sis .vf-card__image {
+  aspect-ratio: var(--vf-card__image--aspect-ratio, 8/5);
 }
