@@ -26,7 +26,7 @@ function sis_getArticleTypesArray(){
 }
 
 // CHILD THEME CSS FILE
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 30);
 function my_theme_enqueue_styles() {
   $parent_style = 'parent-style';
 
@@ -44,19 +44,18 @@ function my_theme_enqueue_styles() {
   );
   // unload the generic vf-wp styles
   wp_dequeue_style('vfwp');
+
+  // load the SiS specific JS
+  wp_enqueue_script(
+    'vf-sis-scripts',
+    get_stylesheet_directory_uri() . '/assets/scripts/scripts.js',
+    array(),
+    $theme->version,
+    true
+  );
+  // unload the generic vf-wp scripts
+  wp_dequeue_script('vf-scripts');  
 }
-
-// load the SiS specific JS
-wp_enqueue_script(
-  'vf-sis-scripts',
-  get_stylesheet_directory_uri() . '/assets/scripts/scripts.js',
-  array(),
-  $theme->version,
-  true
-);
-// unload the generic vf-wp scripts
-wp_dequeue_script('vf-scripts');
-
 
 add_filter( 'body_class','my_body_classes' );
 function my_body_classes( $classes ) {
