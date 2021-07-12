@@ -39,5 +39,10 @@ if($articleType && !empty($articleType)){
     }
 }
 
+$articleMigrated = get_field('art_migrated_from_drupal');
+if($articleMigrated === true){
+    $cssClass .= ' sis-article-legacy';
+}
+
 body_class($cssClass);
 ?>>
