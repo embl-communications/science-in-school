@@ -9,19 +9,19 @@ $art_ages = get_field('art_ages');
     $articleTypesArray = sis_getArticleTypesArray();
     if($articleType == $articleTypesArray['UNDERSTAND']){
         ?>
-        <span class="vf-badge vf-badge--secondary" style="border-color: #8dd13e; background: #8dd13e; color: #fff;">Understand</span>
+        <span class="vf-badge sis-badge--understand">Understand</span>
         <?php
     } else if($articleType == $articleTypesArray['INSPIRE']){
         ?>
-        <span class="vf-badge vf-badge--primary" style="background: orange; border-color: orange;">Inspire</span>
+        <span class="vf-badge sis-badge--inspire">Inspire</span>
         <?php
     } else if($articleType == $articleTypesArray['EDITORIAL']){
         ?>
-        <span class="vf-badge vf-badge--primary" style="background: #000; border-color: #000; color:#fff;">Editorial</span>
+        <span class="vf-badge sis-badge--editorial">Editorial</span>
         <?php
     } else {
         ?>
-        <span class="vf-badge vf-badge--primary">Teach</span>
+        <span class="vf-badge sis-badge--teach">Teach</span>
         <?php
     }
     ?>
@@ -44,9 +44,7 @@ $art_ages = get_field('art_ages');
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
             <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>
             <br/>
-
             <?php sis_articleLanguageSwitcherInLoop(); ?>
-
         </p>
     </div>
 </article>
