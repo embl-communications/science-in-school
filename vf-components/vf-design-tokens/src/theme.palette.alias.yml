@@ -3,8 +3,9 @@ aliases:
   # SiS Brand Colours
   # ------------------
 
-  vf-color--brand: '#216cb6' # SiS
-  vf-color--brand--dark: '#082233' # SiS
+  vf-color--brand: '#256fc1' # SiS eiroblue
+  vf-color--brand--dark: 'rgb(0,41,74)' # SiS
+  vf-color--brand--light: '#88b6e8' # SiS
 
   # Text Colours
   # ------------
@@ -14,7 +15,7 @@ aliases:
 
   # Interactive Text Colours
 
-  vf-color__link: '#3B6FB6'
+  vf-color__link: '#0088ba' #SiS special link blue
   vf-color__link--hover: '#193f90'
   vf-color__link--focus: '#193f90'
   vf-color__link--visited: '#563D82'
