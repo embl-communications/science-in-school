@@ -4,7 +4,7 @@
       "type": "color",
       "category": "color",
       "name": "vfThemePrimary",
-      "value": "#216cb6",
+      "value": "#0088ba",
       "meta": {
         "friendlyName": "EMBL Primary",
         "sassVariable": "vf-theme--primary",
@@ -17,7 +17,7 @@
       "type": "color",
       "category": "color",
       "name": "vfThemePrimaryDark",
-      "value": "#082233",
+      "value": "#00455f",
       "meta": {
         "friendlyName": "EMBL Primary Dark",
         "sassVariable": "vf-theme--primary--dark",

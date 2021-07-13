@@ -28,7 +28,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorLink",
-      "value": "#3b6fb6",
+      "value": "#0088ba",
       "meta": {
         "friendlyName": "Link Colour",
         "sassVariable": "vf-color__link",

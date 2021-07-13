@@ -2,7 +2,7 @@ aliases:
 
   # Green Colours
 
-  vf-color--green: '#748f2e' #SiS
+  vf-color--green: '#748f2e' # SiS  eiro colours
   vf-color--green--darkest: '#0A5032'
   vf-color--green--dark: '#3e5305' #SiS
   vf-color--green--light: '#a1bf56' #SiS
@@ -24,9 +24,9 @@ aliases:
 
   # Blue Colours
 
-  vf-color--blue: '#216cb6' # SiS
-  vf-color--blue--dark: '#082233' # SiS
-  vf-color--blue--light: '#6bb5ff' # SiS
+  vf-color--blue: '#0088ba' # SiS teach
+  vf-color--blue--dark: '#00455f' # SiS
+  vf-color--blue--light: '#b7e5f5' # SiS
 
   # Purple Colours
 
@@ -36,9 +36,9 @@ aliases:
 
   # Orange Colours
 
-  vf-color--orange: '#d67e0a' # SiS
-  vf-color--orange--dark: '#2d1e02' # SiS
-  vf-color--orange--light: '#ffc463' # SiS
+  vf-color--orange: '#eb9e28' # SiS inspire
+  vf-color--orange--dark: '#c57a06' # SiS 
+  vf-color--orange--light: '#f6ebd9' # SiS
 
   # Yellow Colours
 
@@ -48,9 +48,9 @@ aliases:
 
   # Bright Green Colours
 
-  vf-color--bright-green: '#A1BE1F'
-  vf-color--bright-green--dark: '#7FB428'
-  vf-color--bright-green--light: '#E2E868'
+  vf-color--bright-green: 'rgb(173, 216, 122)' # SiS Understand
+  vf-color--bright-green--dark: 'rgb(101, 165, 23)' #SiS
+  vf-color--bright-green--light: 'rgb(213, 235, 187)' #SiS
 
   # Link Colours
 

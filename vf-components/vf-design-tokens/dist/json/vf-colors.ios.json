@@ -170,7 +170,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBlue",
-      "value": "#216cb6",
+      "value": "#0088ba",
       "meta": {
         "friendlyName": "EMBL Blue",
         "sassMap": "blue",
@@ -182,7 +182,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBlueDark",
-      "value": "#082233",
+      "value": "#00455f",
       "meta": {
         "friendlyName": "EMBL Blue, Dark Tint",
         "sassMap": "blue--dark",
@@ -194,7 +194,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBlueLight",
-      "value": "#6bb5ff",
+      "value": "#b7e5f5",
       "meta": {
         "friendlyName": "EMBL Blue, Light Tint",
         "sassMap": "blue--light",
@@ -242,7 +242,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorOrange",
-      "value": "#d67e0a",
+      "value": "#eb9e28",
       "meta": {
         "friendlyName": "EMBL Orange",
         "sassMap": "orange",
@@ -254,7 +254,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorOrangeDark",
-      "value": "#2d1e02",
+      "value": "#c57a06",
       "meta": {
         "friendlyName": "EMBL Orange, Dark Tint",
         "sassMap": "orange--dark",
@@ -266,7 +266,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorOrangeLight",
-      "value": "#ffc463",
+      "value": "#f6ebd9",
       "meta": {
         "friendlyName": "EMBL Orange, Light Tint",
         "sassMap": "orange--light",
@@ -314,7 +314,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBrightGreen",
-      "value": "#a1be1f",
+      "value": "#add87a",
       "meta": {
         "friendlyName": "EMBL Bright Green",
         "sassMap": "bright-green",
@@ -326,7 +326,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBrightGreenDark",
-      "value": "#7fb428",
+      "value": "#65a517",
       "meta": {
         "friendlyName": "EMBL Bright Green, Dark Tint",
         "sassMap": "bright-green--dark",
@@ -338,7 +338,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBrightGreenLight",
-      "value": "#e2e868",
+      "value": "#d5ebbb",
       "meta": {
         "friendlyName": "EMBL Bright Green, Light Tint",
         "sassMap": "bright-green--light",
