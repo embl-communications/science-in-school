@@ -4,15 +4,15 @@
         $articleTypesArray = sis_getArticleTypesArray();
         if($articleType == $articleTypesArray['UNDERSTAND']){
         ?>
-    <span class="vf-badge vf-badge--secondary" style="border-color: #8dd13e; background: #8dd13e; color: #fff;">Understand</span>
+    <span class="vf-badge sis-badge--understand">Understand</span>
     <?php
         } else if($articleType == $articleTypesArray['INSPIRE']){
     ?>
-            <span class="vf-badge vf-badge--primary" style="background: orange; border-color: orange;">Inspire</span>
+            <span class="vf-badge sis-badge--inspire">Inspire</span>
     <?php
         } else {
     ?>
-            <span class="vf-badge vf-badge--primary">Teach</span>
+            <span class="vf-badge sis-badge--teach">Teach</span>
     <?php
         }
     ?>

@@ -45,8 +45,8 @@ function wpml_content_languages($args = '')
         $post = get_field('featured_article_understand');
         setup_postdata($post);
         ?>
-        <article class="vf-card vf-card--brand vf-card--bordered">
-            <span class="vf-badge vf-badge--secondary" style="color: #fff;">Understand</span>
+        <article class="vf-card vf-card--brand vf-card--bordered sis-article-understand">
+            <span class="vf-badge sis-badge--understand">Understand</span>
             <?php the_post_thumbnail('full', array('class' => 'vf-card__image')); ?>
             <div class="vf-card__content | vf-stack vf-stack--400">
 
@@ -106,9 +106,8 @@ function wpml_content_languages($args = '')
         $post = get_field('featured_article_inspire');
         setup_postdata($post);
         ?>
-        <article class="vf-card vf-card--brand vf-card--bordered">
-                <span class="vf-badge vf-badge--primary"
-                      style="background: orange; border-color: orange;">Inspire</span>
+        <article class="vf-card vf-card--brand vf-card--bordered sis-article-inspire">
+            <span class="vf-badge sis-badge--inspire">Inspire</span>
             <?php the_post_thumbnail('full', array('class' => 'vf-card__image')); ?>
             <div class="vf-card__content | vf-stack vf-stack--400">
 
@@ -168,8 +167,8 @@ function wpml_content_languages($args = '')
         $post = get_field('featured_article_teach');
         setup_postdata($post);
         ?>
-        <article class="vf-card vf-card--brand vf-card--bordered">
-            <span class="vf-badge vf-badge--primary">Teach</span>
+        <article class="vf-card vf-card--brand vf-card--bordered sis-article-teach">
+            <span class="vf-badge sis-badge--teach">Teach</span>
             <?php the_post_thumbnail('full', array('class' => 'vf-card__image')); ?>
             <div class="vf-card__content | vf-stack vf-stack--400">
 
