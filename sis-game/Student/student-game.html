@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Binary words - Student</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <div class="tabs is-boxed">
+      <ul>
+        <li class="is-active">
+          <a>
+            <span>Game</span>
+          </a>
+        </li>
+        <li>
+          <a href="student-info.html">
+            <span>Information</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <section class="section" style="padding-bottom: 0pt;">
+      <h6 class="subtitle is-6 ml-4">Hover over the images to see them in a larger size.</h6>
+
+      <div class="container has-text-centered">
+        <div class="columns is-centered">
+          <div class="column is-one-third">
+            <img
+              class="is-pulled-right"
+              src="resources/images/binary_key_1.JPG"
+              style="padding: 0pt 20pt 20pt 20pt;"
+              id="img1"
+            />
+          </div>
+          <div class="column is-one-third">
+            <img
+            src="resources/images/binary_key_2.JPG"
+            id="img2"
+            />
+          </div>
+          <div class="column is-one-third">
+            <img
+              class="is-pulled-left"
+              src="resources/images/binary_key_3.JPG"
+              id="img3"
+            />
+          </div>
+        </div>
+        <div class="file has-name is-boxed is-centered" id="upload">
+          <label class="file-label">
+            <input
+              class="file-input"
+              onchange="loadWords(event)"
+              type="file"
+              name="resume"
+            />
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a words.txt file...
+              </span>
+            </span>
+          </label>
+        </div>
+
+        <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px; display: block; ">
+          <a href="resources/words.txt" target="_blank">Download and save an example <i>words.txt</i> file</a>
+        </div>
+
+        <button
+          class="button is-primary is-centered"
+          id="generate"
+          onclick="generateTable('estudante')"
+          style="display:none"
+        >
+          Generate new word!
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="instructions"
+      style="display: none; padding: 0pt;"
+    >
+      <div class="container has-text-centered">
+        <h3>Type a letter in each table row!</h3>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="generated-image-section"
+      style="display: none; padding-top: 5pt;"
+    >
+      <div class="container has-text-centered">
+        <div class="container">
+          <div class="column is-narrow">
+            <span class="tag is-success" id="correct">0 correct</span>
+            <span class="tag is-danger" id="wrong">0 wrong</span>
+          </div>
+        </div>
+        <div class="container has-text-centered">
+          <div class="columns is-centered">
+            <div class="column is-narrow">
+              <table class="table is-bordered">
+                <thead>
+                  <tr>
+                    <th>Letter</th>
+                    <th>32</th>
+                    <th>16</th>
+                    <th>8</th>
+                    <th>4</th>
+                    <th>2</th>
+                    <th>1</th>
+                  </tr>
+                </thead>
+                <tbody id="binary-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="container has-text-centered">
+          <div class="columns is-centered">
+            <div class="column is-half">
+              <button
+                class="button is-info"
+                id="confirm"
+                onclick="validateGuess()"
+              >
+                Confirm
+              </button>
+              <h1 class="title" id="result-wrong" style="display: none;">
+                You haven't yet found the word... 🙁
+              </h1>
+              <h1 class="title" id="result-right" style="display: none;">
+                You got it! You may play again by clicking "Generate new word".
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h5 id="word" style="display: none;"></h5>
+
+    <script src="resources/js/common.js"></script>
+    <script src="resources/js/student.js"></script>
+
+    <style>
+      .table {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #img1:hover {
+        transform: scale(2) translateX(25%);
+      }
+      #img2:hover {
+        transform: scale(2)
+      }
+      #img3:hover {
+        transform: scale(2) translateX(-25%);
+      }
+    </style>
+  </body>
+</html>

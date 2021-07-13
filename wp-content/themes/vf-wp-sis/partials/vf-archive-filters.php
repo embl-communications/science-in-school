@@ -41,7 +41,7 @@
 
 <div class="vf-form__item vf-stack">
     <label class="vf-form__label" for="vf-form__select">Issue</label>
-    <select class="vf-form__select" name="filter-issues" id="vf-form__select">
+    <select class="vf-form__select" name="filter-issues" id="vf-form__select_name">
         <option value="any" selected>Any</option>
         <?php
         $issuesGetParamArrayIds = sis_getTermIdsFromGetParam('sis-issues');
@@ -133,25 +133,58 @@
 
 <script>
     window.addEventListener('load', function() {
-        // your code here
-        if (typeof jQuery === 'undefined') {
-            console.log('test alex1');
-            // jQuery is NOT available
-        } else {
-            // jQuery is available
-            console.log('test alex2');
+        jQuery('.tmpl-search input').click(function () {
 
-            newUrl = '/?post_type=sis-article';
+            var newUrl = '/?post_type=sis-article';
 
-            searchTerm = $('#searchitem').val();
+            var searchTerm = $('#searchitem').val();
             if(searchTerm){
                 newUrl += '&s=' + searchTerm;
             }
 
+            var typesArray = [];
+            $.each($("input[name='filter-article-types']:checked"), function(){
+                typesArray.push($(this).val());
+            });
+            if(typesArray && typesArray.length > 0){
+                newUrl += '&sis-article-types=' + typesArray.join();
+                $("#id-sis-article-types").attr('value', typesArray.join());
+            } else {
+                $("#id-sis-article-types").attr('value', '');
+            }
+
+            var agesArray = [];
+            $.each($("input[name='filter-ages']:checked"), function(){
+                agesArray.push($(this).val());
+            });
+            if(agesArray && agesArray.length > 0){
+                newUrl += '&sis-ages=' + agesArray.join();
+                $("#id-sis-ages").attr('value', agesArray.join());
+            } else {
+                $("#id-sis-ages").attr('value', '');
+            }
+
+            var categoriesArray = [];
+            $.each($("input[name='filter-categories']:checked"), function(){
+                categoriesArray.push($(this).val());
+            });
+            if(categoriesArray && categoriesArray.length > 0){
+                newUrl += '&sis-categories=' + categoriesArray.join();
+                $("#id-sis-categories").attr('value', categoriesArray.join());
+            } else {
+                $("#id-sis-categories").attr('value', '');
+            }
+
+            var selectedIssue = $('#vf-form__select_name').children("option:selected").val();
+            if(selectedIssue && selectedIssue != 'any'){
+                newUrl += '&sis-issues=' + selectedIssue;
+                $("#id-sis-issues").attr('value', selectedIssue);
+            } else {
+                $("#id-sis-issues").attr('value', '');
+            }
 
             $('#sis-id-refresh-link').attr('href', newUrl);
 
-        }
-
-    })
+        });
+    });
 </script>

@@ -1,8 +1,9 @@
 <?php
-
 get_header();
-
 ?>
+<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
+<?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
+<main class="tmpl-post">
 
 <section class="vf-grid vf-grid__col-3">
   <div class="vf-grid__col--span-2 | vf-content">
@@ -124,8 +125,7 @@ get_header();
   </div>
 </section>
 
-<?php
+</main>
+<?php include(locate_template('partials/vf-footer.php', false, false)); ?>
+<?php get_footer(); ?>
 
-get_footer();
-
-?>
