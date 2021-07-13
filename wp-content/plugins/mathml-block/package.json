@@ -19,7 +19,7 @@
     "eslint": "7.30.0",
     "eslint-config-wordpress": "2.0.0",
     "eslint-loader": "4.0.2",
-    "eslint-plugin-react": "7.21.2",
+    "eslint-plugin-react": "7.24.0",
     "lodash": "4.17.21",
     "react": "16.13.1",
     "react-dom": "16.13.1",
