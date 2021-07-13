@@ -160,6 +160,8 @@ get_header();
 
             <?php sis_printFieldWithHeader('<h3>Author</h3>', $art_authors); ?>
 
+            <?php sis_printFieldWithHeader('<h3>Review</h3>', $art_review); ?>
+
             <br/><br/>
             <div>
                 <?php
@@ -217,7 +219,6 @@ get_header();
         ?>
     </div>
 
-    <?php include(locate_template('partials/vf-sub-relatedArticles.php', false, false)); ?>
 
     <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
 

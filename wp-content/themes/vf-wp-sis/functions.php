@@ -189,7 +189,7 @@ function sis_printArticlePDFLink($art_pdf){
 }
 
 function sis_printArticlePDFLinkWithHeaderAndEnd($header, $art_pdf, $end){
-    if (is_array($art_pdf) && array_key_exists("url", $art_pdf)) {
+    if (is_array($art_pdf) && array_key_exists("url", $art_pdf) && !empty($art_pdf['url'])) {
         echo $header . $art_pdf['url'] . $end;
     }
 }
