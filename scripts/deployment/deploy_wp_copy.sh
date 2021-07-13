@@ -17,6 +17,9 @@ rm -rf ./wp-includes/
 ## Remove .htaccess
 rm -f .htaccess
 
+## Remove sis-game
+rm -rf ./sis-game/
+
 ## Remove all files on first level
 rm -f index.php
 rm -f wp-activate.php
@@ -86,7 +89,6 @@ rm -rf ./vf-publications-group-ebi-block
 rm -rf ./vf-wp
 
 
-
 rm -rf ./content-views-query-and-display-post-page
 rm -rf ./custom-post-type-permalinks
 rm -rf ./custom-twitter-feeds
@@ -106,9 +108,15 @@ rm -rf ./types
 rm -rf ./types-access
 
 
+
+
 # Copy .htaccess
 cd /var/www/webdeploy/science-in-school/scripts/postprocess/htaccess-file
 cp .htaccess /var/www/html/wordpress/
+
+# Copy sis-game
+cd /var/www/webdeploy/science-in-school/
+cp -R ./sis-game/ /var/www/html/wordpress/
 
 # Copy wp-admin and wp-includes with latest sources
 cd /var/www/webdeploy/science-in-school/deployable/wordpress/
