@@ -117,47 +117,47 @@
         <section class="vf-grid">
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="https://www.eiroforum.org/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/eiroforum_logo.png" alt="EIROforum" title="EIROforum" />
+                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/eiroforum_logo.png" alt="EIROforum" title="EIROforum" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.cern.ch/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_cern.png" alt="CERN" title="CERN">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-cern.png?width=100" alt="CERN" title="CERN" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.embl.org/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_embl.png" alt="European Molecular Biology Laboratory" title="European Molecular Biology Laboratory">
+                    <img src="https://www.embl.org/assets/embl-logo/assets/logo.svg" alt="European Molecular Biology Laboratory" title="European Molecular Biology Laboratory" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.esa.int/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_esa.png" alt="European Space Agency" title="European Space Agency">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esa.png?width=100" alt="European Space Agency" title="European Space Agency" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.eso.org/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_eso.png" alt="European Southern Observatory" title="European Southern Observatory">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eso.jpeg?width=100" alt="European Southern Observatory" title="European Southern Observatory" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.esrf.eu/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_esrf.png" alt="European Synchrotron Radiation Facility" title="European Synchrotron Radiation Facility">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esrf.jpeg?width=100" alt="European Synchrotron Radiation Facility" title="European Synchrotron Radiation Facility" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.euro-fusion.org">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_eurofusion.png" alt="EUROfusion" title="EUROfusion">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eurofusion.png?width=100" alt="EUROfusion" title="EUROfusion" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.xfel.eu/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_xfel.png" alt="European XFEL" title="European XFEL">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-xfel.jpeg?width=100" alt="European XFEL" title="European XFEL" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.ill.eu/">
-                    <img src="/wp-content/themes/vf-wp-sis/assets/images/footer/footer_logo_ill.png" alt="Institut Laue-Langevin" title="Institut Laue-Langevin">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-ill.png?width=100" alt="Institut Laue-Langevin" title="Institut Laue-Langevin" loading="lazy">
                 </a>
             </div>
         </section>
