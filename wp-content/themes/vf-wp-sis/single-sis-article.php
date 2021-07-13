@@ -160,6 +160,8 @@ get_header();
 
             <?php sis_printFieldWithHeader('<h3>Author</h3>', $art_authors); ?>
 
+            <?php sis_printFieldWithHeader('<h3>Review</h3>', $art_review); ?>
+
             <br/><br/>
             <div>
                 <?php

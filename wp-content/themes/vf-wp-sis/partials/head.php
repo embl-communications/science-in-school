@@ -45,4 +45,4 @@ if($articleMigrated === true){
 }
 
 body_class($cssClass);
-?>>
+?> >
