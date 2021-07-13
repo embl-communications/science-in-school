@@ -103,7 +103,55 @@
 </fieldset>
 
 <?php
-    $refreshLink = '/';
+    $refreshLink = '/?post_type=sis-article';
+
+    // Test if the query exists at the URL
+    if ( get_query_var('s') ) {
+        $refreshLink .= '&s=' . get_query_var('s');
+    }
+
+    if ( get_query_var('sis-article-types') ) {
+        $refreshLink .= '&sis-article-types=' . get_query_var('sis-article-types');
+        print '<input type="hidden" name="sis-article-types" value="' . get_query_var('sis-article-types') . '">';
+    }
+
+    // Test if the query exists at the URL
+    if ( get_query_var('sis-ages') ) {
+        $refreshLink .= '&sis-ages=' . get_query_var('sis-ages');
+    }
+
+    // Test if the query exists at the URL
+    if ( get_query_var('sis-categories') ) {
+        $refreshLink .= '&sis-categories=' . get_query_var('sis-categories');
+    }
+
+
 
 ?>
-<a href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
+<a id="sis-id-refresh-link" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
+
+
+<script>
+    window.addEventListener('load', function() {
+        // your code here
+        if (typeof jQuery === 'undefined') {
+            console.log('test alex1');
+            // jQuery is NOT available
+        } else {
+            // jQuery is available
+            console.log('test alex2');
+
+            newUrl = '/?post_type=sis-article';
+
+            searchTerm = $('#searchitem').val();
+            if(searchTerm){
+                newUrl += '&s=' + searchTerm;
+            }
+
+
+            $('#sis-id-refresh-link').attr('href', newUrl);
+
+        }
+
+    })
+</script>

@@ -36,6 +36,18 @@ get_header();
                         </svg>
                     </button>
                 </div>
+
+                <?php
+                if ( get_query_var('sis-article-types') ) {
+                    print '<input type="hidden" name="sis-article-types" value="' . get_query_var('sis-article-types') . '">';
+                }
+                if ( get_query_var('sis-ages') ) {
+                    print '<input type="hidden" name="sis-ages" value="' . get_query_var('sis-ages') . '">';
+                }
+                if ( get_query_var('sis-categories') ) {
+                    print '<input type="hidden" name="sis-categories" value="' . get_query_var('sis-categories') . '">';
+                }
+                ?>
             </form>
             <!-- p class="vf-form__helper">Related or examples: <a href="JavaScript:Void(0);" class="vf-link">Cheese</a>, <a
                         href="JavaScript:Void(0);" class="vf-link">Brie</a>. You can also use the <a
