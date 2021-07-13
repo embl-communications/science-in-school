@@ -19,10 +19,8 @@ get_header();
     </section>
 
     <?php the_content(); ?>
-    
-    <br>
 
-    <?php include(locate_template('partials/vf-sub-newsletter.php', false, false)); ?>
+    <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
 
 </main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
