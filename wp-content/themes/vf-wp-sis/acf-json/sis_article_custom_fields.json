@@ -584,7 +584,7 @@
       },
       {
         "key": "field_60bf92d71e717",
-        "label": "Art Translator Name",
+        "label": "Translator Name",
         "name": "art_translator_name",
         "type": "text",
         "instructions": "",
@@ -604,7 +604,7 @@
       },
       {
         "key": "field_60bf92eb1e718",
-        "label": "Art Acknowledgements",
+        "label": "Acknowledgements",
         "name": "art_acknowledgements",
         "type": "textarea",
         "instructions": "",
