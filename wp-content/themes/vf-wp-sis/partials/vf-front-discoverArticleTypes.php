@@ -1,6 +1,6 @@
 <!-- article types -->
 <section class="vf-grid vf-grid__col-3">
-    <article class="vf-card vf-card--brand vf-card--striped sis-article-understand">
+    <article class="vf-card vf-card--striped sis-article-understand">
         <img
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-card_tunderstand_element.jpg"
                 alt="Image alt text" class="vf-card__image" loading="lazy">
@@ -19,7 +19,7 @@
             <p class="vf-card__text">Explore research and science topics</p>
         </div>
     </article>
-    <article class="vf-card vf-card--brand vf-card--striped sis-article-inspire">
+    <article class="vf-card vf-card--striped sis-article-inspire">
         <img
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-card_inspire_element.jpg"
                 alt="Image alt text" class="vf-card__image" loading="lazy">
@@ -38,7 +38,7 @@
             <p class="vf-card__text">Discover people, events and resources</p>
         </div>
     </article>
-    <article class="vf-card vf-card--brand vf-card--striped sis-article-teach">
+    <article class="vf-card vf-card--striped sis-article-teach">
         <img
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-card_teach_element.jpg"
                 alt="Image alt text" class="vf-card__image" loading="lazy">

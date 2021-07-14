@@ -67,9 +67,9 @@ body {
 
 .vf-wp-sis .sis-u-background-dots.vf-u-fullbleed::before {
   background-color: set-ui-color(vf-ui-color--grey--light);
-  background-image: url(https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-border-01.png?width=3000);
-  background-size: 2500px;
-  background-position-x: 100%;
+  background-image: url(https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-border-02.png?width=3000);
+  background-size: cover;
+  background-position-x: -300px;
 }
 
 // fix for SVG on smaller type sizes
@@ -90,20 +90,14 @@ body.sis-article-template-default figure.image {
 
 // white space overrides
 body .embl-grid {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
-// temporary card colour overrides
-body .vf-card--primary, 
-body .vf-card--brand {
-  --vf-card-bg-color: #{brand-color()};
-  --vf-card-text-color: #ffffff;
-  --vf-card-border-color: #{brand-color()};
-  --vf-card--striped-bg-color: #{brand-color(dark)};
-  --vf-card--striped-text-color: #ffffff;
-}
-
+// ----
 // colour coding
+// ----
+
+// colour coding headings
 .sis-article-teach {
   .vf-content h2:not([class*="vf-"]),
   .vf-content h3:not([class*="vf-"]),
@@ -115,12 +109,69 @@ body .vf-card--brand {
     background: #{brand-color()};
   }
 }
-
-.sis-article-understand .vf-intro__heading {
-  color: #{brand-color()}; // update
+.sis-article-understand {
+  .vf-content h2:not([class*="vf-"]),
+  .vf-content h3:not([class*="vf-"]),
+  .vf-intro__heading {
+    color: #{set-color(vf-color--green)}; 
+  }
+  .vf-content table:not([class*="vf-"]) thead {
+    // color: white;
+    background: #{set-color(vf-color--green)}; 
+  }  
 }
-.sis-article-learn .vf-intro__heading {
-  color: #{brand-color()}; //update
+.sis-article-learn,
+.sis-article-inspire {
+  .vf-content h2:not([class*="vf-"]),
+  .vf-content h3:not([class*="vf-"]),
+  .vf-intro__heading {
+    color: #{set-color(vf-color--orange)}; 
+  }
+  .vf-content table:not([class*="vf-"]) thead {
+    // color: white;
+    background: #{set-color(vf-color--orange)}; 
+  }  
+}
+
+// colour coding badges
+.vf-badge.sis-badge--teach {
+  background: #{brand-color()};
+  border-color: #{brand-color()};
+  color: white;
+}
+.vf-badge.sis-badge--understand {
+  background: #{set-color(vf-color--green)};
+  border-color: #{set-color(vf-color--green)};
+  color: white;
+}
+.vf-badge.sis-badge--inspire {
+  background: #{set-color(vf-color--orange)};
+  border-color: #{set-color(vf-color--orange)};
+  color: white;
+}
+
+// colour coding cards
+.vf-card.vf-card--primary, 
+.vf-card.sis-article-teach {
+  --vf-card-bg-color: #{brand-color()};
+  --vf-card-text-color: #ffffff;
+  --vf-card-border-color: #{brand-color()};
+  --vf-card--striped-bg-color: #{brand-color(dark)};
+  --vf-card--striped-text-color: #ffffff;
+}
+.vf-card.sis-article-understand {
+  --vf-card-bg-color: #{set-color(vf-color--green)};
+  --vf-card-text-color: #ffffff;
+  --vf-card-border-color: #{set-color(vf-color--green)};
+  --vf-card--striped-bg-color: #{set-color(vf-color--green--dark)};
+  --vf-card--striped-text-color: #ffffff;
+}
+.vf-card.sis-article-inspire {
+  --vf-card-bg-color: #{set-color(vf-color--orange)};
+  --vf-card-text-color: #ffffff;
+  --vf-card-border-color: #{set-color(vf-color--orange)};
+  --vf-card--striped-bg-color: #{set-color(vf-color--orange--dark)};
+  --vf-card--striped-text-color: #ffffff;
 }
 
 // no zebra tables
