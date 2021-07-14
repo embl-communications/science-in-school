@@ -1,5 +1,4 @@
-<!-- vf-u-fullbleed vf-u-background-color-ui--grey--light -->
-<style>
+<!-- <style>
     /* fullbleed image */
     .vf-wp-sis .sis-u-background-current-issue {
         background: none !important;
@@ -10,9 +9,9 @@
         background-position: 50%;
         background-size: cover;
     }
-</style>
+</style> --> 
 
-    <article class="vf-box vf-box--is-link vf-box-theme--quinary vf-box--normal">
+    <article class="vf-box vf-box--is-link vf-box-theme--primary vf-box--normal">
         <h3 class="vf-box__heading"><a class="vf-box__link" href="<?php echo get_the_permalink(); ?>">Our latest issue</a></h3>
         <p class="vf-box__text">
             <?php echo get_the_title(); ?>
