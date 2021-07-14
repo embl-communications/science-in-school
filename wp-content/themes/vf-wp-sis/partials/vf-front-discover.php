@@ -1,6 +1,6 @@
 <!-- Article themes -->
 <!-- vf-u-margin__bottom--0 -->
-<div class="embl-grid  | vf-u-fullbleed sis-u-background-dots vf-u-padding__bottom--800 vf-u-padding__top--800">
+<div class="embl-grid | vf-u-padding__bottom--800 vf-u-padding__top--800">
     <div class="vf-section-header"><a class="vf-section-header__heading vf-section-header__heading--is-link"
                                       href="JavaScript:Void(0);" id="section-sub-heading-link-text">Discover
             <svg aria-hidden="true"
@@ -12,15 +12,11 @@
             </svg>
         </a>
         <p class="vf-section-header__text">We are the only teaching journal to cover all sciences and target the
-            whole of
-            Europe and beyond. We offer articles in more than 30 languages.</p>
+            whole of Europe and beyond. We offer articles in more than 30 languages.</p>
     </div>
     <div>
         <?php include(locate_template('partials/vf-front-discoverSearch.php', false, false)); ?>
         <br/>
-
-
         <?php include(locate_template('partials/vf-front-discoverArticleTypes.php', false, false)); ?>
-
     </div>
 </div>

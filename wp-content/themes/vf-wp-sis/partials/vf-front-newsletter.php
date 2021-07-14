@@ -1,4 +1,4 @@
-<br/><br/>
+<br/>
 <div class="newsletter-container | embl-grid embl-grid--has-centered-content">
     <h3 class="vf-text vf-text-heading--4 | newsletter-title">Subscribe to our <span class="vf-u-text--nowrap">newsletter</span>
     </h3>
