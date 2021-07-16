@@ -1,7 +1,7 @@
 <!-- Current issue -->
 
 <section
-        class="vf-grid vf-grid__col-1 | vf-u-fullbleed sis-u-background-dots">
+        class="vf-vf-grid vf-grid__col-1 | vf-u-fullbleed sis-u-background-dots vf-u-margin__bottom--800">
     <div>
         <section class="embl-grid | vf-u-padding__bottom--800 vf-u-padding__top--800">
             <section>
