@@ -7573,6 +7573,9 @@ RewriteRule ^node/4461$ /2015/subscribe-confirmation [R=301,L,NC,QSA]
 RewriteRule ^node/4462$ /2015/unsubscribe-confirmation [R=301,L,NC,QSA]
 RewriteRule ^node/4856$ /2016/unsubscribe [R=301,L,NC,QSA]
 
+RewriteRule ^(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)/(issue/.*)$ /$2 [R=301,L,NC,QSA]
+RewriteRule ^(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)/(events/.*)$ /$2 [R=301,L,NC,QSA]
+
 </IfModule>
 
 # BEGIN WordPress

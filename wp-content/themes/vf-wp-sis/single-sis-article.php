@@ -144,9 +144,10 @@ get_header();
 
             <?php the_content(); ?>
 
-
-            <h3>Download</h3>
-            <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
+            <?php if(!empty($art_pdf)){ ?>
+                <h3>Download</h3>
+                <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
+            <?php } ?>
 
             <?php sis_printFieldWithHeader('<h3>Acknowledgements</h3>', $art_acknowledgements); ?>
 
