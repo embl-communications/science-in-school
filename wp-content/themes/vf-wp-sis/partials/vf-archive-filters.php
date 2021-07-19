@@ -40,9 +40,9 @@
 </fieldset>
 
 <div class="vf-form__item vf-stack">
-    <label class="vf-form__label" for="vf-form__select">Issue</label>
-    <select class="vf-form__select" name="filter-issues" id="vf-form__select_name">
-        <option value="any" selected>Any</option>
+    <label class="vf-form__label" for="vf-form__select_issue">Issue</label>
+    <select class="vf-form__select" name="filter-issues" id="vf-form__select_issue">
+        <option value="any">Any</option>
         <?php
         $issuesGetParamArrayIds = sis_getTermIdsFromGetParam('sis-issues');
         $issueTerms = get_terms('sis-issues', array('hide-empty' => true));
@@ -57,21 +57,28 @@
     </select>
 </div>
 
+<?php
+global $wp;
+$currentUrl = home_url( $wp->request );
+?>
 <div class="vf-form__item vf-stack">
-    <label class="vf-form__label" for="vf-form__select">Language</label>
-    <select class="vf-form__select" id="vf-form__select">
-        <option value="any" selected>Any</option>
+    <label class="vf-form__label" for="vf-form__select_language">Language</label>
+    <select class="vf-form__select" id="vf-form__select_language">
+        <option value="any">Any</option>
         <?php
         $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
         foreach($languages as $singleLanguage){
         ?>
-            <option value="<?php echo $singleLanguage['language_code']; ?>"><?php echo $singleLanguage['native_name']; ?></option>
+            <option
+                <?php if(strpos($currentUrl, '/' . $singleLanguage['language_code'] . '/') > 0){ echo ' selected="selected"'; } ?>
+                    value="<?php echo $singleLanguage['language_code']; ?>"><?php echo $singleLanguage['native_name']; ?></option>
 
         <?php
         }
         ?>
     </select>
 </div>
+
 
 <?php
     $sortOrderGetParam = get_query_var('sort-order');
@@ -81,6 +88,7 @@
         //add_filter('sis_archive_page_query', 'sis_archive_page_query_mod');
     }
 ?>
+<!--
 <fieldset class="vf-form__fieldset | vf-stack vf-stack--400">
     <legend class="vf-form__legend">Sort</legend>
     <div class="vf-form__item vf-form__item--radio">
@@ -101,9 +109,10 @@
         <label for="filter-sort-order-2" class="vf-form__label">Relevance</label>
     </div>
 </fieldset>
+-->
 
 <?php
-    $refreshLink = '/?post_type=sis-article';
+    $refreshLink = '?post_type=sis-article';
 
     // Test if the query exists at the URL
     if ( get_query_var('s') ) {
@@ -118,16 +127,30 @@
     // Test if the query exists at the URL
     if ( get_query_var('sis-ages') ) {
         $refreshLink .= '&sis-ages=' . get_query_var('sis-ages');
+        print '<input type="hidden" name="sis-ages" value="' . get_query_var('sis-ages') . '">';
     }
 
     // Test if the query exists at the URL
     if ( get_query_var('sis-categories') ) {
         $refreshLink .= '&sis-categories=' . get_query_var('sis-categories');
+        print '<input type="hidden" name="sis-categories" value="' . get_query_var('sis-categories') . '">';
     }
 
+    // Test if the query exists at the URL
+    if ( get_query_var('sis-issues') ) {
+        $refreshLink .= '&sis-issues=' . get_query_var('sis-issues');
+        print '<input type="hidden" name="sis-issues" value="' . get_query_var('sis-issues') . '">';
+    }
 
-
-?>
+    $currentUrl = home_url( $wp->request );
+    $matches = array();
+    preg_match('/\/(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)\//', $currentUrl, $matches);
+    if($matches && is_array($matches) && count($matches) >= 1){
+        $refreshLink = $matches[0] . $refreshLink;
+    } else {
+        $refreshLink = '/' . $refreshLink;
+    }
+    ?>
 <a id="sis-id-refresh-link" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
 
 
@@ -136,11 +159,13 @@
         var funcClick = function () {
             var newUrl = '/?post_type=sis-article';
 
+            // searched subject
             var searchTerm = $('#searchitem').val();
             if(searchTerm){
                 newUrl += '&s=' + searchTerm;
             }
 
+            // article types
             var typesArray = [];
             $.each($("input[name='filter-article-types']:checked"), function(){
                 typesArray.push($(this).val());
@@ -152,6 +177,7 @@
                 $("#id-sis-article-types").attr('value', '');
             }
 
+            // ages
             var agesArray = [];
             $.each($("input[name='filter-ages']:checked"), function(){
                 agesArray.push($(this).val());
@@ -163,6 +189,7 @@
                 $("#id-sis-ages").attr('value', '');
             }
 
+            // categories
             var categoriesArray = [];
             $.each($("input[name='filter-categories']:checked"), function(){
                 categoriesArray.push($(this).val());
@@ -174,7 +201,8 @@
                 $("#id-sis-categories").attr('value', '');
             }
 
-            var selectedIssue = $('#vf-form__select_name').children("option:selected").val();
+            // selected issue
+            var selectedIssue = $('#vf-form__select_issue').children("option:selected").val();
             if(selectedIssue && selectedIssue != 'any'){
                 newUrl += '&sis-issues=' + selectedIssue;
                 $("#id-sis-issues").attr('value', selectedIssue);
@@ -182,7 +210,19 @@
                 $("#id-sis-issues").attr('value', '');
             }
 
+            // selected language
+            var selectedLanguage = $('#vf-form__select_language').children("option:selected").val();
+            if(selectedLanguage && selectedLanguage != 'any' && selectedLanguage != 'en'){
+                newUrl = '/' + selectedLanguage + newUrl;
+                $('#sis-id-search-form').attr('action', '/' + selectedLanguage + '/');
+            } else {
+                $('#sis-id-search-form').attr('action', '/');
+            }
+
+            // set new url
             $('#sis-id-refresh-link').attr('href', newUrl);
+
+
 
         };
         jQuery('input').click(funcClick);

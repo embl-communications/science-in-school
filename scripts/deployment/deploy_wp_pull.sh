@@ -29,7 +29,7 @@ cd ..
 rm -rf ./vfwp-external-plugins
 git clone https://github.com/visual-framework/vfwp-external-plugins.git
 cd ./vfwp-external-plugins
-git checkout 202106301437
+git checkout 92f2dcd13046cbc44cb32f393d866e7eead089b1
 cd ..
 
 cd ${SCRIPTS_DEPLOY_DIR}
