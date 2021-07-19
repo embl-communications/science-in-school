@@ -133,8 +133,7 @@
 
 <script>
     window.addEventListener('load', function() {
-        jQuery('.tmpl-search input').click(function () {
-
+        var funcClick = function () {
             var newUrl = '/?post_type=sis-article';
 
             var searchTerm = $('#searchitem').val();
@@ -185,6 +184,8 @@
 
             $('#sis-id-refresh-link').attr('href', newUrl);
 
-        });
+        };
+        jQuery('input').click(funcClick);
+        jQuery('select').change(funcClick);
     });
 </script>

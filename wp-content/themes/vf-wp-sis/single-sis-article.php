@@ -200,14 +200,14 @@ get_header();
             </div>
         </div>
         <?php
-        if($art_materials){
+        if($art_materials && is_array($art_materials) && count($art_materials) > 0){
         ?>
         <article class="sis-materials">
             <h3>Supporting materials</h3>
             <ul>
                 <?php foreach($art_materials as $singleAddMat){
                 ?>
-                <li><a class="sis-materials--link sis-materials--link-pdf"
+                <li><a class="sis-materials--link sis-materials--link-pdf" target="_blank"
                        href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a></li>
                 <?php
                 }

@@ -106,8 +106,7 @@ rm -rf ./taxonomy-terms-order
 rm -rf ./toolset-blocks
 rm -rf ./types
 rm -rf ./types-access
-
-
+rm -rf ./wp-optimize
 
 
 # Copy .htaccess
@@ -212,6 +211,7 @@ cp -R ./taxonomy-terms-order /var/www/html/wordpress/wp-content/plugins/
 cp -R ./toolset-blocks /var/www/html/wordpress/wp-content/plugins/
 cp -R ./types /var/www/html/wordpress/wp-content/plugins/
 cp -R ./types-access /var/www/html/wordpress/wp-content/plugins/
+cp -R ./wp-optimize /var/www/html/wordpress/wp-content/plugins/
 
 # Change owner and group to apache
 chown -R apache:apache /var/www/html/wordpress

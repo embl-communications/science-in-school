@@ -24,6 +24,7 @@ rm -rf taxonomy-terms-order
 rm -rf toolset-blocks
 rm -rf types
 rm -rf types-access
+rm -rf wp-optimize
 
 ln -s /var/www/html/wp-content/plugins/relevanssi-premium
 ln -s /var/www/html/wp-content/plugins/content-views-query-and-display-post-page
@@ -42,6 +43,7 @@ ln -s /var/www/html/wp-content/plugins/taxonomy-terms-order
 ln -s /var/www/html/wp-content/plugins/toolset-blocks
 ln -s /var/www/html/wp-content/plugins/types
 ln -s /var/www/html/wp-content/plugins/types-access
+ln -s /var/www/html/wp-content/plugins/wp-optimize
 
 cd -
 
