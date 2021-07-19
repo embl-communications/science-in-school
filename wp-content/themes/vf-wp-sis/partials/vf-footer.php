@@ -6,8 +6,7 @@
 
         <section class="vf-footer__links-group | vf-grid">
             <div class="vf-links">
-                <h4 class="vf-links__heading">
-                    About</h4>
+                <!-- <h4 class="vf-links__heading">About</h4> -->
                 <ul class="vf-links__list | vf-list">
                     <li class="vf-list__item">
                         <a class="vf-list__link" href="/about-science-school">About Science in School</a>
@@ -21,8 +20,7 @@
                 </ul>
             </div>
             <div class="vf-links">
-                <h4 class="vf-links__heading">
-                    About</h4>
+                <!-- <h4 class="vf-links__heading">About</h4> -->
                 <ul class="vf-links__list | vf-list">
                     <li class="vf-list__item">
                         <a class="vf-list__link" href="/copyright">Copyright</a>
@@ -36,8 +34,7 @@
                 </ul>
             </div>
             <div class="vf-links">
-                <h4 class="vf-links__heading">
-                    About</h4>
+                <!-- <h4 class="vf-links__heading">About</h4> -->
                 <ul class="vf-links__list | vf-list">
                     <li class="vf-list__item">
                         <a class="vf-list__link" href="/issue">Archive</a>
@@ -51,8 +48,7 @@
                 </ul>
             </div>
             <div class="vf-links">
-                <h4 class="vf-links__heading">
-                    Follow us</h4>
+                <!-- <h4 class="vf-links__heading">Follow us</h4> -->
                 <svg aria-hidden="true" display="none" class="vf-icon-collection vf-icon-collection--social">
                     <defs>
                         <g id="vf-social--linkedin">
