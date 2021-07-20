@@ -13,8 +13,8 @@ add_theme_support('title-tag');
 
 function sis_getArticleTypesArray(){
     $ARTICLE_TYPE_INSPIRE = 2559;
-    $ARTICLE_TYPE_TEACH = 2560;
     $ARTICLE_TYPE_UNDERSTAND = 2558;
+    $ARTICLE_TYPE_TEACH = 2560;
     $ARTICLE_TYPE_EDITORIAL = 2544;
 
     return array(
