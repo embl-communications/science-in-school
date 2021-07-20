@@ -163,7 +163,11 @@ get_header();
 
             <?php sis_printFieldWithHeader('<h3>Review</h3>', $art_review); ?>
 
-            <br/><br/>
+            <?php
+                if(!empty($art_license) || !empty($art_license_freetext)){
+                    print '<br/><br/><h3>License</h3>';
+                }
+            ?>
             <div>
                 <?php
                 if($art_license == 5343){

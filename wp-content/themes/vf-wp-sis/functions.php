@@ -18,10 +18,10 @@ function sis_getArticleTypesArray(){
     $ARTICLE_TYPE_EDITORIAL = 2544;
 
     return array(
-        'EDITORIAL' => $ARTICLE_TYPE_EDITORIAL,
-        'UNDERSTAND' => $ARTICLE_TYPE_UNDERSTAND,
         'INSPIRE' => $ARTICLE_TYPE_INSPIRE,
-        'TEACH' => $ARTICLE_TYPE_TEACH
+        'UNDERSTAND' => $ARTICLE_TYPE_UNDERSTAND,
+        'TEACH' => $ARTICLE_TYPE_TEACH,
+        'EDITORIAL' => $ARTICLE_TYPE_EDITORIAL
     );
 }
 
