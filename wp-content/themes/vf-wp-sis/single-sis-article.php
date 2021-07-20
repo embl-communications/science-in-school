@@ -27,8 +27,8 @@ get_header();
     $art_authors = get_field('art_authors');
     $art_referee = get_field('art_referee');
     $art_review = get_field('art_review');
-    $art_slider_image = get_field('art_slider_image');
-    $art_teaser_image = get_field('art_teaser_image');
+    //$art_slider_image = get_field('art_slider_image');
+    //$art_teaser_image = get_field('art_teaser_image');
     $art_pdf = get_field('art_pdf');
     $art_materials = get_field('art_materials');
     $art_migrated_from_drupal = get_field('art_migrated_from_drupal');
@@ -201,7 +201,7 @@ get_header();
             </div>
         </div>
         <?php
-        if($art_materials && is_array($art_materials) && count($art_materials) > 0){
+        if(is_array($art_materials) && count($art_materials) > 0){
         ?>
         <article class="sis-materials">
             <h3>Supporting materials</h3>

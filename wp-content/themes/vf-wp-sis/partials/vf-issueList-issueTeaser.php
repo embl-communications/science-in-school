@@ -1,6 +1,15 @@
+<?php
+$iss_cover_image = get_field('iss_cover_image');
+?>
 <article class="vf-card vf-card--brand vf-card--striped">
-    <img src="<?php echo get_the_post_thumbnail_url(); ?>"
-         alt="Image alt text" class="vf-card__image" loading="lazy">
+    <?php
+        if(is_array($iss_cover_image) && array_key_exists('url', $iss_cover_image)){
+    ?>
+        <img src="<?php echo $iss_cover_image['url']; ?>"
+             alt="Image alt text" class="vf-card__image" loading="lazy">
+    <?php
+        }
+    ?>
     <div class="vf-card__content | vf-stack vf-stack--400">
         <h3 class="vf-card__heading"><a class="vf-card__link" href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?>
                 <svg aria-hidden="true" class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end"

@@ -37,7 +37,7 @@
           "id": ""
         },
         "wpml_cf_preferences": 0,
-        "return_format": "url",
+        "return_format": "array",
         "preview_size": "medium",
         "library": "all",
         "min_width": "",
@@ -90,52 +90,6 @@
         "min_size": "",
         "max_size": "",
         "mime_types": ""
-      },
-      {
-        "key": "field_6034afe58df15",
-        "label": "Articles",
-        "name": "iss_articles",
-        "type": "relationship",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "wpml_cf_preferences": 0,
-        "post_type": [
-          "sis-article"
-        ],
-        "taxonomy": "",
-        "filters": [
-          "post_type"
-        ],
-        "elements": "",
-        "min": "",
-        "max": "",
-        "return_format": "object"
-      },
-      {
-        "key": "field_6034b0428df18",
-        "label": "Show banner",
-        "name": "iss_show_banner",
-        "type": "true_false",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "message": "",
-        "default_value": 0,
-        "ui": 0,
-        "wpml_cf_preferences": 0,
-        "ui_on_text": "",
-        "ui_off_text": ""
       },
       {
         "key": "field_6034b0f680484",

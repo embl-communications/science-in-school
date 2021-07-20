@@ -10,10 +10,11 @@ get_header();
 
     $iss_issue = get_field('iss_issue');
     $iss_pdf = get_field('iss_pdf');
-    $iss_articles = get_field('iss_articles');
-    $iss_previous_issue = get_field('iss_previous_issue');
-    $iss_next_issue = get_field('iss_next_issue');
-    $iss_show_banner = get_field('iss_show_banner');
+    $iss_cover_image = get_field('iss_cover_image');
+    //$iss_articles = get_field('iss_articles');
+    //$iss_previous_issue = get_field('iss_previous_issue');
+    //$iss_next_issue = get_field('iss_next_issue');
+    //$iss_show_banner = get_field('iss_show_banner');
     $iss_migrated_from_drupal = get_field('iss_migrated_from_drupal');
     $iss_reviewed_after_migration_from_drupal = get_field('iss_reviewed_after_migration_from_drupal');
     ?>
