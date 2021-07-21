@@ -270,7 +270,7 @@ function sis_articleLanguageSwitcherInLoop() {
 
         foreach ($translation as $l) {
             $langs[] = '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
-                . '<a href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+                . '<a class="vf-card__link" href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
                 . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />'
                 . '</a>'
                 . '</span>';

@@ -38,7 +38,7 @@
             }
             ?>
         </div>
-        <p class="wpml-ls-statics-post_translations wpml-ls">
+        <p class="wpml-ls-statics-post_translations wpml-ls | vf-card__text">
             <?php
             sis_articleLanguageSwitcherInLoop();
             ?>
