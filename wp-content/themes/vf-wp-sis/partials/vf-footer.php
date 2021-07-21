@@ -143,7 +143,7 @@
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.euro-fusion.org">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eurofusion.png?width=40" alt="EUROfusion" title="EUROfusion" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eurofusion.png?width=80" alt="EUROfusion" title="EUROfusion" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
