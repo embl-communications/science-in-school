@@ -5,125 +5,88 @@ get_header();
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
 <main class="tmpl-post">
 
-<section class="vf-grid vf-grid__col-3">
-  <div class="vf-grid__col--span-2 | vf-content">
-    <?php if (is_tax()) { ?>
-    <h1>
-      <?php echo esc_html(single_term_title()); } ?>
-    </h1>
-    <h3>
-      <?php echo esc_html(VF_Events::get_archive_title()); ?>
-    </h3>
-    <div>
+    <section class="vf-hero | vf-u-fullbleed" style=" --vf-hero--bg-image-size: auto 28.5rem">
+        <div class="vf-hero__content | vf-box | vf-stack vf-stack--400">
+            <!-- <p class="vf-hero__kicker"><a href="JavaScript:Void(0);">VF Hamburg</a> | Structural Biology</p> -->
+            <h2 class="vf-hero__heading"><a class="vf-hero__heading_link" href="/events/">Events</a></h2>
+            <p class="vf-hero__subheading"></p>
+            <p class="vf-hero__text">Webinars and EIROforum events</p>
+            <!--<a class="vf-hero__link" href="JavaScript:Void(0);">View the full PDF <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z" fill="" fill-rule="nonzero"></path>
+            </svg>
+            </a>-->
+        </div>
+    </section>
 
-    <?php
-    if ( have_posts() ) {
-    while (have_posts()) {
-      the_post();
-      $post_id = get_the_ID();
-      $start_date = get_field(
-        'vf_event_start_date',
-        $post_id
-      );
-      $location = get_field(
-        'vf_event_location',
-        $post_id
-      );
-      $event_type = get_field('vf_event_event_type'); ?>
 
-      <article class="vf-summary vf-summary--event">
-        <?php if ( ! empty($start_date)) { ?>
-        <p class="vf-summary__date">
-          <?php echo esc_html($start_date); ?>
-        </p>
-        <?php } ?>
-        <h3 class="vf-summary__title">
-          <a href="<?php echo get_permalink(); ?>" class="vf-summary__link">
-            <?php the_title(); ?>
-          </a>
-        </h3>
-        <?php if ( ! empty(get_the_excerpt())) { ?>
-        <p class="vf-summary__text">
-          <?php echo strip_tags(get_the_excerpt()); ?>
-        </p>
-        <?php } ?>
-        <p class="vf-summary__text">
-          <?php if($event_type && is_object($event_type)) { echo esc_html($event_type->name); } ?>
-        </p>
-        <?php if ( ! empty($location)) { ?>
-        <p class="vf-summary__location">
-          <?php echo esc_html($location); ?>
-        </p>
-        <?php } ?>
-      </article>
-      <!--/vf-summary-->
-      <?php
-
-      // Output divider after all but last post
-      if ($wp_query->current_post < $wp_query->post_count - 1) {
-        echo '<hr class="vf-divider">';
-      }
-
-    } } // while (have_posts())
-    ?>
-
-  <?php
-    $pagination = VF_Events::get_archive_pages();
-    if ($pagination['previous'] || $pagination['next']) { ?>
-      <nav class="vf-pagination" aria-label="<?php esc_attr_e('Pagination', 'vfwp'); ?>">
-        <ul class="vf-pagination__list">
-          <?php if ($pagination['previous']) { ?>
-          <li class="vf-pagination__item vf-pagination__item--previous-page">
-            <a href="<?php echo esc_url($pagination['previous']); ?>" class="vf-pagination__link">
-              <?php
-            printf(
-              '%1$s<span class="vf-u-sr-only"> %2$s</span>',
-              _x('Previous', 'events pagination', 'vfwp'),
-              _x('page', 'events pagination', 'vfwp')
+    <!-- Webinars -->
+    <section class="vf-news-container vf-news-container--featured | embl-grid">
+        <div class="vf-section-header"><a class="vf-section-header__heading vf-section-header__heading--is-link" href="/events/" id="section-sub-heading-link-text">Webinars <svg aria-hidden="true" class="vf-section-header__icon | vf-icon vf-icon-arrow--inline-end" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z" fill="" fill-rule="nonzero"></path>
+                </svg></a>
+            <p class="vf-section-header__text">Summary of something about webinars at SiS.</p>
+        </div>
+        <div class="vf-news-container__content vf-grid">
+            <?php
+            $featureLoop = new WP_Query(
+                array(
+                    'post_type' => 'vf_event',
+                    'posts_per_page' => 3,
+                    'post_status' => 'publish',
+                    'orderby' => 'rand',
+                    'order' => 'DESC',
+                    'meta_query'	=> array(
+                        array(
+                            'key'	 	=> 'vf_event_event_type',
+                            'value'	  	=> 'webinar',
+                            'compare' 	=> '=',
+                        )
+                    ),
+                )
             );
+
+            while ($featureLoop->have_posts()) : $featureLoop->the_post();
+                include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false));
+            endwhile;
+            wp_reset_postdata();
             ?>
-            </a>
-          </li>
-          <?php } ?>
-          <?php if ($pagination['next']) { ?>
-          <li class="vf-pagination__item vf-pagination__item--next-page">
-            <a href="<?php echo esc_url($pagination['next']); ?>" class="vf-pagination__link">
-              <?php
-            printf(
-              '%1$s<span class="vf-u-sr-only"> %2$s</span>',
-              _x('Next', 'events pagination', 'vfwp'),
-              _x('page', 'events pagination', 'vfwp')
+        </div>
+    </section>
+
+
+    <!-- Upcoming events -->
+    <section class="vf-news-container vf-news-container--featured | embl-grid">
+        <div class="vf-section-header"><a class="vf-section-header__heading vf-section-header__heading--is-link" href="/events/" id="section-sub-heading-link-text">EIROforum events <svg aria-hidden="true" class="vf-section-header__icon | vf-icon vf-icon-arrow--inline-end" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0C5.376.008.008 5.376 0 12zm13.707-5.209l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414l2.366-2.367a.25.25 0 00-.177-.424H6a1 1 0 010-2h8.482a.25.25 0 00.177-.427l-2.366-2.368a1 1 0 011.414-1.414z" fill="" fill-rule="nonzero"></path>
+                </svg></a>
+            <p class="vf-section-header__text">Hosted by EIROforum members.</p>
+        </div>
+        <div class="vf-news-container__content vf-grid">
+            <?php
+            $featureLoop = new WP_Query(
+                array(
+                    'post_type' => 'vf_event',
+                    'posts_per_page' => 3,
+                    'post_status' => 'publish',
+                    'orderby' => 'rand',
+                    'order' => 'DESC',
+                    'meta_query'	=> array(
+                        array(
+                            'key'	 	=> 'vf_event_event_type',
+                            'value'	  	=> 'webinar',
+                            'compare' 	=> '!=',
+                        )
+                    ),
+                )
             );
+
+            while ($featureLoop->have_posts()) : $featureLoop->the_post();
+                include(locate_template('partials/vf-front-eventsSingleEvent.php', false, false));
+            endwhile;
+            wp_reset_postdata();
             ?>
-            </a>
-          </li>
-          <?php } ?>
-        </ul>
-      </nav>
-      <!--/vf-pagination-->
-      <?php } ?>
-
-      <?php
-    // View alternate past/upcoming archives
-    $is_past = VF_Events::is_past_archive();
-    $alt_url = VF_Events::get_archive_link( ! $is_past);
-    $alt_title = sprintf(
-      _x('View %1$s', 'event archive link', 'vfwp'),
-      VF_Events::get_archive_title( ! $is_past)
-    );
-    if ( ! is_tax()) {
-    ?>
-      <p class="vf-text-body">
-        <a href="<?php echo esc_url($alt_url); ?>">
-          <?php echo esc_html($alt_title); ?>
-        </a>
-      </p>
-      <?php } ?>
-
-    </div>
-
-  </div>
-</section>
+        </div>
+    </section>
 
 </main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
