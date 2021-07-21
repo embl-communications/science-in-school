@@ -128,7 +128,7 @@
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.esa.int/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esa.png?width=40" alt="European Space Agency" title="European Space Agency" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esa.png?width=70" alt="European Space Agency" title="European Space Agency" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
@@ -153,7 +153,7 @@
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.ill.eu/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-ill.png?width=40" alt="Institut Laue-Langevin" title="Institut Laue-Langevin" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-ill.png?width=80" alt="Institut Laue-Langevin" title="Institut Laue-Langevin" loading="lazy">
                 </a>
             </div>
         </section>
