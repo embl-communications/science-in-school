@@ -165,7 +165,7 @@ foreach ($fileNamesAdditionaMaterialArray as $currentNodeId => $currentEntriesAr
 $stmt->close();
 echo "Added material names: " . $addedMaterials . PHP_EOL;
 
-echo "All English articles have been copied to non-English articles" . PHP_EOL;
+echo "Added filenames for addition material for several articles" . PHP_EOL;
 
 
 

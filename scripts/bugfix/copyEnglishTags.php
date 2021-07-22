@@ -181,6 +181,7 @@ $metaKey = '';
 $metaValue = '';
 $stmt->bind_param("iss", $postId, $metaKey, $metaValue);
 
+$numberPostmetaInserts = 0;
 foreach ($postmetaEntriesEnglishArticlesArray as $currentPostId => $currentEntriesArray) {
     if(empty($currentPostId)){
         echo "ERROR: Empty currentPostId " . PHP_EOL;
@@ -217,10 +218,13 @@ foreach ($postmetaEntriesEnglishArticlesArray as $currentPostId => $currentEntri
             $metaKey = $currentMetaKey;
             $metaValue = $currentMetaValue;
             $stmt->execute();
+            $numberPostmetaInserts++;
         }
     }
 }
 $stmt->close();
+
+echo "Number of post meta entries added: " . $numberPostmetaInserts;
 
 
 // 8.: Add entries in wp_term_relationships for non-English articles
@@ -232,6 +236,7 @@ $termTaxonomyId = 0;
 $termOrder = 0;
 $stmt->bind_param("iii", $objectId, $termTaxonomyId, $termOrder);
 
+$numberTermRelationshipsInserts = 0;
 foreach ($termRelationshipsEnglishArticlesArray as $currentObjectId => $currentEntriesArray) {
     if(empty($currentObjectId)){
         echo "ERROR: Empty currentObjectId " . PHP_EOL;
@@ -268,11 +273,12 @@ foreach ($termRelationshipsEnglishArticlesArray as $currentObjectId => $currentE
             $termTaxonomyId = $currentTermTaxonomyId;
             $termOrder = $currentTermOrder;
             $stmt->execute();
+            $numberTermRelationshipsInserts++;
         }
     }
 }
 $stmt->close();
-
+echo "Number of term relationships entries added: " . $numberTermRelationshipsInserts;
 
 echo "All English articles have been copied to non-English articles" . PHP_EOL;
 
