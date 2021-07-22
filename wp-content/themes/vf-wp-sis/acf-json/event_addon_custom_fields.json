@@ -27,6 +27,32 @@
                 "max_size": "",
                 "mime_types": "",
                 "wpml_cf_preferences": 0
+            },
+            {
+                "key": "field_60f9396369225",
+                "label": "SIS Event Type",
+                "name": "sis_event_type",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "wpml_cf_preferences": 0,
+                "choices": {
+                    "Webinar": "Webinar",
+                    "Other": "Other"
+                },
+                "default_value": false,
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
             }
         ],
         "location": [
