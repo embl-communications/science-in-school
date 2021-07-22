@@ -38,7 +38,7 @@ while ($row = $result->fetch_assoc()) {
         continue;
     }
     $postIdsEnglishArticlesArray[] = $row['element_id'];
-    $mappingTridToEnglishPostIdArray['element_id'] = $row['trid'];
+    $mappingTridToEnglishPostIdArray[$row['element_id']] = $row['trid'];
 }
 $statement->close();
 
