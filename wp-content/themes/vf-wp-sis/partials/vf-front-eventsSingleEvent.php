@@ -18,5 +18,9 @@ $thumbnail_image = get_field('event_addon_thumbnail_image');
     </h3>
     <p class="vf-summary__text">
         <?php echo get_the_excerpt(); ?>
+        <br/><br/>
+        <?php sis_printFieldWithHeader('Startdate (CET): ', get_field('vf_event_start_date')); ?>
+        <br/>
+        <?php sis_printFieldWithHeader('Starttime (CET): ', get_field('vf_event_start_time')); ?>
     </p>
 </article>

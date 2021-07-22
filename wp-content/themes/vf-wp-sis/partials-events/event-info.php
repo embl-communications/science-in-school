@@ -139,7 +139,7 @@ $abstract_date = new DateTime($abstract_closing);
     <?php 
     // Registration dates
     if ( ! empty($registration_closing)) { ?>
-    <p class="vf-text-body vf-text-body--3"><span>Registration:</span> <span class="vf-u-text-color--grey">
+    <p class="vf-text-body vf-text-body--3"><span>Registration-Deadline:</span> <span class="vf-u-text-color--grey">
         <?php if ($registration_date < $now) {
           echo 'Closed';
         }  

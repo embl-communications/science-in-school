@@ -46,7 +46,7 @@
         "taxonomy": "",
         "allow_null": 0,
         "multiple": 0,
-        "return_format": "object",
+        "return_format": "id",
         "ui": 1
       },
       {
@@ -108,14 +108,14 @@
           "class": "",
           "id": ""
         },
+        "wpml_cf_preferences": 0,
         "post_type": [
           "vf_event"
         ],
         "taxonomy": "",
         "allow_null": 0,
         "multiple": 1,
-        "return_format": "object",
-        "wpml_cf_preferences": 0,
+        "return_format": "id",
         "ui": 1
       },
       {
@@ -131,14 +131,14 @@
           "class": "",
           "id": ""
         },
+        "wpml_cf_preferences": 0,
         "post_type": [
           "vf_event"
         ],
         "taxonomy": "",
         "allow_null": 0,
         "multiple": 1,
-        "return_format": "object",
-        "wpml_cf_preferences": 0,
+        "return_format": "id",
         "ui": 1
       },
       {

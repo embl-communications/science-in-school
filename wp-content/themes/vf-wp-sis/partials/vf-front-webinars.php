@@ -7,27 +7,45 @@
     </div>
     <div class="vf-news-container__content vf-grid">
         <?php
-        $featureLoop = new WP_Query(
-            array(
-                'post_type' => 'vf_event',
-                'posts_per_page' => 3,
-                'post_status' => 'publish',
-                'orderby' => 'rand',
-                'order' => 'DESC',
-                'meta_query'	=> array(
-                    array(
-                        'key'	 	=> 'vf_event_event_type',
-                        'value'	  	=> 'webinar',
-                        'compare' 	=> '=',
-                    )
-                ),
-            )
-        );
+        $currentWebinars = get_field('current_webinars');
+        $numberOfCurrentWebinars = 0;
+        $shownWebinars = array();
+        if ($currentWebinars) {
+            $numberOfCurrentWebinars += count($currentWebinars);
+            $webinarsLoop = new WP_Query(
+                array(
+                    'post_type' => 'vf_event',
+                    'post__in' => $currentWebinars,
+                    'post_status' => 'publish'
+                )
+            );
 
-        while ($featureLoop->have_posts()) : $featureLoop->the_post();
-            include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false));
-        endwhile;
-        wp_reset_postdata();
+            while ($webinarsLoop->have_posts()) : $webinarsLoop->the_post();
+                $shownWebinars[] = get_the_ID();
+                include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false));
+            endwhile;
+            wp_reset_postdata();
+        }
+
+        if ($numberOfCurrentWebinars < 3) {
+            $webinarsLoop = new WP_Query(
+                array(
+                    'post_type' => 'vf_event',
+                    'posts_per_page' => 10,
+                    'post_status' => 'publish',
+                    'post__not_in' => $shownWebinars
+                )
+            );
+
+            while ($webinarsLoop->have_posts()) : $webinarsLoop->the_post();
+                $sis_event_type = get_field('sis_event_type');
+                if($numberOfCurrentWebinars < 3 && $sis_event_type == 'Webinar') {
+                    $numberOfCurrentWebinars++;
+                    include(locate_template('partials/vf-front-webinarsSingleWebinar.php', false, false));
+                }
+            endwhile;
+            wp_reset_postdata();
+        }
         ?>
     </div>
 </section>
