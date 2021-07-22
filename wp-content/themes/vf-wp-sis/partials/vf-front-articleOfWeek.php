@@ -12,8 +12,8 @@ if($articleOfWeek){
 
         $art_slider_image = get_field('art_slider_image');
         $art_slider_image_url = '';
-        if(!empty($art_slider_image)){
-            $art_slider_image_url = wp_get_attachment_image_url($art_slider_image);
+        if(is_array($art_slider_image) && array_key_exists('url', $art_slider_image)){
+            $art_slider_image_url = $art_slider_image['url'];
         }
     ?>
         <section class="vf-hero vf-hero--1200 | vf-u-fullbleed"
