@@ -223,7 +223,7 @@ function sis_articleLanguageSwitcher(){
     $languages = icl_get_languages('skip_missing=1');
     echo __(' <ul class="vf-links__list vf-links__list--secondary | vf-list">');
         foreach($languages as $l){
-            $langs[] = '<li class="vf-list__item"><a class="list__link" href="'.$l['url'].
+            $langs[] = '<li class="vf-list__item"><a class="vf-list__link" href="'.$l['url'].
                 '"><img class="wpml-ls-flag" src="' . $l['country_flag_url'].'" />&nbsp;' .$l['native_name'].'</a></li>';
         }
         echo join(' ', $langs);
