@@ -1,23 +1,19 @@
-<article class="vf-card vf-card--brand vf-card--bordered">
+
 
     <?php
     $articleType = get_field('art_article_type');
     $articleTypesArray = sis_getArticleTypesArray();
     if($articleType == $articleTypesArray['UNDERSTAND']){
-        ?>
-        <span class="vf-badge sis-badge--understand">Understand</span>
-        <?php
+        $articleTypeLabel = 'Understand';
     } else if($articleType == $articleTypesArray['INSPIRE']){
-        ?>
-        <span class="vf-badge sis-badge--inspire">Inspire</span>
-        <?php
+        $articleTypeLabel = 'Inspire';
     } else {
-        ?>
-        <span class="vf-badge sis-badge--teach">Teach</span>
-        <?php
+        $articleTypeLabel = 'Teach';
     }
     ?>
 
+<article class="vf-card vf-card--brand vf-card--bordered  sis-article-<?php print strtolower($articleTypeLabel); ?>">
+    <span class="vf-badge sis-badge--<?php print strtolower($articleTypeLabel); ?>"><?php print $articleTypeLabel; ?></span>
     <img src="<?php echo get_the_post_thumbnail_url(); ?>"
          alt="Image alt text" class="vf-card__image" loading="lazy">
     <div class="vf-card__content | vf-stack vf-stack--400">
