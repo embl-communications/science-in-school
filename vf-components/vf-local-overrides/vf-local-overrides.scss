@@ -219,3 +219,25 @@ body.vf-wp-sis .vf-card__image {
   font-weight: 600;
 }
 
+
+// reinstate the basic wp block layout css
+.wp-block-columns {
+	margin-bottom: 20px;
+  display: flex;
+}
+.wp-block-column {
+	margin: 0 0 0 1rem;
+}
+.wp-block-column:first-child {
+	margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Make the columns block responsive */
+	.wp-block-columns {
+	    display: initial;
+	}
+	.wp-block-columns .wp-block-column {
+		margin: 0 0 10px;
+	}
+}
