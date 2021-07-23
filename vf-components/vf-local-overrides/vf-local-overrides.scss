@@ -88,6 +88,16 @@ body.sis-article-template-default figure.image {
   text-align: left;
 }
 
+// for figures on legacy articles, the figure text needs padding
+.sis-article-legacy .vf-content figure:not([class*="vf-"]) figcaption:not([class*="vf-"]) {
+  padding: 0 1em;
+}
+
+// post figure widths default to image size
+.tmpl-post .vf-figure__image {
+  width: auto;
+}
+
 // white space overrides
 body .embl-grid {
   margin-bottom: 16px;
@@ -101,6 +111,9 @@ body .embl-grid {
 .sis-article-teach {
   .vf-content h2:not([class*="vf-"]),
   .vf-content h3:not([class*="vf-"]),
+  .vf-content h4:not([class*="vf-"]),
+  .vf-content h5:not([class*="vf-"]),
+  .vf-content h6:not([class*="vf-"]),
   .vf-intro__heading {
     color: #{brand-color()};
   }
@@ -112,6 +125,9 @@ body .embl-grid {
 .sis-article-understand {
   .vf-content h2:not([class*="vf-"]),
   .vf-content h3:not([class*="vf-"]),
+  .vf-content h4:not([class*="vf-"]),
+  .vf-content h5:not([class*="vf-"]),
+  .vf-content h6:not([class*="vf-"]),
   .vf-intro__heading {
     color: #{set-color(vf-color--green)}; 
   }
@@ -124,6 +140,9 @@ body .embl-grid {
 .sis-article-inspire {
   .vf-content h2:not([class*="vf-"]),
   .vf-content h3:not([class*="vf-"]),
+  .vf-content h4:not([class*="vf-"]),
+  .vf-content h5:not([class*="vf-"]),
+  .vf-content h6:not([class*="vf-"]),
   .vf-intro__heading {
     color: #{set-color(vf-color--orange)}; 
   }
@@ -191,3 +210,12 @@ body.vf-wp-sis .vf-card__image {
     min-height: 22px;
   }
 }
+
+// h4, h5, h6 heading weights
+// Ideally these shouldn't be needed, but SiS uses them a lot
+.vf-content h4:not([class*="vf-"]),
+.vf-content h5:not([class*="vf-"]),
+.vf-content h6:not([class*="vf-"]) {
+  font-weight: 600;
+}
+

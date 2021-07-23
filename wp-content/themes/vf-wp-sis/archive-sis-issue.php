@@ -5,7 +5,7 @@ get_header();
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
 <main class="tmpl-post">
 
-    <section class="vf-hero | vf-u-fullbleed" style=" --vf-hero--bg-image-size: auto 28.5rem">
+    <section class="vf-hero | vf-u-fullbleed" style="--vf-card__image--aspect-ratio 4/5; --vf-hero--bg-image-size: auto 28.5rem">
         <div class="vf-hero__content | vf-box | vf-stack vf-stack--400">
             <h2 class="vf-hero__heading">Issue archive
             </h2>
@@ -28,7 +28,7 @@ get_header();
                         }
                         $arrayOfDisplayedYears[] = $publicationYear;
                         ?>
-            <div class="embl-grid">
+            <div class="embl-grid vf-grid__col-3">
                 <div class="vf-section-header">
                     <h2 class="vf-section-header__heading"><?php echo $publicationYear; ?></h2>
                 </div>
