@@ -28,7 +28,7 @@ get_header();
                         }
                         $arrayOfDisplayedYears[] = $publicationYear;
                         ?>
-            <div class="embl-grid vf-grid__col-3">
+            <div class="embl-grid vf-grid__col-4">
                 <div class="vf-section-header">
                     <h2 class="vf-section-header__heading"><?php echo $publicationYear; ?></h2>
                 </div>
