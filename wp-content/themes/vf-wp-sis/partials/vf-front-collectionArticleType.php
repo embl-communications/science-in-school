@@ -17,7 +17,7 @@
     }
     ?>
     <img src="<?php echo get_the_post_thumbnail_url(); ?>"
-         alt="Image alt text" class="vf-card__image" loading="lazy">
+         alt="<?php echo get_the_post_thumbnail_caption(); ?>" class="vf-card__image" loading="lazy">
     <div class="vf-card__content | vf-stack vf-stack--400">
 
         <h3 class="vf-card__heading"><a class="vf-card__link" href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?>
