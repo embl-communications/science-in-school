@@ -241,3 +241,8 @@ body.vf-wp-sis .vf-card__image {
 		margin: 0 0 10px;
 	}
 }
+
+// the translation plugin wraps contents of `sup` tags with `span vertical-align: inherit;`
+.single-sis-article sup span {
+  vertical-align: top !important;
+}
