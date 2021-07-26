@@ -6,7 +6,7 @@ $iss_cover_image = get_field('iss_cover_image');
         if(is_array($iss_cover_image) && array_key_exists('url', $iss_cover_image)){
     ?>
         <img src="<?php echo $iss_cover_image['url']; ?>"
-             alt="Image alt text" class="vf-card__image" loading="lazy">
+             alt="<?php echo get_the_post_thumbnail_caption(); ?>" class="" loading="lazy">
     <?php
         }
     ?>
