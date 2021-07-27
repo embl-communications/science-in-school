@@ -7,7 +7,6 @@ $art_topics = get_field('art_topics');
 ?>
 
 <article class="sis-search-summary vf-summary vf-summary--news | vf-flag vf-flag--top vf-flag--400">
-    <span class="vf-summary__date"><?php the_date(); ?> | <?php sis_printSingleTag($art_issue); ?></span>
     <div class="vf-flag__media">
         <?php
             if(isset($_GET['s'])){
@@ -30,6 +29,7 @@ $art_topics = get_field('art_topics');
         <?php the_post_thumbnail(array(238, 150), array('class' => 'sis-search-summary__image')); ?>
     </div>
     <div class="vf-flag__body">
+        <span class="vf-summary__date"><?php the_date(); ?> | <?php sis_printSingleTag($art_issue); ?></span>
         <h3 class="vf-summary__title">
             <a href="<?php the_permalink(); ?>" class="vf-summary__link">
                 <?php the_title(); ?>
