@@ -1,7 +1,7 @@
 <?php
 
 // Require Gutenberg block classes
-require_once( get_stylesheet_directory() . '/functions/theme-block.php');
+require_once( '../vf-wp/functions/theme-block.php');
 require_once('blocks/sis-box/index.php');
 
 require_once('functions/sis-article-post.php');
