@@ -114,8 +114,8 @@ endif;
 /**
  * Register Box Widget
  */
-function register_box_widget()
+function register_sis_box_widget()
 {
   register_widget( 'VF_Widget_Box' );
 }
-add_action( 'widgets_init', 'register_box_widget' ); ?>
+add_action( 'widgets_init', 'register_sis_box_widget' ); ?>
