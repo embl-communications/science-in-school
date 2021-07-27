@@ -1,5 +1,8 @@
 <?php
 
+// Require Gutenberg block classes
+require_once('blocks/sis-box/index.php');
+
 require_once('functions/sis-article-post.php');
 require_once('functions/sis-issue-post.php');
 
