@@ -199,14 +199,14 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/vfwp-box"
+                "value": "acf\/vfwp-sis-info-box"
             }
         ],
         [
             {
                 "param": "widget",
                 "operator": "==",
-                "value": "vf_widget_box"
+                "value": "vf_widget_sis_info_box"
             }
         ]
     ],
