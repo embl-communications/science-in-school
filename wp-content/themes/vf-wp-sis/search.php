@@ -9,9 +9,9 @@ get_header();
         <div></div>
         <div>
             <h1 class="vf-text vf-text-heading--1">Search</h1>
-            <p class="vf-text-body">
+            <!-- <p class="vf-text-body">
                 If you need a description about the service or context of the search.
-            </p>
+            </p> -->
 
             <form id="sis-id-search-form" action="<?php echo esc_url(home_url('/')); ?>" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
                 <div class="vf-sidebar__inner">
