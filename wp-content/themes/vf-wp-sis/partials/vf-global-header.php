@@ -14,7 +14,7 @@
                 <a href="/newsletter" class="vf-navigation__link">Newsletter Signup</a>
             </li>
             <li class="vf-navigation__item">
-                <a href="/?post_type=sis-article&s=enter+search+term" class="vf-navigation__link">Search</a>
+                <a href="/?post_type=sis-article&s=" class="vf-navigation__link">Search</a>
             </li>
         </ul>
     </nav>
