@@ -1,5 +1,5 @@
-<!-- Featured (manual example) -->
-<section class="vf-card-container | vf-u-fullbleed sis-u-background-dots vf-u-margin__bottom"
+<!-- Featured articles -->
+<section class="vf-card-container | vf-u-fullbleed vf-u-margin__bottom"
          style="margin-top: 0 !important; margin-bottom: 0 !important;">
     <div class="vf-card-container__inner">
 
