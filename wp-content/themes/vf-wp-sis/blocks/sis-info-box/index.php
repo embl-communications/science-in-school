@@ -17,7 +17,7 @@ class SIS_Info_Box extends VFWP_Block {
    * Return the block name
    */
   static public function get_name() {
-    return 'vfwp-box';
+    return 'vfwp-sis-info-box';
   }
 
   /**
@@ -28,7 +28,7 @@ class SIS_Info_Box extends VFWP_Block {
   public function get_config() {
     return array(
       'name'     => $this->get_name(),
-      'title'    => 'Box',
+      'title'    => 'SiS Info Box',
       'category' => 'vf/wp',
       'supports' => array(
         'align'           => false,

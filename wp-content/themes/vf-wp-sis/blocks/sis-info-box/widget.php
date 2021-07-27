@@ -2,14 +2,14 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! class_exists('VF_Widget_Box') ) :
+if ( ! class_exists('VF_Widget_Sis_Info_Box') ) :
 
-class VF_Widget_Box extends WP_Widget {
+class VF_Widget_Sis_Info_Box extends WP_Widget {
 
   public function __construct() {
     parent::__construct(
-      'vf_widget_box',
-      __('Box', 'vfwp')
+      'vf_widget_sis_info_box',
+      __('SiS Info box', 'vfwp')
     );
   }
 
@@ -107,15 +107,15 @@ if ($style !== 'safety') {
     // Do nothing...
   }
 
-} // VF_Widget_Box
+} // VF_Widget_Sis_Info_Box
 
 endif;
 
 /**
  * Register Box Widget
  */
-function register_sis_box_widget()
+function register_sis_info_box_widget()
 {
-  register_widget( 'VF_Widget_Box' );
+  register_widget( 'VF_Widget_Sis_Info_Box' );
 }
-add_action( 'widgets_init', 'register_sis_box_widget' ); ?>
+add_action( 'widgets_init', 'register_sis_info_box_widget' ); ?>
