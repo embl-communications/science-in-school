@@ -117,9 +117,13 @@ body .embl-grid {
   .vf-intro__heading {
     color: #{brand-color()};
   }
-  .vf-content table:not([class*="vf-"]) thead {
+  .vf-content table:not([class*="vf-"]) {
+    background: #eee;
+  }
+  .vf-content table:not([class*="vf-"]) thead,
+  .vf-content table:not([class*="vf-"]) th {
     // color: white;
-    background: #{brand-color()};
+    background: #{brand-color(light)};
   }
 }
 .sis-article-understand {
@@ -131,9 +135,13 @@ body .embl-grid {
   .vf-intro__heading {
     color: #{set-color(vf-color--green)}; 
   }
-  .vf-content table:not([class*="vf-"]) thead {
+  .vf-content table:not([class*="vf-"]) {
+    background: #eee;
+  }
+  .vf-content table:not([class*="vf-"]) thead,
+  .vf-content table:not([class*="vf-"]) th {
     // color: white;
-    background: #{set-color(vf-color--green)}; 
+    background: #{set-color(vf-color--green--light)}; 
   }  
 }
 .sis-article-learn,
@@ -146,9 +154,13 @@ body .embl-grid {
   .vf-intro__heading {
     color: #{set-color(vf-color--orange)}; 
   }
-  .vf-content table:not([class*="vf-"]) thead {
+  .vf-content table:not([class*="vf-"]) {
+    background: #eee;
+  }
+  .vf-content table:not([class*="vf-"]) thead,
+  .vf-content table:not([class*="vf-"]) th {
     // color: white;
-    background: #{set-color(vf-color--orange)}; 
+    background: #{set-color(vf-color--orange--light)}; 
   }  
 }
 
@@ -219,7 +231,6 @@ body.vf-wp-sis .vf-card__image {
   font-weight: 600;
 }
 
-
 // reinstate the basic wp block layout css
 .wp-block-columns {
 	margin-bottom: 20px;
@@ -245,4 +256,48 @@ body.vf-wp-sis .vf-card__image {
 // the translation plugin wraps contents of `sup` tags with `span vertical-align: inherit;`
 .single-sis-article sup span {
   vertical-align: top !important;
+}
+
+// article boxes
+.sis-information-box,
+.sis-safety-box,
+.sis-reviewer-box,
+.sis-author-box {
+  padding: 1em;
+}
+
+.sis-article-teach {
+  .sis-information-box,
+  .sis-safety-box,
+  .sis-reviewer-box,
+  .sis-author-box {
+    background: #{set-color(vf-color--blue--light)};
+  }
+}
+
+.sis-article-understand {
+  .sis-information-box,
+  .sis-safety-box,
+  .sis-reviewer-box,
+  .sis-author-box {
+    background: #{set-color(vf-color--bright-green--light)};
+  }
+}
+
+.sis-article-learn,
+.sis-article-inspire {
+  .sis-information-box,
+  .sis-safety-box,
+  .sis-reviewer-box,
+  .sis-author-box {
+    background: #{set-color(vf-color--orange--light)};
+  }
+}
+
+// table tweaks
+body.vf-wp-sis .vf-content table:not([class*="vf-"]),
+body.vf-wp-sis .vf-content table:not([class*="vf-"]) th,
+body.vf-wp-sis .vf-content table:not([class*="vf-"]) td {
+  border: 1px solid #ccc;
+  padding: 6px;
 }
