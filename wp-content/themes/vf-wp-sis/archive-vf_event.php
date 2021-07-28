@@ -26,7 +26,7 @@ get_header();
                 </svg></a>
             <p class="vf-section-header__text">Summary of something about webinars at SiS.</p>
         </div>
-        <div class="vf-news-container__content vf-grid">
+        <div class="vf-news-container__content vf-grid vf-grid__col-3">
             <?php
             $numberOfCurrentWebinars = 0;
             $featureLoop = new WP_Query(
@@ -57,7 +57,7 @@ get_header();
                 </svg></a>
             <p class="vf-section-header__text">Hosted by EIROforum members.</p>
         </div>
-        <div class="vf-news-container__content vf-grid">
+        <div class="vf-news-container__content vf-grid vf-grid__col-3">
             <?php
             $numberOfCurrentEvents = 0;
             $featureLoop = new WP_Query(

@@ -5,7 +5,7 @@
             </svg></a>
         <p class="vf-section-header__text">Summary of something about webinars at SiS.</p>
     </div>
-    <div class="vf-news-container__content vf-grid">
+    <div class="vf-news-container__content vf-grid vf-grid__col-3">
         <?php
         $currentWebinars = get_field('current_webinars');
         $numberOfCurrentWebinars = 0;

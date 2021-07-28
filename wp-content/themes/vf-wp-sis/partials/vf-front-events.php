@@ -5,7 +5,7 @@
             </svg></a>
         <p class="vf-section-header__text">Hosted by EIROforum members.</p>
     </div>
-    <div class="vf-news-container__content vf-grid">
+    <div class="vf-news-container__content vf-grid vf-grid__col-3">
         <?php
         $currentEvents = get_field('current_events');
         $numberOfCurrentEvents = 0;
