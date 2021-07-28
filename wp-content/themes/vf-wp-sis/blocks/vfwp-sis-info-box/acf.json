@@ -1,9 +1,9 @@
 {
-    "key": "group_5ec2748ead19d",
+    "key": "group_5ec2748ead19e",
     "title": "SiS Info box",
     "fields": [
         {
-            "key": "field_5ec27497617f4",
+            "key": "field_5ec27497617f3",
             "label": "Heading",
             "name": "heading",
             "type": "text",
@@ -22,7 +22,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5ec275249d591",
+            "key": "field_5ec275249d590",
             "label": "Text",
             "name": "text",
             "type": "wysiwyg",
@@ -50,7 +50,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5ec27497617f4",
+                        "field": "field_5ec27497617f3",
                         "operator": "!=empty"
                     }
                 ]
@@ -63,7 +63,7 @@
             "return_format": "array"
         },
         {
-            "key": "field_5ec2757ba3096",
+            "key": "field_5ec2757ba3095",
             "label": "Style",
             "name": "style",
             "type": "select",
@@ -98,7 +98,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5ec2757ba3096",
+                        "field": "field_5ec2757ba3095",
                         "operator": "==",
                         "value": "safety"
                     }
@@ -134,7 +134,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5ec2757ba3096",
+                        "field": "field_5ec2757ba3095",
                         "operator": "==",
                         "value": "easy"
                     }
@@ -170,7 +170,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5ec2757ba3096",
+                        "field": "field_5ec2757ba3095",
                         "operator": "==",
                         "value": "none"
                     }
@@ -218,5 +218,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "SiS Info Box ACF Gutenberg block",
-    "modified": 1599748539
+    "modified": 1627472249
 }
