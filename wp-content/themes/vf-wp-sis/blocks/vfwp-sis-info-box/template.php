@@ -73,21 +73,9 @@ if ($link) {
   $classes .= " vf-box--is-link";
 }
 
-if ($style === 'none') {
-  $classes .= " vf-box--{$theme_none}";
-}
-  
-if ($style === 'normal') {
 $classes .= " vf-box--{$style}";
-if ($style !== 'easy') {
-  $classes .= " vf-box-theme--{$theme_normal}";
-} }
 
-if ($style === 'easy') {
-$classes .= " vf-box--{$style}";
-if ($style !== 'normal') {
-  $classes .= " vf-box-theme--{$theme_easy}";
-} }?>
+?>
 
 <div class="<?php echo esc_attr($classes); ?>">
   <?php if (! empty($heading)) { ?>

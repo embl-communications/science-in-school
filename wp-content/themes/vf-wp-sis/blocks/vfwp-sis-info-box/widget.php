@@ -31,35 +31,8 @@ $link = get_field('link', $widget_id);
 
 $style = get_field('style', $widget_id);
 
-if (empty($style)) {
-  $style = 'easy';
-}
 if (is_array($style)) {
   $style = $style[0];
-}
-
-$theme_easy = get_field('theme_easy', $widget_id);
-if (empty($theme_easy)) {
-  $theme_easy = 'none';
-}
-if (is_array($theme_easy)) {
-  $theme_easy = $theme_easy[0];
-}
-
-$theme_normal = get_field('theme_normal', $widget_id);
-if (empty($theme_normal)) {
-  $theme_normal = 'none';
-}
-if (is_array($theme_normal)) {
-  $theme_normal = $theme_normal[0];
-}
-
-$theme_none = get_field('theme_none', $widget_id);
-if (empty($theme_none)) {
-  $theme_none = 'very-easy';
-}
-if (is_array($theme_none)) {
-  $theme_none = $theme_none[0];
 }
 
 $classes = "vf-box sis-info-box";
@@ -68,21 +41,11 @@ if ($link) {
   $classes .= " vf-box--is-link";
 }
 
-if ($style === 'none') {
-  $classes .= " vf-box--{$theme_none}";
-}
-  
 if ($style === 'safety') {
 $classes .= " sis-info-box--{$style}";
-if ($style !== 'easy') {
-  $classes .= " vf-box-theme--{$theme_normal}";
-} }
+}
 
-if ($style === 'easy') {
-$classes .= " vf-box--{$style}";
-if ($style !== 'safety') {
-  $classes .= " vf-box-theme--{$theme_easy}";
-} }?>
+?>
 
 <div class="<?php echo esc_attr($classes); ?>">
   <?php if (! empty($heading)) { ?>
