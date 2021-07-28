@@ -4,4 +4,4 @@ Boxed content using the `vf-box` Visual Framework pattern with modifications to 
 
 ## Configuration
 
-Block `name`: `acf/sis-info-box`
+Block `name`: `acf/vfwp-sis-info-box`
