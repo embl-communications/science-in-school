@@ -159,9 +159,9 @@ get_header();
 
             <?php sis_printTagsWithHeader('<h3>Institution</h3>',$art_institutions); ?>
 
-            <?php sis_printFieldWithHeader('<h3>Author</h3>', $art_authors); ?>
+            <?php sis_printFieldWithHeaderClass('<h3>Author</h3>', $art_authors, '.sis-author-box'); ?>
 
-            <?php sis_printFieldWithHeader('<h3>Review</h3>', $art_review); ?>
+            <?php sis_printFieldWithHeaderClass('<h3>Review</h3>', $art_review, '.sis-reviewer-box'); ?>
 
             <?php
                 if(!empty($art_license) || !empty($art_license_freetext)){
