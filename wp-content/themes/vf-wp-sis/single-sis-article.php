@@ -10,9 +10,9 @@ get_header();
 
     $art_author_name = get_field('art_author_name');
     $art_editor_tags = get_field('art_editor_tags');
-    $art_slider_exclude = get_field('art_slider_exclude');
-    $art_eonly_article = get_field('art_eonly_article');
-    $art_reviewer_tags = get_field('art_reviewer_tags');
+    //$art_slider_exclude = get_field('art_slider_exclude');
+    //$art_eonly_article = get_field('art_eonly_article');
+    //$art_reviewer_tags = get_field('art_reviewer_tags');
     $art_ages = get_field('art_ages');
     $art_institutions = get_field('art_institutions');
     $art_issue = get_field('art_issue');
@@ -86,6 +86,8 @@ get_header();
         <div class="vf-stack">
             <h1 class="vf-intro__heading"><?php echo get_the_title(); ?></h1>
             <p class="vf-lede"><?php echo get_the_excerpt(); ?></p>
+
+            <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
         </div>
     </section>
     <div class="embl-grid embl-grid--has-centered-content">
@@ -148,8 +150,6 @@ get_header();
                 <h3>Download</h3>
                 <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
             <?php } ?>
-
-            <?php sis_printFieldWithHeader('<h3>Acknowledgements</h3>', $art_acknowledgements); ?>
 
             <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
 

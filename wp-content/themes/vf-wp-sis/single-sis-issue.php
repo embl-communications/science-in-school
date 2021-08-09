@@ -31,8 +31,10 @@ get_header();
 
     foreach ($articleTypesArray as $articleTypeKey => $articleTypeValue) {
         $featureLoop = new WP_Query(
-            array('post_type' => 'sis-article',
+            array(
+                'post_type' => 'sis-article',
                 'post_status' => 'publish',
+                'posts_per_page' => '25',
                 'tax_query' => array(
                     'relation' => 'AND',
                     array(

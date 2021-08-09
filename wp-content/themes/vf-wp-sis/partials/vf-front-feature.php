@@ -36,6 +36,13 @@
                             'terms' => array('inspire', 'teach', 'understand'),
                         ),
                     ),
+                    'meta_query'	=> array(
+                        array(
+                            'key'	  	=> 'art_slider_exclude',
+                            'value'	  	=> '1',
+                            'compare' 	=> '!=',
+                        ),
+                    )
                 )
             );
 
