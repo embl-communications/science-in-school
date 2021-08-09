@@ -263,7 +263,7 @@ function wpml_post_languages_in_loop() {
         echo '<p class="vf-summary__meta">Other language(s): &nbsp;&nbsp;';
         foreach ($translation as $l) {
             $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
-            $translatedLink = substr($translatedLink, -1);
+            $translatedLink = substr($translatedLink, 0,-1);
             if($l->language_code != 'en' && $l->language_code != ''){
                 $translatedLink .= '-' . $l->language_code;
             }
@@ -288,7 +288,7 @@ function sis_articleLanguageSwitcherInLoop() {
 
         foreach ($translation as $l) {
             $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
-            $translatedLink = substr($translatedLink, -1);
+            $translatedLink = substr($translatedLink, 0, -1);
             if($l->language_code != 'en' && $l->language_code != ''){
                 $translatedLink .= '-' . $l->language_code;
             }
@@ -313,7 +313,7 @@ function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
 
     foreach ($translation as $l) {
         $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
-        $translatedLink = substr($translatedLink, -1);
+        $translatedLink = substr($translatedLink, 0,-1);
         if($l->language_code != 'en' && $l->language_code != ''){
             $translatedLink .= '-' . $l->language_code;
         }
