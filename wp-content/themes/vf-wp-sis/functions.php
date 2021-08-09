@@ -263,7 +263,7 @@ function wpml_post_languages_in_loop() {
         echo '<p class="vf-summary__meta">Other language(s): &nbsp;&nbsp;';
         foreach ($translation as $l) {
             if ($l->element_id != $thispostid) {
-                $langs[] = '<a href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '"><img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />' . '</a>';
+                $langs[] = '<a href="' . get_permalink($l->element_id) . '"><img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />' . '</a>';
             }
         }
         echo join(' &nbsp; ', $langs);
@@ -283,7 +283,7 @@ function sis_articleLanguageSwitcherInLoop() {
 
         foreach ($translation as $l) {
             $langs[] = '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
-                . '<a class="vf-card__link" href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+                . '<a class="vf-card__link" href="' . get_permalink($l->element_id) . '">'
                 . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />'
                 . '</a>'
                 . '</span>';
@@ -304,7 +304,7 @@ function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
     foreach ($translation as $l) {
         $langs[] =
             '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
-            . '<a class="vf-list__link" href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+            . '<a class="vf-list__link" href="' . get_permalink($l->element_id) . '">'
             . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'] . '" '
             . ' alt="' . $languages[$l->language_code]['native_name'] . '" '
             .' /> '
