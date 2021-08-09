@@ -318,12 +318,10 @@ function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
 }
 
 
-function searchFilter($query) {
-    // If 's' request variable is set but empty
-    if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
-        $query->is_search = true;
-        $query->is_home = false;
-    }
-    return $query;
-}
-add_filter('pre_get_posts','searchFilter');
+add_filter( 'posts_search', function( $search, \WP_Query $q )
+{
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() )
+        $search .=" AND 0=1 ";
+
+    return $search;
+}, 10, 2 );
