@@ -188,6 +188,15 @@ function sis_printFieldWithHeader($header, $field){
     }
 }
 
+function sis_printFieldWithHeaderClass($header, $field, $className){
+    if(trim($field) != ''){
+        print $header;
+        print '<div class="' . $className . '">';
+        print $field;
+        print '</div>';
+    }
+}
+
 function sis_printArticlePDFLink($art_pdf){
     sis_printArticlePDFLinkWithHeaderAndEnd('', $art_pdf, '');
 }
