@@ -12,7 +12,7 @@
 </style> --> 
 
     <article class="vf-box vf-box--is-link vf-box-theme--primary vf-box--normal">
-        <h3 class="vf-box__heading"><a class="vf-box__link" href="<?php echo get_the_permalink(); ?>">Our latest issue</a></h3>
+        <h3 class="vf-box__heading"><a class="vf-box__link" href="<?php echo get_the_permalink(); ?>">Current issue</a></h3>
         <p class="vf-box__text">
             <?php echo get_the_title(); ?>
         </p>

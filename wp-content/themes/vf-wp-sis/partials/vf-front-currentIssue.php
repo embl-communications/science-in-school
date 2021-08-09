@@ -24,19 +24,50 @@
             <section>
                 <div class="vf-grid vf-grid__col-3">
                     <?php
+                        $numberOfIssueArticles = 0;
                         $currentIssueArticles = get_field('current_issue_articles');
                         if($currentIssueArticles){
-                            $count = 0;
                             foreach($currentIssueArticles as $post) {
-                                $count++;
+                                $numberOfIssueArticles++;
                                 setup_postdata($post);
                                 include(locate_template('partials/vf-front-currentIssueArticleTeaser.php', false, false));
-                                if ($count > 2) {
+                                if ($numberOfIssueArticles > 2) {
                                     break;
                                 }
                             }
                             wp_reset_postdata();
                         }
+
+                    if ($numberOfIssueArticles < 3) {
+                        $featureLoop = new WP_Query(
+                            array(
+                                'post_type' => 'sis-article',
+                                'posts_per_page' => 3 - $numberOfIssueArticles,
+                                'post_status' => 'publish',
+                                'orderby' => 'rand',
+                                'order' => 'DESC',
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'sis-issues',
+                                        'field' => 'slug',
+                                        'terms' => $currentIssue->post_title,
+                                    ),
+                                ),
+                                'meta_query'	=> array(
+                                    array(
+                                        'key'	  	=> 'art_slider_exclude',
+                                        'value'	  	=> '1',
+                                        'compare' 	=> '!=',
+                                    ),
+                                )
+                            )
+                        );
+
+                        while ($featureLoop->have_posts()) : $featureLoop->the_post();
+                            include(locate_template('partials/vf-front-currentIssueArticleTeaser.php', false, false));
+                        endwhile;
+                        wp_reset_postdata();
+                    }
                     ?>
                 </div>
             </section>

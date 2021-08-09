@@ -24,7 +24,8 @@ if (!$conn) {
 // First: Get names of additional material from drupal
 $fileNamesAdditionaMaterialArray = array();
 
-$sql = "SELECT `entity_id`, `delta`, `field_materials_description` FROM `field_data_field_materials` WHERE `deleted` = 0;";
+$sql = "SELECT `entity_id`, `delta`, `field_materials_description`, `filename` FROM `field_data_field_materials`
+    join `file_managed` ON `field_materials_fid` = `fid` WHERE `deleted` = 0;";
 $statement = $conn->prepare($sql);
 $statement->execute();
 $result = $statement->get_result();
@@ -38,7 +39,15 @@ while ($row = $result->fetch_assoc()) {
     if(!array_key_exists($row['entity_id'], $fileNamesAdditionaMaterialArray)){
         $fileNamesAdditionaMaterialArray[$row['entity_id']] = array();
     }
-    $fileNamesAdditionaMaterialArray[$row['entity_id']][$row['delta']] = $row['field_materials_description'];
+    $fileName = $row['field_materials_description'];
+    if(empty($fileName)){
+        $fileName = $row['filename'];
+    }
+    $fileNamesAdditionaMaterialArray[$row['entity_id']][$row['delta']] = $fileName;
+
+    // echo "ID: " . $row['entity_id'] . PHP_EOL;
+    // echo "Name: " . $fileName . PHP_EOL .PHP_EOL;
+
 }
 $statement->close();
 
@@ -128,6 +137,8 @@ $statement->execute();
 $statement->close();
 
 
+echo "DELETE FROM `wp_postmeta` WHERE `meta_key` LIKE ('art_materials_%_art_single_name');" . PHP_EOL;
+
 // 4.: Add entries for additional material names
 $sql = "INSERT INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`) 
     VALUES (?, ?, ?);";
@@ -136,7 +147,10 @@ $postId = 0;
 $metaKey = '';
 $metaValue = '';
 $stmt->bind_param("iss", $postId, $metaKey, $metaValue);
+
+
 $addedMaterials = 0;
+
 
 foreach ($fileNamesAdditionaMaterialArray as $currentNodeId => $currentEntriesArray) {
     if(empty($currentNodeId)){
@@ -158,7 +172,10 @@ foreach ($fileNamesAdditionaMaterialArray as $currentNodeId => $currentEntriesAr
         $postId = $currentPostId;
         $metaKey = 'art_materials_' . $currentDelta . '_art_single_name';
         $metaValue = $currentFileName;
-        $stmt->execute();
+
+        echo  "INSERT INTO `wp_postmeta` (`post_id`, `meta_key`, `meta_value`)  VALUES (" . $currentPostId . ", \"" . $metaKey . "\", \"" . $metaValue . "\");";
+        echo PHP_EOL;
+        //$stmt->execute();
         $addedMaterials++;
     }
 }

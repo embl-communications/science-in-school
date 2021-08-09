@@ -21,7 +21,7 @@
                 </div>
                 <button type="submit" value="Subscribe" id="mc-embedded-subscribe" name="subscribe"
                         class="vf-search__button | vf-button vf-button--primary">
-                    <span class="vf-button__text">Search</span>
+                    <span class="vf-button__text">Subscribe</span>
 
                     <svg class="vf-icon vf-icon--search-btn | vf-button__icon" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"

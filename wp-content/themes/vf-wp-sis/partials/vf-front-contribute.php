@@ -7,24 +7,27 @@
         <article class="vf-box vf-box--is-link vf-box-theme--tertiary vf-box--normal">
             <h3 class="vf-box__heading"><a class="vf-box__link" href="/training">Write an article</a></h3>
             <p class="vf-box__text">
-                We welcome submissions, and do not charge author processing fees, but we strongly advise you to
-                contact us before you start writing so that we can make sure your article fits our criteria.
+                Do you have an engaging classroom activity to share with other teachers? Is there an interesting
+                scientific topic that you could explain to STEM teachers and their students? We welcome submissions
+                from teachers and scientists.
             </p>
         </article>
 
         <article class="vf-box vf-box--is-link vf-box-theme--tertiary vf-box--normal">
-            <h3 class="vf-box__heading"><a class="vf-box__link" href="/training">Review articles</a></h3>
+            <h3 class="vf-box__heading"><a class="vf-box__link" href="/training">Review an article</a></h3>
             <p class="vf-box__text">
-                If you are a European science teacher and would like to join the Science in School referee panel,
-                share your experience and the subjects you specialise in and the ages of students you teach.
+                Would you like to help ensure that our content is interesting, inspiring and useful to STEM teachers?
+                Consider joining the Science in School teacher reviewer panel. There is no obligation; just send us an
+                email to express your interest.
             </p>
         </article>
 
         <article class="vf-box vf-box--is-link vf-box-theme--tertiary vf-box--normal">
-            <h3 class="vf-box__heading"><a class="vf-box__link" href="/training">Translate articles</a></h3>
+            <h3 class="vf-box__heading"><a class="vf-box__link" href="/training">Translate an article</a></h3>
             <p class="vf-box__text">
-                We are very grateful to all teachers and scientists who volunteer to translate articles in Science
-                in School from English into their native languages.
+                If you find an article interesting or useful, perhaps you'd consider translating it into your native
+                language? This really helps to increase the reach of our content so that as many teachers as possible
+                can benefit from it.
             </p>
         </article>
     </section>
