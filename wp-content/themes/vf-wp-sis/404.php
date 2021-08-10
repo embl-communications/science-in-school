@@ -2,7 +2,6 @@
 get_header();
 include(locate_template('partials/vf-global-header.php', false, false));
 ?>
-<?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
 <main class="tmpl-post">
 
