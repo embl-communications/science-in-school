@@ -262,8 +262,13 @@ function wpml_post_languages_in_loop() {
     if (1 < count($translation)) {
         echo '<p class="vf-summary__meta">Other language(s): &nbsp;&nbsp;';
         foreach ($translation as $l) {
+            $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
+            $translatedLink = substr($translatedLink, 0,-1);
+            if($l->language_code != 'en' && $l->language_code != ''){
+                $translatedLink .= '-' . $l->language_code;
+            }
             if ($l->element_id != $thispostid) {
-                $langs[] = '<a href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '"><img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />' . '</a>';
+                $langs[] = '<a href="' . $translatedLink . '"><img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />' . '</a>';
             }
         }
         echo join(' &nbsp; ', $langs);
@@ -282,8 +287,13 @@ function sis_articleLanguageSwitcherInLoop() {
     $translation = apply_filters('wpml_get_element_translations', NULL, $post_trid, 'post_' . get_post_type());
 
         foreach ($translation as $l) {
+            $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
+            $translatedLink = substr($translatedLink, 0, -1);
+            if($l->language_code != 'en' && $l->language_code != ''){
+                $translatedLink .= '-' . $l->language_code;
+            }
             $langs[] = '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
-                . '<a class="vf-card__link" href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+                . '<a class="vf-card__link" href="' . $translatedLink . '">'
                 . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />'
                 . '</a>'
                 . '</span>';
@@ -302,9 +312,14 @@ function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
     $translation = apply_filters('wpml_get_element_translations', NULL, $post_trid, 'post_' . get_post_type());
 
     foreach ($translation as $l) {
+        $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
+        $translatedLink = substr($translatedLink, 0,-1);
+        if($l->language_code != 'en' && $l->language_code != ''){
+            $translatedLink .= '-' . $l->language_code;
+        }
         $langs[] =
             '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
-            . '<a class="vf-list__link" href="' . apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code) . '">'
+            . '<a class="vf-list__link" href="' . $translatedLink . '">'
             . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'] . '" '
             . ' alt="' . $languages[$l->language_code]['native_name'] . '" '
             .' /> '
@@ -318,12 +333,10 @@ function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
 }
 
 
-function searchFilter($query) {
-    // If 's' request variable is set but empty
-    if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
-        $query->is_search = true;
-        $query->is_home = false;
-    }
-    return $query;
-}
-add_filter('pre_get_posts','searchFilter');
+add_filter( 'posts_search', function( $search, \WP_Query $q )
+{
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() )
+        $search .=" AND 0=1 ";
+
+    return $search;
+}, 10, 2 );
