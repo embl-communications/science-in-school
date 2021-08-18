@@ -316,3 +316,8 @@ body.vf-wp-sis .vf-content table:not([class*="vf-"]) td {
   border: 1px solid #ccc;
   padding: 6px;
 }
+
+.vf-hero {
+  // manual override of hero default background
+  background-color: #{set-color(vf-color--blue--light)};
+}
