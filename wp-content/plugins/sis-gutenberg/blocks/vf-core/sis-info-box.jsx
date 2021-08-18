@@ -23,8 +23,8 @@ const MAX_COLUMNS = 6;
 
 const settings = {
   ...defaults,
-  name: 'vf/grid',
-  title: __('VF Grid'),
+  name: 'sis/info-box',
+  title: __('SiS Info box'),
   category: 'vf/core',
   description: __('Visual Framework (core)'),
   supports: {
@@ -96,7 +96,7 @@ settings.edit = (props) => {
       const addColumns = (maxSpans) => {
         const innerColumns = getBlocks(clientId);
         while (countSpans(innerColumns) < maxSpans) {
-          innerColumns.push(createBlock('vf/grid-column', {}, []));
+          innerColumns.push(createBlock('sis/info-box-column', {}, []));
         }
         replaceInnerBlocks(clientId, innerColumns, false);
       };
@@ -192,7 +192,7 @@ settings.edit = (props) => {
         </PanelBody>
       </InspectorControls>
       <ExperimentalBlock.div className={className} style={styles}>
-        <InnerBlocks allowedBlocks={['vf/grid-column']} templateLock='all' />
+        <InnerBlocks allowedBlocks={['sis/info-box-column']} templateLock='all' />
       </ExperimentalBlock.div>
     </>
   );
@@ -201,8 +201,8 @@ settings.edit = (props) => {
 // Block transforms
 settings.transforms = {
   from: [
-    fromColumns('core/columns', 'vf/grid', MIN_COLUMNS, MAX_COLUMNS),
-    fromColumns('vf/embl-grid', 'vf/grid', MIN_COLUMNS, MAX_COLUMNS)
+    fromColumns('core/columns', 'sis/info-box', MIN_COLUMNS, MAX_COLUMNS),
+    fromColumns('vf/embl-grid', 'sis/info-box', MIN_COLUMNS, MAX_COLUMNS)
   ]
 };
 

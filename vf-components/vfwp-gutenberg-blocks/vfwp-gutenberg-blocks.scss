@@ -229,7 +229,7 @@
   }
 }
 
-.wp-block[data-type='vf/grid'],
+.wp-block[data-type='sis/info-box'],
 .wp-block[data-type='vf/embl-grid'] {
   --block-column-outline: var(--vf-ui-color--grey);
   --block-column-color: var(--vf-ui-color--off-white);
@@ -257,7 +257,7 @@
   }
 }
 
-.wp-block[data-type='vf/grid-column'] {
+.wp-block[data-type='sis/info-box-column'] {
   outline: 1px dashed var(--block-column-outline);
   margin: 0 !important;
   max-width: none;

@@ -72,11 +72,11 @@
   */
   const defaults$2 = useVFDefaults();
   const settings$1 = { ...defaults$2,
-    name: 'vf/grid-column',
+    name: 'sis/info-box-column',
     title: i18n.__('Grid Column'),
     category: 'vf/core',
     description: i18n.__('Visual Framework (core)'),
-    parent: ['vf/grid', 'vf/embl-grid'],
+    parent: ['sis/info-box', 'vf/embl-grid'],
     supports: { ...defaults$2.supports,
       inserter: false,
       lightBlockWrapper: true
@@ -130,7 +130,7 @@
       } = select('core/block-editor');
       const rootClientId = getBlockRootClientId(clientId);
       const hasChildBlocks = getBlockOrder(clientId).length > 0;
-      const hasSpanSupport = getBlockName(rootClientId) === 'vf/grid';
+      const hasSpanSupport = getBlockName(rootClientId) === 'sis/info-box';
       return {
         rootClientId,
         hasChildBlocks,
@@ -237,7 +237,7 @@
   };
 
   /**
-   * Block transforms for: `vf/grid`, `vf/embl-grid`, and `core/columns`
+   * Block transforms for: `sis/info-box`, `vf/embl-grid`, and `core/columns`
    */
   // New columns are appended to match minimum
   // End columns are merged to match maximum
@@ -270,7 +270,7 @@
 
         return blocks.createBlock(toBlock, {
           columns: innerProps.length
-        }, innerProps.map(props => blocks.createBlock('vf/grid-column', props.attributes || {}, props.innerBlocks || [])));
+        }, innerProps.map(props => blocks.createBlock('sis/info-box-column', props.attributes || {}, props.innerBlocks || [])));
       }
     };
   };
@@ -279,8 +279,8 @@
   const MIN_COLUMNS = 1;
   const MAX_COLUMNS = 6;
   const settings = { ...defaults$1,
-    name: 'vf/grid',
-    title: i18n.__('VF Grid'),
+    name: 'sis/info-box',
+    title: i18n.__('SiS Info box'),
     category: 'vf/core',
     description: i18n.__('Visual Framework (core)'),
     supports: { ...defaults$1.supports,
@@ -368,7 +368,7 @@
         const innerColumns = getBlocks(clientId);
 
         while (countSpans(innerColumns) < maxSpans) {
-          innerColumns.push(blocks.createBlock('vf/grid-column', {}, []));
+          innerColumns.push(blocks.createBlock('sis/info-box-column', {}, []));
         }
 
         replaceInnerBlocks(clientId, innerColumns, false);
@@ -458,14 +458,14 @@
       className: className,
       style: styles
     }, wp.element.createElement(blockEditor.InnerBlocks, {
-      allowedBlocks: ['vf/grid-column'],
+      allowedBlocks: ['sis/info-box-column'],
       templateLock: "all"
     })));
   }; // Block transforms
 
 
   settings.transforms = {
-    from: [fromColumns('core/columns', 'vf/grid', MIN_COLUMNS, MAX_COLUMNS), fromColumns('vf/embl-grid', 'vf/grid', MIN_COLUMNS, MAX_COLUMNS)]
+    from: [fromColumns('core/columns', 'sis/info-box', MIN_COLUMNS, MAX_COLUMNS), fromColumns('vf/embl-grid', 'sis/info-box', MIN_COLUMNS, MAX_COLUMNS)]
   };
 
   /**

@@ -1,10 +1,10 @@
 /**
- * Block transforms for: `vf/grid`, `vf/embl-grid`, and `core/columns`
+ * Block transforms for: `sis/info-box`, `vf/embl-grid`, and `core/columns`
  */
 import React from 'react';
 import {createBlock} from '@wordpress/blocks';
 
-// Map inner blocks and create new `vf/grid-column` with their children
+// Map inner blocks and create new `sis/info-box-column` with their children
 // New columns are appended to match minimum
 // End columns are merged to match maximum
 export const fromColumns = (fromBlock, toBlock, min, max) => {
@@ -37,7 +37,7 @@ export const fromColumns = (fromBlock, toBlock, min, max) => {
         {columns: innerProps.length},
         innerProps.map(props =>
           createBlock(
-            'vf/grid-column',
+            'sis/info-box-column',
             props.attributes || {},
             props.innerBlocks || []
           )

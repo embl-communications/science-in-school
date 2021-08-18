@@ -17,11 +17,11 @@ const defaults = useVFDefaults();
 
 const settings = {
   ...defaults,
-  name: 'vf/grid-column',
+  name: 'sis/info-box-column',
   title: __('Grid Column'),
   category: 'vf/core',
   description: __('Visual Framework (core)'),
-  parent: ['vf/grid', 'vf/embl-grid'],
+  parent: ['sis/info-box', 'vf/embl-grid'],
   supports: {
     ...defaults.supports,
     inserter: false,
@@ -66,7 +66,7 @@ settings.edit = (props) => {
       );
       const rootClientId = getBlockRootClientId(clientId);
       const hasChildBlocks = getBlockOrder(clientId).length > 0;
-      const hasSpanSupport = getBlockName(rootClientId) === 'vf/grid';
+      const hasSpanSupport = getBlockName(rootClientId) === 'sis/info-box';
 
       return {
         rootClientId,

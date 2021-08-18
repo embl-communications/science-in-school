@@ -6,8 +6,8 @@ import useVFGutenberg from './hooks/use-vf-gutenberg';
 
 // Import Visual Framework core component settings
 
-import vfGridColumn from './vf-core/vf-grid-column';
-import vfGrid from './vf-core/vf-grid';
+import sisInfoBoxColumn from './vf-core/sis-info-box-column';
+import sisInfoBox from './vf-core/sis-info-box';
 
 // Get "localized" global script settings
 const {coreOptin} = useVFGutenberg();
@@ -15,8 +15,8 @@ const {coreOptin} = useVFGutenberg();
 // Register VF Core blocks
 if (parseInt(coreOptin) === 1) {
   const coreBlocks = [
-    vfGridColumn,
-    vfGrid
+    sisInfoBoxColumn,
+    sisInfoBox
   ];
   coreBlocks.forEach(settings => registerBlockType(settings.name, settings));
 }
