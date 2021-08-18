@@ -16,8 +16,8 @@ const infoBoxControl = props => {
     control.help = props.help;
   }
   const isPressed = i => i === value;
-  const buttonValueInfoBox = "infoBox";
-  const buttonValueSafetyMan = "safetyMan";
+  const buttonValueInfoBox = "information-box";
+  const buttonValueSafetyMan = "safety-box";
   return (
     <BaseControl {...control}>
       <ButtonGroup aria-label={control.label}>
