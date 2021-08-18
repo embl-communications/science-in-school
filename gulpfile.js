@@ -3,11 +3,20 @@
  */
 const gulp = require('gulp');
 require('./gulp-tasks/vf-core');
+const {blocksTask, blocksGlob} = require('./gulp-tasks/vf-gutenberg');
+
+/**
+ * VF-SiS Gutenberg blocks
+ */
+gulp.task('vf-gutenberg', blocksTask);
 
 /**
  * Watch tasks
  */
 gulp.task('watch', gulp.parallel('vf-watch'));
+gulp.task('vf-gutenberg-watch', () =>
+  gulp.watch(blocksGlob, gulp.series('vf-gutenberg'))
+);
 
 /**
  * Build tasks
