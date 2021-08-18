@@ -237,6 +237,38 @@
   };
 
   /**
+   * Columns (component)
+   * Wrapper for `ButtonGroup` to select number of columns
+   */
+
+  const infoBoxControl = props => {
+    // const {value, onChange} = props;
+    const control = {
+      label: i18n.__('Type of info box'),
+      className: 'components-vf-control'
+    };
+
+    if (props.help) {
+      control.help = props.help;
+    } // const isPressed = i => i === value;
+
+
+    return wp.element.createElement(components.BaseControl, control, wp.element.createElement(components.ButtonGroup, {
+      "aria-label": control.label
+    }, wp.element.createElement(components.Button, {
+      key: "infoBox" // isPrimary={isPressed(i)}
+      // aria-pressed={isPressed(i)}
+      // onClick={() => onChange(i)}
+
+    }, "Info box"), wp.element.createElement(components.Button, {
+      key: "safetyMan" // isPrimary={isPressed(i)}
+      // aria-pressed={isPressed(i)}
+      // onClick={() => onChange(i)}
+
+    }, "Safety man")));
+  };
+
+  /**
    * Block transforms for: `sis/info-box`, `vf/embl-grid`, and `core/columns`
    */
   // New columns are appended to match minimum
@@ -295,6 +327,10 @@
         type: 'integer',
         default: 0
       },
+      boxtype: {
+        type: 'string',
+        default: 'infoBox'
+      },
       dirty: {
         type: 'integer',
         default: 0
@@ -312,7 +348,7 @@
       return null;
     }
 
-    const className = `vf-grid | vf-grid__col-${columns}`;
+    const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
     return wp.element.createElement("div", {
       className: className
     }, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
@@ -325,8 +361,10 @@
     const {
       dirty,
       columns,
+      boxtype,
       placeholder
-    } = props.attributes; // Turn on setup placeholder if no columns are defined
+    } = props.attributes;
+    console.log('boxtype', boxtype); // Turn on setup placeholder if no columns are defined
 
     React.useEffect(() => {
       if (columns === 0) {
@@ -439,12 +477,15 @@
       return wp.element.createElement(blockEditor.__experimentalBlock.div, {
         className: "vf-block vf-block--placeholder"
       }, wp.element.createElement(components.Placeholder, {
-        label: i18n.__('VF Grid'),
+        label: i18n.__('SiS Info Box'),
         icon: 'admin-generic'
-      }, wp.element.createElement(GridControl, null)));
+      }, wp.element.createElement(GridControl, null), wp.element.createElement(infoBoxControl, _extends({
+        value: boxtype // onChange={value}
+
+      }, props))));
     }
 
-    const className = `vf-grid | vf-grid__col-${columns}`;
+    const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
     const styles = {
       ['--block-columns']: columns
     }; // Return inner blocks and inspector controls
@@ -454,7 +495,10 @@
       initialOpen: true
     }, wp.element.createElement(GridControl, {
       help: i18n.__('Content may be reorganised when columns are reduced.')
-    }))), wp.element.createElement(blockEditor.__experimentalBlock.div, {
+    }), wp.element.createElement(infoBoxControl, _extends({
+      value: boxtype // onChange={value}
+
+    }, props)))), wp.element.createElement(blockEditor.__experimentalBlock.div, {
       className: className,
       style: styles
     }, wp.element.createElement(blockEditor.InnerBlocks, {
@@ -712,7 +756,7 @@
     };
   };
   var vfPlugin = { ...defaults,
-    name: 'vf/plugin',
+    name: 'sis/plugin',
     title: i18n.__('Preview'),
     category: 'vf/wp',
     description: '',
@@ -741,7 +785,7 @@
     const coreBlocks = [settings$1, settings];
     coreBlocks.forEach(settings => blocks.registerBlockType(settings.name, settings));
   } // Register experimental preview block
-  blocks.registerBlockType('vf/plugin', vfPlugin); // Handle iframe preview resizing globally
+  blocks.registerBlockType('sis/plugin', vfPlugin); // Handle iframe preview resizing globally
   // TODO: remove necessity from `useVFIFrame`
 
   window.addEventListener('message', ({

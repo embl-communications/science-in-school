@@ -155,7 +155,7 @@ export const withACFUpdates = (Edit) => {
 
 export default {
   ...defaults,
-  name: 'vf/plugin',
+  name: 'sis/plugin',
   title: __('Preview'),
   category: 'vf/wp',
   description: '',

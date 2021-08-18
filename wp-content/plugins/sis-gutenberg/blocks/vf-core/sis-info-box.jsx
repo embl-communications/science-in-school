@@ -14,6 +14,7 @@ import {useDispatch, useSelect} from '@wordpress/data';
 import {__} from '@wordpress/i18n';
 import useVFDefaults from '../hooks/use-vf-defaults';
 import ColumnsControl from '../components/columns-control';
+import InfoBoxControl from '../components/info-box-control';
 import {fromColumns} from './transforms/grid';
 
 const defaults = useVFDefaults();
@@ -24,7 +25,7 @@ const MAX_COLUMNS = 6;
 const settings = {
   ...defaults,
   name: 'sis/info-box',
-  title: __('SiS Info box'),
+  title: __('SiS Info box 2'),
   category: 'vf/core',
   description: __('Visual Framework (core)'),
   supports: {
@@ -41,6 +42,10 @@ const settings = {
       type: 'integer',
       default: 0
     },
+    boxtype: {
+      type: 'string',
+      default: 'infoBox'
+    },
     dirty: {
       type: 'integer',
       default: 0
@@ -53,7 +58,7 @@ settings.save = (props) => {
   if (placeholder === 1) {
     return null;
   }
-  const className = `vf-grid | vf-grid__col-${columns}`;
+  const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
   return (
     <div className={className}>
       <InnerBlocks.Content />
@@ -63,7 +68,9 @@ settings.save = (props) => {
 
 settings.edit = (props) => {
   const {clientId} = props;
-  const {dirty, columns, placeholder} = props.attributes;
+  const {dirty, columns, boxtype, placeholder} = props.attributes;
+
+  console.log('boxtype', boxtype)
 
   // Turn on setup placeholder if no columns are defined
   useEffect(() => {
@@ -168,14 +175,19 @@ settings.edit = (props) => {
   if (placeholder === 1) {
     return (
       <ExperimentalBlock.div className='vf-block vf-block--placeholder'>
-        <Placeholder label={__('VF Grid')} icon={'admin-generic'}>
+        <Placeholder label={__('SiS Info Box')} icon={'admin-generic'}>
           <GridControl />
+          <InfoBoxControl
+            value={boxtype}
+            // onChange={value}
+            {...props}
+          />
         </Placeholder>
       </ExperimentalBlock.div>
     );
   }
 
-  const className = `vf-grid | vf-grid__col-${columns}`;
+  const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
 
   const styles = {
     ['--block-columns']: columns
@@ -188,6 +200,11 @@ settings.edit = (props) => {
         <PanelBody title={__('Advanced Settings')} initialOpen>
           <GridControl
             help={__('Content may be reorganised when columns are reduced.')}
+          />
+          <InfoBoxControl
+            value={boxtype}
+            // onChange={value}
+            {...props}
           />
         </PanelBody>
       </InspectorControls>

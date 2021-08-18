@@ -23,7 +23,7 @@ if (parseInt(coreOptin) === 1) {
 
 // Register experimental preview block
 import vfPlugin from './vf-core/vf-plugin';
-registerBlockType('vf/plugin', vfPlugin);
+registerBlockType('sis/plugin', vfPlugin);
 
 // Handle iframe preview resizing globally
 // TODO: remove necessity from `useVFIFrame`
