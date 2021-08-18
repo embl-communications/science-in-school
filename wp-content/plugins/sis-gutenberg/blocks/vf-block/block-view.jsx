@@ -5,11 +5,11 @@
  */
 import React, {useEffect, useRef} from 'react';
 // import {SandBox} from '@wordpress/components';
-import useVFGutenberg from '../hooks/use-vf-gutenberg';
+import useSisGutenberg from '../hooks/use-vf-gutenberg';
 import useVFIFrame from '../hooks/use-vf-iframe';
 
 const VFBlockView = ({render, uniqueId, onHeight}) => {
-  const {renderPrefix, renderSuffix} = useVFGutenberg();
+  const {renderPrefix, renderSuffix} = useSisGutenberg();
 
   // Use existing iframe appended to the DOM
   const iframeId = `vfwp_${uniqueId}`;

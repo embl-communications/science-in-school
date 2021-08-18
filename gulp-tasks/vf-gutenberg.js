@@ -82,12 +82,12 @@ const task = async () => {
 
   return Promise.all([
     devBundle.write({
-      file: path.resolve(pluginPath, `sis-gutenberg/assets/vf-blocks.js`),
+      file: path.resolve(pluginPath, `sis-gutenberg/assets/sis-blocks.js`),
       format: 'umd',
       globals
     }),
     prodBundle.write({
-      file: path.resolve(pluginPath, `sis-gutenberg/assets/vf-blocks.min.js`),
+      file: path.resolve(pluginPath, `sis-gutenberg/assets/sis-blocks.min.js`),
       format: 'umd',
       globals
     })

@@ -1,6 +1,6 @@
 /**
  * Return VF Gutenberg settings provided by the `vfGutenberg` global object
- * `wp_localize_script` defines this when enqueueing "vf-blocks.js"
+ * `wp_localize_script` defines this when enqueueing "sis-blocks.js"
  */
 
 // Default properties
@@ -11,7 +11,7 @@ const vfGutenberg = {
   nonce: ''
 };
 
-const useVFGutenberg = () => {
+const useSisGutenberg = () => {
   const vf = window.vfGutenberg || {};
   for (let [key, value] of Object.entries(vfGutenberg)) {
     if (!vf.hasOwnProperty(key)) {
@@ -21,4 +21,4 @@ const useVFGutenberg = () => {
   return vf;
 };
 
-export default useVFGutenberg;
+export default useSisGutenberg;

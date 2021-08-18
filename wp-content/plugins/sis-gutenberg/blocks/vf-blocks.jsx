@@ -2,7 +2,7 @@
  * VF Gutenberg blocks
  */
 import {registerBlockType} from '@wordpress/blocks';
-import useVFGutenberg from './hooks/use-vf-gutenberg';
+import useSisGutenberg from './hooks/use-vf-gutenberg';
 
 // Import Visual Framework core component settings
 
@@ -10,7 +10,7 @@ import sisInfoBoxColumn from './vf-core/sis-info-box-column';
 import sisInfoBox from './vf-core/sis-info-box';
 
 // Get "localized" global script settings
-const {coreOptin} = useVFGutenberg();
+const {coreOptin} = useSisGutenberg();
 
 // Register VF Core blocks
 if (parseInt(coreOptin) === 1) {

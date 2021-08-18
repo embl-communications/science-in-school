@@ -29,9 +29,9 @@ Text Domain: vfwpsis
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! class_exists('VF_Gutenberg') ) :
+if ( ! class_exists('SiS_Gutenberg') ) :
 
-class VF_Gutenberg {
+class SiS_Gutenberg {
 
   private $settings;
 
@@ -70,17 +70,6 @@ class VF_Gutenberg {
     // ACF options
     include_once('includes/settings.php');
     $this->settings = new VF_Sis_Gutenberg_Settings();
-
-    // Register core transforms
-    include_once('includes/core/core-colors.php');
-    include_once('includes/core/core-button.php');
-    include_once('includes/core/core-file.php');
-    include_once('includes/core/core-image.php');
-    include_once('includes/core/core-paragraph.php');
-    include_once('includes/core/core-quote.php');
-    include_once('includes/core/core-separator.php');
-    include_once('includes/core/core-video.php');
-
   }
 
   /**
@@ -156,9 +145,9 @@ class VF_Gutenberg {
       'all'
     );
     wp_register_script(
-      'vf-blocks',
+      'sis-blocks',
       plugins_url(
-        '/assets/vf-blocks' . (vf_debug() ? '' : '.min') .  '.js',
+        '/assets/sis-blocks' . (vf_debug() ? '' : '.min') .  '.js',
         __FILE__
       ),
       array('wp-editor', 'wp-blocks', 'vf-plugin'),
@@ -201,8 +190,8 @@ class VF_Gutenberg {
       'nonce'        => wp_create_nonce("vf_nonce_{$post->ID}")
     );
 
-    wp_localize_script('vf-blocks', 'vfGutenberg', $config);
-    wp_enqueue_script('vf-blocks');
+    wp_localize_script('sis-blocks', 'vfGutenberg', $config);
+    wp_enqueue_script('sis-blocks');
   }
 
   /**
@@ -415,18 +404,18 @@ if (iframe) {
     }
   }
 
-} // VF_Gutenberg
+} // SiS_Gutenberg
 
-function vf_gutenberg() {
-  global $vf_gutenberg;
-  if ( ! isset($vf_gutenberg)) {
-    $vf_gutenberg = new VF_Gutenberg();
-    $vf_gutenberg->initialize();
+function sis_gutenberg() {
+  global $sis_gutenberg;
+  if ( ! isset($sis_gutenberg)) {
+    $sis_gutenberg = new SiS_Gutenberg();
+    $sis_gutenberg->initialize();
   }
-  return $vf_gutenberg;
+  return $sis_gutenberg;
 }
 
-vf_gutenberg();
+sis_gutenberg();
 
 endif;
 

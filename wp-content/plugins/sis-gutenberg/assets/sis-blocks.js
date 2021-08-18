@@ -10,7 +10,7 @@
 
   /**
    * Return VF Gutenberg settings provided by the `vfGutenberg` global object
-   * `wp_localize_script` defines this when enqueueing "vf-blocks.js"
+   * `wp_localize_script` defines this when enqueueing "sis-blocks.js"
    */
   // Default properties
   const vfGutenberg = {
@@ -20,7 +20,7 @@
     nonce: ''
   };
 
-  const useVFGutenberg = () => {
+  const useSisGutenberg = () => {
     const vf = window.vfGutenberg || {};
 
     for (let [key, value] of Object.entries(vfGutenberg)) {
@@ -73,10 +73,10 @@
   const defaults$2 = useVFDefaults();
   const settings$1 = { ...defaults$2,
     name: 'sis/info-box-column',
-    title: i18n.__('Grid Column'),
+    title: i18n.__('SiS Info Box Column'),
     category: 'vf/core',
     description: i18n.__('Visual Framework (core)'),
-    parent: ['sis/info-box', 'vf/embl-grid'],
+    parent: ['sis/info-box'],
     supports: { ...defaults$2.supports,
       inserter: false,
       lightBlockWrapper: true
@@ -280,7 +280,7 @@
   const MAX_COLUMNS = 6;
   const settings = { ...defaults$1,
     name: 'sis/info-box',
-    title: i18n.__('SiS Info box'),
+    title: i18n.__('SiS Info box 2'),
     category: 'vf/core',
     description: i18n.__('Visual Framework (core)'),
     supports: { ...defaults$1.supports,
@@ -735,7 +735,7 @@
 
   const {
     coreOptin
-  } = useVFGutenberg(); // Register VF Core blocks
+  } = useSisGutenberg(); // Register VF Core blocks
 
   if (parseInt(coreOptin) === 1) {
     const coreBlocks = [settings$1, settings];

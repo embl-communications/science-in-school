@@ -18,10 +18,10 @@ const defaults = useVFDefaults();
 const settings = {
   ...defaults,
   name: 'sis/info-box-column',
-  title: __('Grid Column'),
+  title: __('SiS Info Box Column'),
   category: 'vf/core',
   description: __('Visual Framework (core)'),
-  parent: ['sis/info-box', 'vf/embl-grid'],
+  parent: ['sis/info-box'],
   supports: {
     ...defaults.supports,
     inserter: false,
