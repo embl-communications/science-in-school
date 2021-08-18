@@ -25,7 +25,7 @@ const MAX_COLUMNS = 6;
 const settings = {
   ...defaults,
   name: 'sis/info-box',
-  title: __('SiS Info box 2'),
+  title: __('SiS Info box layout'),
   category: 'vf/core',
   description: __('Visual Framework (core)'),
   supports: {
