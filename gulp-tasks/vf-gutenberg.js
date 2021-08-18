@@ -12,7 +12,7 @@ const {terser} = require('rollup-plugin-terser');
 
 const contentPath = path.resolve(__dirname, '../wp-content');
 const pluginPath = path.join(contentPath, 'plugins');
-const blocksGlob = [path.join(pluginPath, 'vf-gutenberg/blocks/**/*.{js,jsx}')];
+const blocksGlob = [path.join(pluginPath, 'sis-gutenberg/blocks/**/*.{js,jsx}')];
 
 const globals = {
   wp: 'wp',
@@ -33,7 +33,7 @@ const inputOptions = ({NODE_ENV}) => {
   const isDev = NODE_ENV === 'development';
   const isProd = !isDev;
   return {
-    input: path.resolve(pluginPath, 'vf-gutenberg/blocks/vf-blocks.jsx'),
+    input: path.resolve(pluginPath, 'sis-gutenberg/blocks/vf-blocks.jsx'),
     external: Object.keys(globals),
     plugins: [
       replace({
@@ -82,18 +82,18 @@ const task = async () => {
 
   return Promise.all([
     devBundle.write({
-      file: path.resolve(pluginPath, `vf-gutenberg/assets/vf-blocks.js`),
+      file: path.resolve(pluginPath, `sis-gutenberg/assets/vf-blocks.js`),
       format: 'umd',
       globals
     }),
     prodBundle.write({
-      file: path.resolve(pluginPath, `vf-gutenberg/assets/vf-blocks.min.js`),
+      file: path.resolve(pluginPath, `sis-gutenberg/assets/vf-blocks.min.js`),
       format: 'umd',
       globals
     })
   ]);
 };
-task.description = 'Compile vf-gutenberg plugin React';
+task.description = 'Compile sis-gutenberg plugin React';
 
 module.exports = {
   blocksTask: task,
