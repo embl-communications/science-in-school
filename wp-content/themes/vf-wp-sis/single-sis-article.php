@@ -151,11 +151,11 @@ get_header();
                 <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
             <?php } ?>
 
-            <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
-
             <?php sis_printFieldWithHeader('<h3>References</h3>',$art_references); ?>
 
             <?php sis_printFieldWithHeader('<h3>Web References</h3>', $art_web_references); ?>
+
+            <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
 
             <?php sis_printTagsWithHeader('<h3>Institution</h3>',$art_institutions); ?>
 

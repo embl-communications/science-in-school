@@ -5,7 +5,7 @@ get_header();
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
 <main class="tmpl-post">
 
-    <section class="vf-hero | vf-u-fullbleed" style="--vf-card__image--aspect-ratio 4/5; --vf-hero--bg-image-size: auto 28.5rem">
+    <section class="vf-hero | vf-u-fullbleed" style="--vf-hero--bg-image: url('/wp-content/themes/vf-wp-sis/assets/images/header/h1-issue.jpg'); --vf-card__image--aspect-ratio 4/5; --vf-hero--bg-image-size: auto 28.5rem">
         <div class="vf-hero__content | vf-box | vf-stack vf-stack--400">
             <h2 class="vf-hero__heading">Issue archive
             </h2>
