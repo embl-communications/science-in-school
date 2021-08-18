@@ -79,6 +79,11 @@ body {
   width: 32px;
 }
 
+//spacing beneath tables
+body.vf-wp-sis .vf-content table {
+  margin-bottom: 1rem;
+}
+
 // legacy posts
 body.sis-article-template-default figure.image {
   padding: 1em;
