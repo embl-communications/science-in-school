@@ -257,8 +257,8 @@
 
     const isPressed = i => i === value;
 
-    const buttonValueInfoBox = "infoBox";
-    const buttonValueSafetyMan = "safetyMan";
+    const buttonValueInfoBox = "information-box";
+    const buttonValueSafetyMan = "safety-box";
     return wp.element.createElement(components.BaseControl, control, wp.element.createElement(components.ButtonGroup, {
       "aria-label": control.label
     }, wp.element.createElement(components.Button, {
@@ -355,7 +355,7 @@
       return null;
     }
 
-    const className = `vf-grid sis-information-box sis-information-box--${boxtype.toLowerCase()} | vf-grid__col-${columns}`;
+    const className = `vf-grid sis-information-box sis-${boxtype} | vf-grid__col-${columns}`;
     return wp.element.createElement("div", {
       className: className
     }, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
@@ -510,7 +510,7 @@
       }, wp.element.createElement(InfoBoxControlWrapper, null), wp.element.createElement("hr", null), wp.element.createElement(GridControl, null)));
     }
 
-    const className = `vf-grid sis-information-box sis-information-box--${boxtype.toLowerCase()} | vf-grid__col-${columns}`;
+    const className = `vf-grid sis-information-box sis-${boxtype} | vf-grid__col-${columns}`;
     const styles = {
       ['--block-columns']: columns
     }; // Return inner blocks and inspector controls
