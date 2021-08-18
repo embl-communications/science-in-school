@@ -190,10 +190,10 @@ function sis_printFieldWithHeader($header, $field){
 
 function sis_printFieldWithHeaderClass($header, $field, $className){
     if(trim($field) != ''){
-        print $header;
         print '<div class="' . $className . '">';
+        print $header;
         print $field;
-        print '</div>';
+        print '</div><br/>';
     }
 }
 

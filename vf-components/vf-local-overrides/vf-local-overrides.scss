@@ -84,6 +84,10 @@ body.sis-article-template-default figure.image {
   padding: 1em;
   display: table !important; // sometimes inline block has been manually set as a local style
 }
+body.sis-article-template-default figure.image figcaption strong {
+  font-weight: 400 !important; // bold never allowed on legacy article figcaptions
+}
+
 .vf-content figure:not([class*="vf-"]) figcaption:not([class*="vf-"]) {
   text-align: left;
 }
