@@ -355,7 +355,7 @@
       return null;
     }
 
-    const className = `vf-grid sis-information-box sis-${boxtype} | vf-grid__col-${columns}`;
+    const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype}`;
     return wp.element.createElement("div", {
       className: className
     }, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
@@ -510,7 +510,7 @@
       }, wp.element.createElement(InfoBoxControlWrapper, null), wp.element.createElement("hr", null), wp.element.createElement(GridControl, null)));
     }
 
-    const className = `vf-grid sis-information-box sis-${boxtype} | vf-grid__col-${columns}`;
+    const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype} `;
     const styles = {
       ['--block-columns']: columns
     }; // Return inner blocks and inspector controls

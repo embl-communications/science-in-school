@@ -58,7 +58,7 @@ settings.save = (props) => {
   if (placeholder === 1) {
     return null;
   }
-  const className = `vf-grid sis-information-box sis-${boxtype} | vf-grid__col-${columns}`;
+  const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype}`;
   return (
     <div className={className}>
       <InnerBlocks.Content />
@@ -202,7 +202,7 @@ settings.edit = (props) => {
     );
   }
 
-  const className = `vf-grid sis-information-box sis-${boxtype} | vf-grid__col-${columns}`;
+  const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype} `;
 
   const styles = {
     ['--block-columns']: columns
