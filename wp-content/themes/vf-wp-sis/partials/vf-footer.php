@@ -1,7 +1,7 @@
 <footer class="vf-footer">
     <div class="vf-footer__inner">
         <p class="vf-footer__notice">
-            Supporting teachers in the delivery of STEM curricula with connections to inspiring, cutting-edge science and technology.
+            Supporting STEM teachers in inspiring their students and fostering positive attitudes towards the science that shapes our lives.
         </p>
 
         <section class="vf-footer__links-group | vf-grid">
@@ -38,9 +38,6 @@
                 <ul class="vf-links__list | vf-list">
                     <li class="vf-list__item">
                         <a class="vf-list__link" href="/issue">Archive</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/donation">Donate</a>
                     </li>
                     <li class="vf-list__item">
                         <a class="vf-list__link" href="/contact">Contact</a>

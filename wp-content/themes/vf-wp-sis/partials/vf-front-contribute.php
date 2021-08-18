@@ -1,7 +1,7 @@
 <!-- Team up -->
 <div class="vf-u-fullbleed">
     <section>
-        <h3 class="vf-text-heading--3">Contribute, get involved</h3>
+        <h3 class="vf-text-heading--3">Get involved</h3>
     </section>
     <section class="vf-grid vf-grid__col-3 | vf-u-margin__top--600">
         <article class="vf-box vf-box--is-link vf-box-theme--tertiary vf-box--normal">

@@ -2,7 +2,7 @@
 <!-- vf-u-margin__bottom--0 -->
 <div class="embl-grid | vf-u-padding__bottom--800 vf-u-padding__top--800">
     <div class="vf-section-header"><a class="vf-section-header__heading vf-section-header__heading--is-link"
-                                      href="JavaScript:Void(0);" id="section-sub-heading-link-text">Discover
+                                      href="/?sis-article-types=understand" id="section-sub-heading-link-text">Discover
             <svg aria-hidden="true"
                  class="vf-section-header__icon | vf-icon vf-icon-arrow--inline-end" width="1em" height="1em"
                  xmlns="http://www.w3.org/2000/svg">
@@ -11,8 +11,8 @@
                         fill="" fill-rule="nonzero"></path>
             </svg>
         </a>
-        <p class="vf-section-header__text">We are the only teaching journal to cover all sciences and target the
-            whole of Europe and beyond. We offer articles in more than 30 languages.</p>
+        <p class="vf-section-header__text">We cover a wide range of scientific topics and many articles
+            are additionally available as translations in different European languages.</p>
     </div>
     <div>
         <?php include(locate_template('partials/vf-front-discoverSearch.php', false, false)); ?>

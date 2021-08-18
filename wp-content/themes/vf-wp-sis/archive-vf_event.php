@@ -5,7 +5,7 @@ get_header();
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
 <main class="tmpl-post">
 
-    <section class="vf-hero | vf-u-fullbleed" style=" --vf-hero--bg-image-size: auto 28.5rem">
+    <section class="vf-hero | vf-u-fullbleed" style="--vf-hero--bg-image: url('/wp-content/themes/vf-wp-sis/assets/images/header/h2-event.jpg');  --vf-hero--bg-image-size: auto 28.5rem">
         <div class="vf-hero__content | vf-box | vf-stack vf-stack--400">
             <!-- <p class="vf-hero__kicker"><a href="JavaScript:Void(0);">VF Hamburg</a> | Structural Biology</p> -->
             <h2 class="vf-hero__heading"><a class="vf-hero__heading_link" href="/events/">Events</a></h2>
