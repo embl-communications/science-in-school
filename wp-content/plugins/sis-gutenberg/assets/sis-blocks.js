@@ -242,7 +242,10 @@
    */
 
   const infoBoxControl = props => {
-    // const {value, onChange} = props;
+    const {
+      value,
+      onChange
+    } = props;
     const control = {
       label: i18n.__('Type of info box'),
       className: 'components-vf-control'
@@ -250,21 +253,24 @@
 
     if (props.help) {
       control.help = props.help;
-    } // const isPressed = i => i === value;
+    }
 
+    const isPressed = i => i === value;
 
+    const buttonValueInfoBox = "infoBox";
+    const buttonValueSafetyMan = "safetyMan";
     return wp.element.createElement(components.BaseControl, control, wp.element.createElement(components.ButtonGroup, {
       "aria-label": control.label
     }, wp.element.createElement(components.Button, {
-      key: "infoBox" // isPrimary={isPressed(i)}
-      // aria-pressed={isPressed(i)}
-      // onClick={() => onChange(i)}
-
+      key: buttonValueInfoBox,
+      isPrimary: isPressed(buttonValueInfoBox),
+      "aria-pressed": isPressed(buttonValueInfoBox),
+      onClick: () => onChange(buttonValueInfoBox)
     }, "Info box"), wp.element.createElement(components.Button, {
-      key: "safetyMan" // isPrimary={isPressed(i)}
-      // aria-pressed={isPressed(i)}
-      // onClick={() => onChange(i)}
-
+      key: buttonValueSafetyMan,
+      isPrimary: isPressed(buttonValueSafetyMan),
+      "aria-pressed": isPressed(buttonValueSafetyMan),
+      onClick: () => onChange(buttonValueSafetyMan)
     }, "Safety man")));
   };
 
@@ -341,6 +347,7 @@
   settings.save = props => {
     const {
       columns,
+      boxtype,
       placeholder
     } = props.attributes;
 
@@ -348,7 +355,7 @@
       return null;
     }
 
-    const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
+    const className = `vf-grid sis-information-box sis-information-box--${boxtype.toLowerCase()} | vf-grid__col-${columns}`;
     return wp.element.createElement("div", {
       className: className
     }, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
@@ -363,13 +370,16 @@
       columns,
       boxtype,
       placeholder
-    } = props.attributes;
-    console.log('boxtype', boxtype); // Turn on setup placeholder if no columns are defined
+    } = props.attributes; // console.log('boxtype', boxtype)
+    // Turn on setup placeholder if no columns are defined
 
     React.useEffect(() => {
       if (columns === 0) {
         props.setAttributes({
           placeholder: 1
+        });
+        props.setAttributes({
+          boxtype: "infoBox"
         });
       }
     }, [clientId]);
@@ -378,7 +388,8 @@
     } = data.useDispatch('core/block-editor');
     const {
       setColumns,
-      updateColumns
+      updateColumns,
+      setInfoType
     } = data.useSelect(select => {
       const {
         getBlocks,
@@ -442,6 +453,13 @@
         }
       };
 
+      const setInfoType = newType => {
+        props.setAttributes({
+          boxtype: newType,
+          placeholder: 0
+        });
+      };
+
       const updateColumns = () => {
         const {
           columns
@@ -453,6 +471,7 @@
       };
 
       return {
+        setInfoType,
         setColumns,
         updateColumns
       };
@@ -470,6 +489,15 @@
         max: MAX_COLUMNS,
         onChange: React.useCallback(value => setColumns(value))
       }, props));
+    };
+
+    const InfoBoxControlWrapper = props => {
+      return wp.element.createElement(infoBoxControl, _extends({
+        value: boxtype // onChange={useCallback((value) => console.log('value',value))}
+        ,
+        onChange: React.useCallback(value => setInfoType(value)) // onChange={props.setAttributes({boxtype: value})}
+
+      }, props));
     }; // Return setup placeholder
 
 
@@ -479,13 +507,10 @@
       }, wp.element.createElement(components.Placeholder, {
         label: i18n.__('SiS Info Box'),
         icon: 'admin-generic'
-      }, wp.element.createElement(GridControl, null), wp.element.createElement(infoBoxControl, _extends({
-        value: boxtype // onChange={value}
-
-      }, props))));
+      }, wp.element.createElement(InfoBoxControlWrapper, null), wp.element.createElement("hr", null), wp.element.createElement(GridControl, null)));
     }
 
-    const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
+    const className = `vf-grid sis-information-box sis-information-box--${boxtype.toLowerCase()} | vf-grid__col-${columns}`;
     const styles = {
       ['--block-columns']: columns
     }; // Return inner blocks and inspector controls
@@ -493,12 +518,9 @@
     return wp.element.createElement(React__default['default'].Fragment, null, wp.element.createElement(blockEditor.InspectorControls, null, wp.element.createElement(components.PanelBody, {
       title: i18n.__('Advanced Settings'),
       initialOpen: true
-    }, wp.element.createElement(GridControl, {
+    }, wp.element.createElement(InfoBoxControlWrapper, null), wp.element.createElement("hr", null), wp.element.createElement(GridControl, {
       help: i18n.__('Content may be reorganised when columns are reduced.')
-    }), wp.element.createElement(infoBoxControl, _extends({
-      value: boxtype // onChange={value}
-
-    }, props)))), wp.element.createElement(blockEditor.__experimentalBlock.div, {
+    }))), wp.element.createElement(blockEditor.__experimentalBlock.div, {
       className: className,
       style: styles
     }, wp.element.createElement(blockEditor.InnerBlocks, {

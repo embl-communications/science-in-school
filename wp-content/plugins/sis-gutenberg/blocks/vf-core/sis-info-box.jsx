@@ -54,11 +54,11 @@ const settings = {
 };
 
 settings.save = (props) => {
-  const {columns, placeholder} = props.attributes;
+  const {columns, boxtype, placeholder} = props.attributes;
   if (placeholder === 1) {
     return null;
   }
-  const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
+  const className = `vf-grid sis-information-box sis-information-box--${boxtype.toLowerCase()} | vf-grid__col-${columns}`;
   return (
     <div className={className}>
       <InnerBlocks.Content />
@@ -70,18 +70,19 @@ settings.edit = (props) => {
   const {clientId} = props;
   const {dirty, columns, boxtype, placeholder} = props.attributes;
 
-  console.log('boxtype', boxtype)
+  // console.log('boxtype', boxtype)
 
   // Turn on setup placeholder if no columns are defined
   useEffect(() => {
     if (columns === 0) {
       props.setAttributes({placeholder: 1});
+      props.setAttributes({boxtype: "infoBox"});
     }
   }, [clientId]);
 
   const {replaceInnerBlocks} = useDispatch('core/block-editor');
 
-  const {setColumns, updateColumns} = useSelect(
+  const {setColumns, updateColumns, setInfoType} = useSelect(
     (select) => {
       const {getBlocks, getBlockAttributes} = select('core/block-editor');
 
@@ -139,6 +140,10 @@ settings.edit = (props) => {
         }
       };
 
+      const setInfoType = (newType) => {
+        props.setAttributes({boxtype: newType, placeholder: 0});
+      };
+
       const updateColumns = () => {
         const {columns} = getBlockAttributes(clientId);
         setColumns(columns);
@@ -146,6 +151,7 @@ settings.edit = (props) => {
       };
 
       return {
+        setInfoType,
         setColumns,
         updateColumns
       };
@@ -171,23 +177,32 @@ settings.edit = (props) => {
     );
   };
 
+  const InfoBoxControlWrapper = (props) => {
+    return (
+      <InfoBoxControl
+        value={boxtype}
+        // onChange={useCallback((value) => console.log('value',value))}
+        onChange={useCallback((value) => setInfoType(value))}
+        // onChange={props.setAttributes({boxtype: value})}
+        {...props}
+      />
+    );
+  };
+
   // Return setup placeholder
   if (placeholder === 1) {
     return (
       <ExperimentalBlock.div className='vf-block vf-block--placeholder'>
         <Placeholder label={__('SiS Info Box')} icon={'admin-generic'}>
+          <InfoBoxControlWrapper/>
+          <hr/>
           <GridControl />
-          <InfoBoxControl
-            value={boxtype}
-            // onChange={value}
-            {...props}
-          />
         </Placeholder>
       </ExperimentalBlock.div>
     );
   }
 
-  const className = `vf-grid sis-information-box sis-information-box--${boxtype} | vf-grid__col-${columns}`;
+  const className = `vf-grid sis-information-box sis-information-box--${boxtype.toLowerCase()} | vf-grid__col-${columns}`;
 
   const styles = {
     ['--block-columns']: columns
@@ -198,13 +213,10 @@ settings.edit = (props) => {
     <>
       <InspectorControls>
         <PanelBody title={__('Advanced Settings')} initialOpen>
+          <InfoBoxControlWrapper/>
+          <hr/>
           <GridControl
             help={__('Content may be reorganised when columns are reduced.')}
-          />
-          <InfoBoxControl
-            value={boxtype}
-            // onChange={value}
-            {...props}
           />
         </PanelBody>
       </InspectorControls>
