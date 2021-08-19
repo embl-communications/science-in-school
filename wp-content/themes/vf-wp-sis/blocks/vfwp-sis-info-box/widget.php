@@ -9,7 +9,7 @@ class VF_Widget_Sis_Info_Box extends WP_Widget {
   public function __construct() {
     parent::__construct(
       'vf_widget_sis_info_box',
-      __('SiS Info box', 'vfwp')
+      __('SiS Info box (deprecated)', 'vfwp')
     );
   }
 

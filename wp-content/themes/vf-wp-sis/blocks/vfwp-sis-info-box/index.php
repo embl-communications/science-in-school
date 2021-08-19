@@ -28,7 +28,7 @@ class SIS_Info_Box extends VFWP_Block {
   public function get_config() {
     return array(
       'name'     => $this->get_name(),
-      'title'    => 'SiS Info Box',
+      'title'    => 'SiS Info Box (deprecated)',
       'category' => 'vf/wp',
       'supports' => array(
         'align'           => false,
