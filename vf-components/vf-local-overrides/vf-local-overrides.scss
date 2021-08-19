@@ -79,11 +79,20 @@ body {
   width: 32px;
 }
 
+//spacing beneath tables
+body.vf-wp-sis .vf-content table {
+  margin-bottom: 1rem;
+}
+
 // legacy posts
 body.sis-article-template-default figure.image {
   padding: 1em;
   display: table !important; // sometimes inline block has been manually set as a local style
 }
+body.sis-article-template-default figure.image figcaption strong {
+  font-weight: 400 !important; // bold never allowed on legacy article figcaptions
+}
+
 .vf-content figure:not([class*="vf-"]) figcaption:not([class*="vf-"]) {
   text-align: left;
 }
@@ -118,12 +127,12 @@ body .embl-grid {
     color: #{brand-color()};
   }
   .vf-content table:not([class*="vf-"]) {
-    background: #eee;
+    background: #c0deff;
   }
   .vf-content table:not([class*="vf-"]) thead,
   .vf-content table:not([class*="vf-"]) th {
     // color: white;
-    background: #{brand-color(light)};
+    background: #{brand-color()};
   }
 }
 .sis-article-understand {
@@ -136,7 +145,7 @@ body .embl-grid {
     color: #{set-color(vf-color--green)}; 
   }
   .vf-content table:not([class*="vf-"]) {
-    background: #eee;
+    background: #e3f1c1;
   }
   .vf-content table:not([class*="vf-"]) thead,
   .vf-content table:not([class*="vf-"]) th {
@@ -155,12 +164,12 @@ body .embl-grid {
     color: #{set-color(vf-color--orange)}; 
   }
   .vf-content table:not([class*="vf-"]) {
-    background: #eee;
+    background: #{set-color(vf-color--orange--light)}; 
   }
   .vf-content table:not([class*="vf-"]) thead,
   .vf-content table:not([class*="vf-"]) th {
     // color: white;
-    background: #{set-color(vf-color--orange--light)}; 
+    background: #{set-color(vf-color--orange)}; 
   }  
 }
 
@@ -306,4 +315,9 @@ body.vf-wp-sis .vf-content table:not([class*="vf-"]) th,
 body.vf-wp-sis .vf-content table:not([class*="vf-"]) td {
   border: 1px solid #ccc;
   padding: 6px;
+}
+
+.vf-hero {
+  // manual override of hero default background
+  background-color: #{set-color(vf-color--blue--light)};
 }

@@ -85,8 +85,6 @@ get_header();
         </div>
         <div class="vf-stack">
             <h1 class="vf-intro__heading"><?php echo get_the_title(); ?></h1>
-            <p class="vf-lede"><?php echo get_the_excerpt(); ?></p>
-
             <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
         </div>
     </section>
@@ -144,6 +142,8 @@ get_header();
                 </p>
             </div>
 
+            <p class=""><?php echo get_the_excerpt(); ?></p>
+
             <?php the_content(); ?>
 
             <?php if(!empty($art_pdf)){ ?>
@@ -151,17 +151,17 @@ get_header();
                 <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
             <?php } ?>
 
-            <?php sis_printFieldWithHeader('<h3>References</h3>',$art_references); ?>
+            <?php sis_printFieldWithHeader('<h2>References</h2>',$art_references); ?>
 
-            <?php sis_printFieldWithHeader('<h3>Web References</h3>', $art_web_references); ?>
+            <?php sis_printFieldWithHeader('<h2>Web References</h2>', $art_web_references); ?>
 
-            <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
+            <?php sis_printFieldWithHeader('<h2>Resources</h2>', $art_resources); ?>
 
-            <?php sis_printTagsWithHeader('<h3>Institution</h3>',$art_institutions); ?>
+            <?php sis_printTagsWithHeader('<h2>Institution</h2>',$art_institutions); ?>
 
-            <?php sis_printFieldWithHeaderClass('<h3>Author</h3>', $art_authors, '.sis-author-box'); ?>
+            <?php sis_printFieldWithHeaderClass('<h3>Author</h3>', $art_authors, 'sis-author-box'); ?>
 
-            <?php sis_printFieldWithHeaderClass('<h3>Review</h3>', $art_review, '.sis-reviewer-box'); ?>
+            <?php sis_printFieldWithHeaderClass('<h3>Review</h3>', $art_review, 'sis-reviewer-box'); ?>
 
             <?php
                 if(!empty($art_license) || !empty($art_license_freetext)){
