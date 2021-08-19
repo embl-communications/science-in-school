@@ -9,7 +9,7 @@ get_header();
         <div class="vf-hero__content | vf-box | vf-stack vf-stack--400">
             <h2 class="vf-hero__heading">Issue archive
             </h2>
-            <p class="vf-hero__subheading">In 2020 Science in School became an online publication. Here your can browse
+            <p class="vf-hero__subheading">In 2020 Science in School became an online publication. Here you can browse
                 all publications dating back to 2006.</p>
         </div>
     </section>
