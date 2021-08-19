@@ -102,6 +102,7 @@ rm -rf ./post-types-order
 rm -rf ./redirection
 rm -rf ./relevanssi
 rm -rf ./relevanssi-premium
+rm -rf ./sis-gutenberg
 rm -rf ./taxonomy-terms-order
 rm -rf ./toolset-blocks
 rm -rf ./types
@@ -207,6 +208,7 @@ cp -R ./post-types-order /var/www/html/wordpress/wp-content/plugins/
 cp -R ./redirection /var/www/html/wordpress/wp-content/plugins/
 cp -R ./relevanssi /var/www/html/wordpress/wp-content/plugins/
 cp -R ./relevanssi-premium /var/www/html/wordpress/wp-content/plugins/
+cp -R ./sis-gutenberg /var/www/html/wordpress/wp-content/plugins/
 cp -R ./taxonomy-terms-order /var/www/html/wordpress/wp-content/plugins/
 cp -R ./toolset-blocks /var/www/html/wordpress/wp-content/plugins/
 cp -R ./types /var/www/html/wordpress/wp-content/plugins/
