@@ -11,8 +11,10 @@ $art_ages = get_field('art_ages');
         $articleTypeLabel = 'Understand';
     } else if($articleType == $articleTypesArray['INSPIRE']){
         $articleTypeLabel = 'Inspire';
-    } else {
+    } else if($articleType == $articleTypesArray['TEACH']) {
         $articleTypeLabel = 'Teach';
+    } else if($articleType == $articleTypesArray['EDITORIAL']) {
+        $articleTypeLabel = 'Editorial';
     }
     ?>
 
