@@ -23,6 +23,10 @@ $art_topics = get_field('art_topics');
                     ?>
                     <a href="/?sis-article-types=teach" class="vf-badge sis-badge--teach">Teach</a>
                     <?php
+                } else if(intval($art_article_type) ==  $articleTypesArray['EDITORIAL']) {
+                    ?>
+                    <a href="/?sis-article-types=editorial" class="vf-badge sis-badge--editorial">Editorial</a>
+                    <?php
                 }
             }
         ?>

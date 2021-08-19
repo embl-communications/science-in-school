@@ -10,9 +10,6 @@ get_header();
 
     $art_author_name = get_field('art_author_name');
     $art_editor_tags = get_field('art_editor_tags');
-    //$art_slider_exclude = get_field('art_slider_exclude');
-    //$art_eonly_article = get_field('art_eonly_article');
-    //$art_reviewer_tags = get_field('art_reviewer_tags');
     $art_ages = get_field('art_ages');
     $art_institutions = get_field('art_institutions');
     $art_issue = get_field('art_issue');
@@ -27,8 +24,6 @@ get_header();
     $art_authors = get_field('art_authors');
     $art_referee = get_field('art_referee');
     $art_review = get_field('art_review');
-    //$art_slider_image = get_field('art_slider_image');
-    //$art_teaser_image = get_field('art_teaser_image');
     $art_pdf = get_field('art_pdf');
     $art_materials = get_field('art_materials');
     $art_migrated_from_drupal = get_field('art_migrated_from_drupal');
@@ -38,28 +33,9 @@ get_header();
     $art_acknowledgements = get_field('art_acknowledgements');
     ?>
 
-    <!--nav class="vf-breadcrumbs" aria-label="Breadcrumb">
-        <ul class="vf-breadcrumbs__list | vf-list vf-list--inline">
-            <li class="vf-breadcrumbs__item">
-                <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Explore</a>
-            </li>
-            <li class="vf-breadcrumbs__item">
-                <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Topics</a>
-            </li>
-            <li class="vf-breadcrumbs__item" aria-current="location">
-                Centre
-            </li>
-        </ul>
-        <span class="vf-breadcrumbs__heading">Related:</span>
-        <ul class="vf-breadcrumbs__list vf-breadcrumbs__list--related | vf-list vf-list--inline">
-            <li class="vf-breadcrumbs__item">
-                <a href="JavaScript:Void(0);" class="vf-breadcrumbs__link">Chemistry</a>
-            </li>
-        </ul>
-    </nav-->
     <br/>
     <br/>
-    <!--  -->
+
     <section class="embl-grid embl-grid--has-centered-content" id="an-id-for-anchor">
         <div>
         <?php
@@ -68,17 +44,22 @@ get_header();
         if($articleType == $articleTypesArray['UNDERSTAND']){
             ?>
             <a href="/?sis-article-types=understand"
-               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Understand<br/> article</a>
+               class="vf-badge sis-badge--understand">Understand<br/> article</a>
             <?php
         } else if($articleType == $articleTypesArray['INSPIRE']){
             ?>
             <a href="/?sis-article-types=inspire"
-               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Inspire<br/> article</a>
+               class="vf-badge sis-badge--inspire">Inspire<br/> article</a>
             <?php
         } else if($articleType == $articleTypesArray['TEACH']){
             ?>
             <a href="/?sis-article-types=teach"
-               class="vf-badge vf-badge--primary vf-badge--phases | vf-badge--intro">Teach<br/> article</a>
+               class="vf-badge sis-badge--teach">Teach<br/> article</a>
+            <?php
+        } else if($articleType == $articleTypesArray['EDITORIAL']){
+            ?>
+            <a href="/?sis-article-types=editorial"
+               class="vf-badge sis-badge--editorial">Editorial<br/> article</a>
             <?php
         }
         ?>
