@@ -321,3 +321,12 @@ body.vf-wp-sis .vf-content table:not([class*="vf-"]) td {
   // manual override of hero default background
   background-color: #{set-color(vf-color--blue--light)};
 }
+
+// safety man
+.vf-box.sis-safety-box {
+  padding-left: 85px;
+  background-image: url(https://acxngcvroo.cloudimg.io/v7/www.embl.org/files/wp-content/uploads/sis-safety-man.png);
+  background-blend-mode: darken, luminosity;
+  background-repeat: no-repeat;
+  background-position: 1rem 1rem;
+}
