@@ -1,7 +1,7 @@
 <?php
 $iss_cover_image = get_field('iss_cover_image');
 ?>
-<article class="vf-card vf-card--brand vf-card--striped">
+<article class="vf-card vf-card--brand vf-card--striped sis-article-teach">
     <?php
         if(is_array($iss_cover_image) && array_key_exists('url', $iss_cover_image)){
     ?>
