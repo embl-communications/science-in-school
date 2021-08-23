@@ -23,9 +23,9 @@ props:
 
   - name: text-body--1
     value:
-      fontSize: 28px
+      fontSize: 20px
       fontWeight: 500
-      lineHeight: 1.3125
+      lineHeight: 1.4125
     meta:
       friendlyName: Body, extra large
       sassMap: text-body--1
@@ -34,9 +34,9 @@ props:
 
   - name: text-body--2
     value:
-      fontSize: 18px
+      fontSize: 16px
       fontWeight: 400
-      lineHeight: 1.421
+      lineHeight: 1.621
     meta:
       friendlyName: Body, large
       sassMap: text-body--2
