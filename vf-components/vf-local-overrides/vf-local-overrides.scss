@@ -330,3 +330,8 @@ body.vf-wp-sis .vf-content table:not([class*="vf-"]) td {
   background-repeat: no-repeat;
   background-position: 1rem 1rem;
 }
+
+// no spacing atop meta information
+body.vf-wp-sis .vf-article-meta-information > div {
+  padding-top: 0;
+}
