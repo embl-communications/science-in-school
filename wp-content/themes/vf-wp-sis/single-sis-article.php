@@ -38,34 +38,36 @@ get_header();
 
     <section class="embl-grid embl-grid--has-centered-content" id="an-id-for-anchor">
         <div>
-        <?php
-        $articleType = get_field('art_article_type');
-        $articleTypesArray = sis_getArticleTypesArray();
-        if($articleType == $articleTypesArray['UNDERSTAND']){
-            ?>
-            <a href="/?sis-article-types=understand"
-               class="vf-badge sis-badge--understand">Understand<br/> article</a>
-            <?php
-        } else if($articleType == $articleTypesArray['INSPIRE']){
-            ?>
-            <a href="/?sis-article-types=inspire"
-               class="vf-badge sis-badge--inspire">Inspire<br/> article</a>
-            <?php
-        } else if($articleType == $articleTypesArray['TEACH']){
-            ?>
-            <a href="/?sis-article-types=teach"
-               class="vf-badge sis-badge--teach">Teach<br/> article</a>
-            <?php
-        } else if($articleType == $articleTypesArray['EDITORIAL']){
-            ?>
-            <a href="/?sis-article-types=editorial"
-               class="vf-badge sis-badge--editorial">Editorial<br/> article</a>
-            <?php
-        }
-        ?>
         </div>
         <div class="vf-stack">
-            <h1 class="vf-intro__heading"><?php echo get_the_title(); ?></h1>
+            <h1 class="vf-intro__heading vf-intro__heading--has-tag">
+                <?php echo get_the_title(); ?>
+                <?php
+                $articleType = get_field('art_article_type');
+                $articleTypesArray = sis_getArticleTypesArray();
+                if($articleType == $articleTypesArray['UNDERSTAND']){
+                    ?>
+                    <a href="/?sis-article-types=understand"
+                    class="vf-badge sis-badge--understand">Understand article</a>
+                    <?php
+                } else if($articleType == $articleTypesArray['INSPIRE']){
+                    ?>
+                    <a href="/?sis-article-types=inspire"
+                    class="vf-badge sis-badge--inspire">Inspire article</a>
+                    <?php
+                } else if($articleType == $articleTypesArray['TEACH']){
+                    ?>
+                    <a href="/?sis-article-types=teach"
+                    class="vf-badge sis-badge--teach">Teach article</a>
+                    <?php
+                } else if($articleType == $articleTypesArray['EDITORIAL']){
+                    ?>
+                    <a href="/?sis-article-types=editorial"
+                    class="vf-badge sis-badge--editorial">Editorial article</a>
+                    <?php
+                }
+                ?>
+            </h1>
             <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
         </div>
     </section>
