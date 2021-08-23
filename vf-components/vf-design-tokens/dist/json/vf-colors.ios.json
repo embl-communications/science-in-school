@@ -194,7 +194,7 @@
       "type": "color",
       "category": "color",
       "name": "vfColorBlueLight",
-      "value": "#b7e5f5",
+      "value": "#c0deff",
       "meta": {
         "friendlyName": "EMBL Blue, Light Tint",
         "sassMap": "blue--light",

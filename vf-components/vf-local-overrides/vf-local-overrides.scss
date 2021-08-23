@@ -127,7 +127,8 @@ body .embl-grid {
     color: #{brand-color()};
   }
   .vf-content table:not([class*="vf-"]) {
-    background: #c0deff;
+    background: #{set-color(vf-color--blue--light)};
+    // background: #c0deff;
   }
   .vf-content table:not([class*="vf-"]) thead,
   .vf-content table:not([class*="vf-"]) th {
@@ -283,6 +284,7 @@ body.vf-wp-sis .vf-card__image {
   .sis-reviewer-box,
   .sis-author-box {
     background: #{set-color(vf-color--blue--light)};
+    // background: #c0deff;
   }
 }
 
@@ -334,4 +336,15 @@ body.vf-wp-sis .vf-content table:not([class*="vf-"]) td {
 // no spacing atop meta information
 body.vf-wp-sis .vf-article-meta-information > div {
   padding-top: 0;
+}
+
+// superscript fix
+.vf-content sup, 
+.vf-content sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+.vf-content sub { 
+  top: 0.4em; 
 }
