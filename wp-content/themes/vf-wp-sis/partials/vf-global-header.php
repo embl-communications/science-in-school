@@ -11,7 +11,7 @@
                 <a href="/contact" class="vf-navigation__link">Contact</a>
             </li>
             <li class="vf-navigation__item">
-                <a href="/newsletter" class="vf-navigation__link">Newsletter Signup</a>
+                <a href="/newsletter" class="vf-navigation__link">Newsletter</a>
             </li>
             <li class="vf-navigation__item">
                 <a href="/?post_type=sis-article&s=keyword" class="vf-navigation__link">Search</a>

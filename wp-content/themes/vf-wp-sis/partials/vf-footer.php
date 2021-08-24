@@ -120,7 +120,7 @@
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.embl.org/">
-                    <img src="https://www.embl.org/assets/embl-logo/assets/logo.svg" alt="European Molecular Biology Laboratory" title="European Molecular Biology Laboratory" loading="lazy" width="40">
+                    <img src="https://www.embl.org/assets/embl-logo/assets/logo.svg" alt="European Molecular Biology Laboratory" title="European Molecular Biology Laboratory" loading="lazy" width="60">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
