@@ -172,6 +172,10 @@ body .embl-grid {
     // color: white;
     background: #{set-color(vf-color--orange)}; 
   }  
+  .vf-content table:not([class*="vf-"]) th,
+  .vf-content table:not([class*="vf-"]) td {
+    font-weight: 500;
+}
 }
 
 // colour coding badges
