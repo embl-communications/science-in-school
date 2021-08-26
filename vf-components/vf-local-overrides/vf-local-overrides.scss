@@ -134,6 +134,9 @@ body .embl-grid {
   .vf-content table:not([class*="vf-"]) th {
     // color: white;
     background: #{brand-color()};
+    .vf-content table:not([class*="vf-"]) th,
+    .vf-content table:not([class*="vf-"]) td {
+      font-weight: 500;
   }
 }
 .sis-article-understand {
@@ -152,6 +155,9 @@ body .embl-grid {
   .vf-content table:not([class*="vf-"]) th {
     // color: white;
     background: #{set-color(vf-color--green--light)}; 
+    .vf-content table:not([class*="vf-"]) th,
+    .vf-content table:not([class*="vf-"]) td {
+      font-weight: 500;
   }  
 }
 .sis-article-learn,
@@ -175,7 +181,7 @@ body .embl-grid {
   .vf-content table:not([class*="vf-"]) th,
   .vf-content table:not([class*="vf-"]) td {
     font-weight: 500;
-}
+  }
 }
 
 // colour coding badges
