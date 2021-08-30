@@ -131,9 +131,10 @@ body .embl-grid {
     // background: #c0deff;
   }
   .vf-content table:not([class*="vf-"]) thead,
-  .vf-content table:not([class*="vf-"]) th {
-    // color: white;
+  .vf-content table:not([class*="vf-"]) th,
+  .vf-content table:not([class*="vf-"]) td {
     background: #{brand-color()};
+    font-weight: 500;
   }
 }
 .sis-article-understand {
@@ -149,9 +150,10 @@ body .embl-grid {
     background: #e3f1c1;
   }
   .vf-content table:not([class*="vf-"]) thead,
-  .vf-content table:not([class*="vf-"]) th {
-    // color: white;
+  .vf-content table:not([class*="vf-"]) th,
+  .vf-content table:not([class*="vf-"]) td {
     background: #{set-color(vf-color--green--light)}; 
+    font-weight: 500;
   }  
 }
 .sis-article-learn,
@@ -168,9 +170,10 @@ body .embl-grid {
     background: #{set-color(vf-color--orange--light)}; 
   }
   .vf-content table:not([class*="vf-"]) thead,
-  .vf-content table:not([class*="vf-"]) th {
-    // color: white;
+  .vf-content table:not([class*="vf-"]) th,
+  .vf-content table:not([class*="vf-"]) td {
     background: #{set-color(vf-color--orange)}; 
+    font-weight: 500;
   }  
 }
 
