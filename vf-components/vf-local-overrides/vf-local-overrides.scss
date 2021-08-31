@@ -131,10 +131,9 @@ body .embl-grid {
     // background: #c0deff;
   }
   .vf-content table:not([class*="vf-"]) thead,
-  .vf-content table:not([class*="vf-"]) th,
-  .vf-content table:not([class*="vf-"]) td {
+  .vf-content table:not([class*="vf-"]) th {
     background: #{brand-color()};
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 .sis-article-understand {
@@ -150,10 +149,9 @@ body .embl-grid {
     background: #e3f1c1;
   }
   .vf-content table:not([class*="vf-"]) thead,
-  .vf-content table:not([class*="vf-"]) th,
-  .vf-content table:not([class*="vf-"]) td {
+  .vf-content table:not([class*="vf-"]) th {
     background: #{set-color(vf-color--green--light)}; 
-    font-weight: 500;
+    font-weight: 400;
   }  
 }
 .sis-article-learn,
@@ -170,10 +168,9 @@ body .embl-grid {
     background: #{set-color(vf-color--orange--light)}; 
   }
   .vf-content table:not([class*="vf-"]) thead,
-  .vf-content table:not([class*="vf-"]) th,
-  .vf-content table:not([class*="vf-"]) td {
+  .vf-content table:not([class*="vf-"]) th {
     background: #{set-color(vf-color--orange)}; 
-    font-weight: 500;
+    font-weight: 400;
   }  
 }
 
