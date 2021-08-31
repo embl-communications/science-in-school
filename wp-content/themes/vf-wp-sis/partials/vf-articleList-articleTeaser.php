@@ -9,7 +9,6 @@ $art_topics = get_field('art_topics');
 <article class="sis-search-summary vf-summary vf-summary--news | vf-flag vf-flag--top vf-flag--400">
     <div class="vf-flag__media">
         <?php
-            if(isset($_GET['s'])){
                 $articleTypesArray = sis_getArticleTypesArray();
                 if(intval($art_article_type) == $articleTypesArray['UNDERSTAND']){
                     ?>
@@ -28,7 +27,6 @@ $art_topics = get_field('art_topics');
                     <a href="/?sis-article-types=editorial" class="vf-badge sis-badge--editorial">Editorial</a>
                     <?php
                 }
-            }
         ?>
         <?php the_post_thumbnail(array(238, 150), array('class' => 'sis-search-summary__image')); ?>
     </div>

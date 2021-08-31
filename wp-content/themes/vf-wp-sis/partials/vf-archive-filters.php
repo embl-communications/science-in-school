@@ -1,5 +1,84 @@
 <!-- filters -->
 
+<?php
+$refreshLink = '?post_type=sis-article';
+
+// Test if the query exists at the URL
+if ( get_query_var('s') ) {
+    $refreshLink .= '&s=' . get_query_var('s');
+}
+
+if ( get_query_var('sis-article-types') ) {
+    $refreshLink .= '&sis-article-types=' . get_query_var('sis-article-types');
+    print '<input type="hidden" name="sis-article-types" value="' . get_query_var('sis-article-types') . '">';
+}
+
+// Test if the query exists at the URL
+if ( get_query_var('sis-ages') ) {
+    $refreshLink .= '&sis-ages=' . get_query_var('sis-ages');
+    print '<input type="hidden" name="sis-ages" value="' . get_query_var('sis-ages') . '">';
+}
+
+// Test if the query exists at the URL
+if ( get_query_var('sis-categories') ) {
+    $refreshLink .= '&sis-categories=' . get_query_var('sis-categories');
+    print '<input type="hidden" name="sis-categories" value="' . get_query_var('sis-categories') . '">';
+}
+
+// Test if the query exists at the URL
+if ( get_query_var('sis-issues') ) {
+    $refreshLink .= '&sis-issues=' . get_query_var('sis-issues');
+    print '<input type="hidden" name="sis-issues" value="' . get_query_var('sis-issues') . '">';
+}
+
+$currentUrl = home_url( $wp->request );
+$matches = array();
+preg_match('/\/(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)\//', $currentUrl, $matches);
+if($matches && is_array($matches) && count($matches) >= 1){
+    $refreshLink = $matches[0] . $refreshLink;
+} else {
+    $refreshLink = '/' . $refreshLink;
+}
+?>
+<a id="sis-id-refresh-link" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
+
+<?php
+if(!empty(get_query_var('s'))){
+?>
+    <fieldset class="vf-form__fieldset vf-stack vf-stack--400">
+        <legend class="vf-form__legend">Type</legend>
+        <?php
+        $articleTypeGetParam = '';
+        // Test if the query exists at the URL
+        if ( get_query_var('sis-article-types') ) {
+            $articleTypeGetParam = get_query_var('sis-article-types');
+        }
+        $articleTypesArray = sis_getArticleTypesArray();
+        ?>
+
+        <div class="vf-form__item vf-form__item--checkbox">
+            <input type="checkbox" name="filter-article-types" value="teach"
+                <?php if(strpos($articleTypeGetParam,'teach') !== false ){ echo ' checked="checked"  '; } ?>
+                   id="id-<?php echo $articleTypesArray['TEACH'];?>" class="vf-form__checkbox">
+            <label for="id-<?php echo $articleTypesArray['TEACH'];?>" class="vf-form__label">Teach</label>
+        </div>
+        <div class="vf-form__item vf-form__item--checkbox">
+            <input type="checkbox" name="filter-article-types" value="understand"
+                <?php if(strpos($articleTypeGetParam,'understand') !== false ){ echo ' checked="checked"  '; } ?>
+                   id="id-<?php echo $articleTypesArray['UNDERSTAND'];?>" class="vf-form__checkbox">
+            <label for="id-<?php echo $articleTypesArray['UNDERSTAND'];?>" class="vf-form__label">Understand</label>
+        </div>
+        <div class="vf-form__item vf-form__item--checkbox">
+            <input type="checkbox" name="filter-article-types" value="inspire"
+                <?php if(strpos($articleTypeGetParam,'inspire') !== false ){ echo ' checked="checked"  '; } ?>
+                   id="id-<?php echo $articleTypesArray['INSPIRE'];?>" class="vf-form__checkbox">
+            <label for="id-<?php echo $articleTypesArray['INSPIRE'];?>" class="vf-form__label">Inspire</label>
+        </div>
+    </fieldset>
+<?php
+}
+?>
+
 <fieldset class="vf-form__fieldset vf-stack vf-stack--400">
     <legend class="vf-form__legend">Age group</legend>
     <?php
@@ -111,47 +190,7 @@ $currentUrl = home_url( $wp->request );
 </fieldset>
 -->
 
-<?php
-    $refreshLink = '?post_type=sis-article';
-
-    // Test if the query exists at the URL
-    if ( get_query_var('s') ) {
-        $refreshLink .= '&s=' . get_query_var('s');
-    }
-
-    if ( get_query_var('sis-article-types') ) {
-        $refreshLink .= '&sis-article-types=' . get_query_var('sis-article-types');
-        print '<input type="hidden" name="sis-article-types" value="' . get_query_var('sis-article-types') . '">';
-    }
-
-    // Test if the query exists at the URL
-    if ( get_query_var('sis-ages') ) {
-        $refreshLink .= '&sis-ages=' . get_query_var('sis-ages');
-        print '<input type="hidden" name="sis-ages" value="' . get_query_var('sis-ages') . '">';
-    }
-
-    // Test if the query exists at the URL
-    if ( get_query_var('sis-categories') ) {
-        $refreshLink .= '&sis-categories=' . get_query_var('sis-categories');
-        print '<input type="hidden" name="sis-categories" value="' . get_query_var('sis-categories') . '">';
-    }
-
-    // Test if the query exists at the URL
-    if ( get_query_var('sis-issues') ) {
-        $refreshLink .= '&sis-issues=' . get_query_var('sis-issues');
-        print '<input type="hidden" name="sis-issues" value="' . get_query_var('sis-issues') . '">';
-    }
-
-    $currentUrl = home_url( $wp->request );
-    $matches = array();
-    preg_match('/\/(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)\//', $currentUrl, $matches);
-    if($matches && is_array($matches) && count($matches) >= 1){
-        $refreshLink = $matches[0] . $refreshLink;
-    } else {
-        $refreshLink = '/' . $refreshLink;
-    }
-    ?>
-<a id="sis-id-refresh-link" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
+<a id="sis-id-refresh-link-bottom" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
 
 
 <script>
@@ -221,7 +260,7 @@ $currentUrl = home_url( $wp->request );
 
             // set new url
             $('#sis-id-refresh-link').attr('href', newUrl);
-
+            $('#sis-id-refresh-link-bottom').attr('href', newUrl);
 
 
         };

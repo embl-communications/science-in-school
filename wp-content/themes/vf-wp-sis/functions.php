@@ -188,6 +188,12 @@ function sis_printFieldWithHeader($header, $field){
     }
 }
 
+function sis_printFieldWithEnding($ending, $field){
+    if(trim($field) != ''){
+        print $field . ' ' . $ending;
+    }
+}
+
 function sis_printFieldWithHeaderClass($header, $field, $className){
     if(trim($field) != ''){
         print '<div class="' . $className . '">';
