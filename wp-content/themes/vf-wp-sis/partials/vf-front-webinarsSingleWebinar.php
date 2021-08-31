@@ -22,9 +22,9 @@ $thumbnail_image = get_field('event_addon_thumbnail_image');
         <?php
         if(!is_front_page()){
             echo get_the_excerpt();
+            echo '<br/><br/>';
         }
         ?>
-        <br/><br/>
         <span class="vf-summary__date"><?php sis_printFieldWithEnding('(CET)', get_field('vf_event_start_date') . ' '. get_field('vf_event_start_time')); ?></span>
     </p>
 </article>
