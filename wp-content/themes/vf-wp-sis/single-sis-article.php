@@ -68,61 +68,42 @@ get_header();
                 }
                 ?>
             </h1>
-            <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
         </div>
     </section>
     <div class="embl-grid embl-grid--has-centered-content">
         <div>
             <aside class="vf-article-meta-information">
                 <div class="vf-meta__details">
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Ages: ', $art_ages, '</p>'); ?>
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Topics: ', $art_topics, '</p>'); ?>
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Keywords: ', $art_editor_tags, '</p>'); ?>
-                </div>
-                <div class="vf-meta__details">
                     <p class="vf-meta__date"><?php the_date(); ?></p>
                     <p class="vf-meta__topics">
                         <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>" class="vf-link"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
+                </div>
+                <div class="vf-meta__details">
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Ages: ', $art_ages, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Topics: ', $art_topics, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Keywords: ', $art_editor_tags, '</p>'); ?>
                 </div>
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
                 </div>
-                <!--
-                <div class="vf-links vf-links--tight vf-links__list--s">
-                    <p class="vf-links__heading">On this page</p>
-                    <ul class="vf-links__list vf-links__list--secondary | vf-list">
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);">Activity 1: Do plants need light?</a>
-                        </li>
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);">Activity 2: Do plants need soil?</a>
-                        </li>
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);">Resources</a>
-                        </li>
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);">Download</a>
-                        </li>
-                        <li class="vf-list__item">
-                            <a class="vf-list__link" href="JavaScript:Void(0);">Related articles</a>
-                        </li>
-                    </ul>
-                </div>
-                -->
             </aside>
         </div>
         <div class="vf-content">
             <div class="vf-author | vf-article-meta-info__author">
                 <p class="">
                     <?php
-                        sis_printFieldWithHeader('<strong>Authors: </strong>', $art_author_name);
+                        sis_printFieldWithHeader('<strong>Author(s): </strong>', $art_author_name);
                         ?>
                         <br/>
                     <?php
-                       sis_printFieldWithHeader('<strong>Translators: </strong>', $art_translator_name);
+                       sis_printFieldWithHeader('<strong>Translator(s): </strong>', $art_translator_name);
                             ?>
                 </p>
+            </div>
+
+            <div class="sis-box-acknowledgements">
+                <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
             </div>
 
             <p class=""><?php echo get_the_excerpt(); ?></p>
@@ -144,45 +125,31 @@ get_header();
 
             <?php sis_printFieldWithHeaderClass('<h3>Author</h3>', $art_authors, 'sis-author-box'); ?>
 
-            <?php sis_printFieldWithHeaderClass('<h3>Review</h3>', $art_review, 'sis-reviewer-box'); ?>
+            <?php
+            if($art_review != ''){
+                print '<div class="sis-reviewer-box">';
+                print '<h3>Review</h3>';
+                print $art_review;
+
+                if($art_referee != ''){
+                    print '<br><div class=""sis-reviewer-name">' . $art_referee . '</div>';
+                }
+                print '</div><br/>';
+            }
+            ?>
 
             <?php
                 if(!empty($art_license) || !empty($art_license_freetext)){
                     print '<br/><br/><h3>License</h3>';
                 }
             ?>
-            <div>
-                <?php
-                if($art_license == 5343){
-                ?>
-                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
-                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
-                <?php
-                } else if($art_license == 5345){
-                    ?>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND"/>
-                    <?php
-                } else if($art_license == 5341){
-                    ?>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND"/>
-                    <?php
-                } else if($art_license == 5340){
-                    ?>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC"/>
-                    <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="SA"/>
-                    <?php
-                } else {
-                    sis_printSingleTag($art_license);
-                }
-                ?>
-            </div>
+            <?php
+            if(!empty($art_license)) {
+                $tag_license = get_term($art_license);
+                echo '<div><a href="/copyright">' . $tag_license->name . '</a></div>';
+            }
+            ?>
+
             <div>
                 <?php echo $art_license_freetext; ?>
             </div>
