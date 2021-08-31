@@ -142,7 +142,7 @@ get_header();
 
             <?php sis_printTagsWithHeader('<h2>Institution</h2>',$art_institutions); ?>
 
-            <?php sis_printFieldWithHeaderClass('<h3>Author</h3>', $art_authors, 'sis-author-box'); ?>
+            <?php sis_printFieldWithHeaderClass('<h3>Author(s)</h3>', $art_authors, 'sis-author-box'); ?>
 
             <?php sis_printFieldWithHeaderClass('<h3>Review</h3>', $art_review, 'sis-reviewer-box'); ?>
 
