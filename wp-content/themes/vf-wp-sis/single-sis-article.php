@@ -106,7 +106,7 @@ get_header();
                 <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
             </div>
 
-            <p class=""><?php echo get_the_excerpt(); ?></p>
+            <p class=""><strong><?php echo get_the_excerpt(); ?></strong></p>
 
             <?php the_content(); ?>
 
