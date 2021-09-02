@@ -17,6 +17,8 @@ get_header();
 
     <?php include(locate_template('partials/vf-front-webinars.php', false, false)); ?>
 
+    <hr class="vf-divider">
+
     <?php include(locate_template('partials/vf-front-events.php', false, false)); ?>
 
     <?php //include(locate_template('partials/vf-front-collection.php', false, false)); ?>
