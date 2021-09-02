@@ -275,6 +275,11 @@ body.vf-wp-sis .vf-card__image {
 .sis-author-box {
   padding: 1em;
 }
+// spacing after info and safety box
+.sis-information-box,
+.sis-safety-box {
+  margin-bottom: 15px;
+}
 
 .sis-article-teach {
   .vf-box--information,
