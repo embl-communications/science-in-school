@@ -132,7 +132,7 @@ body .embl-grid {
   }
   .vf-content table:not([class*="vf-"]) thead,
   .vf-content table:not([class*="vf-"]) th {
-    background: #{brand-color()};
+    background: #88B6E8; // special blue
     font-weight: 400;
   }
 }
