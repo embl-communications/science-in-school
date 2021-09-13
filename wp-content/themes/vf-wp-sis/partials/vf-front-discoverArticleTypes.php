@@ -2,7 +2,7 @@
 <section class="vf-grid vf-grid__col-3">
     <article class="vf-card vf-card--striped sis-article-understand">
         <img
-                src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-card_tunderstand_element.jpg"
+                src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_understand.jpg"
                 alt="understand" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
             <h3 class="vf-card__heading"><a class="vf-card__link" href="/?sis-article-types=understand">Understand
@@ -21,7 +21,7 @@
     </article>
     <article class="vf-card vf-card--striped sis-article-inspire">
         <img
-                src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-card_inspire_element.jpg"
+                src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_inspire.png"
                 alt="inspire" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
             <h3 class="vf-card__heading"><a class="vf-card__link" href="/?sis-article-types=inspire">Inspire
@@ -40,7 +40,7 @@
     </article>
     <article class="vf-card vf-card--striped sis-article-teach">
         <img
-                src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/science-in-school-card_teach_element.jpg"
+                src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_teach.jpg"
                 alt="teach" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
             <h3 class="vf-card__heading"><a class="vf-card__link" href="/?sis-article-types=teach">Teach
