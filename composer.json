@@ -1,0 +1,86 @@
+{
+  "name": "scienceinschool",
+  "description": "Scienceinschool.org wordpress site deployment with composer",
+  "type": "project",
+  "authors": [
+    {
+      "name": "EMBL-EBI Web Development Team",
+      "email": "www-dev@ebi.ac.uk"
+    }
+  ],
+  "require": {
+    "composer/installers": "^1.2",
+    "wordpress/wordpress": "5.6.2",
+    "vfwp/vf-plugins": "dev-master",
+    "vfwp/vf-themes": "dev-master",
+    "wpackagist-plugin/akismet":"4.1.8",
+    "wpackagist-plugin/taxonomy-terms-order":"1.5.7.5",
+    "wpackagist-plugin/content-views-query-and-display-post-page":"2.3.4",
+    "wpackagist-plugin/custom-post-type-permalinks":"3.4.4",
+    "wpackagist-plugin/custom-twitter-feeds":"1.8",
+    "wpackagist-plugin/easy-wp-smtp":"1.4.7",
+    "wpackagist-plugin/mathml-block":"1.2.0",
+    "wpackagist-plugin/mailchimp-for-wp":"4.8.3",
+    "wpackagist-plugin/post-types-order":"1.9.5.6",
+    "wpackagist-plugin/redirection":"5.0.1",
+    "wpackagist-plugin/relevanssi":"4.11.0",
+    "wpackagist-plugin/wp-optimize":"3.1.11"
+  },
+  "repositories":[
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress/wordpress",
+        "type": "webroot",
+        "version": "5.6.2",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/WordPress/WordPress/archive/5.6.2.zip"
+        },
+        "require": {
+          "fancyguy/webroot-installer": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "vfwp/vf-plugins",
+        "version": "dev-master",
+        "type": "wordpress-plugin",
+        "dist": {
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.63/plugins.zip",
+          "type": "zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "vfwp/vf-themes",
+        "version": "dev-master",
+        "type": "wordpress-theme",
+        "dist": {
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.63/themes.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "config": {
+    "secure-http": false
+  },
+  "extra": {
+    "webroot-dir": "dist",
+    "webroot-package": "wordpress/wordpress",
+    "installer-paths": {
+      "dist/wp-content/plugins/": ["vfwp/vf-plugins"],
+      "dist/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "dist/wp-content/themes/": ["vfwp/vf-themes"]
+    }
+  }
+}

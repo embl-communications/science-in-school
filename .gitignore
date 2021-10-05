@@ -9,25 +9,14 @@ Desktop.ini
 node_modules
 .sass-cache
 *.log
-/dist/*
 /_sqldata/*
 temp
 
 .idea
 
-backup_secrets.sh
-
-deployable/vf-wp/
-deployable/vfwp-external-plugins/
-deployable/wordpress/
-deployable/wp.tar.gz
-
-wp-content/themes/vf-wp-sis/bak
-wp-content/themes/vf-wp-sis/html
+dist/wp-content/themes/vf-wp-sis/bak
+dist/wp-content/themes/vf-wp-sis/html
 
 # Uneeded vf asses
-wp-content/themes/vf-wp-sis/assets/assets
-wp-content/themes/vf-wp-sis/assets/css/*.map
-
-wp-content/themes/vf-wp
-
+dist/wp-content/themes/vf-wp-sis/assets/assets
+dist/wp-content/themes/vf-wp-sis/assets/css/*.map
