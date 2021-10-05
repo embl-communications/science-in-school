@@ -1,5 +1,4 @@
 # General
-
 ._*
 Thumbs.db
 .Spotlight-V100
@@ -9,14 +8,17 @@ Desktop.ini
 node_modules
 .sass-cache
 *.log
-/_sqldata/*
 temp
-
 .idea
-
-dist/wp-content/themes/vf-wp-sis/bak
-dist/wp-content/themes/vf-wp-sis/html
-
-# Uneeded vf asses
-dist/wp-content/themes/vf-wp-sis/assets/assets
-dist/wp-content/themes/vf-wp-sis/assets/css/*.map
+# Don’t ignore custom theme
+!dist/wp-content/themes/vf-wp-sis
+# Don’t ignore custom plugins
+!dist/wp-content/plugins/fg-*
+!dist/wp-content/plugins/relevanssi-premium
+!dist/wp-content/plugins/sis-gutenberg
+!dist/wp-content/plugins/toolset-blocks
+!dist/wp-content/plugins/types
+!dist/wp-content/plugins/types-access
+/_sqldata/*
+/_files/*
+/_sqldump/*
