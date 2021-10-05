@@ -1,5 +1,5 @@
 {
-  "name": "scienceinschool",
+  "name": "embl/scienceinschool",
   "description": "Scienceinschool.org wordpress site deployment with composer",
   "type": "project",
   "authors": [

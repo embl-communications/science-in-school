@@ -10,7 +10,7 @@ const {nodeResolve} = require('@rollup/plugin-node-resolve');
 const replace = require('@rollup/plugin-replace');
 const {terser} = require('rollup-plugin-terser');
 
-const contentPath = path.resolve(__dirname, '../wp-content');
+const contentPath = path.resolve(__dirname, '../dist/wp-content');
 const pluginPath = path.join(contentPath, 'plugins');
 const blocksGlob = [path.join(pluginPath, 'sis-gutenberg/blocks/**/*.{js,jsx}')];
 
