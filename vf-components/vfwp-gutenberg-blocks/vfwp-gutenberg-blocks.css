@@ -1,9 +1,9 @@
 /* stylelint-disable */
 :root {
-  --vf-color--green: #18974c;
+  --vf-color--green: #748f2e;
   --vf-color--green--darkest: #0a5032;
-  --vf-color--green--dark: #007b53;
-  --vf-color--green--light: #6cc24a;
+  --vf-color--green--dark: #3e5305;
+  --vf-color--green--light: #a1bf56;
   --vf-color--green--lightest: #d0debb;
   --vf-color--grey: #707372;
   --vf-color--grey--darkest: #373a36;
@@ -13,27 +13,27 @@
   --vf-color--red: #d41645;
   --vf-color--red--dark: #a6093d;
   --vf-color--red--light: #e58f9e;
-  --vf-color--blue: #3b6fb6;
-  --vf-color--blue--dark: #193f90;
-  --vf-color--blue--light: #8bb8e8;
+  --vf-color--blue: #0088ba;
+  --vf-color--blue--dark: #00455f;
+  --vf-color--blue--light: #c0deff;
   --vf-color--purple: #734595;
   --vf-color--purple--dark: #563d82;
   --vf-color--purple--light: #cba3d8;
-  --vf-color--orange: #f49e17;
-  --vf-color--orange--dark: #b65417;
-  --vf-color--orange--light: #efc06e;
+  --vf-color--orange: #eb9e28;
+  --vf-color--orange--dark: #c57a06;
+  --vf-color--orange--light: #f6ebd9;
   --vf-color--yellow: #f4c61f;
   --vf-color--yellow--dark: #ffb81c;
   --vf-color--yellow--light: #fdd757;
-  --vf-color--bright-green: #a1be1f;
-  --vf-color--bright-green--dark: #7fb428;
-  --vf-color--bright-green--light: #e2e868;
+  --vf-color--bright-green: #add87a;
+  --vf-color--bright-green--dark: #65a517;
+  --vf-color--bright-green--light: #d5ebbb;
 }
 
 :root {
-  --vf-color__text--primary: #000000;
+  --vf-color__text--primary: #1a1a1a;
   --vf-color__text--secondary: #373a36;
-  --vf-color__link: #3b6fb6;
+  --vf-color__link: #0088ba;
   --vf-color__link--hover: #193f90;
   --vf-color__link--focus: #193f90;
   --vf-color__link--visited: #563d82;
@@ -55,8 +55,8 @@
 }
 
 :root {
-  --vf-color__brand: #216cb6;
-  --vf-color__brand--dark: #082233;
+  --vf-color__brand: #256fc1;
+  --vf-color__brand--dark: #00294a;
 }
 
 :root {
@@ -83,10 +83,10 @@
 }
 
 :root {
-  --vf-theme--primary: #3b6fb6;
-  --vf-theme--primary--dark: #193f90;
-  --vf-theme--secondary: #18974c;
-  --vf-theme--secondary--dark: #007b53;
+  --vf-theme--primary: #0088ba;
+  --vf-theme--primary--dark: #00455f;
+  --vf-theme--secondary: #748f2e;
+  --vf-theme--secondary--dark: #3e5305;
   --vf-theme--tertiary: #54585a;
   --vf-theme--quaternary: #f4c61f;
   --vf-theme--quinary: #d0d0ce;
@@ -271,7 +271,7 @@
   margin-right: auto !important;
 }
 
-.wp-block[data-type="vf/plugin"] {
+.wp-block[data-type="sis/plugin"] {
   max-width: none;
 }
 
@@ -299,8 +299,7 @@
   max-width: none;
 }
 
-.wp-block[data-type="sis/info-box",
-.wp-block[data-type="vf/grid"],
+.wp-block[data-type="sis/info-box"],
 .wp-block[data-type="vf/embl-grid"] {
   --block-column-outline: var(--vf-ui-color--grey);
   --block-column-color: var(--vf-ui-color--off-white);
@@ -314,18 +313,15 @@
   max-width: none;
 }
 .wp-block[data-type="sis/info-box"] > .block-editor-inner-blocks,
-.wp-block[data-type="vf/grid"] > .block-editor-inner-blocks,
 .wp-block[data-type="vf/embl-grid"] > .block-editor-inner-blocks {
   display: contents;
 }
 .wp-block[data-type="sis/info-box"] > .block-editor-inner-blocks > .block-editor-block-list__layout,
-  .wp-block[data-type="vf/grid"] > .block-editor-inner-blocks > .block-editor-block-list__layout,
 .wp-block[data-type="vf/embl-grid"] > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: contents;
 }
 
-.wp-block[data-type="sis/info-box-column"],
-.wp-block[data-type="vf/grid-column"] {
+.wp-block[data-type="sis/info-box-column"] {
   outline: 1px dashed var(--block-column-outline);
   margin: 0 !important;
   max-width: none;
@@ -379,4 +375,3 @@
           flex: var(--vf-cluster__item--flex);
   margin: calc(var(--vf-cluster-margin) / 2) !important;
 }
-
