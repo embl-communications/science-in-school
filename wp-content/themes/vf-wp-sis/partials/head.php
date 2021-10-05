@@ -13,6 +13,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="zTTG8tkBva5M6gLMzV8W8Q5DnPZNJS1QC0jxss_q_L8" />
 
     <!-- Search indexing optimisations -->
     <?php
