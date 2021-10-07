@@ -79,6 +79,7 @@ deploy-dev:
     - build
   script:
     - bin/deploy dev
+    - for VM in ${EBI8_DEV_VMS}; do ssh -tt ${SSH_OWNER_ID}@${VM} 'ln -s /var/www/drupal/scienceinschool.org/_files/languages /var/www/drupal/scienceinschool.org/dist/wp-content/languages';  done;
   only:
     - master
 
@@ -90,6 +91,7 @@ deploy-stage:
     - build
   script:
     - bin/deploy stage
+    - for VM in ${EBI8_STAGE_VMS}; do ssh -tt ${SSH_OWNER_ID}@${VM} 'ln -s /var/www/drupal/scienceinschool.org/_files/languages /var/www/drupal/scienceinschool.org/dist/wp-content/languages';  done;
   only:
     - master
 
@@ -101,5 +103,6 @@ deploy-prod:
     - build
   script:
     - bin/deploy prod
+    - for VM in ${EBI8_PROD_VMS}; do ssh -tt ${SSH_OWNER_ID}@${VM} 'ln -s /var/www/drupal/scienceinschool.org/_files/languages /var/www/drupal/scienceinschool.org/dist/wp-content/languages';  done;
   only:
     - tags
