@@ -38,15 +38,16 @@ jobs:
 
         # Optional glob pattern of files which should be added to the commit
         # file_pattern: ./wp-content/themes/vf-wp/assets/**/*.* tests/*.js
-        file_pattern: ./dist/wp-content/themes/vf-wp/assets/**/*.* ./dist/wp-content/themes/vf-wp/assets/assets/**/*.* ./vf-components/**/*.*
+        # file_pattern: ./dist/wp-content/themes/vf-wp-sis/assets/**/*.* ./dist/wp-content/themes/vf-wp-sis/assets/assets/**/*.* ./vf-components/**/*.*
+        file_pattern: ./dist/wp-content/themes/vf-wp-sis/assets/**/*.* ./vf-components/**/*.*
 
         # Optional local file path to the repository
         # repository: .
 
         # Optional commit user and author settings
-        commit_user_name: VF-WP GitHub Actions Bot
-        commit_user_email: vf-wp-github-actions-bot@EMBL.org
-        commit_author: VF-WP GitHub Actions Bot <vf-wp-github-actions-bot@EMBL.org>
+        commit_user_name: VF-WP-SiS GitHub Actions Bot
+        commit_user_email: vf-wp-sis-github-actions-bot@EMBL.org
+        commit_author: VF-WP-SiS GitHub Actions Bot <vf-wp-sis-github-actions-bot@EMBL.org>
 
         # Optional tag message
         # Action will create and push a new tag to the remote repository and the defined branch
