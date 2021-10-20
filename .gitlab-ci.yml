@@ -66,7 +66,7 @@ build:
     - composer install
     - cp ./custom_scripts/.htaccess dist/ # Required for Wordpress subfolder path installation
     - cp -r ./sis-game dist/
-    - cp -r ./advanced-custom-fields-pro dist/wp-content/plugins/
+    # - cp -r ./advanced-custom-fields-pro dist/wp-content/plugins/
   artifacts:
     expire_in: 1d
     paths:
