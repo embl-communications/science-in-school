@@ -53,7 +53,7 @@
         "version": "dev-master",
         "type": "wordpress-plugin",
         "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.63/plugins.zip",
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.68/plugins.zip",
           "type": "zip"
         }
       }
@@ -65,7 +65,7 @@
         "version": "dev-master",
         "type": "wordpress-theme",
         "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.63/themes.zip",
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.68/themes.zip",
           "type": "zip"
         }
       }
