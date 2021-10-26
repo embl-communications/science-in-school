@@ -80,7 +80,29 @@
     "installer-paths": {
       "dist/wp-content/plugins/": ["vfwp/vf-plugins"],
       "dist/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "dist/wp-content/themes/": ["vfwp/vf-themes"]
-    }
+      "dist/wp-content/themes/": ["vfwp/vf-themes"],
+      "dist/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "preserve-paths": [
+      "dist/wp-content/themes/vf-wp-sis",
+      "dist/wp-content/plugins/fg-drupal-to-wp-premium",
+      "dist/wp-content/plugins/fg-drupal-to-wp-premium-internationalization-module",
+      "dist/wp-content/plugins/fg-drupal-to-wp-premium-metatag-module",
+      "dist/wp-content/plugins/relevanssi-premium",
+      "dist/wp-content/plugins/sis-gutenberg",
+      "dist/wp-content/plugins/toolset-blocks",
+      "dist/wp-content/plugins/types",
+      "dist/wp-content/plugins/types-access"
+    ]
+  },
+  "scripts": {
+    "pre-autoload-dump": [
+      "find dist -name .git -type d -exec rm -rf '{}' \\; || true"
+    ],
+    "post-update-cmd": [
+      "cp -r ./advanced-custom-fields-pro dist/wp-content/plugins/",
+      "cp ./custom_scripts/.htaccess dist/",
+      "cp -r ./sis-game dist/"
+    ]
   }
 }
