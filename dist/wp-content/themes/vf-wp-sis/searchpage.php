@@ -1,3 +1,9 @@
+<?php 
+/**
+ * Template Name: Search Page
+ */
+?> 
+
 <?php
 get_header();
 ?>
@@ -70,7 +76,6 @@ get_header();
 
     <section class="embl-grid">
         <div class="vf-stack vf-stack--800">
-            <?php include(locate_template('partials/vf-search-filters.php', false, false)); ?>
         </div>
 
         <div class="vf-stack">
@@ -97,9 +102,7 @@ get_header();
                 ?>
 
                 <?php
-                } else {
-                    echo '<p>', __('Please enter your search phrase.', 'vfwp'), '</p>';
-                }
+                } 
                 ?>
         </div>
     </section>
