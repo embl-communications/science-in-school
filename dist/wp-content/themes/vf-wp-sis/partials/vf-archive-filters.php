@@ -124,13 +124,17 @@ if(!empty(get_query_var('s'))){
         <option value="any">Any</option>
         <?php
         $issuesGetParamArrayIds = sis_getTermIdsFromGetParam('sis-issues');
-        $issueTerms = get_terms('sis-issues', array('hide-empty' => true));
-        foreach($issueTerms as $singleIssueTerm){
+        $issueParentTerms = get_terms('sis-issues', array('hide-empty' => true, 'parent'   => 0));
+        foreach($issueParentTerms as $singleIssueTerm){
+        $terms = get_terms('sis-issues', array('hide-empty' => true, 'parent'   => $singleIssueTerm->term_id));
+        sort($terms);
+        foreach ( $terms as $term ) {
         ?>
             <option
-                <?php if(in_array($singleIssueTerm->term_id, $issuesGetParamArrayIds)){ echo ' selected="selected"'; } ?>
-                    value="<?php echo $singleIssueTerm->slug; ?>"><?php echo $singleIssueTerm->name; ?></option>
+                <?php if(in_array($term->term_id, $issuesGetParamArrayIds)){ echo ' selected="selected"'; } ?>
+                    value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
         <?php
+            } 
         }
         ?>
     </select>
@@ -146,6 +150,7 @@ $currentUrl = home_url( $wp->request );
         <option value="any">Any</option>
         <?php
         $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
+        sort($languages);
         foreach($languages as $singleLanguage){
         ?>
             <option
