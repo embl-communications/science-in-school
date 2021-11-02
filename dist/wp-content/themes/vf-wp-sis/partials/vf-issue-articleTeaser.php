@@ -37,14 +37,14 @@ $art_pdf = get_field('art_pdf');
             </a></h3>
         <span class="vf-summary__date"><?php sis_printSingleTagWithHeader(get_the_date() . ' | ', $art_issue); ?></span>
         <p class="vf-card__text"><?php echo get_the_excerpt();?></p>
-        <p class="vf-summary__source | vf-u-margin__bottom--0">
+        <p class="vf-summary__source">
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
             <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>
             <br/>
             <?php sis_articleLanguageSwitcherInLoop(); ?>
         </p>
-        <?php if(!empty($art_pdf)){ ?>
-            <p class="vf-card__text" style="margin-top: 0 !important;"><a class="vf-card__link" href="<?php echo $art_pdf['url']; ?>">Article PDF</a></p>            
-            <?php } ?>
     </div>
+    <?php if(!empty($art_pdf)){ ?>
+    <p class="vf-card__text vf-u-padding__left--400" style="position: absolute; bottom: 12px; "><a class="vf-card__link" href="<?php echo $art_pdf['url']; ?>">Article PDF</a></p>            
+        <?php } ?>
 </article>
