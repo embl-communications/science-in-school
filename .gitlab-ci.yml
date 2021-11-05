@@ -20,7 +20,7 @@ stages:
 
 backup-dev:
   stage: backup
-  image: ebiwd/docker-drush:3.6
+  image: ebiwd/docker-drush:3.13
   tags:
     - docker
   script:
@@ -33,7 +33,7 @@ backup-dev:
 
 backup-stage:
   stage: backup
-  image: ebiwd/docker-drush:3.6
+  image: ebiwd/docker-drush:3.13
   tags:
     - docker
   script:
@@ -46,7 +46,7 @@ backup-stage:
 
 backup-prod:
   stage: backup
-  image: ebiwd/docker-drush:3.6
+  image: ebiwd/docker-drush:3.13
   tags:
     - docker
   script:
@@ -59,7 +59,7 @@ backup-prod:
 
 build:
   stage: build
-  image: ebiwd/docker-drush:3.6
+  image: ebiwd/docker-drush:3.13
   tags:
     - docker
   script:
