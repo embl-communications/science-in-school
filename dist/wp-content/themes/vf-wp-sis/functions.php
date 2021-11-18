@@ -271,7 +271,6 @@ function wpml_post_languages_in_loop() {
             $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
             $translatedLink = substr($translatedLink, 0,-1);
             if($l->language_code != 'en' && $l->language_code != ''){
-                $translatedLink .= '-' . $l->language_code;
             }
             if ($l->element_id != $thispostid) {
                 $langs[] = '<a href="' . $translatedLink . '"><img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />' . '</a>';
@@ -285,22 +284,20 @@ function wpml_post_languages_in_loop() {
 
 // Show linked WPML posts in a loop
 function sis_articleLanguageSwitcherInLoop() {
+    $home_url = get_home_url();
     $thispostid = get_the_ID();
     $post_trid = apply_filters('wpml_element_trid', NULL, get_the_ID(), 'post_' . get_post_type());
     $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
-
     if (empty($post_trid)) return;
     $translation = apply_filters('wpml_get_element_translations', NULL, $post_trid, 'post_' . get_post_type());
-
         foreach ($translation as $l) {
             $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
             $translatedLink = substr($translatedLink, 0, -1);
             if($l->language_code != 'en' && $l->language_code != ''){
-                $translatedLink .= '-' . $l->language_code;
             }
             $langs[] = '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
                 . '<a class="vf-card__link" href="' . $translatedLink . '">'
-                . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'].'" />'
+                . '<img class="wpml-ls-flag iclflag" src="' . $home_url . '/wp-content/plugins/sitepress-multilingual-cms/res/flags/' . $l->language_code .'.png" />'
                 . '</a>'
                 . '</span>';
 
@@ -321,7 +318,6 @@ function sis_articleLanguageSwitcherInLoopWithLanguageNames() {
         $translatedLink = apply_filters('wpml_permalink', ( get_permalink($l->element_id)), $l->language_code);
         $translatedLink = substr($translatedLink, 0,-1);
         if($l->language_code != 'en' && $l->language_code != ''){
-            $translatedLink .= '-' . $l->language_code;
         }
         $langs[] =
             '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'

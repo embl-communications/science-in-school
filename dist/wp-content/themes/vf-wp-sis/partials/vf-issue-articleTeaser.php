@@ -41,7 +41,9 @@ $art_pdf = get_field('art_pdf');
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
             <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>
             <br/>
-            <?php sis_articleLanguageSwitcherInLoop(); ?>
+        </p>
+        <p class="vf-card__text" style="margin-bottom: 2rem !important;">
+         <?php sis_articleLanguageSwitcherInLoop(); ?>
         </p>
     </div>
     <?php if(!empty($art_pdf)){ ?>
