@@ -130,53 +130,53 @@
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.cern.ch/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-cern.png?width=40"
-                        width="40" alt="CERN" title="CERN" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-cern.png?width=80"
+                        width="55" alt="CERN" title="CERN" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.embl.org/">
                     <img src="https://www.embl.org/assets/embl-logo/assets/logo.svg"
                         alt="European Molecular Biology Laboratory" title="European Molecular Biology Laboratory"
-                        loading="lazy" width="70">
+                        loading="lazy" width="95">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.esa.int/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esa.png?width=70"
-                        width="70" alt="European Space Agency" title="European Space Agency" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esa.png?width=140"
+                        width="95" alt="European Space Agency" title="European Space Agency" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.eso.org/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eso.jpeg?width=40"
-                        width="40" alt="European Southern Observatory" title="European Southern Observatory"
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eso.jpeg?width=80"
+                        width="55" alt="European Southern Observatory" title="European Southern Observatory"
                         loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.esrf.eu/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-esrf.jpeg?width=40"
-                        width="40" alt="European Synchrotron Radiation Facility"
+                    <img src="https://acxngcvroo.cloudimg.io/v7/www.embl.org/files/wp-content/uploads/ESRF-LogoBaseline-RGB.png?width=80"
+                        width="55" alt="European Synchrotron Radiation Facility"
                         title="European Synchrotron Radiation Facility" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.euro-fusion.org">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eurofusion.png?width=80"
-                        width="80" alt="EUROfusion" title="EUROfusion" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-eurofusion.png?width=155"
+                        width="85" alt="EUROfusion" title="EUROfusion" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.xfel.eu/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-xfel.jpeg?width=40"
-                        width="40" alt="European XFEL" title="European XFEL" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-xfel.jpeg?width=80"
+                        width="55" alt="European XFEL" title="European XFEL" loading="lazy">
                 </a>
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.ill.eu/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-ill.png?width=80"
-                        width="80" alt="Institut Laue-Langevin" title="Institut Laue-Langevin" loading="lazy">
+                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-ill.png?width=160"
+                        width="85" alt="Institut Laue-Langevin" title="Institut Laue-Langevin" loading="lazy">
                 </a>
             </div>
         </section>
