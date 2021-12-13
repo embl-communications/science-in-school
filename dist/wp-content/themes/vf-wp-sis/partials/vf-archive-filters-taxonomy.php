@@ -10,7 +10,7 @@ if ( get_query_var('s') ) {
 
 if ( get_query_var('sis-article-types') ) {
     $refreshLink .= '&sis-article-types=' . get_query_var('sis-article-types');
-    print '<input type="hidden" name="sis-article-types" value="' . get_query_var('sis-article-types') . '">';
+    print '<input id="type" type="hidden" name="sis-article-types" value="' . get_query_var('sis-article-types') . '">';
 }
 
 // Test if the query exists at the URL
@@ -201,7 +201,9 @@ $currentUrl = home_url( $wp->request );
 <script>
     window.addEventListener('load', function() {
         var funcClick = function () {
-            var newUrl = '/?post_type=sis-article';
+            var typeTerm = $('#type').val();
+
+            var newUrl = '/?post_type=sis-article&sis-article-types=' + typeTerm;
 
             // searched subject
             var searchTerm = $('#searchitem').val();
