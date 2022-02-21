@@ -6,10 +6,10 @@ require_once('blocks/vfwp-sis-info-box/index.php');
 
 require_once('functions/sis-article-post.php');
 require_once('functions/sis-issue-post.php');
+require_once('functions/events-cpt.php');
 
 require_once('functions/custom-taxonomies.php');
 
-require_once('functions/ells-breadcrumbs.php');
 
 // enable featured image
 add_theme_support('post-thumbnails');
@@ -342,3 +342,10 @@ add_filter( 'posts_search', function( $search, \WP_Query $q )
 
     return $search;
 }, 10, 2 );
+
+// removes <p> tag from ACF WYSYWIG field
+function my_acf_add_local_field_groups() {
+    remove_filter('acf_the_content', 'wpautop' );
+}
+add_action('acf/init', 'my_acf_add_local_field_groups');
+?>

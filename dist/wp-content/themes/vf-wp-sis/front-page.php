@@ -1,5 +1,7 @@
 <?php
 get_header();
+$current_date = date('Ymd');
+
 ?>
 <?php include(locate_template('partials/vf-global-header.php', false, false)); ?>
 <?php include(locate_template('partials/vf-navigation.php', false, false)); ?>
@@ -15,11 +17,13 @@ get_header();
 
     <?php include(locate_template('partials/vf-front-currentIssue.php', false, false)); ?>
 
+  <section id="events">
     <?php include(locate_template('partials/vf-front-webinars.php', false, false)); ?>
 
     <hr class="vf-divider">
 
     <?php include(locate_template('partials/vf-front-events.php', false, false)); ?>
+  </section>
 
     <?php //include(locate_template('partials/vf-front-collection.php', false, false)); ?>
 

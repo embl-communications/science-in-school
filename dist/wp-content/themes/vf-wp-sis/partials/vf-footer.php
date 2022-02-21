@@ -16,7 +16,7 @@
                         <a class="vf-list__link" href="/about-eiroforum">About EIROforum</a>
                     </li>
                     <li class="vf-list__item">
-                        <a class="vf-list__link" href="/imprint">Imprint</a>
+                        <a class="vf-list__link" href="/imprint">Imprint and data policy</a>
                     </li>
                 </ul>
             </div>

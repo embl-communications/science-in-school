@@ -30,7 +30,12 @@ get_header();
     $art_reviewed_after_migration_from_drupal = get_field('art_reviewed_after_migration_from_drupal');
 
     $art_translator_name = get_field('art_translator_name');
+    $art_translator_logo = get_field('art_translator_logo');
+    $art_translator_link = get_field('art_translator_link');
     $art_acknowledgements = get_field('art_acknowledgements');
+
+    $topic_terms = get_the_terms($post->ID, 'sis-categories');
+    $keyword_terms = get_the_terms($post->ID, 'sis-editor-tags');
     ?>
 
     <br/>
@@ -74,15 +79,35 @@ get_header();
         <div>
             <aside class="vf-article-meta-information">
                 <div class="vf-meta__details">
-                    <p class="vf-meta__date"><?php the_date(); ?></p>
+                    <p class="vf-meta__date" style="color: #000;"><?php the_date(); ?></p>
                     <p class="vf-meta__topics">
-                        <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>" class="vf-link"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
+                        <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>" class="vf-badge"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
                 </div>
                 <div class="vf-meta__details">
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Ages: ', $art_ages, '</p>'); ?>
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Topics: ', $art_topics, '</p>'); ?>
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics">Keywords: ', $art_editor_tags, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics"><span style="color: #000;">Ages:</span> ', $art_ages, '</p>'); ?>
+                
+                <?php 
+                // topics
+                 if( $topic_terms ) {
+                 echo '<p class="vf-meta__topics"><span style="color: #000;">Topics: </span>';
+                $topics_list = array(); 
+                 foreach( $topic_terms as $term ) {
+                  $topics_list[] = '<a class="' . esc_attr( $term->slug ) . '"style="color: #707372;" href="' . esc_url(get_term_link( $term )) . '">' . esc_html( $term->name ) . '</a>'; }
+                  echo implode(', ', $topics_list);
+                  echo '</p>'; }
+                ?>
+                <?php 
+                // keywords
+                 if( $keyword_terms ) {
+                 echo '<p class="vf-meta__topics"><span style="color: #000;">Keywords: </span>';
+                $keywords_list = array(); 
+                 foreach( $keyword_terms as $term ) {
+                  $keywords_list[] = '<a class="' . esc_attr( $term->slug ) . '"style="color: #707372;" href="' . esc_url(get_term_link( $term )) . '">' . esc_html( $term->name ) . '</a>'; }
+                  echo implode(', ', $keywords_list);
+                  echo '</p>'; }
+                ?>
                 </div>
+                
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
@@ -97,27 +122,34 @@ get_header();
                         ?>
                         <br/>
                     <?php
-                       sis_printFieldWithHeader('<strong>Translator(s): </strong>', $art_translator_name);
-                            ?>
+                       sis_printFieldWithHeader('<strong>Translator(s): </strong>', $art_translator_name); 
+                    ?>
+
+                    <?php if( !empty( $art_translator_logo ) ): ?>
+                    <?php if (!empty ($art_translator_link)) { ?>
+                    <a href="<?php echo esc_url($art_translator_link); ?>"> 
+                    <?php }?>       
+                    <img style="height: 24px; vertical-align: middle;" src="<?php echo esc_url($art_translator_logo['url']); ?>" alt="<?php echo esc_attr($art_translator_logo['alt']); ?>" />
+                    <?php if (!empty ($art_translator_link)) {
+                    echo '</a>'; } ?>
+                    <?php endif; ?>
                 </p>
             </div>
-
+            
+            <?php if ($art_acknowledgements) { ?>
             <div class="sis-box-acknowledgements">
-                <?php sis_printFieldWithHeader('', $art_acknowledgements); ?>
+                <p><?php sis_printFieldWithHeader('', $art_acknowledgements); ?></p>
             </div>
+            <?php } ?>
 
-            <p class=""><strong><?php
-                if($articleType != $articleTypesArray['EDITORIAL']) {
-                    echo get_the_excerpt();
-                }
-                ?></strong></p>
+            <?php if($articleType != $articleTypesArray['EDITORIAL']) { 
+                if (get_the_excerpt() != '') {?>
+              <p style="font-size: 20px;"><strong><?php echo get_the_excerpt();?></strong></p>
+            <?php }} ?>
 
             <?php the_content(); ?>
 
-            <?php if(!empty($art_pdf)){ ?>
-                <h3>Download</h3>
-                <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary">Download this article as a PDF</a></p>
-            <?php } ?>
+            <hr class="vf-divider">
 
             <?php sis_printFieldWithHeader('<h2>References</h2>',$art_references); ?>
 
@@ -158,24 +190,28 @@ get_header();
                 <?php echo $art_license_freetext; ?>
             </div>
         </div>
+        <div class="vf-content">
         <?php
         if(is_array($art_materials) && count($art_materials) > 0){
         ?>
         <article class="sis-materials">
             <h3>Supporting materials</h3>
-            <ul>
                 <?php foreach($art_materials as $singleAddMat){
                 ?>
-                <li><a class="sis-materials--link sis-materials--link-pdf" target="_blank"
-                       href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a></li>
+                <p><a class="sis-materials--link sis-materials--link-pdf" target="_blank"
+                       href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a></p>
                 <?php
                 }
                 ?>
             </ul>
-        </article>
         <?php
         }
         ?>
+        <?php if(!empty($art_pdf)){ ?>
+        <h3>Download</h3>
+          <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary vf-button--sm">Download this article as a PDF</a></p>
+        <?php } ?>
+        </div>
     </div>
 
 
