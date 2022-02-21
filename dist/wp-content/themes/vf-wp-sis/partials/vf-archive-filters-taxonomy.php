@@ -40,7 +40,7 @@ if($matches && is_array($matches) && count($matches) >= 1){
     $refreshLink = '/' . $refreshLink;
 }
 ?>
-<a id="sis-id-refresh-link" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
+<a id="sis-id-refresh-link" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Filter</a>
 
 <?php
 if(!empty(get_query_var('s'))){
@@ -195,7 +195,7 @@ $currentUrl = home_url( $wp->request );
 </fieldset>
 -->
 
-<a id="sis-id-refresh-link-bottom" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Refresh</a>
+<a id="sis-id-refresh-link-bottom" href="<?php echo $refreshLink; ?>" class="vf-button vf-button--primary">Filter</a>
 
 
 <script>
