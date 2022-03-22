@@ -344,8 +344,8 @@ add_filter( 'posts_search', function( $search, \WP_Query $q )
 }, 10, 2 );
 
 // removes <p> tag from ACF WYSYWIG field
-function my_acf_add_local_field_groups() {
-    remove_filter('acf_the_content', 'wpautop' );
-}
-add_action('acf/init', 'my_acf_add_local_field_groups');
+// function my_acf_add_local_field_groups() {
+//     remove_filter('acf_the_content', 'wpautop' );
+// }
+// add_action('acf/init', 'my_acf_add_local_field_groups');
 ?>
