@@ -36,10 +36,12 @@ get_header();
 
     $topic_terms = get_the_terms($post->ID, 'sis-categories');
     $keyword_terms = get_the_terms($post->ID, 'sis-editor-tags');
+    $social_url = get_the_permalink();
+
     ?>
 
-    <br/>
-    <br/>
+    <br />
+    <br />
 
     <section class="embl-grid embl-grid--has-centered-content" id="an-id-for-anchor">
         <div>
@@ -52,24 +54,20 @@ get_header();
                 $articleTypesArray = sis_getArticleTypesArray();
                 if($articleType == $articleTypesArray['UNDERSTAND']){
                     ?>
-                    <a href="/?sis-article-types=understand"
-                    class="vf-badge sis-badge--understand">Understand article</a>
-                    <?php
+                <a href="/?sis-article-types=understand" class="vf-badge sis-badge--understand">Understand article</a>
+                <?php
                 } else if($articleType == $articleTypesArray['INSPIRE']){
                     ?>
-                    <a href="/?sis-article-types=inspire"
-                    class="vf-badge sis-badge--inspire">Inspire article</a>
-                    <?php
+                <a href="/?sis-article-types=inspire" class="vf-badge sis-badge--inspire">Inspire article</a>
+                <?php
                 } else if($articleType == $articleTypesArray['TEACH']){
                     ?>
-                    <a href="/?sis-article-types=teach"
-                    class="vf-badge sis-badge--teach">Teach article</a>
-                    <?php
+                <a href="/?sis-article-types=teach" class="vf-badge sis-badge--teach">Teach article</a>
+                <?php
                 } else if($articleType == $articleTypesArray['EDITORIAL']){
                     ?>
-                    <a href="/?sis-article-types=editorial"
-                    class="vf-badge sis-badge--editorial">Editorial article</a>
-                    <?php
+                <a href="/?sis-article-types=editorial" class="vf-badge sis-badge--editorial">Editorial article</a>
+                <?php
                 }
                 ?>
             </h1>
@@ -81,12 +79,13 @@ get_header();
                 <div class="vf-meta__details">
                     <p class="vf-meta__date" style="color: #000;"><?php the_date(); ?></p>
                     <p class="vf-meta__topics">
-                        <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>" class="vf-badge"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
+                        <a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>"
+                            class="vf-badge"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
                 </div>
                 <div class="vf-meta__details">
                     <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics"><span style="color: #000;">Ages:</span> ', $art_ages, '</p>'); ?>
-                
-                <?php 
+
+                    <?php 
                 // topics
                  if( $topic_terms ) {
                  echo '<p class="vf-meta__topics"><span style="color: #000;">Topics: </span>';
@@ -96,7 +95,7 @@ get_header();
                   echo implode(', ', $topics_list);
                   echo '</p>'; }
                 ?>
-                <?php 
+                    <?php 
                 // keywords
                  if( $keyword_terms ) {
                  echo '<p class="vf-meta__topics"><span style="color: #000;">Keywords: </span>';
@@ -107,7 +106,7 @@ get_header();
                   echo '</p>'; }
                 ?>
                 </div>
-                
+
                 <div class="vf-links vf-links--tight vf-links__list--s">
                     <p class="vf-links__heading">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
@@ -120,22 +119,24 @@ get_header();
                     <?php
                         sis_printFieldWithHeader('<strong>Author(s): </strong>', $art_author_name);
                         ?>
-                        <br/>
+                    <br />
                     <?php
                        sis_printFieldWithHeader('<strong>Translator(s): </strong>', $art_translator_name); 
                     ?>
 
                     <?php if( !empty( $art_translator_logo ) ): ?>
                     <?php if (!empty ($art_translator_link)) { ?>
-                    <a href="<?php echo esc_url($art_translator_link); ?>"> 
-                    <?php }?>       
-                    <img style="height: 24px; vertical-align: middle;" src="<?php echo esc_url($art_translator_logo['url']); ?>" alt="<?php echo esc_attr($art_translator_logo['alt']); ?>" />
-                    <?php if (!empty ($art_translator_link)) {
+                    <a href="<?php echo esc_url($art_translator_link); ?>">
+                        <?php }?>
+                        <img style="height: 24px; vertical-align: middle;"
+                            src="<?php echo esc_url($art_translator_logo['url']); ?>"
+                            alt="<?php echo esc_attr($art_translator_logo['alt']); ?>" />
+                        <?php if (!empty ($art_translator_link)) {
                     echo '</a>'; } ?>
-                    <?php endif; ?>
+                        <?php endif; ?>
                 </p>
             </div>
-            
+
             <?php if ($art_acknowledgements) { ?>
             <div class="sis-box-acknowledgements">
                 <p><?php sis_printFieldWithHeader('', $art_acknowledgements); ?></p>
@@ -144,7 +145,7 @@ get_header();
 
             <?php if($articleType != $articleTypesArray['EDITORIAL']) { 
                 if (get_the_excerpt() != '') {?>
-              <p style="font-size: 20px;"><strong><?php echo get_the_excerpt();?></strong></p>
+            <p style="font-size: 20px;"><strong><?php echo get_the_excerpt();?></strong></p>
             <?php }} ?>
 
             <?php the_content(); ?>
@@ -191,26 +192,77 @@ get_header();
             </div>
         </div>
         <div class="vf-content">
-        <?php
+            <?php
         if(is_array($art_materials) && count($art_materials) > 0){
         ?>
-        <article class="sis-materials">
-            <h3>Supporting materials</h3>
+            <article class="sis-materials">
+                <h3>Supporting materials</h3>
                 <?php foreach($art_materials as $singleAddMat){
                 ?>
                 <p><a class="sis-materials--link sis-materials--link-pdf" target="_blank"
-                       href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a></p>
+                        href="<?php echo $singleAddMat['art_single_material'];?>"><?php echo $singleAddMat['art_single_name'];?></a>
+                </p>
                 <?php
                 }
                 ?>
-            </ul>
-        <?php
+                </ul>
+                <?php
         }
         ?>
-        <?php if(!empty($art_pdf)){ ?>
-        <h3>Download</h3>
-          <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>" class="vf-button vf-button--primary vf-button--sm">Download this article as a PDF</a></p>
-        <?php } ?>
+                <?php if(!empty($art_pdf)){ ?>
+                <h3>Download</h3>
+                <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>"
+                        class="vf-button vf-button--primary vf-button--sm">Download this article as a PDF</a></p>
+                <?php } ?>
+                <div class="social-box">
+
+                    <?php include(locate_template('partials/social-icons.php', false, false)); ?>
+
+                    <div class="vf-social-links | vf-u-margin__bottom--800">
+                        <h3 class="vf-social-links__heading">
+                            Share this article
+                        </h3>
+                        <ul class="vf-social-links__list">
+                            <li class="vf-social-links__item">
+                                <a class="vf-social-links__link"
+                                    href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $social_url; ?>&amp;via=embl">
+                                    <span class="vf-u-sr-only">twitter</span>
+
+                                    <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--twitter" width="24"
+                                        height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        preserveAspectRatio="xMinYMin">
+                                        <use xlink:href="#vf-social--twitter"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="vf-social-links__item">
+
+                                <a class="vf-social-links__link"
+                                    href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $social_url; ?>">
+                                    <span class="vf-u-sr-only">facebook</span>
+
+                                    <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--facebook" width="24"
+                                        height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        preserveAspectRatio="xMinYMin">
+                                        <use xlink:href="#vf-social--facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="vf-social-links__item">
+                                <a class="vf-social-links__link"
+                                    href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo $social_url; ?>&title=<?php echo $title; ?>">
+                                    <span class="vf-u-sr-only">linkedin</span>
+
+                                    <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--linkedin" width="24"
+                                        height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        preserveAspectRatio="xMinYMin">
+                                        <use xlink:href="#vf-social--linkedin"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
 
@@ -218,5 +270,14 @@ get_header();
     <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
 
 </main>
+<style>
+    .social-box .vf-icon {
+  fill: #000 !important;
+}
+
+.social-box .vf-social-links__item {
+  background: #fff
+}
+</style>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
 <?php get_footer(); ?>
