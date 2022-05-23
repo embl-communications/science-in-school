@@ -14,7 +14,7 @@
     "wordpress/wordpress": "5.6.2",
     "vfwp/vf-plugins": "dev-master",
     "vfwp/vf-themes": "dev-master",
-    "wpackagist-plugin/akismet":"4.2.3",
+    "wpackagist-plugin/akismet":"4.2.4",
     "wpackagist-plugin/taxonomy-terms-order":"1.5.7.5",
     "wpackagist-plugin/content-views-query-and-display-post-page":"2.4.0",
     "wpackagist-plugin/custom-post-type-permalinks":"3.4.5",
