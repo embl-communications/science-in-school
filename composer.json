@@ -25,7 +25,7 @@
     "wpackagist-plugin/post-types-order":"1.9.5.6",
     "wpackagist-plugin/redirection":"5.2.3",
     "wpackagist-plugin/relevanssi":"4.15.2",
-    "wpackagist-plugin/wp-optimize":"3.2.3"
+    "wpackagist-plugin/wp-optimize":"3.2.5"
   },
   "repositories":[
     {
