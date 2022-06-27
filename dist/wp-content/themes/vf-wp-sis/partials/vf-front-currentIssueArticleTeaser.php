@@ -1,6 +1,7 @@
 
 
     <?php
+    $art_teaser = get_field('art_teaser_text', false, false);
     $articleType = get_field('art_article_type');
     $articleTypesArray = sis_getArticleTypesArray();
     if($articleType == $articleTypesArray['UNDERSTAND']){
@@ -29,7 +30,13 @@
                             fill="currentColor" fill-rule="nonzero"></path>
                 </svg>
             </a></h3>
-        <p class="vf-card__text" ><?php echo get_the_excerpt(); ?></p>
+        <p class="vf-card__text" ><?php
+            if ($art_teaser) { ?>
+            <?php echo $art_teaser; ?>
+            <?php }
+            else  {?>
+            <?php echo get_the_excerpt();?>
+            <?php }  ?></p>
     </div>
 </article>
 

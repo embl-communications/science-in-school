@@ -25,6 +25,7 @@ get_header();
     $art_referee = get_field('art_referee');
     $art_review = get_field('art_review');
     $art_pdf = get_field('art_pdf');
+    $art_teaser = get_field('art_teaser_text', false, false);
     $art_materials = get_field('art_materials');
     $art_migrated_from_drupal = get_field('art_migrated_from_drupal');
     $art_reviewed_after_migration_from_drupal = get_field('art_reviewed_after_migration_from_drupal');
@@ -144,21 +145,40 @@ get_header();
             <?php } ?>
 
             <?php if($articleType != $articleTypesArray['EDITORIAL']) { 
-                if (get_the_excerpt() != '') {?>
+                if ($art_teaser) { ?>
+                <p style="font-size: 20px;"><?php echo $art_teaser; ?></p> 
+                <?php }
+                else  {?>
             <p style="font-size: 20px;"><strong><?php echo get_the_excerpt();?></strong></p>
-            <?php }} ?>
+            <?php } } ?>
 
             <?php the_content(); ?>
 
             <hr class="vf-divider">
+            <div class="vf-stack vf-stack--400">
+            <?php sis_printFieldWithHeader('<h3>References</h3>',$art_references); ?>
 
-            <?php sis_printFieldWithHeader('<h2>References</h2>',$art_references); ?>
+            <?php sis_printFieldWithHeader('<h3>Web References</h3>', $art_web_references); ?>
 
-            <?php sis_printFieldWithHeader('<h2>Web References</h2>', $art_web_references); ?>
+            <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
 
-            <?php sis_printFieldWithHeader('<h2>Resources</h2>', $art_resources); ?>
+            <?php 
+            if( $art_institutions ): ?>
+            <h3>Institutions</h3>
+             <?php foreach( $art_institutions as $term ): ?>
+                <?php 
+                $inst_image = get_field('institutions_taxonomy_image', $term, false); 
+                $inst_url = get_field('institutions_taxonomy_url', $term, false); 
+                if ($inst_image) {
+                    $image = wp_get_attachment_image_src($inst_image, 'thumbnail');
+                    echo '<a href="' . $inst_url . '"><img style="margin-top: 12px;" src="' . $image[0] . '"/></a>';
+                }
+                else {
+                echo esc_html( $term->name ); }
+             ?>
 
-            <?php sis_printTagsWithHeader('<h2>Institution</h2>',$art_institutions); ?>
+             <?php endforeach; ?>
+            <?php endif; ?>
 
             <?php sis_printFieldWithHeaderClass('<h3>Author(s)</h3>', $art_authors, 'sis-author-box'); ?>
 
@@ -169,15 +189,15 @@ get_header();
                 print $art_review;
 
                 if($art_referee != ''){
-                    print '<br><div class=""sis-reviewer-name">' . $art_referee . '</div>';
+                    print '<div class=""sis-reviewer-name">' . $art_referee . '</div>';
                 }
-                print '</div><br/>';
+                print '</div>';
             }
             ?>
 
             <?php
                 if(!empty($art_license) || !empty($art_license_freetext)){
-                    print '<br/><br/><h3>License</h3>';
+                    print '<h3>License</h3>';
                 }
             ?>
             <?php
@@ -189,6 +209,7 @@ get_header();
 
             <div>
                 <?php echo $art_license_freetext; ?>
+            </div>
             </div>
         </div>
         <div class="vf-content">

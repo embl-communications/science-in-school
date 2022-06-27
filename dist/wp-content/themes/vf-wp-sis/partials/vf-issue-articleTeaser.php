@@ -3,7 +3,7 @@ $art_editor_tags = get_field('art_editor_tags');
 $art_issue = get_field('art_issue');
 $art_ages = get_field('art_ages');
 $art_pdf = get_field('art_pdf');
-
+$art_teaser = get_field('art_teaser_text', false, false);
 ?>
 
     <?php
@@ -36,7 +36,14 @@ $art_pdf = get_field('art_pdf');
                 </svg>
             </a></h3>
         <span class="vf-summary__date"><?php sis_printSingleTagWithHeader(get_the_date() . ' | ', $art_issue); ?></span>
-        <p class="vf-card__text"><?php echo get_the_excerpt();?></p>
+        <p class="vf-card__text">
+        <?php
+            if ($art_teaser) { ?>
+            <?php echo $art_teaser; ?>
+            <?php }
+            else  {?>
+            <?php echo get_the_excerpt();?>
+            <?php }  ?>        </p>
         <p class="vf-summary__source">
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
             <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>

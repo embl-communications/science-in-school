@@ -140,6 +140,7 @@ function sis_printTagsWithHeaderAndEnd($header, $art_tags, $end){
     }
 }
 
+
 function sis_printTagsWithBeforeAndAfter($before, $art_tags, $after){
     if (is_array($art_tags)) {
         $count = 0;
@@ -348,4 +349,37 @@ add_filter( 'posts_search', function( $search, \WP_Query $q )
 //     remove_filter('acf_the_content', 'wpautop' );
 // }
 // add_action('acf/init', 'my_acf_add_local_field_groups');
+
+
+/* Exclude a Category from Search Results */
+
+ add_filter( 'pre_get_posts', 'exclude_editorials_category_from_search' );
+ function exclude_editorials_category_from_search($query) {
+     if ( $query->is_search ) {
+        $args = array(
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'sis-article-types',
+                    'field' => 'term_id',
+                    'terms' => [ 2544 ],
+                    'operator' => 'NOT IN',
+                       ),
+            ),
+            'meta_query'	=> array(
+                array(
+                    'key'	  	=> 'art_slider_exclude',
+                    'value'	  	=> '1',
+                    'compare' 	=> '!=',
+                ),
+            )
+            );
+ 
+         $query->set( 'tax_query', $args );
+         $query->set( 'meta_query', $args );
+ 
+         }
+ 
+         return $query;
+     } 
+
 ?>

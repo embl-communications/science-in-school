@@ -4,6 +4,9 @@ $art_issue = get_field('art_issue');
 $art_ages = get_field('art_ages');
 $art_article_type = get_field('art_article_type');
 $art_topics = get_field('art_topics');
+$art_pdf = get_field('art_pdf');
+$art_teaser = get_field('art_teaser_text', false, false);
+
 ?>
 
 <article class="sis-search-summary vf-summary vf-summary--news | vf-flag vf-flag--top vf-flag--400">
@@ -31,19 +34,29 @@ $art_topics = get_field('art_topics');
         <?php the_post_thumbnail(array(238, 150), array('class' => 'sis-search-summary__image')); ?>
     </div>
     <div class="vf-flag__body">
-        <span class="vf-summary__date"><?php the_date(); ?> | <?php sis_printSingleTag($art_issue); ?></span>
+        <span class="vf-summary__date"><?php the_date(); ?> | <?php sis_printSingleTag($art_issue); ?> <?php if(!empty($art_pdf)){ ?>| 
+    <a class="vf-link" href="<?php echo $art_pdf['url']; ?>">Download PDF</a>            
+        <?php } ?>
+</span>
         <h3 class="vf-summary__title">
             <a href="<?php the_permalink(); ?>" class="vf-summary__link">
                 <?php the_title(); ?>
             </a>
         </h3>
         <p class="vf-summary__text">
-        <?php echo get_the_excerpt(); ?>
+        <?php 
+            if ($art_teaser) { ?>
+            <?php echo $art_teaser; ?>
+            <?php }
+            else  {?>
+            <?php echo get_the_excerpt();?>
+            <?php }  ?>        
         </p>
         <p class="vf-summary__source">
             <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; <br/>'); ?>
             <?php sis_printTagsWithHeaderAndEnd('Topics: ', $art_topics, ' <br/>'); ?>
-            <?php sis_articleLanguageSwitcherInLoopWithLanguageNames(); ?>
+            <?php sis_articleLanguageSwitcherInLoop(); ?>
         </p>
+
     </div>
 </article>

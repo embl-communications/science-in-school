@@ -1,4 +1,5 @@
 <?php
+$art_teaser = get_field('art_teaser_text', false, false);
     $articleType = get_field('art_article_type');
     $articleTypesArray = sis_getArticleTypesArray();
     if($articleType == $articleTypesArray['UNDERSTAND']){
@@ -8,6 +9,11 @@
     } else {
         $articleTypeLabel = 'Teach';
     }
+
+    $excerpt = get_the_excerpt();
+    $excerpt = substr($excerpt, 0, 150);
+    $excerpt = substr($excerpt, 0, strripos($excerpt, ' '));
+    $excerpt = "{$excerpt}&hellip;";   
 ?>
 <article class="vf-card vf-card--brand vf-card--bordered  sis-article-<?php print strtolower($articleTypeLabel); ?>">
     <span class="vf-badge sis-badge--<?php print strtolower($articleTypeLabel); ?>"><?php print $articleTypeLabel; ?></span>
@@ -23,7 +29,15 @@
                             fill="currentColor" fill-rule="nonzero"></path>
                 </svg>
             </a></h3>
-        <p class="vf-card__text"><?php echo get_the_excerpt(); ?></p>
+        <p class="vf-card__text">
+        <?php
+            if ($art_teaser) { ?>
+            <?php echo $art_teaser; ?>
+            <?php }
+            else  {?>
+            <?php echo $excerpt;?>
+            <?php }  ?>
+        </p>
         <div class="vf-links vf-links--tight vf-links__list--s vf-links__list--secondary">
             <?php
             $categories = get_field('art_topics');

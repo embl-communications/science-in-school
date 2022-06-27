@@ -2,6 +2,7 @@
 $title = esc_html(get_the_title());
 $author_url = get_author_posts_url(get_the_author_meta('ID'));
 $user_id = get_the_author_meta('ID');
+$art_teaser = get_field('art_teaser_text', false, false);
 
 $excerpt = get_the_excerpt();
 $excerpt = substr($excerpt, 0, 150);
@@ -19,8 +20,13 @@ $excerpt = "{$excerpt}&hellip;";
             <a href="<?php the_permalink(); ?>" class="vf-link"><?php the_title(); ?></a>
         </h3>
         <p class="vf-card__text">
+        <?php 
+            if ($art_teaser) { ?>
+            <?php echo $art_teaser; ?>
+            <?php }
+            else  {?>
             <?php echo $excerpt; ?>
-        </p>
+            <?php }  ?>        </p>
         <time class="vf-summary__date vf-u-text-color--grey" style="margin-left: 0; margin-top: 10px;"
               title="<?php the_time('c'); ?>"
               datetime="<?php the_time('c'); ?>"><?php the_time(get_option('date_format')); ?></time>
