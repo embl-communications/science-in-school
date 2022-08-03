@@ -34,9 +34,11 @@ $art_teaser = get_field('art_teaser_text', false, false);
         <?php the_post_thumbnail(array(238, 150), array('class' => 'sis-search-summary__image')); ?>
     </div>
     <div class="vf-flag__body">
-        <span class="vf-summary__date"><?php the_date(); ?> | <?php sis_printSingleTag($art_issue); ?> <?php if(!empty($art_pdf)){ ?>| 
-    <a class="vf-link" href="<?php echo $art_pdf['url']; ?>">Download PDF</a>            
-        <?php } ?>
+        <span class="vf-summary__date"><time title="<?php the_time('c'); ?>"
+            datetime="<?php the_time('c'); ?>"><?php the_time(get_option('date_format')); ?></time> | <?php sis_printSingleTag($art_issue); ?> <?php 
+        // if(!empty($art_pdf)){ ?> 
+    <!-- | <a class="vf-link" href="<?php // echo $art_pdf['url']; ?>">Download PDF</a>             -->
+        <?php // } ?>
 </span>
         <h3 class="vf-summary__title">
             <a href="<?php the_permalink(); ?>" class="vf-summary__link">

@@ -19,9 +19,7 @@ $current_date = date('Ymd');
 
   <section id="events">
     <?php include(locate_template('partials/vf-front-webinars.php', false, false)); ?>
-
-    <hr class="vf-divider">
-
+     
     <?php include(locate_template('partials/vf-front-events.php', false, false)); ?>
   </section>
 

@@ -33,7 +33,7 @@ get_header();
     $art_translator_name = get_field('art_translator_name');
     $art_translator_logo = get_field('art_translator_logo');
     $art_translator_link = get_field('art_translator_link');
-    $art_acknowledgements = get_field('art_acknowledgements');
+    $art_acknowledgements = get_field('art_acknowledgements', false, false);
 
     $topic_terms = get_the_terms($post->ID, 'sis-categories');
     $keyword_terms = get_the_terms($post->ID, 'sis-editor-tags');
@@ -116,7 +116,7 @@ get_header();
         </div>
         <div class="vf-content">
             <div class="vf-author | vf-article-meta-info__author">
-                <p class="">
+                <p>
                     <?php
                         sis_printFieldWithHeader('<strong>Author(s): </strong>', $art_author_name);
                         ?>

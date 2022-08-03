@@ -10,7 +10,7 @@ include(locate_template('partials/vf-global-header.php', false, false));
   <div class="vf-stack">
   <h1 class="vf-intro__heading ">Error: 404</h1>
 <p class="vf-lede">We’re sorry - we can’t find the page or file you requested.</p>
-<p class="vf-intro__text">It may have been removed, had its name changed, or be temporarily unavailable.</p><p class="vf-intro__text">You might try searching for it or please <a href="mailto:editor@scienceinschool.org">contact us</a> and we’ll look into it.</p>
+<p class="vf-intro__text">It may have been removed, had its name changed, or be temporarily unavailable.</p><p class="vf-intro__text">Please <a href="mailto:editor@scienceinschool.org">contact us</a> and we’ll look into it.</p>
 
   </div>
 </section>
