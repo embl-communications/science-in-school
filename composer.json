@@ -25,6 +25,7 @@
     "wpackagist-plugin/post-types-order":"1.9.5.6",
     "wpackagist-plugin/redirection":"5.3.0",
     "wpackagist-plugin/relevanssi":"4.15.2",
+    "wpackagist-plugin/yoast/wordpress-seo":"19.5-RC7",
     "wpackagist-plugin/wp-optimize":"3.2.6"
   },
   "repositories":[
@@ -54,7 +55,7 @@
         "version": "dev-master",
         "type": "wordpress-plugin",
         "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.68/plugins.zip",
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v2.0.4/plugins.zip",
           "type": "zip"
         }
       }
@@ -66,7 +67,7 @@
         "version": "dev-master",
         "type": "wordpress-theme",
         "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v1.0.0-beta.68/themes.zip",
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.dev.vfwp.emblstatic.net/vf-wp/v2.0.4/themes.zip",
           "type": "zip"
         }
       }
