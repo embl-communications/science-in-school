@@ -25,7 +25,7 @@
     "wpackagist-plugin/post-types-order":"1.9.5.6",
     "wpackagist-plugin/redirection":"5.3.0",
     "wpackagist-plugin/relevanssi":"4.15.2",
-    "wpackagist-plugin/wordpress-seo":"19.5-RC7",
+    "wpackagist-plugin/wordpress-seo":"19.4",
     "wpackagist-plugin/wp-optimize":"3.2.6"
   },
   "repositories":[
