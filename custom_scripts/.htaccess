@@ -6,3 +6,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
+<!-- Prevents PHP Execution -->
+<FilesMatch “\.(php|php\.)$”>
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
