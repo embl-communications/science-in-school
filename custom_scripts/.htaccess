@@ -6,6 +6,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 
-RewriteCond %{REQUEST_URI} ^/wp-content/uploads/.*\.php$
+RewriteCond %{REQUEST_URI} ^/wp-content/uploads/.*\.(php|phar)$
 RewriteRule . /index.php [L]
 </IfModule>
