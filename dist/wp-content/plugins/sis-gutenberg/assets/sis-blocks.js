@@ -105,7 +105,8 @@
       rootAttr.className = classes.join(' ');
     }
 
-    return wp.element.createElement("div", rootAttr, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
+    const blockProps = blockEditor.useBlockProps.save(rootAttr);
+    return wp.element.createElement("div", blockProps, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
   };
 
   settings$1.edit = props => {
@@ -167,6 +168,7 @@
       rootAttr.className = classes.join(' ');
     }
 
+    const blockProps = blockEditor.useBlockProps(rootAttr);
     return wp.element.createElement(React__default["default"].Fragment, null, hasSpanSupport && wp.element.createElement(blockEditor.InspectorControls, null, wp.element.createElement(components.PanelBody, {
       title: i18n.__('Advanced Settings'),
       initialOpen: true
@@ -179,7 +181,7 @@
       step: 1,
       min: 1,
       max: 6
-    }))), wp.element.createElement(blockEditor.__experimentalBlock.div, rootAttr, wp.element.createElement(blockEditor.InnerBlocks, {
+    }))), wp.element.createElement("div", blockProps, wp.element.createElement(blockEditor.InnerBlocks, {
       templateLock: false,
       renderAppender: hasChildBlocks ? undefined : () => wp.element.createElement(blockEditor.InnerBlocks.ButtonBlockAppender, null)
     })));
