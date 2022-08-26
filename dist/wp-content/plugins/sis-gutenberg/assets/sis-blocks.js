@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('@wordpress/blocks'), require('react'), require('@wordpress/block-editor'), require('@wordpress/components'), require('@wordpress/data'), require('@wordpress/i18n'), require('@wordpress/hooks')) :
   typeof define === 'function' && define.amd ? define(['@wordpress/blocks', 'react', '@wordpress/block-editor', '@wordpress/components', '@wordpress/data', '@wordpress/i18n', '@wordpress/hooks'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.wp.blocks, global.React, global.wp.blockEditor, global.wp.components, global.wp.data, global.wp.i18n, global.wp.hooks));
-}(this, (function (blocks, React, blockEditor, components, data, i18n, hooks) { 'use strict';
+})(this, (function (blocks, React, blockEditor, components, data, i18n, hooks) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -167,7 +167,7 @@
       rootAttr.className = classes.join(' ');
     }
 
-    return wp.element.createElement(React__default['default'].Fragment, null, hasSpanSupport && wp.element.createElement(blockEditor.InspectorControls, null, wp.element.createElement(components.PanelBody, {
+    return wp.element.createElement(React__default["default"].Fragment, null, hasSpanSupport && wp.element.createElement(blockEditor.InspectorControls, null, wp.element.createElement(components.PanelBody, {
       title: i18n.__('Advanced Settings'),
       initialOpen: true
     }, wp.element.createElement(components.RangeControl, {
@@ -184,24 +184,6 @@
       renderAppender: hasChildBlocks ? undefined : () => wp.element.createElement(blockEditor.InnerBlocks.ButtonBlockAppender, null)
     })));
   };
-
-  function _extends() {
-    _extends = Object.assign || function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-
-      return target;
-    };
-
-    return _extends.apply(this, arguments);
-  }
 
   /**
    * Columns (component)
@@ -313,6 +295,9 @@
     };
   };
 
+  /**
+  Block Name: Grid
+  */
   const defaults$1 = useVFDefaults();
   const MIN_COLUMNS = 1;
   const MAX_COLUMNS = 6;
@@ -344,6 +329,10 @@
     }
   };
 
+  const GridControl = props => wp.element.createElement(ColumnsControl, props);
+
+  const InfoBoxControlWrapper = props => wp.element.createElement(infoBoxControl, props);
+
   settings.save = props => {
     const {
       columns,
@@ -356,9 +345,10 @@
     }
 
     const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype}`;
-    return wp.element.createElement("div", {
-      className: className
-    }, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
+    const blockProps = blockEditor.useBlockProps.save({
+      className
+    });
+    return wp.element.createElement("div", blockProps, wp.element.createElement(blockEditor.InnerBlocks.Content, null));
   };
 
   settings.edit = props => {
@@ -480,50 +470,48 @@
       if (dirty > 0) {
         updateColumns();
       }
-    }, [dirty]);
+    }, [dirty]); // Return setup placeholder
 
-    const GridControl = props => {
-      return wp.element.createElement(ColumnsControl, _extends({
+    if (placeholder === 1) {
+      const blockProps = blockEditor.useBlockProps({
+        className: 'vf-block vf-block--placeholder'
+      });
+      return wp.element.createElement(React__default["default"].Fragment, null, wp.element.createElement("div", blockProps, wp.element.createElement(components.Placeholder, {
+        label: i18n.__('SiS Info Box'),
+        icon: 'admin-generic'
+      }, wp.element.createElement(InfoBoxControlWrapper, {
+        value: boxtype,
+        onChange: React.useCallback(value => setInfoType(value))
+      }), wp.element.createElement("hr", null), wp.element.createElement(GridControl, {
         value: columns,
         min: MIN_COLUMNS,
         max: MAX_COLUMNS,
         onChange: React.useCallback(value => setColumns(value))
-      }, props));
-    };
-
-    const InfoBoxControlWrapper = props => {
-      return wp.element.createElement(infoBoxControl, _extends({
-        value: boxtype // onChange={useCallback((value) => console.log('value',value))}
-        ,
-        onChange: React.useCallback(value => setInfoType(value)) // onChange={props.setAttributes({boxtype: value})}
-
-      }, props));
-    }; // Return setup placeholder
-
-
-    if (placeholder === 1) {
-      return wp.element.createElement(blockEditor.__experimentalBlock.div, {
-        className: "vf-block vf-block--placeholder"
-      }, wp.element.createElement(components.Placeholder, {
-        label: i18n.__('SiS Info Box'),
-        icon: 'admin-generic'
-      }, wp.element.createElement(InfoBoxControlWrapper, null), wp.element.createElement("hr", null), wp.element.createElement(GridControl, null)));
+      }))));
     }
 
     const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype} `;
     const styles = {
       ['--block-columns']: columns
-    }; // Return inner blocks and inspector controls
+    };
+    const blockProps = blockEditor.useBlockProps({
+      className,
+      style: styles
+    }); // Return inner blocks and inspector controls
 
-    return wp.element.createElement(React__default['default'].Fragment, null, wp.element.createElement(blockEditor.InspectorControls, null, wp.element.createElement(components.PanelBody, {
+    return wp.element.createElement(React__default["default"].Fragment, null, wp.element.createElement(blockEditor.InspectorControls, null, wp.element.createElement(components.PanelBody, {
       title: i18n.__('Advanced Settings'),
       initialOpen: true
-    }, wp.element.createElement(InfoBoxControlWrapper, null), wp.element.createElement("hr", null), wp.element.createElement(GridControl, {
+    }, wp.element.createElement(InfoBoxControlWrapper, {
+      value: boxtype,
+      onChange: React.useCallback(value => setInfoType(value))
+    }), wp.element.createElement("hr", null), wp.element.createElement(GridControl, {
+      value: columns,
+      min: MIN_COLUMNS,
+      max: MAX_COLUMNS,
+      onChange: React.useCallback(value => setColumns(value)),
       help: i18n.__('Content may be reorganised when columns are reduced.')
-    }))), wp.element.createElement(blockEditor.__experimentalBlock.div, {
-      className: className,
-      style: styles
-    }, wp.element.createElement(blockEditor.InnerBlocks, {
+    }))), wp.element.createElement("div", blockProps, wp.element.createElement(blockEditor.InnerBlocks, {
       allowedBlocks: ['sis/info-box-column'],
       templateLock: "all"
     })));
@@ -810,9 +798,11 @@
   blocks.registerBlockType('sis/plugin', vfPlugin); // Handle iframe preview resizing globally
   // TODO: remove necessity from `useVFIFrame`
 
-  window.addEventListener('message', ({
-    data
-  }) => {
+  window.addEventListener('message', _ref => {
+    let {
+      data
+    } = _ref;
+
     if (data !== Object(data) || !/^vfwp_/.test(data.id)) {
       return;
     }
@@ -828,4 +818,4 @@
     });
   });
 
-})));
+}));
