@@ -5,8 +5,7 @@ import React, {useEffect, useCallback} from 'react';
 import {
   InnerBlocks,
   InspectorControls,
-  // TODO: replace with `useBlockProps` hook in WP 5.6
-  __experimentalBlock as ExperimentalBlock
+  useBlockProps,
 } from '@wordpress/block-editor';
 import {PanelBody, RangeControl} from '@wordpress/components';
 import {useDispatch, useSelect} from '@wordpress/data';
@@ -46,8 +45,9 @@ settings.save = (props) => {
   if (classes.length) {
     rootAttr.className = classes.join(' ');
   }
+  const blockProps = useBlockProps.save(rootAttr);
   return (
-    <div {...rootAttr}>
+    <div {...blockProps}>
       <InnerBlocks.Content />
     </div>
   );
@@ -108,6 +108,7 @@ settings.edit = (props) => {
     rootAttr.className = classes.join(' ');
   }
 
+  const blockProps = useBlockProps(rootAttr);
   return (
     <>
       {hasSpanSupport && (
@@ -126,7 +127,7 @@ settings.edit = (props) => {
           </PanelBody>
         </InspectorControls>
       )}
-      <ExperimentalBlock.div {...rootAttr}>
+      <div {...blockProps}>
         <InnerBlocks
           templateLock={false}
           renderAppender={
@@ -135,7 +136,7 @@ settings.edit = (props) => {
               : () => <InnerBlocks.ButtonBlockAppender />
           }
         />
-      </ExperimentalBlock.div>
+      </div>
     </>
   );
 };

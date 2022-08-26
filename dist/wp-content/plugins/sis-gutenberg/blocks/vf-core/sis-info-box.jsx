@@ -6,8 +6,7 @@ import {createBlock} from '@wordpress/blocks';
 import {
   InnerBlocks,
   InspectorControls,
-  // TODO: replace with `useBlockProps` hook in WP 5.6
-  __experimentalBlock as ExperimentalBlock
+  useBlockProps,
 } from '@wordpress/block-editor';
 import {PanelBody, Placeholder} from '@wordpress/components';
 import {useDispatch, useSelect} from '@wordpress/data';
@@ -53,14 +52,19 @@ const settings = {
   }
 };
 
+const GridControl = props => <ColumnsControl {...props} />;
+
+const InfoBoxControlWrapper = props => <InfoBoxControl {...props} />;
+
 settings.save = (props) => {
   const {columns, boxtype, placeholder} = props.attributes;
   if (placeholder === 1) {
     return null;
   }
   const className = `vf-grid vf-grid__col-${columns} | vf-box sis-${boxtype}`;
+  const blockProps = useBlockProps.save({ className });
   return (
-    <div className={className}>
+    <div {...blockProps}>
       <InnerBlocks.Content />
     </div>
   );
@@ -165,40 +169,29 @@ settings.edit = (props) => {
     }
   }, [dirty]);
 
-  const GridControl = (props) => {
-    return (
-      <ColumnsControl
-        value={columns}
-        min={MIN_COLUMNS}
-        max={MAX_COLUMNS}
-        onChange={useCallback((value) => setColumns(value))}
-        {...props}
-      />
-    );
-  };
-
-  const InfoBoxControlWrapper = (props) => {
-    return (
-      <InfoBoxControl
-        value={boxtype}
-        // onChange={useCallback((value) => console.log('value',value))}
-        onChange={useCallback((value) => setInfoType(value))}
-        // onChange={props.setAttributes({boxtype: value})}
-        {...props}
-      />
-    );
-  };
-
   // Return setup placeholder
   if (placeholder === 1) {
+    const blockProps = useBlockProps({
+      className: 'vf-block vf-block--placeholder'
+    });
     return (
-      <ExperimentalBlock.div className='vf-block vf-block--placeholder'>
-        <Placeholder label={__('SiS Info Box')} icon={'admin-generic'}>
-          <InfoBoxControlWrapper/>
-          <hr/>
-          <GridControl />
-        </Placeholder>
-      </ExperimentalBlock.div>
+      <>
+        <div {...blockProps}>
+          <Placeholder label={__('SiS Info Box')} icon={'admin-generic'}>
+            <InfoBoxControlWrapper
+              value={boxtype}
+              onChange={useCallback((value) => setInfoType(value))}
+            />
+            <hr/>
+            <GridControl
+              value={columns}
+              min={MIN_COLUMNS}
+              max={MAX_COLUMNS}
+              onChange={useCallback((value) => setColumns(value))}
+            />
+          </Placeholder>
+        </div>
+      </>
     );
   }
 
@@ -208,21 +201,32 @@ settings.edit = (props) => {
     ['--block-columns']: columns
   };
 
+  const blockProps = useBlockProps({
+    className,
+    style: styles
+  });
   // Return inner blocks and inspector controls
   return (
     <>
       <InspectorControls>
         <PanelBody title={__('Advanced Settings')} initialOpen>
-          <InfoBoxControlWrapper/>
+          <InfoBoxControlWrapper
+            value={boxtype}
+            onChange={useCallback((value) => setInfoType(value))}
+          />
           <hr/>
           <GridControl
+            value={columns}
+            min={MIN_COLUMNS}
+            max={MAX_COLUMNS}
+            onChange={useCallback((value) => setColumns(value))}
             help={__('Content may be reorganised when columns are reduced.')}
           />
         </PanelBody>
       </InspectorControls>
-      <ExperimentalBlock.div className={className} style={styles}>
+      <div {...blockProps}>
         <InnerBlocks allowedBlocks={['sis/info-box-column']} templateLock='all' />
-      </ExperimentalBlock.div>
+      </div>
     </>
   );
 };
