@@ -1,16 +1,4 @@
 <IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-
-RewriteCond %{REQUEST_URI} ^/wp-content/uploads/.*\.(php|phar)$
-RewriteRule . /index.php [L]
-</IfModule>
-
-<IfModule mod_rewrite.c>
 	RewriteRule ^tr/2014/issue28/epigenetics$ /tr/article/2014/epigenetics [R=301,L,NC,QSA]
 	RewriteRule ^nl/2014/issue28/berta_dragon$ /nl/article/2014/berta_dragon [R=301,L,NC,QSA]
 	RewriteRule ^es/2014/issue28/berta_dragon$ /es/article/2014/berta_dragon [R=301,L,NC,QSA]
@@ -7587,4 +7575,15 @@ RewriteRule . /index.php [L]
 
 	RewriteRule ^(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)/(issue/.*)$ /$2 [R=301,L,NC,QSA]
 	RewriteRule ^(uk|tr|sv|sr|sq|sl|sk|ru|ro|pt-pt|pl|no|nl|mt|mk|lv|lt|it|hu|hr|gl|fr|fi|et|es|en|el|de|da|cs|ca|bg)/(events/.*)$ /$2 [R=301,L,NC,QSA]
+</IfModule>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/wp-content/uploads/.*\.(php|phar)$
+RewriteRule . /index.php [L]
 </IfModule>
