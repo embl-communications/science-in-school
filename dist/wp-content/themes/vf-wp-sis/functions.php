@@ -353,33 +353,33 @@ add_filter( 'posts_search', function( $search, \WP_Query $q )
 
 /* Exclude a Category from Search Results */
 
- add_filter( 'pre_get_posts', 'exclude_editorials_category_from_search' );
- function exclude_editorials_category_from_search($query) {
-     if ( $query->is_search ) {
-        $args = array(
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'sis-article-types',
-                    'field' => 'term_id',
-                    'terms' => [ 2544 ],
-                    'operator' => 'NOT IN',
-                       ),
-            ),
-            'meta_query'	=> array(
-                array(
-                    'key'	  	=> 'art_slider_exclude',
-                    'value'	  	=> '1',
-                    'compare' 	=> '!=',
-                ),
-            )
-            );
+//  add_filter( 'pre_get_posts', 'exclude_editorials_category_from_search' );
+//  function exclude_editorials_category_from_search($query) {
+//      if ( $query->is_search ) {
+//         $args = array(
+//             'tax_query' => array(
+//                 array(
+//                     'taxonomy' => 'sis-article-types',
+//                     'field' => 'term_id',
+//                     'terms' => [ 2544 ],
+//                     'operator' => 'NOT IN',
+//                        ),
+//             ),
+//             'meta_query'	=> array(
+//                 array(
+//                     'key'	  	=> 'art_slider_exclude',
+//                     'value'	  	=> '1',
+//                     'compare' 	=> '!=',
+//                 ),
+//             )
+//             );
  
-         $query->set( 'tax_query', $args );
-         $query->set( 'meta_query', $args );
+//          $query->set( 'tax_query', $args );
+//          $query->set( 'meta_query', $args );
  
-         }
+//          }
  
-         return $query;
-     } 
+//          return $query;
+//      } 
 
 ?>
