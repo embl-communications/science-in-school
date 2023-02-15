@@ -27,7 +27,7 @@ if($articleOfWeek){
                 <p class="vf-hero__text">
                 <?php 
                 if ($art_teaser) { ?>
-                <?php echo $art_teaser; ?>
+                <?php echo strip_tags($art_teaser); ?>
                 <?php }
                 else  {?>
                 <?php echo get_the_excerpt();?>

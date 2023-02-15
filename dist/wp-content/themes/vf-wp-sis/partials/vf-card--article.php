@@ -22,7 +22,7 @@ $excerpt = "{$excerpt}&hellip;";
         <p class="vf-card__text">
         <?php 
             if ($art_teaser) { ?>
-            <?php echo $art_teaser; ?>
+            <?php echo strip_tags($art_teaser); ?>
             <?php }
             else  {?>
             <?php echo $excerpt; ?>

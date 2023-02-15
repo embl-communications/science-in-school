@@ -111,6 +111,27 @@
             "placeholder": ""
         },
         {
+            "key": "field_63ece25c3db3f",
+            "label": "Custom text for event date",
+            "name": "vf_event_date_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "wpml_cf_preferences": 0
+        },
+        {
             "key": "field_5f1ab70d800dc",
             "label": "Type & Location",
             "name": "",
@@ -759,5 +780,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "`vf_event` post type",
-    "modified": 1645003752
+    "modified": 1676468985
 }

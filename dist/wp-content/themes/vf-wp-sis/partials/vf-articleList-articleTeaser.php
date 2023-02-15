@@ -48,7 +48,7 @@ $art_teaser = get_field('art_teaser_text', false, false);
         <p class="vf-summary__text">
         <?php 
             if ($art_teaser) { ?>
-            <?php echo $art_teaser; ?>
+            <?php echo strip_tags($art_teaser); ?>
             <?php }
             else  {?>
             <?php echo get_the_excerpt();?>
