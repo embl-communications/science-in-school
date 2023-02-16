@@ -8,7 +8,6 @@ get_header();
     <section class="vf-hero | vf-u-fullbleed" style="--vf-hero--bg-image: url('/wp-content/themes/vf-wp-sis/assets/images/header/h2-event.jpg');  --vf-hero--bg-image-size: auto 28.5rem">
         <div class="vf-hero__content | vf-box | vf-stack vf-stack--400">
             <h2 class="vf-hero__heading"><a class="vf-hero__heading_link" href="/events/">Events</a></h2>
-            <p class="vf-hero__subheading">Webinars and EIROforum events</p>
         </div>
     </section>
 

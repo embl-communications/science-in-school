@@ -39,8 +39,18 @@ $summary = get_field('vf_event_summary', false, false);
   </p>
   <?php } ?>
   <?php if ($age_group) { ?>
-  <p class="vf-summary__meta | vf-u-margin__bottom--200"><span>Ages </span><span class="vf-u-text-color--grey"><?php echo $age_group; ?></span></p>
-  <?php } ?>
-  <p class="vf-u-margin__bottom--200 vf-u-margin__top--0"><span style="color: #000; font-size: 16px; font-weight: 500;"><?php sis_printFieldWithEnding('(CET)', get_field('vf_event_start_date') . ' '. get_field('vf_event_start_time')); ?></span></p>
-  </div>
+    <p class="vf-summary__meta | vf-u-margin__bottom--0">Ages: <span
+            class="vf-u-text-color--grey"><?php echo $age_group; ?></span></p>
+    <?php } ?>
+    <?php if ($event_date_text) { ?>
+    <p class="vf-summary__meta | vf-u-margin__bottom--0"><?php echo $event_date_text; ?> <span
+            class="vf-u-text-color--grey"><?php sis_printFieldWithEnding('(CET)', get_field('vf_event_start_date') . ' '. get_field('vf_event_start_time')); ?></span>
+    </p>
+    <?php
+        }
+        if ($registration_closing) { ?>
+    <p class="vf-summary__meta | vf-u-margin__bottom--200 vf-u-margin__top--0">Registration deadline: <span
+            class="vf-u-text-color--grey"><?php echo $registration_closing; ?></span></p>
+    <?php } ?>
+    </div>
 </article>

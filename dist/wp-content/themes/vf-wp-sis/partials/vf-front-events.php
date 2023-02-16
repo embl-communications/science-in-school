@@ -12,6 +12,7 @@
         if ($currentEvents) {
             $eventsLoop = new WP_Query(
                 array(
+                    'posts_per_page' => 3,
                     'post_type' => 'vf_event',
                     'post__in' => $currentEvents,
                     'post_status' => 'publish'
