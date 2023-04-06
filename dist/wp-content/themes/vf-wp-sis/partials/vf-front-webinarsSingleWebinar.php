@@ -7,7 +7,7 @@ $summary = get_field('vf_event_summary');
 
 ?>
 <article class="vf-summary vf-summary--news">
-    <span class="vf-summary__date"><?php sis_printFieldWithHeader('Registration-Deadline: ', $registration_closing); ?></span>
+    <span class="vf-summary__date"><?php sis_printFieldWithHeader('Registration deadline: ', $registration_closing); ?></span>
     <a href="<?php echo get_the_permalink(); ?>">
     <?php
     if (is_array($thumbnail_image) && array_key_exists('url', $thumbnail_image)) {
@@ -36,7 +36,7 @@ $summary = get_field('vf_event_summary');
     </p>
     <?php } ?>
     <?php if ($age_group) { ?>
-  <p class="vf-summary__meta | vf-u-margin__bottom--0"><span>Ages </span><span class="vf-u-text-color--grey"><?php echo $age_group; ?></span></p>
+  <p class="vf-summary__meta | vf-u-margin__bottom--0"><span>Ages: </span><span class="vf-u-text-color--grey"><?php echo $age_group; ?></span></p>
   <?php } ?>
   <p class="vf-u-margin__bottom--200 vf-u-margin__top--0"><span style="color: #000; font-size: 16px; font-weight: 500;"><?php sis_printFieldWithEnding('(CET)', get_field('vf_event_start_date') . ' '. get_field('vf_event_start_time')); ?></span></p>
 </article>

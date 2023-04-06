@@ -11,3 +11,26 @@ Text Domain:	 vfwp
 ul li ul li {
  list-style: circle;
 }
+
+.wp-block-embed__wrapper {
+	overflow: hidden !important;
+	position: relative !important;
+	max-width: 100% !important;
+	height: auto !important;
+	padding-bottom: 56.25% !important;
+}
+
+.wp-block-embed__wrapper iframe,
+.wp-block-embed__wrapper object,
+.wp-block-embed__wrapper embed {
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.vf-content figure:not([class*=vf-]) {
+    display: grid !important;
+    margin: auto;
+}

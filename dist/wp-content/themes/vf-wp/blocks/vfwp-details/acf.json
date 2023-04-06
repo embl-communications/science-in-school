@@ -1,0 +1,88 @@
+{
+    "key": "group_5f4793d3be7fa",
+    "title": "Details",
+    "fields": [
+        {
+            "key": "field_5f4793e7ef4be",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_63e4c42375247",
+            "label": "ID",
+            "name": "vf-details-id",
+            "type": "text",
+            "instructions": "(optional) Use for adding anchors",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_609a2ea1a84dc",
+            "label": "",
+            "name": "display_content",
+            "type": "true_false",
+            "instructions": "Toggle to change the default state",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Open",
+            "ui_off_text": "Close"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/vfwp-details"
+            }
+        ],
+        [
+            {
+                "param": "widget",
+                "operator": "==",
+                "value": "vf_widget_details"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1675937145
+}

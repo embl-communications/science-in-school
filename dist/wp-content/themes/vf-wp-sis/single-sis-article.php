@@ -146,7 +146,7 @@ get_header();
 
             <?php if($articleType != $articleTypesArray['EDITORIAL']) { 
                 if ($art_teaser) { ?>
-                <p style="font-size: 20px;"><?php echo $art_teaser; ?></p> 
+                <p style="font-size: 20px;"><strong><?php echo $art_teaser; ?></strong></p> 
                 <?php }
                 else  {?>
             <p style="font-size: 20px;"><strong><?php echo get_the_excerpt();?></strong></p>
