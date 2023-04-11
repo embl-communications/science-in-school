@@ -298,7 +298,7 @@ function sis_articleLanguageSwitcherInLoop() {
             }
             $langs[] = '<span class="wpml-ls-slot-post_translations wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-post-translations">'
                 . '<a class="vf-card__link" href="' . $translatedLink . '">'
-                . '<img class="wpml-ls-flag iclflag" src="' . $home_url . '/wp-content/plugins/sitepress-multilingual-cms/res/flags/' . $l->language_code .'.png" />'
+                . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'] . '" />'
                 . '</a>'
                 . '</span>';
 

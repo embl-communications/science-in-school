@@ -4,6 +4,10 @@ $art_issue = get_field('art_issue');
 $art_ages = get_field('art_ages');
 $art_pdf = get_field('art_pdf');
 $art_teaser = get_field('art_teaser_text', false, false);
+$title = esc_html(get_the_title());
+$title_pdf = strtolower($title);
+$title_pdf = str_replace(' ', '-', $title_pdf);
+
 ?>
 
     <?php
@@ -54,6 +58,6 @@ $art_teaser = get_field('art_teaser_text', false, false);
         </p>
     </div>
     <?php if(!empty($art_pdf)){ ?>
-    <p class="vf-card__text vf-u-padding__left--400" style="position: absolute; bottom: 12px; "><a class="vf-card__link" href="<?php echo $art_pdf['url']; ?>">Article PDF</a></p>            
+    <p class="vf-card__text vf-u-padding__left--400" style="position: absolute; bottom: 12px; "><a class="vf-card__link" href="<?php echo $art_pdf['url']; ?>" data-vf-google-analytics-region="PDF-<?php echo $title_pdf; ?>">Article PDF</a></p>            
         <?php } ?>
 </article>
