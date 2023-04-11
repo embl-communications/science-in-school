@@ -32,8 +32,9 @@
     ?>
 
     <!-- Social media cards -->
-    <?php
-    if(is_singular('sis-article')) {
+
+  <?php
+  if(is_singular('sis-article') || is_singular('sis-issue')) {
   $card_url    = get_permalink();
   $card_title  = get_the_title();
   $card_desc   = get_the_excerpt();
@@ -55,8 +56,14 @@ if($card_name) { ?>
   <meta property="og:title" content="<?php echo $card_title; ?>" />
   <meta property="og:description" content="<?php echo $card_desc; ?>" />
   <meta property="og:image" content="<?php echo $card_thumb; ?>" />
-  <?php } ?>
-    <?php wp_head(); ?>
+  <?php } 
+  else { ?>
+    <meta name="twitter:image" value="http://www.scienceinschool.org/wp-content/uploads/2023/04/2019_Logo_SIS_short_2.png" />
+    <meta property="og:image" content="http://www.scienceinschool.org/wp-content/uploads/2023/04/2019_Logo_SIS_short_2.png" />
+  <?php
+  }
+  ?>
+  <?php wp_head(); ?>
 </head>
 <body <?php
 $articleType = get_field('art_article_type');

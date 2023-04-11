@@ -6,9 +6,11 @@ $art_article_type = get_field('art_article_type');
 $art_topics = get_field('art_topics');
 $art_pdf = get_field('art_pdf');
 $art_teaser = get_field('art_teaser_text', false, false);
-
+$title = esc_html(get_the_title());
+$title_pdf = strtolower($title);
+$title_pdf = str_replace(' ', '-', $title_pdf);
+$excerpt = get_the_excerpt();
 ?>
-
 <article class="sis-search-summary vf-summary vf-summary--news | vf-flag vf-flag--top vf-flag--400">
     <div class="vf-flag__media">
         <?php
@@ -50,8 +52,8 @@ $art_teaser = get_field('art_teaser_text', false, false);
             if ($art_teaser) { ?>
             <?php echo strip_tags($art_teaser); ?>
             <?php }
-            else  {?>
-            <?php echo get_the_excerpt();?>
+            else  { ?>
+            <?php echo esc_html($excerpt);?>
             <?php }  ?>        
         </p>
         <p class="vf-summary__source">

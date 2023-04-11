@@ -7,7 +7,8 @@ get_header();
 
     <?php
     $title = esc_html(get_the_title());
-
+    $title_pdf = strtolower($title);
+    $title_pdf = str_replace(' ', '-', $title_pdf);
     $art_author_name = get_field('art_author_name');
     $art_editor_tags = get_field('art_editor_tags');
     $art_ages = get_field('art_ages');
@@ -38,6 +39,7 @@ get_header();
     $topic_terms = get_the_terms($post->ID, 'sis-categories');
     $keyword_terms = get_the_terms($post->ID, 'sis-editor-tags');
     $social_url = get_the_permalink();
+    $post_language_details = apply_filters( 'wpml_post_language_details', NULL, $post->ID ) ;
 
     ?>
 
@@ -84,12 +86,12 @@ get_header();
                             class="vf-badge"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a>
                 </div>
                 <div class="vf-meta__details">
-                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics"><span style="color: #000;">Ages:</span> ', $art_ages, '</p>'); ?>
+                    <?php sis_printTagsWithHeaderAndEnd('<p class="vf-meta__topics" style="margin-top: 0.5rem;"><span style="color: #000;">Ages:</span> ', $art_ages, '</p>'); ?>
 
                     <?php 
                 // topics
                  if( $topic_terms ) {
-                 echo '<p class="vf-meta__topics"><span style="color: #000;">Topics: </span>';
+                 echo '<p class="vf-meta__topics" style="margin-top: 1rem;"><span style="color: #000;">Topics: </span>';
                 $topics_list = array(); 
                  foreach( $topic_terms as $term ) {
                   $topics_list[] = '<a class="' . esc_attr( $term->slug ) . '"style="color: #707372;" href="' . esc_url(get_term_link( $term )) . '">' . esc_html( $term->name ) . '</a>'; }
@@ -99,7 +101,7 @@ get_header();
                     <?php 
                 // keywords
                  if( $keyword_terms ) {
-                 echo '<p class="vf-meta__topics"><span style="color: #000;">Keywords: </span>';
+                 echo '<p class="vf-meta__topics" style="margin-top: 0.5rem;"><span style="color: #000;">Keywords: </span>';
                 $keywords_list = array(); 
                  foreach( $keyword_terms as $term ) {
                   $keywords_list[] = '<a class="' . esc_attr( $term->slug ) . '"style="color: #707372;" href="' . esc_url(get_term_link( $term )) . '">' . esc_html( $term->name ) . '</a>'; }
@@ -109,9 +111,11 @@ get_header();
                 </div>
 
                 <div class="vf-links vf-links--tight vf-links__list--s">
-                    <p class="vf-links__heading">Available languages</p>
+                    <p class="vf-links__heading" style="margin-top: 1rem;">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
-                </div>
+                    <hr class="vf-divider">
+                    <p class="vf-links__heading">See all articles in <a class="vf-link" href="https://www.scienceinschool.org/<?php echo $post_language_details['language_code']; ?>/?post_type=sis-article"><img class="wpml-ls-flag" src="http://scienceinschool.org.docker.localhost:49955/wp-content/plugins/sitepress-multilingual-cms/res/flags/<?php echo $post_language_details['language_code']; ?>.png"> <?php echo $post_language_details['display_name']; ?> </a></p>       
+                </hr>
             </aside>
         </div>
         <div class="vf-content">
@@ -233,7 +237,7 @@ get_header();
                 <?php if(!empty($art_pdf)){ ?>
                 <h3>Download</h3>
                 <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>"
-                        class="vf-button vf-button--primary vf-button--sm">Download this article as a PDF</a></p>
+                        class="vf-button vf-button--primary vf-button--sm" data-vf-google-analytics-region="PDF-<?php echo $title_pdf; ?>">Download this article as a PDF</a></p>
                 <?php } ?>
                 <div class="social-box">
 
