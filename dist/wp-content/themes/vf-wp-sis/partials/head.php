@@ -58,8 +58,8 @@ if($card_name) { ?>
   <meta property="og:image" content="<?php echo $card_thumb; ?>" />
   <?php } 
   else { ?>
-    <meta name="twitter:image" value="http://www.scienceinschool.org/wp-content/uploads/2023/04/2019_Logo_SIS_short_2.png" />
-    <meta property="og:image" content="http://www.scienceinschool.org/wp-content/uploads/2023/04/2019_Logo_SIS_short_2.png" />
+    <meta name="twitter:image" value="http://www.scienceinschool.org/wp-content/uploads/2023/04/2019_Logo_SIS_short_2-2.png" />
+    <meta property="og:image" content="http://www.scienceinschool.org/wp-content/uploads/2023/04/2019_Logo_SIS_short_2-2.png" />
   <?php
   }
   ?>
