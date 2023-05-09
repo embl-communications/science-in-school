@@ -114,7 +114,7 @@ get_header();
                     <p class="vf-links__heading" style="margin-top: 1rem;">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
                     <hr class="vf-divider">
-                    <p class="vf-links__heading">See all articles in <a class="vf-link" href="https://www.scienceinschool.org/<?php echo $post_language_details['language_code']; ?>/?post_type=sis-article"><img class="wpml-ls-flag" src="http://scienceinschool.org.docker.localhost:49955/wp-content/plugins/sitepress-multilingual-cms/res/flags/<?php echo $post_language_details['language_code']; ?>.png"> <?php echo $post_language_details['display_name']; ?> </a></p>       
+                    <p class="vf-links__heading">See all articles in <a class="vf-link" href="https://www.scienceinschool.org/<?php echo $post_language_details['language_code']; ?>/?post_type=sis-article"><img class="wpml-ls-flag" src="https://www.scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/<?php echo $post_language_details['language_code']; ?>.png"> <?php echo $post_language_details['display_name']; ?> </a></p>       
                 </hr>
             </aside>
         </div>

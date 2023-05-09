@@ -54,7 +54,7 @@ $title_pdf = str_replace(' ', '-', $title_pdf);
             <br/>
         </p>
         <p class="vf-card__text" style="margin-bottom: 2rem !important;">
-         <?php sis_articleLanguageSwitcherInLoop(); ?>
+         <?php sis_articleLanguageSwitcherInLoopIssue(); ?>
         </p>
     </div>
     <?php if(!empty($art_pdf)){ ?>
