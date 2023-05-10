@@ -290,10 +290,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_6034aca652098",
-            "label": "References",
-            "name": "art_references",
-            "type": "wysiwyg",
+            "key": "field_645a2a2c30768",
+            "label": "License select",
+            "name": "art_license_select",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -302,17 +302,28 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 2,
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "relevanssi_exclude": 0,
+            "choices": {
+                "CC-BY-a": "Text released under the Creative Commons CC-BY license. Images: please see individual descriptions.",
+                "CC-BY-b": "Text released under the Creative Commons CC-BY license. Images and supporting materials: please see individual descriptions.",
+                "CC-BY-ND-a": "Text released under the Creative Commons CC-BY-ND license. Images: please see individual descriptions.",
+                "CC-BY-ND-b": "Text released under the Creative Commons CC-BY-ND license. Images and supporting materials: please see individual descriptions.",
+                "CC-BY-NC-SA-a": "Text released under the Creative Commons CC-BY-NC-SA license. Images: please see individual descriptions.",
+                "CC-BY-NC-SA-b": "Text released under the Creative Commons CC-BY-NC-SA license. Images and supporting materials: please see individual descriptions."
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "label",
+            "wpml_cf_preferences": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_6034ace152099",
-            "label": "Web references",
-            "name": "art_web_references",
+            "key": "field_6034aca652098",
+            "label": "References",
+            "name": "art_references",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -347,6 +358,26 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6034ace152099",
+            "label": "Web references",
+            "name": "art_web_references",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
             "delay": 0
         },
         {
@@ -410,6 +441,27 @@
             "delay": 0
         },
         {
+            "key": "field_645a26a830767",
+            "label": "Links to school science",
+            "name": "art_links_to_ss",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_6034ad1e5209d",
             "label": "Review",
             "name": "art_review",
@@ -433,31 +485,6 @@
             "key": "field_6034ad465209e",
             "label": "Slider Image",
             "name": "art_slider_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 1,
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_6034ad605209f",
-            "label": "Teaser Image",
-            "name": "art_teaser_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -682,6 +709,30 @@
             "media_upload": 1,
             "delay": 0,
             "wpml_cf_preferences": 0
+        },
+        {
+            "key": "field_645b6c672f2c1",
+            "label": "Related articles",
+            "name": "related_articles",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "relevanssi_exclude": 0,
+            "post_type": [
+                "sis-article"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "id",
+            "ui": 1
         }
     ],
     "location": [
@@ -700,5 +751,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": ""
+    "description": "",
+    "modified": 1683715433
 }

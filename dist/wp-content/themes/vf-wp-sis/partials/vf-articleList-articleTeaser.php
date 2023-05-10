@@ -56,9 +56,9 @@ $excerpt = get_the_excerpt();
             <?php echo esc_html($excerpt);?>
             <?php }  ?>        
         </p>
-        <p class="vf-summary__source">
-            <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; <br/>'); ?>
-            <?php sis_printTagsWithHeaderAndEnd('Topics: ', $art_topics, ' <br/>'); ?>
+        <p class="vf-summary__meta">
+            <?php sis_printTagsWithHeaderAndEnd('<span class="vf-u-text-color--ui--black">Ages:</span> ', $art_ages, '; <br/>'); ?>
+            <?php sis_printTagsWithHeaderAndEnd('<span class="vf-u-text-color--ui--black">Topics:</span> ', $art_topics, ' <br/>'); ?>
             <?php sis_articleLanguageSwitcherInLoop(); ?>
         </p>
 
