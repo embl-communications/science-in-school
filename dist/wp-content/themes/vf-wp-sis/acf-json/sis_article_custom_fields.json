@@ -321,26 +321,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_6034aca652098",
-            "label": "References",
-            "name": "art_references",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 2,
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
             "key": "field_62b591c2572d2",
             "label": "Teaser text",
             "name": "art_teaser_text",
@@ -358,6 +338,26 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6034aca652098",
+            "label": "References",
+            "name": "art_references",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
             "delay": 0
         },
         {
@@ -752,5 +752,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1683715433
+    "modified": 1684325854
 }

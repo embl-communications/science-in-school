@@ -200,7 +200,7 @@ function sis_printFieldWithHeaderClass($header, $field, $className){
         print '<div class="' . $className . '">';
         print $header;
         print $field;
-        print '</div><br/>';
+        print '</div>';
     }
 }
 

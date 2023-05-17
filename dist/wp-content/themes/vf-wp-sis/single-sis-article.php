@@ -191,7 +191,6 @@ get_header();
                 <?php endif; ?>
 
                 <?php sis_printFieldWithHeaderClass('<h3>Author(s)</h3>', $art_authors, 'sis-author-box'); ?>
-
                 <?php
             if($art_links_to_ss != ''){
                 print '<div class="sis-reviewer-box">';
