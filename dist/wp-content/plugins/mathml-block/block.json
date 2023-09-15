@@ -1,0 +1,18 @@
+{
+	"name": "mathml/mathmlblock",
+	"title": "MathML block",
+	"category": "common",
+	"icon": "list-view",
+	"description": "Display MathML formulas.",
+	"keywords": [ "math", "mathml" ],
+	"textdomain": "mathml-block",
+	"attributes": {
+		"formula": {
+			"type": "string",
+			"source": "html",
+			"selector": "div"
+		}
+	},
+	"editorScript": "file:../dist/mathml-block.js",
+	"editorStyle": "file:../src/mathml-block.css"
+}

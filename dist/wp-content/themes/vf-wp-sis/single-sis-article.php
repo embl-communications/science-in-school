@@ -19,6 +19,7 @@ get_header();
     $art_series = get_field('art_series');
     $art_license = get_field('art_license');
     $art_license_freetext = get_field('art_license_freetext');
+    $art_license_select = get_field('art_license_select');
     $art_references = get_field('art_references');
     $art_web_references = get_field('art_web_references');
     $art_resources = get_field('art_resources');
@@ -30,6 +31,7 @@ get_header();
     $art_materials = get_field('art_materials');
     $art_migrated_from_drupal = get_field('art_migrated_from_drupal');
     $art_reviewed_after_migration_from_drupal = get_field('art_reviewed_after_migration_from_drupal');
+    $art_links_to_ss = get_field('art_links_to_ss');
 
     $art_translator_name = get_field('art_translator_name');
     $art_translator_logo = get_field('art_translator_logo');
@@ -114,8 +116,12 @@ get_header();
                     <p class="vf-links__heading" style="margin-top: 1rem;">Available languages</p>
                     <?php sis_articleLanguageSwitcher(); ?>
                     <hr class="vf-divider">
-                    <p class="vf-links__heading">See all articles in <a class="vf-link" href="https://www.scienceinschool.org/<?php echo $post_language_details['language_code']; ?>/?post_type=sis-article"><img class="wpml-ls-flag" src="https://www.scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/<?php echo $post_language_details['language_code']; ?>.png"> <?php echo $post_language_details['display_name']; ?> </a></p>       
-                </hr>
+                    <p class="vf-links__heading">See all articles in <a class="vf-link"
+                            href="https://www.scienceinschool.org/<?php echo $post_language_details['language_code']; ?>/?post_type=sis-article"><img
+                                class="wpml-ls-flag"
+                                src="https://www.scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/<?php echo $post_language_details['language_code']; ?>.png">
+                            <?php echo $post_language_details['display_name']; ?> </a></p>
+                    </hr>
             </aside>
         </div>
         <div class="vf-content">
@@ -150,8 +156,8 @@ get_header();
 
             <?php if($articleType != $articleTypesArray['EDITORIAL']) { 
                 if ($art_teaser) { ?>
-                <p style="font-size: 20px;"><strong><?php echo $art_teaser; ?></strong></p> 
-                <?php }
+            <p style="font-size: 20px;"><strong><?php echo $art_teaser; ?></strong></p>
+            <?php }
                 else  {?>
             <p style="font-size: 20px;"><strong><?php echo get_the_excerpt();?></strong></p>
             <?php } } ?>
@@ -160,16 +166,16 @@ get_header();
 
             <hr class="vf-divider">
             <div class="vf-stack vf-stack--400">
-            <?php sis_printFieldWithHeader('<h3>References</h3>',$art_references); ?>
+                <?php sis_printFieldWithHeader('<h3>References</h3>',$art_references); ?>
 
-            <?php sis_printFieldWithHeader('<h3>Web References</h3>', $art_web_references); ?>
+                <?php sis_printFieldWithHeader('<h3>Web References</h3>', $art_web_references); ?>
 
-            <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
+                <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
 
-            <?php 
+                <?php 
             if( $art_institutions ): ?>
-            <h3>Institutions</h3>
-             <?php foreach( $art_institutions as $term ): ?>
+                <h3>Institutions</h3>
+                <?php foreach( $art_institutions as $term ): ?>
                 <?php 
                 $inst_image = get_field('institutions_taxonomy_image', $term, false); 
                 $inst_url = get_field('institutions_taxonomy_url', $term, false); 
@@ -181,12 +187,21 @@ get_header();
                 echo esc_html( $term->name ); }
              ?>
 
-             <?php endforeach; ?>
-            <?php endif; ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
 
-            <?php sis_printFieldWithHeaderClass('<h3>Author(s)</h3>', $art_authors, 'sis-author-box'); ?>
+                <?php sis_printFieldWithHeaderClass('<h3>Author(s)</h3>', $art_authors, 'sis-author-box'); ?>
 
-            <?php
+                <?php
+            if($art_links_to_ss != ''){
+                print '<div class="sis-reviewer-box">';
+                print '<h3>Links to school science</h3>';
+                print $art_links_to_ss;
+                print '</div>';
+            }
+            ?>
+
+                <?php
             if($art_review != ''){
                 print '<div class="sis-reviewer-box">';
                 print '<h3>Review</h3>';
@@ -199,21 +214,28 @@ get_header();
             }
             ?>
 
-            <?php
+                <?php
                 if(!empty($art_license) || !empty($art_license_freetext)){
                     print '<h3>License</h3>';
                 }
             ?>
-            <?php
+                <?php
             if(!empty($art_license)) {
                 $tag_license = get_term($art_license);
                 echo '<div><a href="/copyright">' . $tag_license->name . '</a></div>';
             }
             ?>
 
-            <div>
-                <?php echo $art_license_freetext; ?>
-            </div>
+                <div>
+                    <?php
+                if(!empty($art_license_freetext)) {
+                echo $art_license_freetext; 
+                } 
+                else {
+                    echo esc_html($art_license_select);
+                }    
+                ?>
+                </div>
             </div>
         </div>
         <div class="vf-content">
@@ -237,7 +259,9 @@ get_header();
                 <?php if(!empty($art_pdf)){ ?>
                 <h3>Download</h3>
                 <p><a href="<?php sis_printArticlePDFLink($art_pdf); ?>"
-                        class="vf-button vf-button--primary vf-button--sm" data-vf-google-analytics-region="PDF-<?php echo $title_pdf; ?>">Download this article as a PDF</a></p>
+                        class="vf-button vf-button--primary vf-button--sm"
+                        data-vf-google-analytics-region="PDF-<?php echo $title_pdf; ?>">Download this article as a
+                        PDF</a></p>
                 <?php } ?>
                 <div class="social-box">
 
@@ -291,18 +315,50 @@ get_header();
         </div>
     </div>
 
+    <?php
+        $relatedArticles = get_field('related_articles');
+        $numberOfDisplayedArticles = 0;
+        if ($relatedArticles) {
+            $numberOfDisplayedArticles += count($relatedArticles);
+            $relatedLoop = new WP_Query(
+                array(
+                    'post_type' => 'sis-article',
+                    'post__in' => $relatedArticles,
+                    'posts_per_page' => 3,
+                    'orderby' => 'rand'
+                    )
+                ); ?>
+    <section class="vf-card-container vf-card-container__col-3 vf-u-fullbleed | sis-u-background-dots"
+        style="--vf-card__image--aspect-ratio: 16 / 9;">
+        <div class="vf-card-container__inner">
+            <div class="vf-section-header">
+                <h2 class="vf-section-header__heading">Related articles</h2>
+            </div>
+            <?php
+            while ($relatedLoop->have_posts()) : $relatedLoop->the_post();
+            include(locate_template('partials/vf-front-featureArticleType.php', false, false));
+        endwhile;
+        wp_reset_postdata(); ?>
+
+        </div>
+    </section>
+    <?php  } ?>
 
     <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
 
 </main>
 <style>
     .social-box .vf-icon {
-  fill: #000 !important;
-}
+        fill: #000 !important;
+    }
 
-.social-box .vf-social-links__item {
-  background: #fff
-}
+    .social-box .vf-social-links__item {
+        background: #fff
+    }
+
+    .sis-u-background-dots.vf-u-fullbleed::before {
+        background-position-x: -500px !important;
+    }
 </style>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>
 <?php get_footer(); ?>

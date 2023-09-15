@@ -48,9 +48,9 @@ $title_pdf = str_replace(' ', '-', $title_pdf);
             else  {?>
             <?php echo get_the_excerpt();?>
             <?php }  ?>        </p>
-        <p class="vf-summary__source">
-            <?php sis_printTagsWithHeaderAndEnd('Ages: ', $art_ages, '; ');?>
-            <?php sis_printTagsWithHeaderAndEnd('Keywords: ', $art_editor_tags, '');?>
+        <p class="vf-summary__meta">
+            <?php sis_printTagsWithHeaderAndEnd('<span class="vf-u-text-color--ui--black">Ages:</span> ', $art_ages, '</br> ');?>
+            <?php sis_printTagsWithHeaderAndEnd('<span class="vf-u-text-color--ui--black">Keywords:</span> ', $art_editor_tags, '');?>
             <br/>
         </p>
         <p class="vf-card__text" style="margin-bottom: 2rem !important;">
