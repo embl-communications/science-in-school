@@ -23,13 +23,11 @@ $current_date = date('Ymd');
     <?php include(locate_template('partials/vf-front-events.php', false, false)); ?>
   </section>
 
-  <hr class="vf-divider">
-
     <?php //include(locate_template('partials/vf-front-collection.php', false, false)); ?>
 
     <?php include(locate_template('partials/vf-front-contribute.php', false, false)); ?>
 
-    <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
+    <?php // include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
 
 </main>
 <?php include(locate_template('partials/vf-footer.php', false, false)); ?>

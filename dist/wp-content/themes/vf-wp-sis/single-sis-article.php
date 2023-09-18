@@ -45,13 +45,13 @@ get_header();
 
     ?>
 
-    <br />
-    <br />
 
     <section class="embl-grid embl-grid--has-centered-content" id="an-id-for-anchor">
         <div>
         </div>
-        <div class="vf-stack">
+        <div class="">
+        <?php include(locate_template('partials/breadcrumbs.php', false, false)); ?>
+
             <h1 class="vf-intro__heading vf-intro__heading--has-tag">
                 <?php echo get_the_title(); ?>
                 <?php
@@ -342,8 +342,6 @@ get_header();
         </div>
     </section>
     <?php  } ?>
-
-    <?php include(locate_template('partials/vf-front-newsletter.php', false, false)); ?>
 
 </main>
 <style>
