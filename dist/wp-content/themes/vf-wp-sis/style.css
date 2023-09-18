@@ -34,3 +34,11 @@ ul li ul li {
     display: grid !important;
     margin: auto;
 }
+
+.vf-footer::before {
+	background-position-x: 65% !important; 
+}
+
+.vf-footer__links-group {
+    padding-bottom: 2rem !important;
+}

@@ -1,123 +1,168 @@
 <footer class="vf-footer">
     <div class="vf-footer__inner">
+        <div class="vf-grid vf-grid__col-4 | vf-u-margin__bottom--600">
+            <div class="vf-grid__col--span-2">
+                <h3 class="vf-text vf-text-heading--4 | newsletter-title">Subscribe to our <span
+                        class="vf-u-text--nowrap">newsletter</span>
+                </h3>
+                <form class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end"
+                    action="https://scienceinschool.us20.list-manage.com/subscribe/post?u=b07e55f20613237fa11593518&amp;id=3cd3d0c178"
+                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                    target="_blank" novalidate>
+                    <div class="vf-sidebar__inner">
+                        <div class="vf-form__item">
+                            <label class="vf-form__label vf-u-sr-only | vf-search__label" for="searchitem">Subscribe to
+                                our
+                                newsletter</label>
+                            <input type="search" name="EMAIL" placeholder="Enter your email" id="mce-EMAIL"
+                                class="vf-form__input">
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_b07e55f20613237fa11593518_3cd3d0c178" tabindex="-1" value=""></div>
+                        </div>
+                        <button type="submit" value="Subscribe" id="mc-embedded-subscribe" name="subscribe"
+                            class="vf-search__button | vf-button vf-button--primary">
+                            <span class="vf-button__text">Subscribe</span>
+
+                            <svg class="vf-icon vf-icon--search-btn | vf-button__icon" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                viewBox="0 0 140 140" width="140" height="140">
+                                <g transform="matrix(5.833333333333333,0,0,5.833333333333333,0,0)">
+                                    <path
+                                        d="M23.414,20.591l-4.645-4.645a10.256,10.256,0,1,0-2.828,2.829l4.645,4.644a2.025,2.025,0,0,0,2.828,0A2,2,0,0,0,23.414,20.591ZM10.25,3.005A7.25,7.25,0,1,1,3,10.255,7.258,7.258,0,0,1,10.25,3.005Z"
+                                        fill="#FFFFFF" stroke="none" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="0"></path>
+                                </g>
+                            </svg>
+                        </button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
         <p class="vf-footer__notice">
             Supporting STEM teachers in inspiring their students and fostering positive attitudes towards the science
             that shapes our lives.
         </p>
 
-        <section class="vf-footer__links-group | vf-grid">
-            <div class="vf-links">
-                <!-- <h4 class="vf-links__heading">About</h4> -->
-                <ul class="vf-links__list | vf-list">
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/about-science-school">About Science in School</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/about-eiroforum">About EIROforum</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/imprint">Imprint and data policy</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="vf-links">
-                <!-- <h4 class="vf-links__heading">About</h4> -->
-                <ul class="vf-links__list | vf-list">
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/copyright">Copyright</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/safety">Safety note</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/disclaimer">Disclaimer</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="vf-links">
-                <!-- <h4 class="vf-links__heading">About</h4> -->
-                <ul class="vf-links__list | vf-list">
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/issue">Archive</a>
-                    </li>
-                    <li class="vf-list__item">
-                        <a class="vf-list__link" href="/contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="vf-links">
-                <!-- <h4 class="vf-links__heading">Follow us</h4> -->
-                <svg aria-hidden="true" display="none" class="vf-icon-collection vf-icon-collection--social">
-                    <defs>
-                        <g id="vf-social--linkedin">
-                            <rect xmlns="http://www.w3.org/2000/svg" width="5" height="14" x="2" y="8.5" rx=".5"
-                                ry=".5" />
-                            <ellipse xmlns="http://www.w3.org/2000/svg" cx="4.48" cy="4" rx="2.48" ry="2.5" />
-                            <path xmlns="http://www.w3.org/2000/svg"
-                                d="M18.5,22.5h3A.5.5,0,0,0,22,22V13.6C22,9.83,19.87,8,16.89,8a4.21,4.21,0,0,0-3.17,1.27A.41.41,0,0,1,13,9a.5.5,0,0,0-.5-.5h-3A.5.5,0,0,0,9,9V22a.5.5,0,0,0,.5.5h3A.5.5,0,0,0,13,22V14.5a2.5,2.5,0,0,1,5,0V22A.5.5,0,0,0,18.5,22.5Z" />
-                        </g>
-                        <g id="vf-social--facebook">
-                            <path xmlns="http://www.w3.org/2000/svg"
-                                d="m18.14 7.17a.5.5 0 0 0 -.37-.17h-3.77v-1.41c0-.28.06-.6.51-.6h3a.44.44 0 0 0 .35-.15.5.5 0 0 0 .14-.34v-4a.5.5 0 0 0 -.5-.5h-4.33c-4.8 0-5.17 4.1-5.17 5.35v1.65h-2.5a.5.5 0 0 0 -.5.5v4a.5.5 0 0 0 .5.5h2.5v11.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-11.5h3.35a.5.5 0 0 0 .5-.45l.42-4a.5.5 0 0 0 -.13-.38z" />
-                        </g>
-                        <g id="vf-social--twitter">
-                            <path xmlns="http://www.w3.org/2000/svg"
-                                d="M23.32,6.44a.5.5,0,0,0-.2-.87l-.79-.2A.5.5,0,0,1,22,4.67l.44-.89a.5.5,0,0,0-.58-.7l-2,.56a.5.5,0,0,1-.44-.08,5,5,0,0,0-3-1,5,5,0,0,0-5,5v.36a.25.25,0,0,1-.22.25c-2.81.33-5.5-1.1-8.4-4.44a.51.51,0,0,0-.51-.15A.5.5,0,0,0,2,4a7.58,7.58,0,0,0,.46,4.92.25.25,0,0,1-.26.36L1.08,9.06a.5.5,0,0,0-.57.59,5.15,5.15,0,0,0,2.37,3.78.25.25,0,0,1,0,.45l-.53.21a.5.5,0,0,0-.26.69,4.36,4.36,0,0,0,3.2,2.48.25.25,0,0,1,0,.47A10.94,10.94,0,0,1,1,18.56a.5.5,0,0,0-.2,1,20.06,20.06,0,0,0,8.14,1.93,12.58,12.58,0,0,0,7-2A12.5,12.5,0,0,0,21.5,9.06V8.19a.5.5,0,0,1,.18-.38Z" />
-                        </g>
-                        <g id="vf-social--youtube">
-                            <path xmlns="http://www.w3.org/2000/svg"
-                                d="M20.06,3.5H3.94A3.94,3.94,0,0,0,0,7.44v9.12A3.94,3.94,0,0,0,3.94,20.5H20.06A3.94,3.94,0,0,0,24,16.56V7.44A3.94,3.94,0,0,0,20.06,3.5ZM16.54,12,9.77,16.36A.5.5,0,0,1,9,15.94V7.28a.5.5,0,0,1,.77-.42l6.77,4.33a.5.5,0,0,1,0,.84Z" />
-                        </g>
-                        <g id="vf-social--instagram">
-                            <path xmlns="http://www.w3.org/2000/svg"
-                                d="M17.5,0H6.5A6.51,6.51,0,0,0,0,6.5v11A6.51,6.51,0,0,0,6.5,24h11A6.51,6.51,0,0,0,24,17.5V6.5A6.51,6.51,0,0,0,17.5,0ZM12,17.5A5.5,5.5,0,1,1,17.5,12,5.5,5.5,0,0,1,12,17.5Zm6.5-11A1.5,1.5,0,1,1,20,5,1.5,1.5,0,0,1,18.5,6.5Z" />
-                        </g>
-                    </defs>
-                </svg>
-                <div class="vf-social-links vf-social-links--outline">
-                    <ul class="vf-social-links__list">
-                        <li class="vf-social-links__item">
-                            <a class="vf-social-links__link" target="_blank" href="https://twitter.com/SciInSchool">
-                                <span class="vf-u-sr-only">
-                                    twitter
-                                </span>
-                                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--twitter" width="24"
-                                    height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                    preserveAspectRatio="xMinYMin">
-                                    <use xlink:href="#vf-social--twitter">
-                                    </use>
-                                </svg>
-                            </a>
+        <section class="vf-footer__links-group">
+            <div class="vf-grid">
+                <div class="vf-links">
+                    <!-- <h4 class="vf-links__heading">About</h4> -->
+                    <ul class="vf-links__list | vf-list">
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/about-science-school">About Science in School</a>
                         </li>
-                        <li class="vf-social-links__item">
-                            <a class="vf-social-links__link" target="_blank"
-                                href="https://www.facebook.com/scienceinschool">
-                                <span class="vf-u-sr-only">
-                                    facebook
-                                </span>
-                                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--facebook" width="24"
-                                    height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                    preserveAspectRatio="xMinYMin">
-                                    <use xlink:href="#vf-social--facebook">
-                                    </use>
-                                </svg>
-                            </a>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/about-eiroforum">About EIROforum</a>
                         </li>
-                        <li class="vf-social-links__item">
-
-                            <a class="vf-social-links__link" href="https://www.instagram.com/scienceinschool/">
-                                <span class="vf-u-sr-only">instagram</span>
-
-                                <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--instagram" width="24"
-                                    height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                    preserveAspectRatio="xMinYMin">
-                                    <use xlink:href="#vf-social--instagram"></use>
-                                </svg>
-
-                            </a>
-
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/imprint">Imprint and data policy</a>
                         </li>
                     </ul>
+                </div>
+                <div class="vf-links">
+                    <!-- <h4 class="vf-links__heading">About</h4> -->
+                    <ul class="vf-links__list | vf-list">
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/copyright">Copyright</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/safety">Safety note</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/disclaimer">Disclaimer</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="vf-links">
+                    <!-- <h4 class="vf-links__heading">About</h4> -->
+                    <ul class="vf-links__list | vf-list">
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/issue">Archive</a>
+                        </li>
+                        <li class="vf-list__item">
+                            <a class="vf-list__link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="vf-links">
+                    <!-- <h4 class="vf-links__heading">Follow us</h4> -->
+                    <svg aria-hidden="true" display="none" class="vf-icon-collection vf-icon-collection--social">
+                        <defs>
+                            <g id="vf-social--linkedin">
+                                <rect xmlns="http://www.w3.org/2000/svg" width="5" height="14" x="2" y="8.5" rx=".5"
+                                    ry=".5" />
+                                <ellipse xmlns="http://www.w3.org/2000/svg" cx="4.48" cy="4" rx="2.48" ry="2.5" />
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                    d="M18.5,22.5h3A.5.5,0,0,0,22,22V13.6C22,9.83,19.87,8,16.89,8a4.21,4.21,0,0,0-3.17,1.27A.41.41,0,0,1,13,9a.5.5,0,0,0-.5-.5h-3A.5.5,0,0,0,9,9V22a.5.5,0,0,0,.5.5h3A.5.5,0,0,0,13,22V14.5a2.5,2.5,0,0,1,5,0V22A.5.5,0,0,0,18.5,22.5Z" />
+                            </g>
+                            <g id="vf-social--facebook">
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                    d="m18.14 7.17a.5.5 0 0 0 -.37-.17h-3.77v-1.41c0-.28.06-.6.51-.6h3a.44.44 0 0 0 .35-.15.5.5 0 0 0 .14-.34v-4a.5.5 0 0 0 -.5-.5h-4.33c-4.8 0-5.17 4.1-5.17 5.35v1.65h-2.5a.5.5 0 0 0 -.5.5v4a.5.5 0 0 0 .5.5h2.5v11.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-11.5h3.35a.5.5 0 0 0 .5-.45l.42-4a.5.5 0 0 0 -.13-.38z" />
+                            </g>
+                            <g id="vf-social--twitter">
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                    d="M23.32,6.44a.5.5,0,0,0-.2-.87l-.79-.2A.5.5,0,0,1,22,4.67l.44-.89a.5.5,0,0,0-.58-.7l-2,.56a.5.5,0,0,1-.44-.08,5,5,0,0,0-3-1,5,5,0,0,0-5,5v.36a.25.25,0,0,1-.22.25c-2.81.33-5.5-1.1-8.4-4.44a.51.51,0,0,0-.51-.15A.5.5,0,0,0,2,4a7.58,7.58,0,0,0,.46,4.92.25.25,0,0,1-.26.36L1.08,9.06a.5.5,0,0,0-.57.59,5.15,5.15,0,0,0,2.37,3.78.25.25,0,0,1,0,.45l-.53.21a.5.5,0,0,0-.26.69,4.36,4.36,0,0,0,3.2,2.48.25.25,0,0,1,0,.47A10.94,10.94,0,0,1,1,18.56a.5.5,0,0,0-.2,1,20.06,20.06,0,0,0,8.14,1.93,12.58,12.58,0,0,0,7-2A12.5,12.5,0,0,0,21.5,9.06V8.19a.5.5,0,0,1,.18-.38Z" />
+                            </g>
+                            <g id="vf-social--youtube">
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                    d="M20.06,3.5H3.94A3.94,3.94,0,0,0,0,7.44v9.12A3.94,3.94,0,0,0,3.94,20.5H20.06A3.94,3.94,0,0,0,24,16.56V7.44A3.94,3.94,0,0,0,20.06,3.5ZM16.54,12,9.77,16.36A.5.5,0,0,1,9,15.94V7.28a.5.5,0,0,1,.77-.42l6.77,4.33a.5.5,0,0,1,0,.84Z" />
+                            </g>
+                            <g id="vf-social--instagram">
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                    d="M17.5,0H6.5A6.51,6.51,0,0,0,0,6.5v11A6.51,6.51,0,0,0,6.5,24h11A6.51,6.51,0,0,0,24,17.5V6.5A6.51,6.51,0,0,0,17.5,0ZM12,17.5A5.5,5.5,0,1,1,17.5,12,5.5,5.5,0,0,1,12,17.5Zm6.5-11A1.5,1.5,0,1,1,20,5,1.5,1.5,0,0,1,18.5,6.5Z" />
+                            </g>
+                        </defs>
+                    </svg>
+                    <div class="vf-social-links vf-social-links--outline">
+                        <ul class="vf-social-links__list">
+                            <li class="vf-social-links__item">
+                                <a class="vf-social-links__link" target="_blank" href="https://twitter.com/SciInSchool">
+                                    <span class="vf-u-sr-only">
+                                        twitter
+                                    </span>
+                                    <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--twitter" width="24"
+                                        height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        preserveAspectRatio="xMinYMin">
+                                        <use xlink:href="#vf-social--twitter">
+                                        </use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="vf-social-links__item">
+                                <a class="vf-social-links__link" target="_blank"
+                                    href="https://www.facebook.com/scienceinschool">
+                                    <span class="vf-u-sr-only">
+                                        facebook
+                                    </span>
+                                    <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--facebook" width="24"
+                                        height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                        preserveAspectRatio="xMinYMin">
+                                        <use xlink:href="#vf-social--facebook">
+                                        </use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="vf-social-links__item">
+
+                                <a class="vf-social-links__link" href="https://www.instagram.com/scienceinschool/">
+                                    <span class="vf-u-sr-only">instagram</span>
+
+                                    <svg aria-hidden="true" class="vf-icon vf-icon--social vf-icon--instagram"
+                                        width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        version="1.1" preserveAspectRatio="xMinYMin">
+                                        <use xlink:href="#vf-social--instagram"></use>
+                                    </svg>
+
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -198,7 +243,7 @@
             </div>
             <div class="sis-sponsor-logo">
                 <a target="_blank" href="http://www.ill.eu/">
-                    <img src="https://acxngcvroo.cloudimg.io/v7/https://www.embl.org/files/wp-content/uploads/logo-ill.png?width=160"
+                    <img src="https://acxngcvroo.cloudimg.io/v7/www.embl.org/files/wp-content/uploads/ill-new-logo.png?width=160"
                         width="85" alt="Institut Laue-Langevin" title="Institut Laue-Langevin" loading="lazy">
                 </a>
             </div>
