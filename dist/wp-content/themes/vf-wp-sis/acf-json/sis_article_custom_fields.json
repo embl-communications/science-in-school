@@ -401,6 +401,27 @@
             "delay": 0
         },
         {
+            "key": "field_6511547ed6d75",
+            "label": "Cutting-edge science: related EIROforum research",
+            "name": "art_eiroforum_research",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_6034acfe5209b",
             "label": "Authors",
             "name": "art_authors",
@@ -751,6 +772,5 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1684325854
+    "description": ""
 }
