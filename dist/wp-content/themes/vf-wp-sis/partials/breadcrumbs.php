@@ -18,7 +18,7 @@ if ( !is_home() && !is_archive('sis-article') && !is_front_page() || is_paged() 
   <a href="' . $home . '" class="vf-breadcrumbs__link" >' . $name . '</a></li>';
   echo '
   <li class="vf-breadcrumbs__item">
-  <a href="/issue" class="vf-breadcrumbs__link" >Issue</a></li>';
+  <a href="/issue" class="vf-breadcrumbs__link" >All Issues</a></li>';
   if ( is_singular('sis-article') ) {?>
 <li class="vf-breadcrumbs__item"><a href="/issue/<?php sis_printSingleTagAsUrl($art_issue);?>"
         class="vf-breadcrumbs__link"><?php sis_printSingleTagWithAfter($art_issue, ''); ?></a></li>

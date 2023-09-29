@@ -173,8 +173,14 @@ get_header();
 
                 <?php sis_printFieldWithHeader('<h3>Resources</h3>', $art_resources); ?>
 
-                <?php sis_printFieldWithHeader('<h3>Cutting-edge science: related EIROforum research</h3>', $art_eiroforum_research); ?>
-
+                <?php
+            if($art_eiroforum_research != ''){
+                print '<div class="sis-reviewer-box">';
+                print '<h3>Cutting-edge science: related EIROforum research</h3>';
+                print $art_eiroforum_research;
+                print '</div>';
+            }
+            ?>
                 <?php 
             if( $art_institutions ): ?>
                 <h3>Institutions</h3>
