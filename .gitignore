@@ -19,6 +19,9 @@ temp
 !dist/wp-content/plugins/toolset-blocks
 !dist/wp-content/plugins/types
 !dist/wp-content/plugins/types-access
+!dist/wp-content/plugins/sitepress-multilingual-cms
+!dist/wp-content/plugins/wpml-string-translation
+!dist/wp-content/plugins/wpml-media-translation
 /_sqldata/*
 /_files/*
 /_sqldump/*
