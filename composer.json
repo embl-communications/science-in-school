@@ -110,7 +110,6 @@
       "find dist -name .git -type d -exec rm -rf '{}' \\; || true"
     ],
     "post-update-cmd": [
-      "cp -r ./advanced-custom-fields-pro dist/wp-content/plugins/",
       "cp ./custom_scripts/.htaccess dist/",
       "cp -r ./sis-game dist/"
     ]
