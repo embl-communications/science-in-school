@@ -400,6 +400,60 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
   }
   add_action( 'admin_head', 'fix_svg' );
 
+  // sort sis-article columns by date by default
+
+  function sort_sis_articles( $query ) {
+    if ( ! is_admin() ) {
+        return;
+    }
+
+    // Get the post type from the query
+    $post_type = $query->get('post_type');
+
+    // Check if the current post type in the admin is your custom post type
+    if ( 'sis-article' == $post_type ) {
+        // Check if 'orderby' is set to the default value
+        if ( ! isset( $_GET['orderby'] ) ) {
+            // Set the query to order by 'date' by default
+            $query->set( 'orderby', 'date' );
+            $query->set( 'order', 'DESC' ); // Use 'ASC' for ascending order
+        }
+    }
+}
+
+// Hook the function to the 'pre_get_posts' action
+add_action( 'pre_get_posts', 'sort_sis_articles' );
+
+
+  // sort sis-issue columns by date by default
+
+  function sort_sis_issues( $query ) {
+    if ( ! is_admin() ) {
+        return;
+    }
+
+    // Get the post type from the query
+    $post_type = $query->get('post_type');
+
+    // Check if the current post type in the admin is your custom post type
+    if ( 'sis-issue' == $post_type ) {
+        // Check if 'orderby' is set to the default value
+        if ( ! isset( $_GET['orderby'] ) ) {
+            // Set the query to order by 'date' by default
+            $query->set( 'orderby', 'date' );
+            $query->set( 'order', 'DESC' ); // Use 'ASC' for ascending order
+        }
+    }
+}
+
+// Hook the function to the 'pre_get_posts' action
+add_action( 'pre_get_posts', 'sort_sis_issues' );
+
+
+
+
+
+
 // removes <p> tag from ACF WYSYWIG field
 // function my_acf_add_local_field_groups() {
 //     remove_filter('acf_the_content', 'wpautop' );
