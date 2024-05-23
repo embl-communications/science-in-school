@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Multilingual CMS
  * Plugin URI: https://wpml.org/
- * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-6-8/">WPML 4.6.8 release notes</a>
+ * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-6-10/">WPML 4.6.10 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 4.6.8
+ * Version: 4.6.10
  * Plugin Slug: sitepress-multilingual-cms
  *
  * @package WPML\Core
@@ -29,7 +29,7 @@ if ( ! \WPML\Requirements\WordPress::checkMinimumRequiredVersion() ) {
 	return;
 }
 
-define( 'ICL_SITEPRESS_VERSION', '4.6.8' );
+define( 'ICL_SITEPRESS_VERSION', '4.6.10' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -235,6 +235,8 @@ if ( $sitepress->is_setup_complete() ) {
 		\WPML\TM\ATE\Hooks\LanguageMappingCache::class,
 		\WPML\BackgroundTask\BackgroundTaskLoader::class,
 		\WPML\Core\PostTranslation\SyncTranslationDocumentStatus::class,
+		\WPML\Utilities\DebugLog::class,
+		\WPML\Notices\ExportImport\Notice::class,
 	];
 	$action_filter_loader->load( $actions );
 

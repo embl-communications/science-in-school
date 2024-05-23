@@ -2708,14 +2708,24 @@ class SitePress extends WPML_WPDB_User implements
 								  ->convert_url_string( $url, $code );
 	}
 
-	function language_url( $code = null ) {
+	/**
+	 * Get the URL for the specified language
+	 *
+	 * Make ``$forceSlashedBaseUrl`` true if you want the base URL to always end with a slash.
+	 * Used to imitate and match the WP Canonical URL.
+	 *
+	 * @param $code
+	 * @param $forceSlashedBaseUrl
+	 * @return bool|string
+	 */
+	function language_url( $code = null, $forceSlashedBaseUrl = false ) {
 		global $wpml_url_converter;
 
 		if ( is_null( $code ) ) {
 			$code = $this->this_lang;
 		}
 
-		$abs_home = $wpml_url_converter->get_abs_home();
+		$abs_home = $forceSlashedBaseUrl ? trailingslashit( $wpml_url_converter->get_abs_home() ) : $wpml_url_converter->get_abs_home();
 		$url      = $this->convert_url( $abs_home, $code );
 
 		return $url;
@@ -2916,12 +2926,12 @@ class SitePress extends WPML_WPDB_User implements
 					$lang_page_for_posts = icl_object_id( $lang_page_for_posts, 'page', false, $lang['code'] );
 				}
 				if ( 'page' === get_option( 'show_on_front' ) && ! empty( $translations[ $lang['code'] ] ) && $translations[ $lang['code'] ]->element_id == $lang_page_on_front ) {
-					$lang['translated_url'] = $this->language_url( $lang['code'] );
+					$lang['translated_url'] = $this->language_url( $lang['code'], true );
 				} elseif ( 'page' == get_option( 'show_on_front' ) && ! empty( $translations[ $lang['code'] ] ) && $translations[ $lang['code'] ]->element_id && $translations[ $lang['code'] ]->element_id == $lang_page_for_posts ) {
 					if ( $lang_page_for_posts ) {
 						$lang['translated_url'] = get_permalink( $lang_page_for_posts );
 					} else {
-						$lang['translated_url'] = $this->language_url( $lang['code'] );
+						$lang['translated_url'] = $this->language_url( $lang['code'], true );
 					}
 				} else {
 					if ( ! empty( $translations[ $lang['code'] ] ) && isset( $translations[ $lang['code'] ]->post_title ) ) {
@@ -2938,7 +2948,7 @@ class SitePress extends WPML_WPDB_User implements
 								if ( ! empty( $link_empty_to ) ) {
 									$lang['translated_url'] = str_replace( '{%lang}', $lang['code'], $link_empty_to );
 								} else {
-									$lang['translated_url'] = $this->language_url( $lang['code'] );
+									$lang['translated_url'] = $this->language_url( $lang['code'], true );
 								}
 							} else {
 								$skip_lang = true;
@@ -2996,10 +3006,10 @@ class SitePress extends WPML_WPDB_User implements
 				$icl_archive_url_filter_off = false;
 			} elseif ( is_search() ) {
 				$url_glue               = strpos( $this->language_url( $lang['code'] ), '?' ) === false ? '?' : '&';
-				$lang['translated_url'] = $this->language_url( $lang['code'] ) . $url_glue . 's=' . urlencode( $wp_query->query['s'] );
+				$lang['translated_url'] = $this->language_url( $lang['code'], true ) . $url_glue . 's=' . urlencode( $wp_query->query['s'] );
 			} else {
 				if ( $icl_lso_link_empty || is_home() || is_404() || ( 'page' === get_option( 'show_on_front' ) && ( $this->wp_query->queried_object_id == get_option( 'page_on_front' ) || $this->wp_query->queried_object_id == get_option( 'page_for_posts' ) ) ) || WPML_Root_Page::is_current_request_root() ) {
-					$lang['translated_url'] = $this->language_url( $lang['code'] );
+					$lang['translated_url'] = $this->language_url( $lang['code'], true );
 					$skip_lang              = false;
 				} else {
 					$skip_lang = true;
@@ -3412,8 +3422,10 @@ class SitePress extends WPML_WPDB_User implements
 	function query_vars( $public_query_vars ) {
 		global $wp_query;
 
-		$public_query_vars[]          = 'lang';
-		$wp_query->query_vars['lang'] = $this->this_lang;
+		if ( WPML_LANGUAGE_NEGOTIATION_TYPE_PARAMETER === (int) $this->get_setting( 'language_negotiation_type' ) ) {
+			$public_query_vars[]          = 'lang';
+			$wp_query->query_vars['lang'] = $this->this_lang;
+		}
 
 		return $public_query_vars;
 	}
