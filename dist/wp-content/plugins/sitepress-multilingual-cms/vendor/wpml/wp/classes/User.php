@@ -12,6 +12,19 @@ class User {
 	const CAP_ADMINISTRATOR = 'administrator';
 	const CAP_TRANSLATE = 'translate';
 	const CAP_MANAGE_TRANSLATION_MANAGEMENT = 'wpml_manage_translation_management';
+	const CAP_PUBLISH_PAGES = 'publish_pages';
+	const CAP_PUBLISH_POSTS = 'publish_posts';
+	const CAP_EDIT_OTHERS_PAGES = 'edit_others_pages';
+	const CAP_EDIT_OTHERS_POSTS = 'edit_others_posts';
+	const CAP_EDIT_POSTS = 'edit_posts';
+	const CAP_EDIT_PAGES = 'edit_pages';
+	const ROLE_EDITOR_MINIMUM_CAPS = [
+		self::CAP_EDIT_OTHERS_POSTS,
+		self::CAP_PUBLISH_PAGES,
+		self::CAP_PUBLISH_POSTS,
+		self::CAP_EDIT_PAGES,
+		self::CAP_EDIT_POSTS,
+	];
 
 	/** @var array Calling user_can() is a very memory heavy function. */
 	private static $userCanCache = [];
@@ -214,8 +227,13 @@ class User {
 	 *
 	 * @return bool
 	 */
-	public static function isEditor(\WP_User $user = null) {
-		return self::hasCap( 'editor', $user );
+	public static function isEditor( \WP_User $user = null ) {
+		foreach ( static::ROLE_EDITOR_MINIMUM_CAPS as $cap ) {
+			if ( ! self::hasCap( $cap, $user ) ) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**

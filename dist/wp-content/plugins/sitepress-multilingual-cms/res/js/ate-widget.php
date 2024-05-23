@@ -65,6 +65,10 @@ if( typeof ate_jobs_sync.ateCallbacks.retranslation === 'function' ) {
 	params.onGlossaryRetranslationStart = ate_jobs_sync.ateCallbacks.retranslation
 }
 
+if( typeof ate_jobs_sync.ateCallbacks.invalidateCache === 'function' ) {
+	params.onLanguageMappingChange = ate_jobs_sync.ateCallbacks.invalidateCache
+}
+
 LoadEateWidget(params);
 	
 WIDGET_CONSTRUCTOR;

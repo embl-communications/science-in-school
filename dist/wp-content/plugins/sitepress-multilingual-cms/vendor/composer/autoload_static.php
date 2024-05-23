@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6
+class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -660,6 +660,7 @@ class ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6
         'WPML\\Language\\Detection\\Frontend' => __DIR__ . '/../..' . '/classes/language/Detection/Frontend.php',
         'WPML\\Language\\Detection\\Rest' => __DIR__ . '/../..' . '/classes/language/Detection/Rest.php',
         'WPML\\Languages\\UI' => __DIR__ . '/../..' . '/classes/languages/UI.php',
+        'WPML\\Legacy\\Translation\\Save\\SyncParentPost\\SyncParentPost' => __DIR__ . '/../..' . '/inc/translation-jobs/helpers/save-translation/SyncParentPost.php',
         'WPML\\MediaTranslation\\AddMediaDataToTranslationPackage' => __DIR__ . '/../..' . '/classes/media-translation/AddMediaDataToTranslationPackage.php',
         'WPML\\MediaTranslation\\AddMediaDataToTranslationPackageFactory' => __DIR__ . '/../..' . '/classes/media-translation/AddMediaDataToTranslationPackageFactory.php',
         'WPML\\MediaTranslation\\MediaAttachmentByUrl' => __DIR__ . '/../..' . '/classes/media-translation/MediaAttachmentByUrl.php',
@@ -687,6 +688,7 @@ class ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6
         'WPML\\Media\\Translate\\Endpoint\\PrepareForTranslation' => __DIR__ . '/../..' . '/classes/media/translate/endpoints/PrepareForTranslation.php',
         'WPML\\Media\\Translate\\Endpoint\\TranslateExistingMedia' => __DIR__ . '/../..' . '/classes/media/translate/endpoints/TranslateExistingMedia.php',
         'WPML\\Notices\\DismissNotices' => __DIR__ . '/../..' . '/classes/notices/DismissNotices.php',
+        'WPML\\Notices\\ExportImport\\Notice' => __DIR__ . '/../..' . '/classes/notices/export-import/Notice.php',
         'WPML\\Options\\Reset' => __DIR__ . '/../..' . '/classes/options/Reset.php',
         'WPML\\Plugins' => __DIR__ . '/../..' . '/classes/plugins/Plugins.php',
         'WPML\\PostTranslation\\SpecialPage\\Hooks' => __DIR__ . '/../..' . '/classes/post-translation/SpecialPage/Hooks.php',
@@ -777,6 +779,7 @@ class ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6
         'WPML\\TM\\ATE\\JobRecord' => __DIR__ . '/../..' . '/classes/ATE/JobRecord.php',
         'WPML\\TM\\ATE\\JobRecords' => __DIR__ . '/../..' . '/classes/ATE/JobRecords.php',
         'WPML\\TM\\ATE\\Jobs' => __DIR__ . '/../..' . '/classes/ATE/Jobs.php',
+        'WPML\\TM\\ATE\\LanguageMapping\\InvalidateCacheEndpoint' => __DIR__ . '/../..' . '/classes/ATE/LanguageMapping/InvalidateCacheEndpoint.php',
         'WPML\\TM\\ATE\\Loader' => __DIR__ . '/../..' . '/classes/ATE/Loader.php',
         'WPML\\TM\\ATE\\Log\\Entry' => __DIR__ . '/../..' . '/classes/ATE/Log/Entry.php',
         'WPML\\TM\\ATE\\Log\\EventsTypes' => __DIR__ . '/../..' . '/classes/ATE/Log/EventsTypes.php',
@@ -976,6 +979,7 @@ class ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6
         'WPML\\UrlHandling\\WPLoginUrlConverterRules' => __DIR__ . '/../..' . '/classes/url-handling/WPLoginUrlConverterRules.php',
         'WPML\\User\\LanguagePairs\\ILanguagePairs' => __DIR__ . '/../..' . '/classes/user/LanguagePairs/ILanguagePairs.php',
         'WPML\\User\\UsersByCapsRepository' => __DIR__ . '/../..' . '/classes/user/UsersByCapsRepository.php',
+        'WPML\\Utilities\\DebugLog' => __DIR__ . '/../..' . '/classes/utilities/DebugLog.php',
         'WPML\\Utilities\\ILock' => __DIR__ . '/..' . '/wpml/core-api/core/utility/ILock.php',
         'WPML\\Utilities\\KeyedLock' => __DIR__ . '/../..' . '/classes/utilities/lock/KeyedLock.php',
         'WPML\\Utilities\\Lock' => __DIR__ . '/..' . '/wpml/core-api/core/utility/Lock.php',
@@ -2020,9 +2024,9 @@ class ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2eb5549a7165bfc283122cd2f0d3daa6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7::$classMap;
 
         }, null, ClassLoader::class);
     }

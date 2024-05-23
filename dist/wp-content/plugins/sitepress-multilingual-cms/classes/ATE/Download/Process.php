@@ -55,10 +55,8 @@ class Process {
 					throw new Exception( $message );
 				}
 			} catch ( Exception $e ) {
-
 				$this->logException( $e, $processedJob ?: $job );
 			} catch ( Error $e ) {
-
 				$this->logError( $e, $processedJob ?: $job );
 			}
 

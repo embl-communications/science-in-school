@@ -28,6 +28,8 @@ use WPML\TM\ATE\AutoTranslate\Endpoint\RefreshJobsStatus;
 use WPML\TM\ATE\AutoTranslate\Endpoint\SyncLock;
 use WPML\TM\ATE\AutoTranslate\Endpoint\Languages as EndpointLanguages;
 use WPML\TM\ATE\Download\Queue;
+use WPML\TM\ATE\LanguageMapping\InvalidateCacheEndpoint;
+use WPML\TM\ATE\Retranslation\Endpoint as RetranslationEndpoint;
 use WPML\TM\ATE\Sync\Trigger;
 use WPML\TM\ATE\TranslateEverything\Pause\View as PauseTranslateEverything;
 use WPML\Core\WP\App\Resources;
@@ -148,6 +150,10 @@ class Loader implements \IWPML_Backend_Action, \IWPML_DIC_Action {
 				'editorMode'                  => Settings::pathOr( false, [ 'translation-management', 'doc_translation_method' ] ),
 				'shouldCheckForRetranslation' => $scheduler->shouldRun(),
 				'ateCallbacks' => [], // Should be used to add any needed ATE callbacks in JS side, refer to 'src/js/ate/retranslation/index.js' for example
+
+				'settings' => [
+					'numberOfParallelDownloads' => defined('WPML_ATE_MAX_PARALLEL_DOWNLOADS') ? WPML_ATE_MAX_PARALLEL_DOWNLOADS : 10,
+				],
 			],
 		];
 	}
@@ -221,7 +227,8 @@ class Loader implements \IWPML_Backend_Action, \IWPML_DIC_Action {
 			'untranslatedCount'            => UntranslatedCount::class,
 			'countAutomaticJobsInProgress' => CountJobsInProgress::class,
 			'languages'                    => EndpointLanguages::class,
-			'assignToTranslation'          => \WPML\TM\ATE\Retranslation\Endpoint::class,
+			'assignToTranslation'          => RetranslationEndpoint::class,
+			'invalidateLangMappingCache'   => InvalidateCacheEndpoint::class,
 		];
 	}
 
