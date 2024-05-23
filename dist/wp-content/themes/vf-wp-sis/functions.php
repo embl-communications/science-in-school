@@ -54,7 +54,7 @@ function my_theme_enqueue_styles() {
     'vf-sis-scripts',
     get_stylesheet_directory_uri() . '/assets/scripts/scripts.js',
     array(),
-    $theme->version,
+    wp_get_theme()->get('Version'),
     true
   );
   // unload the generic vf-wp scripts
