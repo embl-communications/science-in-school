@@ -16,6 +16,9 @@
             <li class="vf-navigation__item">
                 <a href="/search" class="vf-navigation__link">Search</a>
             </li>
+            <li class="vf-navigation__item">
+                <a href="/search-test" class="vf-navigation__link">Search (test)</a>
+            </li>
         </ul>
     </nav>
 </header>

@@ -10,26 +10,32 @@ $title = esc_html(get_the_title());
 $title_pdf = strtolower($title);
 $title_pdf = str_replace(' ', '-', $title_pdf);
 $excerpt = get_the_excerpt();
+
+ob_start(); // Start output buffering
+sis_printSingleTag($art_issue);
+$tag = ob_get_clean(); // Get the buffered output and clean the buffer
+$lowercase_tag = strtolower($tag);
+$formatted_tag = str_replace(' ', '-', $lowercase_tag);
 ?>
-<article class="sis-search-summary vf-summary vf-summary--news | vf-flag vf-flag--top vf-flag--400">
+<article class="sisArticle sis-search-summary vf-summary vf-summary--news | vf-flag vf-flag--top vf-flag--400" data-jplist-item>
     <div class="vf-flag__media">
         <?php
                 $articleTypesArray = sis_getArticleTypesArray();
                 if(intval($art_article_type) == $articleTypesArray['UNDERSTAND']){
                     ?>
-                    <a href="/?sis-article-types=understand" class="vf-badge sis-badge--understand">Understand</a>
+                    <a href="/?sis-article-types=understand" class="vf-badge sis-badge--understand type type-understand">Understand</a>
                     <?php
                 } else if(intval($art_article_type) ==  $articleTypesArray['INSPIRE']){
                     ?>
-                    <a href="/?sis-article-types=inspire" class="vf-badge sis-badge--inspire">Inspire</a>
+                    <a href="/?sis-article-types=inspire" class="vf-badge sis-badge--inspire type type-inspire">Inspire</a>
                     <?php
                 } else if(intval($art_article_type) ==  $articleTypesArray['TEACH']){
                     ?>
-                    <a href="/?sis-article-types=teach" class="vf-badge sis-badge--teach">Teach</a>
+                    <a href="/?sis-article-types=teach" class="vf-badge sis-badge--teach type type-teach">Teach</a>
                     <?php
                 } else if(intval($art_article_type) ==  $articleTypesArray['EDITORIAL']) {
                     ?>
-                    <a href="/?sis-article-types=editorial" class="vf-badge sis-badge--editorial">Editorial</a>
+                    <a href="/?sis-article-types=editorial" class="vf-badge sis-badge--editorial type type-editorial">Editorial</a>
                     <?php
                 }
         ?>
@@ -37,17 +43,17 @@ $excerpt = get_the_excerpt();
     </div>
     <div class="vf-flag__body">
         <span class="vf-summary__date"><time title="<?php the_time('c'); ?>"
-            datetime="<?php the_time('c'); ?>"><?php the_time(get_option('date_format')); ?></time> | <?php sis_printSingleTag($art_issue); ?> <?php 
+        data-eventtime="<?php the_time('Ymd'); ?>"><?php the_time(get_option('date_format')); ?></time> | <span class="issue <?php echo $formatted_tag;; ?>"><?php sis_printSingleTag($art_issue); ?></span> <?php 
         // if(!empty($art_pdf)){ ?> 
     <!-- | <a class="vf-link" href="<?php // echo $art_pdf['url']; ?>">Download PDF</a>             -->
         <?php // } ?>
 </span>
-        <h3 class="vf-summary__title">
+        <h3 class="vf-summary__title | search-data">
             <a href="<?php the_permalink(); ?>" class="vf-summary__link">
                 <?php the_title(); ?>
             </a>
         </h3>
-        <p class="vf-summary__text">
+        <p class="vf-summary__text | search-data">
         <?php 
             if ($art_teaser) { ?>
             <?php echo strip_tags($art_teaser); ?>
@@ -57,8 +63,51 @@ $excerpt = get_the_excerpt();
             <?php }  ?>        
         </p>
         <p class="vf-summary__meta">
-            <?php sis_printTagsWithHeaderAndEnd('<span class="vf-u-text-color--ui--black">Ages:</span> ', $art_ages, '; <br/>'); ?>
-            <?php sis_printTagsWithHeaderAndEnd('<span class="vf-u-text-color--ui--black">Topics:</span> ', $art_topics, ' <br/>'); ?>
+        <?php 
+if (!empty($art_ages)) { ?>
+    <span class="vf-u-text-color--ui--black">Ages: 
+        <?php 
+        if ($art_ages) {
+            $ages_list = array(); 
+            foreach ($art_ages as $term_id) {
+                // Get the term object using the term ID
+                $term = get_term($term_id);
+                if ($term && !is_wp_error($term)) {
+                    $ages_list[] = '<span style="color: #373a36;" class="age age-' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</span>';
+                } else {
+                    // Debugging output to help understand what is causing the issue
+                    error_log('Failed to get term for ID: ' . print_r($term_id, true));
+                }
+            }
+            echo implode(', ', $ages_list); 
+        }
+        ?>
+    </span><br/>
+<?php } ?>
+
+<?php 
+if (!empty($art_topics)) { ?>
+    <span class="vf-u-text-color--ui--black">Topics: 
+        <?php 
+        if ($art_topics) {
+            $topics_list = array(); 
+            foreach ($art_topics as $term_id) {
+                // Get the term object using the term ID
+                $term = get_term($term_id);
+                if ($term && !is_wp_error($term)) {
+                    $topics_list[] = '<span style="color: #373a36;" class="topic topic-' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</span>';
+                } else {
+                    // Debugging output to help understand what is causing the issue
+                    error_log('Failed to get term for ID: ' . print_r($term_id, true));
+                }
+            }
+            echo implode(', ', $topics_list); 
+        }
+        ?>
+    </span><br/>
+<?php } ?>
+
+
             <?php sis_articleLanguageSwitcherInLoop(); ?>
         </p>
 

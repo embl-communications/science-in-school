@@ -11,7 +11,7 @@
   "require": {
     "composer/installers": "1.12.0",
     "drupal-composer/preserve-paths": "0.1.6",
-    "wordpress/wordpress": "6.5.3",
+    "wordpress/wordpress": "6.5.4",
     "vfwp/vf-plugins": "dev-master",
     "vfwp/vf-themes": "dev-master",
     "wpackagist-plugin/akismet":"5.3.2",
@@ -38,10 +38,10 @@
       "package": {
         "name": "wordpress/wordpress",
         "type": "webroot",
-        "version": "6.5.3",
+        "version": "6.5.4",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/WordPress/WordPress/archive/6.5.3.zip"
+          "url": "https://github.com/WordPress/WordPress/archive/6.5.4.zip"
         },
         "require": {
           "fancyguy/webroot-installer": "^1.0"
@@ -55,7 +55,7 @@
         "version": "dev-master",
         "type": "wordpress-plugin",
         "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.vfwp.emblstatic.net/vf-wp/v2.5.4/plugins.zip",
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.vfwp.emblstatic.net/vf-wp/v2.5.5/plugins.zip",
           "type": "zip"
         }
       }
@@ -67,7 +67,7 @@
         "version": "dev-master",
         "type": "wordpress-theme",
         "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.vfwp.emblstatic.net/vf-wp/v2.5.4/themes.zip",
+          "url": "https://s3.eu-west-2.amazonaws.com/origin.vfwp.emblstatic.net/vf-wp/v2.5.5/themes.zip",
           "type": "zip"
         }
       }
