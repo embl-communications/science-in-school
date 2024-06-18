@@ -39,7 +39,17 @@ $formatted_tag = str_replace(' ', '-', $lowercase_tag);
                     <?php
                 }
         ?>
-        <?php the_post_thumbnail(array(238, 150), array('class' => 'sis-search-summary__image')); ?>
+        <?php 
+if (has_post_thumbnail()) {
+    $thumbnail_id = get_post_thumbnail_id();
+    $thumbnail_html = wp_get_attachment_image($thumbnail_id, array(238, 150), false, array(
+        'class' => 'sis-search-summary__image',
+        'loading' => 'lazy'
+    ));
+    echo $thumbnail_html;
+}
+?>
+
     </div>
     <div class="vf-flag__body">
         <span class="vf-summary__date"><time title="<?php the_time('c'); ?>"

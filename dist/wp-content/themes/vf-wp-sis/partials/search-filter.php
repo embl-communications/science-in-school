@@ -153,7 +153,7 @@ $types_terms = get_terms(
   </div>
 </fieldset>
 
-<fieldset class="vf-form__fieldset vf-stack vf-stack--400">
+<fieldset class="vf-form__fieldset vf-stack vf-stack--400" style="display: none;">
   <legend class="vf-form__legend">Language</legend>
   <div class="vf-form__item vf-stack">
     <select class="vf-form__select selectLive" id="selectLang" data-jplist-control="select-filter" data-group="data-group-1" data-name="lang">
@@ -172,6 +172,7 @@ $types_terms = get_terms(
     </select>
   </div>
 </fieldset>
+
 
 
 

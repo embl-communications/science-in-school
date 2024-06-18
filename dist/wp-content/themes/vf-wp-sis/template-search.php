@@ -18,15 +18,33 @@ get_header();
             <!-- <p class="vf-text-body">
                 If you need a description about the service or context of the search.
             </p> -->
-            <form action="#eventsFilter" onsubmit="return false;"
+            <form action="#eventsFilter" onsubmit="return false;" style="display: flex; flex-direction: row;"
           class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
-          <div class="vf-sidebar__inner">
+          <div class="vf-sidebar__inner" style="width: 100%;">
             <div class="vf-form__item">
+            <legend class="vf-form__legend">Search term</legend>
               <label class="vf-form__label vf-u-sr-only | vf-search__label" for="search">Search</label>
               <input id="search" class="vf-form__input vf-form__input--filter | inputLive" data-jplist-control="textbox-filter"
                 data-group="data-group-1" data-name="my-filter-1" data-path=".search-data" type="text" value=""
-                placeholder="Enter your search term" data-clear-btn-id="name-clear-btn">
+                placeholder="Search Science in School" data-clear-btn-id="name-clear-btn">
             </div>
+            <div class="vf-form__item" style="min-width: 10rem;">
+      <legend class="vf-form__legend">Search language</legend>
+      <select class="vf-form__select" id="selectLangForm">
+  <option value="en">English</option>
+  <?php
+    $languages = apply_filters('wpml_active_languages', NULL, 'skip_missing=0&orderby=code');
+    sort($languages);
+    foreach($languages as $singleLanguage){
+      if ($singleLanguage['language_code'] !== 'en') {
+  ?>
+        <option value="<?php echo $singleLanguage['language_code']; ?>"><?php echo $singleLanguage['native_name']; ?></option>
+  <?php
+      }
+    }
+  ?>
+</select>
+    </div>
           </div>
         </form>
 
@@ -42,8 +60,11 @@ get_header();
         <div class="vf-stack vf-stack--800">
             <?php include(locate_template('partials/search-filter.php', false, false)); ?>
         </div>
-        <div>
-        <div class="vf-stack" id="upcoming-events" data-jplist-group="data-group-1">
+        <div id="mainContainer">
+        <div id="spinner-container">
+    <div class="spinner"></div>
+  </div>
+        <div class="vf-stack" id="upcoming-events" data-jplist-group="data-group-1" style="display: none;">
           <?php
          $forthcomingLoop = new WP_Query(array(
             'post_type' => 'sis-article',
@@ -74,7 +95,7 @@ get_header();
             </p>
           </article>
         </div>
-        <nav id="paging-data" class="vf-pagination" aria-label="Pagination">
+        <nav id="paging-data" class="vf-pagination" aria-label="Pagination"  style="display: none;">
           <ul class="vf-pagination__list"></ul>
         </nav>
 
@@ -87,9 +108,10 @@ get_header();
 <?php get_footer(); ?>
 
 <style>
-    .counter-highlight {
-        font-weight: 600;
-    }
+
+
+
+
 </style>
 
 <script type="text/javascript">
@@ -161,6 +183,58 @@ get_header();
   // Initial update
   handleUpdate();
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+      var spinnerContainer = document.getElementById('spinner-container');
+      var upcomingEvents = document.getElementById('upcoming-events');
+      var selectLangForm = document.getElementById("selectLangForm");
+
+      // Show the spinner
+      spinnerContainer.style.display = 'flex';
+
+      // Function to hide the spinner and show the content
+      function showContent() {
+        spinnerContainer.style.display = 'none';
+        upcomingEvents.style.display = 'block';
+      }
+
+      // Wait for the entire window to load, which includes images, iframes, etc.
+      window.onload = function() {
+        showContent();
+      };
+
+      // Function to extract language code from the URL path
+      function getLanguageFromPath() {
+        var path = window.location.pathname;
+        var pathParts = path.split('/');
+        if (pathParts.length > 1 && pathParts[1].length === 2) { // Assuming language code is 2 characters long
+          return pathParts[1];
+        }
+        return null;
+      }
+
+      // Set the select value based on the URL path
+      var selectedLanguage = getLanguageFromPath();
+      if (selectedLanguage) {
+        selectLangForm.value = selectedLanguage;
+      }
+
+      selectLangForm.addEventListener("change", function() {
+        var selectedLanguage = this.value;
+        if (selectedLanguage !== "en") {
+          var newPath = '/' + selectedLanguage + '/search-test';
+          window.location.href = newPath;
+        }
+        else {
+          var homeUrl = window.location.origin; // Get the home URL
+          var newPath = homeUrl + '/search-test';
+          window.location.href = newPath;
+        }
+      });
+    });
 
 
 </script>

@@ -42,3 +42,34 @@ ul li ul li {
 .vf-footer__links-group {
     padding-bottom: 2rem !important;
 }
+
+.counter-highlight {
+	font-weight: 600;
+}
+
+#upcoming-events {
+position: relative;
+}
+
+#spinner-container {
+position: relative;
+width: 100%;
+height: 100px; /* Adjust height as needed */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.spinner {
+border: 5px solid #f3f3f3;
+border-top: 5px solid #3498db;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
