@@ -29,7 +29,7 @@ get_header();
                 placeholder="Search Science in School" data-clear-btn-id="name-clear-btn">
             </div>
             <div class="vf-form__item" style="min-width: 10rem;">
-      <legend class="vf-form__legend">Search language</legend>
+      <legend class="vf-form__legend">Language</legend>
       <select class="vf-form__select" id="selectLangForm">
   <option value="en">English</option>
   <?php
@@ -45,11 +45,14 @@ get_header();
   ?>
 </select>
     </div>
+    <div id="languageSpinnerWrapper">
+      <div id="languageSpinner"></div>
+    </div>
           </div>
         </form>
 
-        <p class="vf-text-body vf-text-body--2 | vf-u-text-color--grey--darkest | vf-u-margin__bottom--0 vf-u-margin__top--600"
-          id="total-results-info">Showing <span id="start-counter" class="counter-highlight"></span><span
+        <p class="textLoader | vf-u-margin__bottom--0 vf-u-margin__top--600" id="loading-placeholder"></p>
+<p class="vf-text-body vf-text-body--2 | vf-u-text-color--grey--darkest | vf-u-margin__bottom--0 vf-u-margin__top--600" id="total-results-info" style="display: none;">Showing <span id="start-counter" class="counter-highlight"></span><span
             id="end-counter" class="counter-highlight"></span> results out of <span id="total-result"
             class="counter-highlight"></span></p>
 
@@ -61,10 +64,10 @@ get_header();
             <?php include(locate_template('partials/search-filter.php', false, false)); ?>
         </div>
         <div id="mainContainer">
-        <div id="spinner-container">
+        <!-- <div id="spinner-container">
     <div class="spinner"></div>
-  </div>
-        <div class="vf-stack" id="upcoming-events" data-jplist-group="data-group-1" style="display: none;">
+  </div> -->
+        <div class="vf-stack" id="upcoming-events" data-jplist-group="data-group-1">
           <?php
          $forthcomingLoop = new WP_Query(array(
             'post_type' => 'sis-article',
@@ -188,54 +191,91 @@ get_header();
 
 
 document.addEventListener("DOMContentLoaded", function() {
-      var spinnerContainer = document.getElementById('spinner-container');
-      var upcomingEvents = document.getElementById('upcoming-events');
       var selectLangForm = document.getElementById("selectLangForm");
+      var languageSpinnerWrapper = document.getElementById("languageSpinnerWrapper");
 
-      // Show the spinner
-      spinnerContainer.style.display = 'flex';
+      var loadingPlaceholder = document.getElementById('loading-placeholder');
+  var totalResultsInfo = document.getElementById('total-results-info');
 
-      // Function to hide the spinner and show the content
-      function showContent() {
-        spinnerContainer.style.display = 'none';
-        upcomingEvents.style.display = 'block';
-      }
+  // Add textLoader class to the placeholder paragraph
+  loadingPlaceholder.classList.add('textLoader');
 
-      // Wait for the entire window to load, which includes images, iframes, etc.
-      window.onload = function() {
-        showContent();
-      };
+  // Function to hide the placeholder and show the actual content
+  function showContent() {
+    loadingPlaceholder.style.display = 'none';
+    totalResultsInfo.style.display = 'block';
+
+    // Remove textLoader class from the placeholder paragraph
+    loadingPlaceholder.classList.remove('textLoader');
+  }
+
+  // Wait for the entire window to load, which includes images, iframes, etc.
+  window.onload = function() {
+    showContent();
+  };
+
 
       // Function to extract language code from the URL path
-      function getLanguageFromPath() {
-        var path = window.location.pathname;
-        var pathParts = path.split('/');
-        if (pathParts.length > 1 && pathParts[1].length === 2) { // Assuming language code is 2 characters long
-          return pathParts[1];
-        }
-        return null;
-      }
+       // Function to extract language code from the URL path
+  function getLanguageFromPath() {
+    var path = window.location.pathname;
+    var pathParts = path.split('/');
+    if (pathParts.length > 1 && pathParts[1].length === 2) { // Assuming language code is 2 characters long
+      return pathParts[1];
+    }
+    return null;
+  }
 
-      // Set the select value based on the URL path
-      var selectedLanguage = getLanguageFromPath();
-      if (selectedLanguage) {
-        selectLangForm.value = selectedLanguage;
-      }
+  // Set the select value based on the URL path
+  var selectedLanguage = getLanguageFromPath();
+  if (selectedLanguage) {
+    selectLangForm.value = selectedLanguage;
+  }
 
-      selectLangForm.addEventListener("change", function() {
-        var selectedLanguage = this.value;
-        if (selectedLanguage !== "en") {
-          var newPath = '/' + selectedLanguage + '/search-test';
-          window.location.href = newPath;
-        }
-        else {
-          var homeUrl = window.location.origin; // Get the home URL
-          var newPath = homeUrl + '/search-test';
-          window.location.href = newPath;
-        }
-      });
+  selectLangForm.addEventListener("change", function() {
+    var selectedLanguage = this.value;
+
+    // Show the spinner
+    languageSpinnerWrapper.style.display = 'block';
+
+    // Change the URL based on the selected language
+    if (selectedLanguage !== "en") {
+      var newPath = '/' + selectedLanguage + '/search-test';
+      window.location.href = newPath;
+    } else {
+      var homeUrl = window.location.origin; // Get the home URL
+      var newPath = homeUrl + '/search-test';
+      window.location.href = newPath;
+    }
+  });
     });
 
+//     const resetButton = document.getElementById('resetFilters');
 
+// resetButton.addEventListener('click', function () {
+//     // Reset all checkboxes
+//     const checkboxes = document.querySelectorAll('.vf-form__checkbox');
+//     checkboxes.forEach(function (checkbox) {
+//         checkbox.checked = false;
+//     });
+
+//     // Reset select field
+//     const selectField = document.querySelector('.issueLive');
+//     selectField.value = '';
+
+//     // Trigger jPList reset and refresh
+//     jplist.resetControls();
+//     jplist.refresh();
+
+//     // Call additional functions
+//     updatePaginationLinksOnDemand();
+//     sortEvents();
+//     showPageOnDemand(currentPageOnDemand);
+// });
+
+// // Initialize jPList
+// jplist.init({
+
+// });
 </script>
 <?php  include(locate_template('partials/search/pagination.php', false, false)); ?>

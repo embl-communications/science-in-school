@@ -42,6 +42,7 @@ $types_terms = get_terms(
       $counterTop = 1;
       $counterIss = 1;
       ?>
+    <!-- <button type="button" id="resetFilters" class="vf-button vf-button--secondary">Reset</button> -->
 
 <form class="vf-stack vf-stack-400 | vf-u-margin__bottom--800">
 <fieldset class="vf-form__fieldset vf-stack vf-stack--400 | vf-u-margin__bottom--800" id="checkbox-filter-type">
@@ -55,12 +56,12 @@ $types_terms = get_terms(
         value="<?php echo esc_attr($term->name); ?>"
         data-id="type-<?php echo esc_attr($term->slug); ?>" class="vf-form__checkbox checkboxLive inputLive">
       <label for="type-<?php echo $counterTyp; ?>" class="vf-form__label"><?php echo esc_html($term->name); ?>
-      &nbsp;<span 
+      &nbsp;<span class="filterCounter"
       data-jplist-control="counter"
       data-group="data-group-1"
       data-format="({count})"
       data-path=".type-<?php echo esc_attr($term->slug); ?>"
-      data-mode="dynamic"
+      data-mode="static"
       data-name="counter-type-<?php echo esc_attr($term->slug); ?>"
       data-filter-type="path"></span>
     </label>
@@ -88,7 +89,7 @@ $types_terms = get_terms(
       data-group="data-group-1"
       data-format="({count})"
       data-path=".age-<?php echo esc_attr($term->slug); ?>"
-      data-mode="dynamic"
+      data-mode="static"
       data-name="counter-age-<?php echo esc_attr($term->slug); ?>"
       data-filter-age="path"></span>
     </label>
@@ -116,7 +117,7 @@ $types_terms = get_terms(
       data-group="data-group-1"
       data-format="({count})"
       data-path=".topic-<?php echo esc_attr($term->slug); ?>"
-      data-mode="dynamic"
+      data-mode="static"
       data-name="counter-topic-<?php echo esc_attr($term->slug); ?>"
       data-filter-topic="path"></span>
     </label>
@@ -172,7 +173,6 @@ $types_terms = get_terms(
     </select>
   </div>
 </fieldset>
-
 
 
 
