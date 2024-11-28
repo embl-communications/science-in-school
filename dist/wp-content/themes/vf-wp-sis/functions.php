@@ -1,11 +1,5 @@
 <?php
 
-/* Adds scripts */
-add_action( 'wp_enqueue_scripts', 'add_scripts' );
-function add_scripts() {
-    wp_enqueue_script('jplist', get_theme_file_uri( '/scripts/jplist.min.js'));
-}
-
 // Require Gutenberg block classes
 require_once(__DIR__.'/../vf-wp/functions/theme-block.php');
 require_once('blocks/vfwp-sis-info-box/index.php');
@@ -306,7 +300,7 @@ function sis_articleLanguageSwitcherInLoop() {
                 . '<a class="vf-card__link" href="' . $translatedLink . '">'
                 . '<img class="wpml-ls-flag iclflag" src="'.$languages[$l->language_code]['country_flag_url'] . '" />'
                 . '</a>'
-                . '<span class="'.$l->language_code.'" style="display:none;">'.$l->language_code.'</span></span>';
+                . '</span>';
 
         }
         echo join(' &nbsp; ', $langs);
@@ -454,6 +448,8 @@ add_action( 'pre_get_posts', 'sort_sis_articles' );
 
 // Hook the function to the 'pre_get_posts' action
 add_action( 'pre_get_posts', 'sort_sis_issues' );
+
+
 
 
 
