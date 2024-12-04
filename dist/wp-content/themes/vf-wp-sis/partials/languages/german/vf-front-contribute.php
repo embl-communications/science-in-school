@@ -1,5 +1,5 @@
 <!-- Team up -->
-<div class="vf-u-fullbleed">
+<div class="vf-u-fullbleed | vf-u-margin__top--600 vf-u-margin__bottom--600">
     <section>
         <h3 class="vf-text-heading--3">Machen Sie mit</h3>
     </section>

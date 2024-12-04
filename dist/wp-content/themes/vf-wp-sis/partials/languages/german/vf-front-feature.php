@@ -36,7 +36,11 @@ $featureLoop = new WP_Query(
 
 // Only display the section if there are articles to show
 if ($numberOfIssueArticles > 0 || $featureLoop->have_posts()) : ?>
-<section class="vf-card-container | vf-u-fullbleed vf-u-margin__bottom | vf-content"
+
+<hr class="vf-divider">
+
+<!-- Featured articles -->
+<section class="vf-card-container | vf-u-fullbleed vf-u-padding__top--200 vf-u-padding__bottom--800 | vf-content"
          style="margin-top: 0 !important; margin-bottom: 0 !important;">
     <div class="vf-card-container__inner">
         <div class="vf-section-header">

@@ -1,9 +1,9 @@
 <!-- Current issue -->
 
 <section
-        class="vf-vf-grid vf-grid__col-1 | vf-u-fullbleed sis-u-background-dots vf-u-margin__bottom--800">
+        class="vf-vf-grid vf-grid__col-1 | vf-u-margin__bottom--600">
     <div>
-        <section class="embl-grid | vf-u-padding__bottom--800 vf-u-padding__top--800">
+        <section class="embl-grid | vf-u-padding__bottom--400 vf-u-padding__top--400">
             <section>
                 <?php
                 $currentIssue = get_field('current_issue');

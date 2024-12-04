@@ -20,7 +20,7 @@ if($articleOfWeek){
         <section class="vf-hero vf-hero--1200 | vf-u-fullbleed"
                  style="--vf-hero--bg-image: url('<?php echo $art_slider_image_url; ?>'); margin-bottom: 0;">
             <div class="vf-hero__content | vf-box | vf-stack vf-stack--400 ">
-                <p class="vf-hero__kicker">Artikel der Woche</p>
+                <p class="vf-hero__kicker">Artikel des Monats</p>
                 <h2 class="vf-hero__heading">
                     <a class="vf-hero__heading_link" href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
                 </h2>

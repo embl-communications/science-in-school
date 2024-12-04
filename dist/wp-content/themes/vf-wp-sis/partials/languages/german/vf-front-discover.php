@@ -1,8 +1,8 @@
 <!-- Article themes -->
 <!-- vf-u-margin__bottom--0 -->
-<div class="embl-grid | vf-u-padding__bottom--800 vf-u-padding__top--800">
+<div class="embl-grid | vf-u-padding__bottom--600 vf-u-padding__top--400">
     <div class="vf-section-header"><a class="vf-section-header__heading vf-section-header__heading--is-link"
-                                      href="/?sis-article-types=understand" id="section-sub-heading-link-text">Entdecken
+                                      href="/de/?post_type=sis-article" id="section-sub-heading-link-text">Entdecken
             <svg aria-hidden="true"
                  class="vf-section-header__icon | vf-icon vf-icon-arrow--inline-end" width="1em" height="1em"
                  xmlns="http://www.w3.org/2000/svg">
