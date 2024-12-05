@@ -117,5 +117,7 @@ ul li ul li {
 	   font-weight: 600;
    }
    
-   
+   .fontSize18 {
+	   font-size: 17px !important;
+   }
    

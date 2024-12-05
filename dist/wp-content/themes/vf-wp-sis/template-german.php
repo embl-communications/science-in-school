@@ -27,12 +27,12 @@ get_header();
 <div class="vf-grid__col--span-2">
     <h3>Entdecken Sie modernste Wissenschaft, spannende praktische Experimente und kostenlose MINT-Lehrmaterialien.
     </h3>
-    <p>
+    <p class="fontSize18">
     Science in School unterstützt Lehrkräfte bei der Umsetzung ihres MINT-Lehrplans, indem es sie mit inspirierender Spitzenwissenschaft und -technologie in Kontakt bringt, um eine positive Einstellung gegenüber der Wissenschaft zu fördern, die unser Leben prägt, und Schüler für Karrieren in diesen Bereichen zu begeistern. Es wird von <a href="https://www.scienceinschool.org/about-eiroforum/">EIROforum</a> veröffentlicht und finanziert, einer Zusammenarbeit zwischen acht der größten zwischenstaatlichen wissenschaftlichen Forschungsorganisationen Europas.
 
     </p>
         
-        <p>Das Programm unterstützt den naturwissenschaftlichen Unterricht in allen Disziplinen und hebt die besten
+        <p class="fontSize18">Das Programm unterstützt den naturwissenschaftlichen Unterricht in allen Disziplinen und hebt die besten
             Lehrleistungen und modernsten wissenschaftlichen Erkenntnisse hervor. Es umfasst nicht nur <span
             class="fontWeight600">Biologie</span>, <span class="fontWeight600">Physik</span> und <span
             class="fontWeight600">Chemie</span>, sondern auch <span
@@ -40,14 +40,14 @@ get_header();
             class="fontWeight600">Ingenieurwesen</span>, <span class="fontWeight600">Gesundheit</span>
             und <span class="fontWeight600">Nachhaltigkeit</span>.</p>
             
-            <p>Der Zugriff auf die Artikel ist kostenlos: Sie umfassen Unterrichtsexperimente und Unterrichtsmaterialien, aktuelle Informationen zu Spitzenwissenschaften und praktischen Anwendungen, Projekte im naturwissenschaftlichen Unterricht und andere nützliche Ressourcen für Naturwissenschaftslehrer.
+            <p class="fontSize18">Der Zugriff auf die Artikel ist kostenlos: Sie umfassen Unterrichtsexperimente und Unterrichtsmaterialien, aktuelle Informationen zu Spitzenwissenschaften und praktischen Anwendungen, Projekte im naturwissenschaftlichen Unterricht und andere nützliche Ressourcen für Naturwissenschaftslehrer.
             </p>
                 
-                <p>Die Hauptsprache der Veröffentlichung ist Englisch, wir unterstützen jedoch die ehrenamtliche Übersetzung in andere europäische Sprachen, sodass auch viele übersetzte Artikel verfügbar sind. Sie können auf den Suchseiten nach deutschen Artikeln filtern.
+                <p class="fontSize18">Die Hauptsprache der Veröffentlichung ist Englisch, wir unterstützen jedoch die ehrenamtliche Übersetzung in andere europäische Sprachen, sodass auch viele übersetzte Artikel verfügbar sind. Sie können auf den Suchseiten nach deutschen Artikeln filtern.
                 </p>
                 </div>
                 <div>
-                <figure class="vf-figure wp-block-image size-large"><img fetchpriority="high" decoding="async" class="vf-figure__image" src="http://www.scienceinschool.org/wp-content/uploads/2024/12/SiS-issues-covers-1.png" alt="Science in School Issue covers" ></figure>
+                <figure class="vf-figure wp-block-image size-large vf-u-padding__left--600"><img fetchpriority="high" decoding="async" class="vf-figure__image" src="http://www.scienceinschool.org/wp-content/uploads/2024/12/SiS-Issue-covers.png" alt="Science in School Issue covers" ></figure>
                 </div>
             </div>
             
