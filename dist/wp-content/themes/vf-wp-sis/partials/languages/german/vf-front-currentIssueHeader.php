@@ -14,7 +14,7 @@
     <article class="vf-box vf-box--is-link vf-box-theme--primary vf-box--normal">
         <h3 class="vf-box__heading"><a class="vf-box__link" href="/issue">Haben Sie schon gesehen...</a></h3>
         <p class="vf-box__text">
-        Artikel in Deutsch aus früheren Ausgaben
+        Artikel auf Deutsch aus früheren Ausgaben
 
         </p>
         <p class="vf-box__text">
