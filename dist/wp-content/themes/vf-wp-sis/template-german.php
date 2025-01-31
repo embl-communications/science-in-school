@@ -25,25 +25,24 @@ get_header();
     <div class="vf-grid | vf-grid__col-3 | vf-u-padding__bottom--400 vf-content">
 
 <div class="vf-grid__col--span-2">
-    <h3>Entdecken Sie modernste Wissenschaft, spannende praktische Experimente und kostenlose MINT-Lehrmaterialien.
+    <h3>Entdecken Sie Spitzenforschung, ansprechende praktische Experimente und kostenlose MINT-Lehrmaterialien.
     </h3>
     <p class="fontSize18">
-    Science in School unterstützt Lehrkräfte bei der Umsetzung ihres MINT-Lehrplans, indem es sie mit inspirierender Spitzenwissenschaft und -technologie in Kontakt bringt, um eine positive Einstellung gegenüber der Wissenschaft zu fördern, die unser Leben prägt, und Schüler für Karrieren in diesen Bereichen zu begeistern. Es wird von <a href="https://www.scienceinschool.org/about-eiroforum/">EIROforum</a> veröffentlicht und finanziert, einer Zusammenarbeit zwischen acht der größten zwischenstaatlichen wissenschaftlichen Forschungsorganisationen Europas.
+    Science in School möchte Lehrkräften bei der Umsetzung ihrer MINT-Lehrpläne unterstützen, indem es sie mit inspirierenden, hochmodernen Wissenschaften und Technologien in Kontakt bringt, um eine positive Einstellung gegenüber der Wissenschaft, die unser Leben prägt, zu fördern und SchülerInnen für eine Karriere in diesen Bereichen zu begeistern. Es wird von <a href="https://www.scienceinschool.org/about-eiroforum/">EIROforum</a> herausgegeben und finanziert, einer Zusammenarbeit zwischen acht der größten zwischenstaatlichen wissenschaftlichen Forschungsorganisationen Europas.
 
     </p>
         
-        <p class="fontSize18">Das Programm unterstützt den naturwissenschaftlichen Unterricht in allen Disziplinen und hebt die besten
-            Lehrleistungen und modernsten wissenschaftlichen Erkenntnisse hervor. Es umfasst nicht nur <span
+        <p class="fontSize18">Das Programm unterstützt den naturwissenschaftlichen Unterricht in allen Disziplinen und hebt die besten Lehrmethoden und die neuesten wissenschaftlichen Erkenntnisse hervor. Es umfasst nicht nur <span
             class="fontWeight600">Biologie</span>, <span class="fontWeight600">Physik</span> und <span
             class="fontWeight600">Chemie</span>, sondern auch <span
             class="fontWeight600">Geowissenschaften</span>, <span
-            class="fontWeight600">Ingenieurwesen</span>, <span class="fontWeight600">Gesundheit</span>
+            class="fontWeight600">Technik</span>, <span class="fontWeight600">Gesundheit</span>
             und <span class="fontWeight600">Nachhaltigkeit</span>.</p>
             
-            <p class="fontSize18">Der Zugriff auf die Artikel ist kostenlos: Sie umfassen Unterrichtsexperimente und Unterrichtsmaterialien, aktuelle Informationen zu Spitzenwissenschaften und praktischen Anwendungen, Projekte im naturwissenschaftlichen Unterricht und andere nützliche Ressourcen für Naturwissenschaftslehrer.
+            <p class="fontSize18">Alle Artikel sind kostenlos zugänglich: Sie enthalten Experimente und Unterrichtsmaterialien, aktuelle Informationen über Spitzenforschung und praktische Anwendungen, Projekte im Bereich der wissenschaftlichen Bildung und andere nützliche Ressourcen für Lehrkräfte.
             </p>
                 
-                <p class="fontSize18">Die Hauptsprache der Veröffentlichung ist Englisch, wir unterstützen jedoch die ehrenamtliche Übersetzung in andere europäische Sprachen, sodass auch viele übersetzte Artikel verfügbar sind. Sie können auf den Suchseiten nach deutschen Artikeln filtern.
+                <p class="fontSize18">Die Hauptveröffentlichungssprache ist Englisch, aber wir unterstützen freiwillige Übersetzungen in andere europäische Sprachen, so dass viele übersetzte Artikel ebenfalls verfügbar sind. Sie können auf den Suchseiten nach Artikeln in Deutsch filtern.
                 </p>
                 </div>
                 <div>
@@ -52,9 +51,9 @@ get_header();
             </div>
             
             <hr class="vf-divider">
+
             <?php include(locate_template('partials/languages/german/vf-front-discover.php', false, false)); ?>
             
-            <hr class="vf-divider">
             <?php include(locate_template('partials/languages/german/vf-front-currentIssue.php', false, false)); ?>
 
             <?php include(locate_template('partials/languages/german/vf-front-feature.php', false, false)); ?>

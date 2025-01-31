@@ -5,7 +5,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_understand.jpg"
                 alt="understand" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=understand">Understand
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=understand">Verstehen
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -16,7 +16,7 @@
                     </svg>
                 </a></h3>
             <!-- <p class="vf-card__subheading">With sub–heading</p> -->
-            <p class="vf-card__text">Entdecken Sie modernste Wissenschaft und reale Anwendungen.
+            <p class="vf-card__text">Erkunden Sie die neuesten wissenschaftlichen Erkenntnisse und reale Anwendungen.
             </p>
         </div>
     </article>
@@ -25,7 +25,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_inspire.png"
                 alt="inspire" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=inspire">Inspire
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=inspire">Inspirieren
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -45,7 +45,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_teach.jpg"
                 alt="teach" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=teach">Teach
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=teach">Unterrichten
                     <svg aria-hidden="true"
                          class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
                          height="1em"
@@ -56,7 +56,7 @@
                     </svg>
                 </a></h3>
             <!-- <p class="vf-card__subheading">With sub–heading</p> -->
-            <p class="vf-card__text">Finden Sie Ideen und Unterrichtsmaterialien für Unterrichtsaktivitäten.</p>
+            <p class="vf-card__text">Hier finden Sie Ideen und Unterrichtsmaterialien für Aktivitäten im Klassenzimmer.</p>
         </div>
     </article>
 </section>

@@ -11,7 +11,7 @@
                         fill="" fill-rule="nonzero"></path>
             </svg>
         </a>
-        <p class="vf-section-header__text">Wir decken ein breites Spektrum wissenschaftlicher Themen ab und viele Artikel sind zusätzlich auch als Übersetzungen in verschiedene europäische Sprachen verfügbar.
+        <p class="vf-section-header__text">Wir decken ein breites Spektrum wissenschaftlicher Themen ab und viele Artikel sind zusätzlich als Übersetzungen in verschiedenen europäischen Sprachen verfügbar.
         </p>
     </div>
     <div>
