@@ -35,7 +35,7 @@
                     <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="English Flag" class="vf-language-switcher__flag">
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="/fr/lang" data-lang="fr" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" class="vf-language-switcher__option">
                     <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="French Flag" class="vf-language-switcher__flag">
                 </a>
@@ -44,7 +44,7 @@
                 <a href="/es/lang" data-lang="es" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" class="vf-language-switcher__option">
                     <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt="Spanish Flag" class="vf-language-switcher__flag">
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </header>
