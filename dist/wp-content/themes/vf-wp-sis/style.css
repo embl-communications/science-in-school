@@ -120,4 +120,13 @@ ul li ul li {
    .fontSize18 {
 	   font-size: 17px !important;
    }
+
+   @media (max-width: 768px) {
+	#covers-it, 
+	#covers-de,
+	#covers-es,
+	#covers-fr {
+	  grid-column-end: span 2;
+	}
+  }
    

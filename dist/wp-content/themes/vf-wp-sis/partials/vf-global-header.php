@@ -35,16 +35,21 @@
                     <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="English Flag" class="vf-language-switcher__flag">
                 </a>
             </li>
-            <!-- <li>
-                <a href="/fr/lang" data-lang="fr" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" class="vf-language-switcher__option">
+            <li>
+                <a href="/fr/lang-fr" data-lang="fr" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" class="vf-language-switcher__option">
                     <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="French Flag" class="vf-language-switcher__flag">
                 </a>
             </li>
             <li>
-                <a href="/es/lang" data-lang="es" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" class="vf-language-switcher__option">
+                <a href="/it/lang-it" data-lang="it" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/it.png" class="vf-language-switcher__option">
+                    <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/it.png" alt="Italian Flag" class="vf-language-switcher__flag">
+                </a>
+            </li>
+            <li>
+                <a href="/es/lang-es" data-lang="es" data-flag="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" class="vf-language-switcher__option">
                     <img src="http://scienceinschool.org/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt="Spanish Flag" class="vf-language-switcher__flag">
                 </a>
-            </li> -->
+            </li>
         </ul>
     </div>
 </header>

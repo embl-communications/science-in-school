@@ -45,8 +45,8 @@ get_header();
                 <p class="fontSize18">Die Hauptveröffentlichungssprache ist Englisch, aber wir unterstützen freiwillige Übersetzungen in andere europäische Sprachen, so dass viele übersetzte Artikel ebenfalls verfügbar sind. Sie können auf den Suchseiten nach Artikeln in Deutsch filtern.
                 </p>
                 </div>
-                <div>
-                <figure class="vf-figure wp-block-image size-large vf-u-padding__left--600"><img fetchpriority="high" decoding="async" class="vf-figure__image" src="http://www.scienceinschool.org/wp-content/uploads/2024/12/SiS-Issue-covers.png" alt="Science in School Issue covers" ></figure>
+                <div id="covers-de">
+                <figure class="vf-figure wp-block-image size-large"><img fetchpriority="high" decoding="async" class="vf-figure__image" src="http://www.scienceinschool.org/wp-content/uploads/2024/12/SiS-Issue-covers.png" alt="Science in School Issue covers" ></figure>
                 </div>
             </div>
             
