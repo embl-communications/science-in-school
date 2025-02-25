@@ -5,7 +5,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_understand.jpg"
                 alt="understand" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=understand">Comprendre
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/fr/?sis-article-types=understand">Comprendre
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -25,7 +25,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_inspire.png"
                 alt="inspire" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=inspire">Inspirer
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/fr/?sis-article-types=inspire">Inspirer
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -45,7 +45,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_teach.jpg"
                 alt="teach" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=teach">Enseigner
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/fr/?sis-article-types=teach">Enseigner
                     <svg aria-hidden="true"
                          class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
                          height="1em"

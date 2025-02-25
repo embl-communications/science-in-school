@@ -5,7 +5,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_understand.jpg"
                 alt="understand" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=understand">Comprendere
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/it/?sis-article-types=understand">Comprendere
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -26,7 +26,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_inspire.png"
                 alt="inspire" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=inspire">Ispirare
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/it/?sis-article-types=inspire">Ispirare
                     <svg
                             aria-hidden="true"
                             class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
@@ -45,7 +45,7 @@
                 src="https://acxngcvroo.cloudimg.io/v7/https://www.scienceinschool.org/wp-content/uploads/2021/09/card_teach.jpg"
                 alt="teach" class="vf-card__image" loading="lazy">
         <div class="vf-card__content | vf-stack vf-stack--400">
-            <h3 class="vf-card__heading"><a class="vf-card__link" href="/de/?sis-article-types=teach">Insegnare
+            <h3 class="vf-card__heading"><a class="vf-card__link" href="/it/?sis-article-types=teach">Insegnare
                     <svg aria-hidden="true"
                          class="vf-card__heading__icon | vf-icon vf-icon-arrow--inline-end" width="1em"
                          height="1em"

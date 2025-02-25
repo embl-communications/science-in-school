@@ -1,4 +1,4 @@
-<form action="/de/" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
+<form action="/es/" class="vf-form vf-form--search vf-form--search--responsive | vf-sidebar vf-sidebar--end">
     <div class="vf-sidebar__inner">
         <div class="vf-form__item">
             <label class="vf-form__label vf-u-sr-only | vf-search__label" for="searchitem">Buscar</label>
