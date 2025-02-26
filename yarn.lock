@@ -1909,10 +1909,10 @@
     stylelint-scss "^4.0.0"
     vinyl-source-stream "^2.0.0"
 
-"@visual-framework/vf-sass-config@2.6.1":
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/@visual-framework/vf-sass-config/-/vf-sass-config-2.6.1.tgz#e680d1b2f8fb633d7a3330f7d807572d435afa61"
-  integrity sha512-IVFFH3N5wWhyDrwxTwmrOaH54X8C4fqBjzzgCGzyEcPWaZ8R3S927adn8G+atjku3V5fnq8Mwqgkt6u3GXw0Xg==
+"@visual-framework/vf-sass-config@2.7.3":
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/@visual-framework/vf-sass-config/-/vf-sass-config-2.7.3.tgz#67d3aae60490e7402a7f5d66c53aed308cadaa79"
+  integrity sha512-+sSx4zPnnuLE2+yrrzM6WyVX6nqItggOaHc4qQD29U/24OFq2tCe/kZWRj6Jb4Yl5ZVaFZHXLqKNLpWFeSSkEw==
 
 "@visual-framework/vf-sass-utilities@1.0.1":
   version "1.0.1"
