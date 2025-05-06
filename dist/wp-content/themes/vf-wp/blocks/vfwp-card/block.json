@@ -1,0 +1,14 @@
+{
+  "name": "vfwp-card",
+  "title": "Card",
+  "apiVersion": 3,
+  "acf": {
+    "mode": "preview"
+  },
+  "supports": {
+    "multiple": true
+  },
+  "vfwp": {
+    "iframeRender": false
+  }
+}
