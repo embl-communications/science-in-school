@@ -11,22 +11,21 @@
   "require": {
     "composer/installers": "1.12.0",
     "drupal-composer/preserve-paths": "0.1.6",
-    "wordpress/wordpress": "6.7.1",
-    "vfwp/vf-plugins": "dev-master",
-    "vfwp/vf-themes": "dev-master",
-    "wpackagist-plugin/akismet":"5.3.2",
+    "wordpress/wordpress": "6.8.1",
+    "wpackagist-plugin/akismet":"5.3.7",
+    "wpackagist-plugin/acf-better-search":"4.3.0",
     "wpackagist-plugin/taxonomy-terms-order":"1.8.1",
-    "wpackagist-plugin/content-views-query-and-display-post-page":"3.7.2",
-    "wpackagist-plugin/custom-post-type-permalinks":"3.5.2",
+    "wpackagist-plugin/custom-post-type-permalinks":"3.5.3",
     "wpackagist-plugin/custom-twitter-feeds":"2.2.2",
-    "wpackagist-plugin/easy-wp-smtp":"2.3.0",
+    "wpackagist-plugin/easy-wp-smtp":"2.10.0",
     "wpackagist-plugin/mathml-block":"1.2.2",
-    "wpackagist-plugin/mailchimp-for-wp":"4.9.13",
+    "wpackagist-plugin/mailchimp-for-wp":"4.10.3",
     "wpackagist-plugin/post-types-order":"2.2.1",
-    "wpackagist-plugin/redirection":"5.4.2",
+    "wpackagist-plugin/redirection":"5.5.2",
     "wpackagist-plugin/relevanssi":"4.22.2",
     "wpackagist-plugin/wordpress-seo":"22.7",
-    "wpackagist-plugin/wp-optimize":"3.3.2"
+    "wpackagist-plugin/wp-optimize":"3.3.2",
+    "wpackagist-plugin/widget-options":"4.1.1"
   },
   "repositories":[
     {
@@ -38,37 +37,13 @@
       "package": {
         "name": "wordpress/wordpress",
         "type": "webroot",
-        "version": "6.7.1",
+        "version": "6.8.1",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/WordPress/WordPress/archive/6.7.1.zip"
+          "url": "https://github.com/WordPress/WordPress/archive/6.8.1.zip"
         },
         "require": {
           "fancyguy/webroot-installer": "^1.0"
-        }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "vfwp/vf-plugins",
-        "version": "dev-master",
-        "type": "wordpress-plugin",
-        "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.vfwp.emblstatic.net/vf-wp/v2.7.0/plugins.zip",
-          "type": "zip"
-        }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "vfwp/vf-themes",
-        "version": "dev-master",
-        "type": "wordpress-theme",
-        "dist": {
-          "url": "https://s3.eu-west-2.amazonaws.com/origin.vfwp.emblstatic.net/vf-wp/v2.7.0/themes.zip",
-          "type": "zip"
         }
       }
     }
@@ -85,13 +60,13 @@
     "webroot-dir": "dist",
     "webroot-package": "wordpress/wordpress",
     "installer-paths": {
-      "dist/wp-content/plugins/": ["vfwp/vf-plugins"],
       "dist/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "dist/wp-content/themes/": ["vfwp/vf-themes"],
       "dist/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     },
     "preserve-paths": [
       "dist/wp-content/themes/vf-wp-sis",
+      "dist/wp-content/themes/vf-wp",
+      "dist/wp-content/plugins/advanced-custom-fields-pro",
       "dist/wp-content/plugins/fg-drupal-to-wp-premium",
       "dist/wp-content/plugins/fg-drupal-to-wp-premium-internationalization-module",
       "dist/wp-content/plugins/fg-drupal-to-wp-premium-metatag-module",
@@ -102,7 +77,10 @@
       "dist/wp-content/plugins/types-access",
       "dist/wp-content/plugins/sitepress-multilingual-cms",
       "dist/wp-content/plugins/wpml-string-translation",
-      "dist/wp-content/plugins/wpml-media-translation"
+      "dist/wp-content/plugins/wpml-media-translation",
+      "dist/wp-content/plugins/vf-wp",
+      "dist/wp-content/plugins/vf-gutenberg",
+      "dist/wp-content/plugins/vf-navigation-container"
     ]
   },
   "scripts": {
