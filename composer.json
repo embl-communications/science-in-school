@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "composer/installers": "1.12.0",
+    "composer/installers": "2.3.0",
     "drupal-composer/preserve-paths": "0.1.6",
     "wordpress/wordpress": "6.8.1",
     "wpackagist-plugin/akismet":"5.3.7",
